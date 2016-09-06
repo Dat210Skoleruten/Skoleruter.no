@@ -1,2 +1,2 @@
-# Kode
-kode til skolerute
+# Code
+Code to Skoleruter
