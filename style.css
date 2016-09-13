@@ -1,3 +1,86 @@
-h1 {
-    font-size: 100px;
+/* Change all font to Lucida Grande */
+* {
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, sans-serif;
+   /* Change all rounded borders to square */
+    border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
 }
+
+body {
+    background-color: #f5f5f5;
+}
+
+/* Change the font size and position the icon 30px to the left of the screen edge */
+.hamburger {
+    font-size: 25px;
+    left: -30px;
+    color: #f1f1f1;
+}
+
+/* Change hover of the hamburger button to same as navbar color */
+.nav > li > a:hover{
+    background-color: #495156; /*Change this color to the background color of the navbar */
+}
+
+/* Change the on.visited color on the hamburger to navbar color */
+.nav > li > a:visited{
+    background-color: #495156; /*Change this color to the background color of the navbar */
+}
+
+#title {
+    font-size: 120px;
+    letter-spacing: -10px;
+    font-weight: bold;
+    color: #495156;
+}
+
+/********** Sidenav push **********/
+body {
+    font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #495156;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align: center;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 6px;
+    right: 25px;
+    font-size: 28px;
+    margin-left: 50px;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+/********** Sidenav push end **********/

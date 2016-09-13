@@ -5,39 +5,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="sha384-VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+    <!-- Local script/stylesheet -->
     <script src="script.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 
-
-<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <ul class="nav navbar-nav">
-        <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-        </li>
+<!-- Navbar bar -->
+<nav class="navbar navbar-light" style="background-color: #495156;">
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="#" onclick="openNav()"><span class="glyphicon glyphicon-menu-hamburger hamburger"></span></a></li>
     </ul>
-    <form class="form-inline pull-xs-right">
-        <input class="form-control" type="text" placeholder="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
 </nav>
+<!-- Navbar end -->
 
-<h1 class="text-center">Skoleruter</h1>
+<!-- Navbar toggle div -->
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span class="glyphicon glyphicon-remove"></span></a>
+    <a href="#">FORSIDE</a>
+    <a href="#">SAMMENLIGN</a>
+    <a href="#">FABORITTER</a>
+    <a href="#">OM SKOLERUTE</a>
+    <a href="#">HJELP</a>
+    <a href="#">KONTAKT</a>
+</div>
+<!-- Navbar toggle div end -->
+
+<h1 class="text-center" id="title">SKOLERUTE</h1>
+
+<div class="search">
+    <div class="col-sm-8 col-sm-offset-4">
+        <form role="form">
+            <div class="col-lg-6">
+                <div class="input-group input-group-lg">
+      <span class="input-group-btn">
+        <button class="btn btn-default glyphicon glyphicon-map-marker" type="button"></button>
+      </span>
+                    <input type="text" class="form-control" placeholder="Søk etter din skole...">
+                </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+        </form>
+    </div>
+</div><!-- /.row -->
 
 </body>
 </html>
