@@ -8,7 +8,7 @@ function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
     document.getElementById("main").style.marginLeft= "0";
 }
-/********** Sidenav push end **********/
+/********** /Sidenav push **********/
 
 /********** Calendar list search **********/
 function myFunction() {
@@ -27,4 +27,4 @@ function myFunction() {
         }
     }
 }
-/********** Calendar list search end **********/
+/********** /Calendar list search **********/
