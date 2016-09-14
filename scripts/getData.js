@@ -21,7 +21,21 @@ function getData(attr, val) { //gets data via ajax
 }
 
 function success(e) { //handling data
-  console.log(e);
+
+//  console.log("e");
+//  console.log(e);
+
+  console.log("Data");
+  console.log(e.entries);
+
+  console.log("Current page");
+  console.log(e.page);
+
+  console.log("Total Pages");
+  console.log(e.pages);
+
+  console.log("Total elements");
+  console.log(e.posts);
 }
 
 
