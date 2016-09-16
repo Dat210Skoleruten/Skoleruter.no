@@ -28,3 +28,8 @@ function myFunction() {
     }
 }
 /********** /Calendar list search **********/
+
+/********** Tooltip **********/
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
