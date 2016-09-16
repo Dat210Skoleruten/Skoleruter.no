@@ -6,6 +6,7 @@ $(document).ready(function () { //when changing html
 
 });
 
+<<<<<<< HEAD
 //TODO: ERROR HANDLIG
 
 console.log("API TEST");
@@ -39,9 +40,44 @@ function getData(attr, val) { //gets data via ajax
       }
     })
   };
+=======
+console.log("API TEST");
 
 
+
+function getData(attr, val) { //gets data via ajax
+  var getUrl = skoleruteData + attr + "=" + val;
+  $.ajax({
+    dataType: "json",
+    url: getUrl,
+    success: success // calls success function if successful
+>>>>>>> 176ea486a2c9ae58bf142bf935e0b0177036f2b9
+
+  })
+}
+
+<<<<<<< HEAD
 getData("", "");
 
+=======
+function success(e) { //handling data
+
+//  console.log("e");
+//  console.log(e);
+>>>>>>> 176ea486a2c9ae58bf142bf935e0b0177036f2b9
+
+  console.log("Data");
+  console.log(e.entries);
+
+  console.log("Current page");
+  console.log(e.page);
+
+  console.log("Total Pages");
+  console.log(e.pages);
+
+  console.log("Total elements");
+  console.log(e.posts);
+}
 
 
+getData("skole", "Hundvåg skole");
