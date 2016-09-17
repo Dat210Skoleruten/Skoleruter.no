@@ -24,18 +24,44 @@
     <!-- Local script/stylesheet -->
     <link rel="stylesheet" type="text/css" href="../styles/style.css"/>
     <link rel="stylesheet" type="text/css" href="../styles/sidebar.css"/>
-    <link rel="stylesheet" type="text/css" href="../styles/cards.css">
+    <link rel="stylesheet" type="text/css" href="../styles/calendar-style.css"/>
     <script src="../scripts/GUI_Controller.js"></script>
+    <script src="../scripts/getData.js"></script>
+    <link rel="stylesheet" href="../styles/navbar.css">
+    <link rel="stylesheet" href="../styles/cards.css">
 </head>
 <body>
 
 <!-- Navbar bar -->
 <nav class="navbar navbar-light mainColor">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">SKOLERUTE</a> <!-- HOME BUTTON -->
+        <p class="navbar-brand center">Om Skolerute</p> <!-- CENTER TEXT -->
+
+    </div>
+
+    <form class="navbar-form navbar-left">
+        <div class="form-group">
+            <form>
+                <input type="text" class="navSearch" name="search" placeholder="Søk...">
+            </form>
+        </div>
+    </form>
+
     <ul class="nav navbar-nav navbar-right">
-        <li><a href="#" onclick="openNav()"><span class="glyphicon glyphicon-menu-hamburger hamburger"></span></a></li>
+        <li><a href="#" onclick="openNav()"><span class="glyphicon glyphicon-menu-hamburger hamburger"></span></a>
+        </li>
     </ul>
 </nav>
-<!-- /Navbar -->
+<!-- /Navbar  -->
 
 <!-- Navbar toggle div -->
 <div id="mySidenav" class="sidenav">
@@ -46,7 +72,9 @@
     <a href="#">HJELP</a>
     <a href="kontakt.html">KONTAKT</a>
 </div>
-<!-- /Navbar toggle div  -->
+<!-- /Navbar toggle div -->
+
+<br>
 
 <!-- Text  -->
 <div class="row">

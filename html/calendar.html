@@ -27,6 +27,8 @@
     <link rel="stylesheet" type="text/css" href="../styles/calendar-style.css"/>
     <script src="../scripts/GUI_Controller.js"></script>
     <script src="../scripts/getData.js"></script>
+    <link rel="stylesheet" href="../styles/navbar.css">
+    <link rel="stylesheet" href="../styles/cards.css">
 </head>
 <body>
 
@@ -42,12 +44,14 @@
             <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="index.html">SKOLERUTE</a> <!-- HOME BUTTON -->
+        <p class="navbar-brand center">Byskogen Skole</p> <!-- CENTER TEXT -->
+
     </div>
 
     <form class="navbar-form navbar-left">
         <div class="form-group">
             <form>
-                <input type="text" name="search" placeholder="Search..">
+                <input type="text" class="navSearch" name="search" placeholder="Søk...">
             </form>
         </div>
     </form>
@@ -69,6 +73,8 @@
     <a href="kontakt.html">KONTAKT</a>
 </div>
 <!-- /Navbar toggle div -->
+
+<br>
 
 <div class="col-md-6 text-center">
     <!-- Temp calendar. Only css for the moment -->

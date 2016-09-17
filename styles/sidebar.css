@@ -1,7 +1,4 @@
-body {
-    font-family: "Lato", sans-serif;
-}
-
+/* Sidebar background */
 .sidenav {
     height: 100%;
     width: 0;
@@ -17,19 +14,23 @@ body {
     white-space: nowrap;
 }
 
+/* Sidebar links */
 .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 25px;
-    color: #818181;
+    font-size: 20px;
+    color: #f1f1f1; /* Color of the sidebar text */
     display: block;
-    transition: 0.3s
 }
 
+/* Sidebar links when hovering over */
 .sidenav a:hover, .offcanvas a:focus{
-    color: #f1f1f1;
+    color: #818181;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
 }
 
+/* Sidebar close button icon */
 .sidenav .closebtn {
     position: absolute;
     top: 6px;
@@ -38,12 +39,7 @@ body {
     margin-left: 50px;
 }
 
-#main {
-    transition: margin-left .5s;
-    padding: 16px;
-}
-
+/* What to do when below height <= 450px */
 @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Skolerute</title>
+    <title>Skolerute - Kontakt</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -24,21 +24,43 @@
     <!-- Local script/stylesheet -->
     <link rel="stylesheet" type="text/css" href="../styles/style.css"/>
     <link rel="stylesheet" type="text/css" href="../styles/sidebar.css"/>
+    <link rel="stylesheet" type="text/css" href="../styles/calendar-style.css"/>
     <script src="../scripts/GUI_Controller.js"></script>
     <script src="../scripts/getData.js"></script>
-
-
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../styles/navbar.css">
+    <link rel="stylesheet" href="../styles/cards.css">
 </head>
 <body>
 
 <!-- Navbar bar -->
 <nav class="navbar navbar-light mainColor">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">SKOLERUTE</a> <!-- HOME BUTTON -->
+        <p class="navbar-brand center">Kontakt Oss</p> <!-- CENTER TEXT -->
+    </div>
+
+    <form class="navbar-form navbar-left">
+        <div class="form-group">
+            <form>
+                <input type="text" class="navSearch" name="search" placeholder="Søk...">
+            </form>
+        </div>
+    </form>
+
     <ul class="nav navbar-nav navbar-right">
-        <li><a href="#" onclick="openNav()"><span class="glyphicon glyphicon-menu-hamburger hamburger"></span></a></li>
+        <li><a href="#" onclick="openNav()"><span class="glyphicon glyphicon-menu-hamburger hamburger"></span></a>
+        </li>
     </ul>
 </nav>
-<!-- /Navbar -->
+<!-- /Navbar  -->
 
 <!-- Navbar toggle div -->
 <div id="mySidenav" class="sidenav">
@@ -49,63 +71,61 @@
     <a href="#">HJELP</a>
     <a href="kontakt.html">KONTAKT</a>
 </div>
-<!-- /Navbar toggle div  -->
+<!-- /Navbar toggle div -->
+
+<br>
 
 <!-- Form -->
 <div class="form">
-    <div class="col-sm-9 col-sm-offset-1" >
+    <div class="col-sm-8 col-sm-offset-1">
         <form class="form-horizontal">
-            <fieldset>
-                <br><br>
-                <!-- Navn input-->
+            <!-- Navn input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="navn"></label>
+                <div class="col-md-7">
+                    <input id="navn" name="navn" type="text" placeholder="Navn" class="form-control input-md"
+                           required="">
+
+                </div>
+            </div>
+
+            <!-- Telefon input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="telefon"></label>
+                <div class="col-md-7">
+                    <input id="telefon" name="telefon" type="text" placeholder="Telefon"
+                           class="form-control input-md">
+
+                </div>
+            </div>
+
+            <!-- Email input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="email"></label>
+                <div class="col-md-7">
+                    <input id="email" name="email" type="text" placeholder="Email" class="form-control input-md"
+                           required="">
+
+                </div>
+            </div>
+
+            <!-- Textarea -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="tekst"></label>
+                <div class="col-md-7">
+                    <textarea class="form-control" id="tekst" name="tekst" placeholder="Din beskjed"></textarea>
+                </div>
+            </div>
+
+            <!-- Button -->
+            <div>
                 <div class="form-group">
-                    <label class="col-md-4 control-label" for="navn"></label>
-                    <div class="col-md-5">
-                        <input id="navn" name="navn" type="text" placeholder="Navn" class="form-control input-md"
-                               required="">
-
+                    <label class="col-md-4 control-label" for="button"></label>
+                    <div class="col-md-6">
+                        <button id="button" name="button" class="btn btn-inverse">Send</button>
                     </div>
                 </div>
-
-                <!-- Telefon input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="telefon"></label>
-                    <div class="col-md-5">
-                        <input id="telefon" name="telefon" type="text" placeholder="Telefon"
-                               class="form-control input-md">
-
-                    </div>
-                </div>
-
-                <!-- Email input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="email"></label>
-                    <div class="col-md-5">
-                        <input id="email" name="email" type="text" placeholder="Email" class="form-control input-md"
-                               required="">
-
-                    </div>
-                </div>
-
-                <!-- Textarea -->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="tekst"></label>
-                    <div class="col-md-5">
-                        <textarea class="form-control" id="tekst" name="tekst">Din beskjed</textarea>
-                    </div>
-                </div>
-
-                <!-- Button -->
-                <div class="col-sm-offset-3">
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="button"></label>
-                        <div class="col-md-5">
-                            <button id="button" name="button" class="btn btn-inverse">Send</button>
-                        </div>
-                    </div>
-                </div>
-
-            </fieldset>
+            </div>
         </form>
     </div>
 </div><!-- /.row -->
