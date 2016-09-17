@@ -1,9 +1,10 @@
-/* Change all font to Lucida Grande */
 * {
+    /* Change all font to Lucida Grande */
     font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, sans-serif;
-   /* Change all rounded borders to square */
+    /* Change all rounded borders to square */
     border-radius: 0 !important;
     -moz-border-radius: 0 !important;
+    box-sizing: border-box; /* Make divs with same height and width the same - http://www.w3schools.com/cssref/tryit.asp?filename=trycss3_box-sizing */
 }
 
 body {

@@ -1,31 +1,10 @@
 /* CSS Calendar */
-* {box-sizing:border-box;}
-ul {list-style-type: none;}
-body {font-family: Verdana,sans-serif;}
-
-.blue {
-    background-color: blue;
-    color: white;
-    opacity: 0.5;
-    filter: alpha(opacity=50); /* For IE8 and earlier */
-}
-
-.green {
-    background-color: green;
-    color: white;
-    opacity: 0.5;
-    filter: alpha(opacity=50); /* For IE8 and earlier */
-}
-
-.red {
-    background-color: red;
-    color: white;
-    opacity: 0.5;
-    filter: alpha(opacity=50); /* For IE8 and earlier */
+ul {
+    list-style-type: none;
 }
 
 .month {
-    padding: 70px 25px;
+    padding: 30px 25px;
     width: 100%;
     background: #495156;
 }
@@ -77,14 +56,40 @@ body {font-family: Verdana,sans-serif;}
     width: 13.6%;
     text-align: center;
     margin-bottom: 5px;
-    font-size:12px;
+    font-size: 15px;
     color: #777;
+    padding: 20px;
 }
 
 .days li .active {
     padding: 5px;
     background: #1abc9c;
     color: white !important
+}
+
+
+.blue {
+    background-color: blue;
+    color: white;
+    opacity: 0.5;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+    padding: 20px;
+}
+
+.green {
+    background-color: green;
+    color: white;
+    opacity: 0.5;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+    padding: 20px;
+}
+
+.red {
+    background-color: red;
+    color: white;
+    opacity: 0.5;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+    padding: 20px;
 }
 
 /* Add media queries for smaller screens */
@@ -103,14 +108,7 @@ body {font-family: Verdana,sans-serif;}
 /* CSS Calendar end */
 
 /* CSS list */
-* {
-    box-sizing: border-box;
-}
-
 #myInput {
-    background-image: url('/css/searchicon.png');
-    background-position: 10px 12px;
-    background-repeat: no-repeat;
     width: 100%;
     font-size: 16px;
     padding: 12px 20px 12px 40px;

@@ -41,5 +41,7 @@
 
 /* What to do when below height <= 450px */
 @media screen and (max-height: 450px) {
-    .sidenav a {font-size: 18px;}
+    .sidenav a {
+        font-size: 15px;
+    }
 }
