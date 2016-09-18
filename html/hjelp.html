@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Skolerute</title>
+    <title>Skolerute - Hjelp</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -18,6 +18,8 @@
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
 
+    <!-- jQuery / ajax -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 
     <!-- Local script/stylesheet -->
     <link rel="stylesheet" type="text/css" href="../styles/style.css"/>
@@ -32,11 +34,33 @@
 
 <!-- Navbar bar -->
 <nav class="navbar navbar-light mainColor">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">SKOLERUTE</a> <!-- HOME BUTTON -->
+        <p class="navbar-brand center">Hjelp</p> <!-- CENTER TEXT -->
+    </div>
+
+    <form class="navbar-form navbar-left">
+        <div class="form-group">
+            <form>
+                <input type="text" class="navSearch" name="search" placeholder="Søk...">
+            </form>
+        </div>
+    </form>
+
     <ul class="nav navbar-nav navbar-right">
-        <li><a href="#" onclick="openNav()"><span class="glyphicon glyphicon-menu-hamburger hamburger"></span></a></li>
+        <li><a href="#" onclick="openNav()"><span class="glyphicon glyphicon-menu-hamburger hamburger"></span></a>
+        </li>
     </ul>
 </nav>
-<!-- /Navbar -->
+<!-- /Navbar  -->
 
 <!-- Navbar toggle div -->
 <div id="mySidenav" class="sidenav">
@@ -47,27 +71,9 @@
     <a href="#">HJELP</a>
     <a href="kontakt.html">KONTAKT</a>
 </div>
-<!-- /Navbar toggle div  -->
+<!-- /Navbar toggle div -->
 
-<!-- title -->
-<h1 class="text-center" id="title">SKOLERUTE</h1>
-
-<!-- Search bar -->
-<div class="search">
-    <div class="col-sm-8 col-sm-offset-4">
-        <form role="form">
-            <div class="col-lg-6">
-                <div class="input-group input-group-lg">
-                    <span class="input-group-btn">
-                        <button type="button" class="btn btn-default glyphicon glyphicon-map-marker" data-toggle="tooltip" data-placement="bottom" title="Nærmeste skole"></button>
-                    </span>
-                    <input type="text" class="form-control" placeholder="Søk etter din skole...">
-                </div><!-- /input-group -->
-            </div><!-- /.col-lg-6 -->
-        </form>
-    </div>
-</div><!-- /.row -->
-<!-- /Search bar-->
+<br>
 
 </body>
 </html>

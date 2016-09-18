@@ -1,0 +1,85 @@
+/* The brand name in the navbar */
+.navbar-brand {
+    color: #f1f1f1;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.navbar-brand:hover {
+    color: #818181;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+}
+
+/* Center text in navbar */
+.center {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    font-weight: normal;
+}
+
+/* Center text when hovering */
+.center:hover {
+    color: #f1f1f1;
+}
+
+/* The sidebar icon */
+.hamburger {
+    font-size: 25px;
+    left: -30px;
+    color: #f1f1f1;
+    margin: 2px 0 0 0; /* Top Right Bottom Left */
+}
+
+/* Change hamburger hover color */
+.hamburger:hover {
+    color: #818181;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+}
+
+/* Change hover of the hamburger button to same as navbar color */
+.nav li a:hover {
+    background-color: #495156; /*Change this color to the background color of the navbar */
+}
+
+/* Change the on.visited color on the hamburger to navbar color */
+.nav li a:visited {
+    background-color: #495156; /*Change this color to the background color of the navbar */
+}
+
+/* Navbar Search */
+/* Cant do input[type="text"] because not IE6 compatible */
+input.navSearch {
+    width: 130px;
+    box-sizing: border-box;
+    border: 0;
+    font-size: 16px;
+    background-color: #f1f1f1;
+    padding: 6px 20px 6px; /* Top Right Bottom Left */
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    margin-top: 6px;
+}
+
+/* navbar searchbar when focused */
+input.navSearch:focus {
+    width: 100%;
+}
+/* /Navbar search */
+
+/* TODO TEMPORARY FIX */
+/* What to do when rezising and width <= 770px */
+@media screen and (max-width: 767px) {
+    input.navSearch {
+        display: none;
+    }
+
+    .navbar-light {
+        display: flex;
+        justify-content: flex-end;
+    }
+}

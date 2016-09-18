@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Skolerute - Kalender</title>
+    <title>Skolerute - Kontakt</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -44,7 +44,7 @@
             <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="index.html">SKOLERUTE</a> <!-- HOME BUTTON -->
-        <p class="navbar-brand center">Byskogen Skole</p> <!-- CENTER TEXT -->
+        <p class="navbar-brand center">Kontakt Oss</p> <!-- CENTER TEXT -->
     </div>
 
     <form class="navbar-form navbar-left">
@@ -75,85 +75,61 @@
 
 <br>
 
-<div class="col-md-6 text-center">
-    <!-- Temp calendar. Only css for the moment -->
-    <div class="month">
-        <ul>
-            <li class="prev">❮</li>
-            <li class="next">❯</li>
-            <li style="text-align:center">
-                August<br>
-                <span style="font-size:18px">2016</span>
-            </li>
-        </ul>
+<!-- Form -->
+<div class="form">
+    <div class="col-sm-8 col-sm-offset-1">
+        <form class="form-horizontal">
+            <!-- Navn input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="navn"></label>
+                <div class="col-md-7">
+                    <input id="navn" name="navn" type="text" placeholder="Navn" class="form-control input-md"
+                           required="">
+
+                </div>
+            </div>
+
+            <!-- Telefon input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="telefon"></label>
+                <div class="col-md-7">
+                    <input id="telefon" name="telefon" type="text" placeholder="Telefon"
+                           class="form-control input-md">
+
+                </div>
+            </div>
+
+            <!-- Email input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="email"></label>
+                <div class="col-md-7">
+                    <input id="email" name="email" type="text" placeholder="Email" class="form-control input-md"
+                           required="">
+
+                </div>
+            </div>
+
+            <!-- Textarea -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="tekst"></label>
+                <div class="col-md-7">
+                    <textarea class="form-control" id="tekst" name="tekst" placeholder="Din beskjed"></textarea>
+                </div>
+            </div>
+
+            <!-- Button -->
+            <div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="button"></label>
+                    <div class="col-md-6">
+                        <button id="button" name="button" class="btn btn-inverse">Send</button>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
-
-    <ul class="weekdays">
-        <li>Mo</li>
-        <li>Tu</li>
-        <li>We</li>
-        <li>Th</li>
-        <li>Fr</li>
-        <li>Sa</li>
-        <li>Su</li>
-    </ul>
-
-    <ul class="days">
-        <li><span class="blue">1</span></li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li>6</li>
-        <li><span class="green">7</span></li>
-        <li><span class="green">8</span></li>
-        <li><span class="green">9</span></li>
-        <li><span class="green">10</span></li>
-        <li><span class="green">11</span></li>
-        <li><span class="green">12</span></li>
-        <li><span class="green">13</span></li>
-        <li>14</li>
-        <li>15</li>
-        <li>16</li>
-        <li>17</li>
-        <li>18</li>
-        <li>19</li>
-        <li>20</li>
-        <li>21</li>
-        <li>22</li>
-        <li>23</li>
-        <li><span class="red">24</span></li>
-        <li>25</li>
-        <li>26</li>
-        <li>27</li>
-        <li>28</li>
-        <li>29</li>
-        <li>30</li>
-        <li>31</li>
-    </ul>
-    <!-- /Temp calendar  -->
-</div>
-<div class="col-md-6 text-center">
-    <!-- Temp List -->
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
-
-    <ul id="myUL">
-        <li><a href="#" class="header">August</a></li>
-        <li><a href="#">Adele</a></li>
-        <li><a href="#">Agnes</a></li>
-
-        <li><a href="#" class="header">September</a></li>
-        <li><a href="#">Billy</a></li>
-        <li><a href="#">Bob</a></li>
-
-        <li><a href="#" class="header">Oktober</a></li>
-        <li><a href="#">Calvin</a></li>
-        <li><a href="#">Christina</a></li>
-        <li><a href="#">Cindy</a></li>
-    </ul>
-    <!-- /Temp List -->
-</div>
-
+</div><!-- /.row -->
+<!-- /Form-->
 
 </body>
 </html>
