@@ -2,6 +2,8 @@
 <html>
 <head>
     <title>Skolerute</title>
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,8 +16,11 @@
           integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
 
     <!-- Local script/stylesheet -->
     <link rel="stylesheet" type="text/css" href="../styles/style.css"/>
@@ -25,6 +30,8 @@
     <script src="../scripts/getData.js"></script>
     <link rel="stylesheet" href="../styles/navbar.css">
     <link rel="stylesheet" href="../styles/cards.css">
+    <link rel="stylesheet" href="../styles/modal.css">
+
 </head>
 <body>
 
@@ -42,6 +49,7 @@
     <a href="calendar.html">CALENDAR</a>
     <a href="#">DINE SKOLER</a>
     <a href="om.html">OM SKOLERUTE</a>
+    <a href="hjelp.html">HJELP</a>
     <a href="kontakt.html">KONTAKT</a>
 </div> <!-- /Navbar toggle div -->
 
@@ -57,11 +65,48 @@
                     <span data-toggle="tooltip" data-placement="bottom" title="Nærmeste skole" class="input-group-addon" id="sizing-addon1"><a href="#"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></a></span>
                     <input type="text" class="form-control" placeholder="Søk etter din skole..." aria-describedby="sizing-addon1">
                 </div>
+<<<<<<< HEAD
             </div><!-- /.col-lg-6 col-sm-offset-3">-->
         </form> <!-- /Form -->
     </div> <!-- /Search bar-->
 </div>
+=======
+
+                <!-- Start på Hjelpesenter knapp -->
+                <div>
+                <!-- Trigger/Open The Modal -->
+                <button id="myBtn">Hjelp</button>
+
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                  <!-- Modal content -->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <span class="close">&times</span>
+                      <h2>Hjelpesenter</h2>
+                    </div>
+                    <div class="modal-body">
+                      <p>Some Help text/gif?!?</p>
+                      <p>Some other text...</p>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div> <!-- Slutt på hjelpesenter knapp -->
+
+                </div>
+            </div><!-- /.col-lg-6 -->
+        </form>
+    </div>
+</div><!-- /.row -->
+<!-- /Search bar-->
+>>>>>>> origin/master
+
+
+
+<script src="../scripts/modal.js"></script>
 
 </body>
 </html>
-
