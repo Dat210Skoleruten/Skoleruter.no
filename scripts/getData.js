@@ -1,6 +1,17 @@
 
 var skoleruteData = "http://hotell.difi.no/api/json/stavanger/skoleruter?"; //
-var skoleData = "http://open.stavanger.kommune.no/dataset/8f8ac030-0d03-46e2-8eb7-844ee11a6203/resource/0371a1db-7074-4568-a0cc-499a5dccfe98/download/skoler.csv"; //informasjon om skolene (lokasjon, adresse, kontaktinformasjon)
+var skoleData = "https://raw.githubusercontent.com/Dat210Skoleruten/Code/master/skoler.csv"; //informasjon om skolene (lokasjon, adresse, kontaktinformasjon)
+var vals;
+
+$(document).ready(function () {
+
+  $("#btn").click(function () {
+    var sortedCSVArray = getSortedCSV();
+    console.log(sortedCSVArray);
+
+  });
+});
+
 
 //TODO: ERROR HANDLIG
 
@@ -109,7 +120,7 @@ function formatDato(entry) {
 };
 
 var SkoleRuteArray = getAllData();
-console.log(SkoleRuteArray);
+//console.log(SkoleRuteArray);
 
 //getData("skole", "Hundvåg skole");
 
@@ -132,3 +143,38 @@ skoleRuteData[0] = {
   datoer: ["2015-08-12" : [101, "Planleggingsdag"], "2015-08-13" : [110, ""] ] // 101: elevdag: true, laererdag: false, sfodag: true
 
 */
+function getCSV() {
+
+  var result = [];
+  $.get(skoleData, function (data) {
+
+    $("#test").html(data).hide();
+    vals = data;
+  });
+}
+
+function getSortedCSV() {
+  var result = [];
+  vals = $("#test").text();
+  var lines = vals.split("\n");
+  var headers = lines[0].split(",");
+
+  for (var i = 1; i < lines.length; i++) {
+    var obj = [];
+    var currentline = lines[i].split(",");
+
+    for (var j = 0; j < headers.length; j++) {
+      obj[headers[j]] = currentline[j];
+    }
+    result.push(obj);
+  }
+
+  return result;
+}
+
+getCSV();
+
+
+//array[i]["skolenavn"];
+
+
