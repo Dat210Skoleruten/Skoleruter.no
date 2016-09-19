@@ -73,8 +73,8 @@ input.navSearch:focus {
 /* /Navbar search */
 
 /* TODO TEMPORARY FIX */
-/* What to do when rezising and width <= 770px */
-@media screen and (max-width: 767px) {
+/* Small devices (tablets, 768px and up) */
+@media screen and (max-width: 768px) {
     input.navSearch {
         display: none;
     }

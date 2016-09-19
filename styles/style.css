@@ -13,8 +13,8 @@ body {
 
 /* <h1> on the frontpage */
 #title {
-    font-size: 120px;
-    letter-spacing: -10px;
+    font-size: 8em;
+    letter-spacing: -3px;
     font-weight: bold;
     color: #495156;
 }
@@ -22,4 +22,18 @@ body {
 /* The grey / blue color */
 .mainColor {
     background-color: #495156;
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media screen and (max-width: 992px) {
+    #title {
+        font-size: 6em;
+    }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media screen and (max-width: 768px) {
+    #title {
+        font-size: 4em;
+    }
 }
