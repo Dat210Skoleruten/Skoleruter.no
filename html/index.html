@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="../styles/cards.css">
     <link rel="stylesheet" href="../styles/modal.css">
     <link rel="stylesheet" href="../styles/searchTable.css">
+    <script src="../scripts/indexSearch.js"></script>
 
 </head>
 <body>
@@ -85,42 +86,21 @@
     <!-- Search bar -->
     <div class="col-sm-10 col-sm-offset-1">
         <div class="col-lg-6 col-sm-offset-3">
-                <table id="myTable">
-                    <tr>
-                        <td><a href="calendar.html">Byskogen Skole</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="#">Greveskogen Videregående Skole</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="#">Universitet i Stavanger</a></td>
-                    </tr>
-                </table>
+            <table id="myTable">
+                <tr>
+                    <td><a href="calendar.html">Byskogen Skole</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#">Greveskogen Videregående Skole</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#">Universitet i Stavanger</a></td>
+                </tr>
+            </table>
         </div>
     </div>
 </div>
 </div>
-
-<!-- dont know why I cant put this in guiController.js -->
-<script>
-    function myFunction() {
-        var input, filter, table, tr, td, i;
-        input = document.getElementById("indexSearch");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("myTable");
-        tr = table.getElementsByTagName("tr");
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[0];
-            if (td) {
-                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-    }
-</script>
 
 <!-- Start på Hjelpesenter knapp -->
 <div>
@@ -138,9 +118,7 @@
                 <p>Trykk i boksen og skriv inn skolen du vil søke på!</p>
                 <p>Eller trykk på nålen, og få opp nærmeste skole</p>
             </div>
-
         </div>
-
     </div>
 </div> <!-- Slutt på hjelpesenter knapp -->
 
