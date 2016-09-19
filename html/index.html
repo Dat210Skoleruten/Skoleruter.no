@@ -27,6 +27,9 @@
     <link rel="stylesheet" href="../styles/cards.css">
     <link rel="stylesheet" href="../styles/modal.css">
     <link rel="stylesheet" href="../styles/searchTable.css">
+    <script src="../scripts/indexSearch.js"></script>
+    <link rel="stylesheet" href="../styles/accordionhelpbar.css">
+    <script src="../scripts/accordionhelpbar.js"></script>
 
 </head>
 <body>
@@ -61,12 +64,11 @@
                     <!-- Position icon -->
                     <span data-toggle="tooltip" data-placement="bottom" title="Nærmeste skole"
                           class="input-group-addon"><a href="#"><span
-                            class="glyphicon glyphicon-map-marker mainColorText"
-                            aria-hidden="true"></span></a></span>
+                            class="glyphicon glyphicon-map-marker mainColorText" aria-hidden="true"></span></a></span>
+
                     <!-- input bar -->
-                    <input type="text" id="myInput" onkeyup="myFunction()" class="form-control"
-                           placeholder="Søk etter din skole..."
-                           aria-hidden="true">
+                    <input type="text" id="indexSearch" onkeyup="myFunction()" class="form-control"
+                           placeholder="Søk etter din skole..." aria-hidden="true">
 
                     <!-- Help icon -->
                     <span data-toggle="tooltip" data-placement="bottom" title="Hjelpesenter" id="myBtn"
@@ -87,42 +89,19 @@
         <div class="col-lg-6 col-sm-offset-3">
             <table id="myTable">
                 <tr>
-                    <td>Alfreds Futterkiste</td>
+                    <td><a href="calendar.html">Byskogen Skole</a></td>
                 </tr>
                 <tr>
-                    <td>Berglunds snabbkop</td>
+                    <td><a href="#">Greveskogen Videregående Skole</a></td>
                 </tr>
                 <tr>
-                    <td>Island Trading</td>
-                </tr>
-                <tr>
-                    <td>Koniglich Essen</td>
+                    <td><a href="#">Universitet i Stavanger</a></td>
                 </tr>
             </table>
         </div>
     </div>
 </div>
 </div>
-
-<script>
-    function myFunction() {
-        var input, filter, table, tr, td, i;
-        input = document.getElementById("myInput");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("myTable");
-        tr = table.getElementsByTagName("tr");
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[0];
-            if (td) {
-                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-    }
-</script>
 
 <!-- Start på Hjelpesenter knapp -->
 <div>
@@ -136,23 +115,36 @@
                 <h2>Hjelpesenter</h2>
             </div>
             <div class="modal-body">
-                <div><img src="../img/hjelp3.png" alt="Avatar" class="img"></div>
-                <p>Trykk i boksen og skriv inn skolen du vil søke på!</p>
-                <p>Eller trykk på nålen, og få opp nærmeste skole</p>
+              <button class="accordion">Hvordan søke?</button>
+              <div class="panel">
+                <img src="../img/hjelp3.png" alt="Avatar" class="img">
+                <p>Lorem ipsum...</p>
+              </div>
+
+              <button class="accordion">Meny</button>
+              <div class="panel">
+                <img src="../img/hjelp3.png" alt="Avatar" class="img">
+                <p>Lorem ipsum...</p>
+              </div>
+
+              <button class="accordion">FAQ</button>
+              <div class="panel">
+                <img src="../img/hjelp3.png" alt="Avatar" class="img">
+                <p>Lorem ipsum...</p>
+              </div>
             </div>
-
         </div>
-
     </div>
 </div> <!-- Slutt på hjelpesenter knapp -->
 
 <div class="text-center" style="width: 50%; margin: 0 auto;margin-top: 100px;">
     <p style="width: 50%; margin: 0 auto; color: #495156; "> Velkommen! Her kan du søke på skolen din og få en oversikt
-        over fridager!</p>
+        over ferier og andre fridager!</p>
 </div>
 
 <!-- But why? don't moove bitches -->
 <script src="../scripts/modal.js"></script>
-
+<script src="../scripts/accordionhelpbar.js"></script>
+<!-- They are here for a reason -->
 </body>
 </html>

@@ -1,29 +1,32 @@
-* {
-    box-sizing: border-box;
-}
-
-#mySearch {
-    width: 100%;
-    font-size: 16px;
-    padding: 12px 20px 12px 40px;
-    border: 1px solid #ddd;
-    margin-bottom: 12px;
-}
-
 #myTable {
     border-collapse: collapse;
     width: 100%;
-    border: 1px solid #ddd;
+    border: 1px solid #495156;
     font-size: 18px;
 }
 
 #myTable th, #myTable td {
     text-align: left;
+    background-color: #e5e5e5;
+}
+
+#myTable td a {
+    display: block;
+    text-decoration: none;
+    color: #495156;
     padding: 12px;
 }
 
+#myTable td a:hover {
+    color: #fff;
+}
+
+#myTable th, #myTable td:hover {
+    background-color: #495156;
+}
+
 #myTable tr {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #495156;
 }
 
 #myTable tr.header, #myTable tr:hover {
