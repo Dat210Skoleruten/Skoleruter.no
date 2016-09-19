@@ -23,7 +23,6 @@ body {
 .mainColor {
     background-color: #495156;
 }
-<<<<<<< HEAD
 
 /* Medium devices (desktops, 992px and up) */
 @media screen and (max-width: 992px) {
@@ -38,5 +37,3 @@ body {
         font-size: 4em;
     }
 }
-=======
->>>>>>> origin/master
