@@ -20,12 +20,13 @@
     <!-- Local script/stylesheet -->
     <link rel="stylesheet" type="text/css" href="../styles/style.css"/>
     <link rel="stylesheet" type="text/css" href="../styles/sidebar.css"/>
-    <link rel="stylesheet" type="text/css" href="../styles/calendar-style.css"/>
-    <script src="../scripts/GUI_Controller.js"></script>
+    <link rel="stylesheet" type="text/css" href="../styles/calendar.css"/>
+    <script src="../scripts/guiController.js"></script>
     <script src="../scripts/getData.js"></script>
     <link rel="stylesheet" href="../styles/navbar.css">
     <link rel="stylesheet" href="../styles/cards.css">
     <link rel="stylesheet" href="../styles/modal.css">
+    <link rel="stylesheet" href="../styles/searchTable.css">
 
 </head>
 <body>
@@ -59,21 +60,69 @@
 
                     <!-- Position icon -->
                     <span data-toggle="tooltip" data-placement="bottom" title="Nærmeste skole"
-                          class="input-group-addon"><a href="#"><span class="glyphicon glyphicon-map-marker mainColorText"
-                                                                      aria-hidden="true"></span></a></span>
+                          class="input-group-addon"><a href="#"><span
+                            class="glyphicon glyphicon-map-marker mainColorText"
+                            aria-hidden="true"></span></a></span>
                     <!-- input bar -->
-                    <input type="text" id="indexSearch" class="form-control" placeholder="Søk etter din skole..."
+                    <input type="text" id="myInput" onkeyup="myFunction()" class="form-control"
+                           placeholder="Søk etter din skole..."
                            aria-hidden="true">
 
                     <!-- Help icon -->
                     <span data-toggle="tooltip" data-placement="bottom" title="Hjelpesenter" id="myBtn"
-                          class="input-group-addon"><a href="#"><span class="glyphicon glyphicon-question-sign mainColorText"
-                                                                      aria-hidden="true"></span></a></span>
+                          class="input-group-addon"><a href="#"><span
+                            class="glyphicon glyphicon-question-sign mainColorText"
+                            aria-hidden="true"></span></a></span>
                 </div>
             </div><!-- /.col-lg-6 col-sm-offset-3">-->
         </form> <!-- /Form -->
     </div> <!-- /Search bar-->
 </div>
+
+<br>
+
+<div class="container-fluid">
+    <!-- Search bar -->
+    <div class="col-sm-10 col-sm-offset-1">
+        <div class="col-lg-6 col-sm-offset-3">
+            <table id="myTable">
+                <tr>
+                    <td>Alfreds Futterkiste</td>
+                </tr>
+                <tr>
+                    <td>Berglunds snabbkop</td>
+                </tr>
+                <tr>
+                    <td>Island Trading</td>
+                </tr>
+                <tr>
+                    <td>Koniglich Essen</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+
+<script>
+    function myFunction() {
+        var input, filter, table, tr, td, i;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
 
 <!-- Start på Hjelpesenter knapp -->
 <div>
@@ -97,8 +146,9 @@
     </div>
 </div> <!-- Slutt på hjelpesenter knapp -->
 
-<div style="width: 50%; margin: 0 auto;margin-top: 100px;">
-  <p style="width: 50%; margin: 0 auto; color: #495156; "> Velkommen! Her kan du søke på skolen din og få en oversikt over fridager!</p>
+<div class="text-center" style="width: 50%; margin: 0 auto;margin-top: 100px;">
+    <p style="width: 50%; margin: 0 auto; color: #495156; "> Velkommen! Her kan du søke på skolen din og få en oversikt
+        over fridager!</p>
 </div>
 
 <!-- But why? don't moove bitches -->

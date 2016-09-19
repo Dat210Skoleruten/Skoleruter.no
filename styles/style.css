@@ -29,7 +29,7 @@ body {
 }
 
 #indexSearch {
-    z-index: -1;
+    z-index: 0;
 }
 
 /* Medium devices (desktops, 992px and up) */
