@@ -1,3 +1,6 @@
+.navbar {
+    z-index: 1;
+}
 /* The brand name in the navbar */
 .navbar-brand {
     color: #f1f1f1;
@@ -19,11 +22,9 @@
     text-align: center;
     font-size: 25px;
     font-weight: normal;
-}
-
-/* Center text when hovering */
-.center:hover {
+    z-index: -1;
     color: #f1f1f1;
+    margin-top: 10px;
 }
 
 /* The sidebar icon */
