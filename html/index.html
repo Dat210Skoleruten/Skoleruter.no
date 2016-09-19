@@ -61,12 +61,11 @@
                     <!-- Position icon -->
                     <span data-toggle="tooltip" data-placement="bottom" title="Nærmeste skole"
                           class="input-group-addon"><a href="#"><span
-                            class="glyphicon glyphicon-map-marker mainColorText"
-                            aria-hidden="true"></span></a></span>
+                            class="glyphicon glyphicon-map-marker mainColorText" aria-hidden="true"></span></a></span>
+
                     <!-- input bar -->
-                    <input type="text" id="myInput" onkeyup="myFunction()" class="form-control"
-                           placeholder="Søk etter din skole..."
-                           aria-hidden="true">
+                    <input type="text" id="indexSearch" onkeyup="myFunction()" class="form-control"
+                           placeholder="Søk etter din skole..." aria-hidden="true">
 
                     <!-- Help icon -->
                     <span data-toggle="tooltip" data-placement="bottom" title="Hjelpesenter" id="myBtn"
@@ -85,29 +84,27 @@
     <!-- Search bar -->
     <div class="col-sm-10 col-sm-offset-1">
         <div class="col-lg-6 col-sm-offset-3">
-            <table id="myTable">
-                <tr>
-                    <td>Alfreds Futterkiste</td>
-                </tr>
-                <tr>
-                    <td>Berglunds snabbkop</td>
-                </tr>
-                <tr>
-                    <td>Island Trading</td>
-                </tr>
-                <tr>
-                    <td>Koniglich Essen</td>
-                </tr>
-            </table>
+                <table id="myTable">
+                    <tr>
+                        <td><a href="calendar.html">Byskogen Skole</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">Greveskogen Videregående Skole</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">Universitet i Stavanger</a></td>
+                    </tr>
+                </table>
         </div>
     </div>
 </div>
 </div>
 
+<!-- dont know why I cant put this in guiController.js -->
 <script>
     function myFunction() {
         var input, filter, table, tr, td, i;
-        input = document.getElementById("myInput");
+        input = document.getElementById("indexSearch");
         filter = input.value.toUpperCase();
         table = document.getElementById("myTable");
         tr = table.getElementsByTagName("tr");
