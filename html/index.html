@@ -28,6 +28,8 @@
     <link rel="stylesheet" href="../styles/modal.css">
     <link rel="stylesheet" href="../styles/searchTable.css">
     <script src="../scripts/indexSearch.js"></script>
+    <link rel="stylesheet" href="../styles/accordionhelpbar.css">
+    <script src="../scripts/accordionhelpbar.js"></script>
 
 </head>
 <body>
@@ -113,9 +115,20 @@
                 <h2>Hjelpesenter</h2>
             </div>
             <div class="modal-body">
-                <div><img src="../img/hjelp3.png" alt="Avatar" class="img"></div>
-                <p>Trykk i boksen og skriv inn skolen du vil søke på!</p>
-                <p>Eller trykk på nålen, og få opp nærmeste skole</p>
+              <button class="accordion">Section 1</button>
+              <div class="panel">
+                <p>Lorem ipsum...</p>
+              </div>
+
+              <button class="accordion">Section 2</button>
+              <div class="panel">
+                <p>Lorem ipsum...</p>
+              </div>
+
+              <button class="accordion">Section 3</button>
+              <div class="panel">
+                <p>Lorem ipsum...</p>
+              </div>
             </div>
         </div>
     </div>
@@ -128,6 +141,7 @@
 
 <!-- But why? don't moove bitches -->
 <script src="../scripts/modal.js"></script>
-
+<script src="../scripts/accordionhelpbar.js"></script>
+<!-- They are here for a reason -->
 </body>
 </html>
