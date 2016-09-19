@@ -24,6 +24,10 @@ body {
     background-color: #495156;
 }
 
+.mainColorText {
+    color: #495156;
+}
+
 /* Medium devices (desktops, 992px and up) */
 @media screen and (max-width: 992px) {
     #title {
