@@ -28,6 +28,10 @@ body {
     color: #495156;
 }
 
+#indexSearch {
+    z-index: -1;
+}
+
 /* Medium devices (desktops, 992px and up) */
 @media screen and (max-width: 992px) {
     #title {
