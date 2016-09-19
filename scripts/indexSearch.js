@@ -1,4 +1,4 @@
-function myFunction() {
+function search() {
     var input, filter, table, tr, td, i;
     input = document.getElementById("indexSearch");
     filter = input.value.toUpperCase();
