@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <title>test</title>
+    <script src="https://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+</head>
 <body>
 
 <p>Click the button to get your coordinates.</p>
@@ -9,16 +13,17 @@
 <p id="demo"></p>
 
 <script>
+
 var x = document.getElementById("demo");
 
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
-        
+
 
     } else {
         x.innerHTML = "Geolocation is not supported by this browser.";
-        
+
     }
 }
 
@@ -26,20 +31,43 @@ function showPosition(position) {
     x.innerHTML = "Latitude: " + position.coords.latitude +
     "<br>Longitude: " + position.coords.longitude;
     console.log(distance(position.coords.latitude, position.coords.longitude, 40.545073, -74.068443))
-   
+
+    //console.log(csvJSON("skoler.csv"));
+
 }
 
 function distance(lat1, lon1, lat2, lon2) {
   var R = 6371; // Radius of the earth in km
   var dLat = (lat2 - lat1) * Math.PI / 180;  // deg2rad below
   var dLon = (lon2 - lon1) * Math.PI / 180;
-  var a = 
-     0.5 - Math.cos(dLat)/2 + 
-     Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
+  var a =
+     0.5 - Math.cos(dLat)/2 +
+     Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
      (1 - Math.cos(dLon))/2;
 
   return R * 2 * Math.asin(Math.sqrt(a));
 }
+
+function findFiveClosest(schoolList){
+  var distance = [];
+  for(var i = 0; i < len(schoolList); i++){
+    var dist = distance(position.coords.latitude, position.coords.longitude, schoolList[i]["latitude"], schoolList[i]["longitude"])
+    distance[i] = [dist, schoolList[i]["Skolenavn"]];
+  }
+
+  function sortFunction(a, b) {
+    if (a[0] === b[0]) {
+        return 0;
+    }
+    else {
+        return (a[0] < b[0]) ? -1 : 1;
+    }
+  }
+  sorted_distance = distance.sort(sortFunction);
+  closest_five = sorted_distance.slice(0, 4)
+  return closest_five;
+}
+
 </script>
 
 </body>
