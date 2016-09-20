@@ -1,0 +1,26 @@
+<html>
+<head>
+    <script type="text/javascript" src="https://rawgithub.com/nwcell/ics.js/master/ics.deps.min.js"></script>
+    <script src="scripts/getData.js"></script>
+
+    <script>
+
+        function makeCal(skoleArr){
+        var nykal = ics();
+        var kommentar = skoleArr[2];
+            var skolenavn = skoleArr[3];
+            var dato = skoleArr[5];
+
+    for(var i=1; i < skoleArr.length; i++) {
+
+    nykal.addEvent(kommentar, skolenavn, null, dato, dato);
+}
+        nykal.download();
+    }
+
+        </script>
+    </head>
+    <body>
+<button onClick = "makeCal(schoolList)"> Abboner </button>
+</body>
+</html>
