@@ -144,6 +144,14 @@ skoleRuteData[0] = {
   datoer: ["2015-08-12" : [101, "Planleggingsdag"], "2015-08-13" : [110, ""] ] // 101: elevdag: true, laererdag: false, sfodag: true
 
 */
+function getSchoolArray(){
+  if(schoolList.length == 0){
+    return getSortedCSV();
+  }else{
+    return schoolList;
+  }
+}
+
 function getCSV() {
 
   var result = [];
