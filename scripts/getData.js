@@ -8,6 +8,8 @@ var schoolData = [];
 //TODO: ERROR HANDLIG
 
 
+console.log("Session test (should be empty first on first load): ",Session.get(schoolData) )
+
 /*
  //getData uses ajax and therfore does not deliver data in order !!!!
  function getData(attr, val) { //gets data via ajax
@@ -203,7 +205,7 @@ function combineArrays() {
 getCSV();
 skoleRuteArray = getAllData();
 
-
+Session.set(schoolData, skoleRuteArray);
 //array[i]["skolenavn"];
 
 
