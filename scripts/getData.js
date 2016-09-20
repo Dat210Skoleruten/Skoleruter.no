@@ -4,19 +4,8 @@ var skoleData = "https://raw.githubusercontent.com/Dat210Skoleruten/Code/master/
 var vals;
 var schoolList = [];
 
-$(document).ready(function () {
-
-  $("#btn").click(function () {
-    var sortedCSVArray = getSortedCSV();
-    console.log(sortedCSVArray);
-
-  });
-});
-
-
 //TODO: ERROR HANDLIG
 
-console.log("API TEST");
 
 /*
 //getData uses ajax and therfore does not deliver data in order !!!!
