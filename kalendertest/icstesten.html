@@ -1,19 +1,21 @@
 <html>
 <head>
     <script type="text/javascript" src="https://rawgithub.com/nwcell/ics.js/master/ics.deps.min.js"></script>
-    <script src="scripts/getData.js"></script>
+   <!-- <script src="scripts/getData.js"></script> -->
 
     <script>
+var arr = {Kommentar: "Sommerferie", Skolenavn: "Auglend", Sfodag: "Ja", Dato: "2016-06-06"};
 
         function makeCal(skoleArr){
         var nykal = ics();
-        var kommentar = skoleArr[2];
-            var skolenavn = skoleArr[3];
-            var dato = skoleArr[5];
+        var kommentar = skoleArr[0];
+            var skolenavn = skoleArr[1];
+            var sfodag = skoleArr[2]
+            var dato = skoleArr[3];
 
     for(var i=1; i < skoleArr.length; i++) {
 
-    nykal.addEvent(kommentar, skolenavn, null, dato, dato);
+    nykal.addEvent(kommentar, skolenavn, sfodag , dato, dato);
 }
         nykal.download();
     }
@@ -21,6 +23,6 @@
         </script>
     </head>
     <body>
-<button onClick = "makeCal(schoolList)"> Abboner </button>
+<button onClick = "makeCal(arr)"> Abboner </button>
 </body>
 </html>

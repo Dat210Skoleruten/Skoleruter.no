@@ -48,7 +48,9 @@
     <form class="navbar-form navbar-left">
         <div class="form-group">
             <form>
-                <input type="text" class="navSearch" name="search" placeholder="Søk...">
+                <!-- input bar -->
+                <input type="text" class="navSearch" name="search" id="indexSearch" onkeyup="search()" onfocus="getListItems()" class="form-control"
+                       placeholder="Søk .." aria-hidden="true" autocomplete="off">
             </form>
         </div>
     </form>

@@ -10,6 +10,12 @@
     background-color: #e5e5e5;
 }
 
+#noScroll {
+    height: 400px;
+    overflow: auto;
+    display: block;
+}
+
 #myTable td a {
     display: block;
     text-decoration: none;

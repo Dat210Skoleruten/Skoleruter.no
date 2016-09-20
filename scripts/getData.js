@@ -2,7 +2,9 @@
 var skoleruteData = "http://hotell.difi.no/api/json/stavanger/skoleruter?"; //
 var skoleData = "https://raw.githubusercontent.com/Dat210Skoleruten/Code/master/skoler.csv"; //informasjon om skolene (lokasjon, adresse, kontaktinformasjon)
 var vals;
-var schoolList = [];
+var schoolArray = [];
+var skoleRuteArray = [];
+var schoolData = [];
 
 //TODO: ERROR HANDLIG
 
@@ -109,8 +111,8 @@ function formatDato(entry) {
   return [dayType, entry.kommentar];
 };
 
-var SkoleRuteArray = getAllData();
-//console.log(SkoleRuteArray);
+
+//console.log(skoleRuteArray);
 
 //getData("skole", "Hundvåg skole");
 
@@ -133,6 +135,7 @@ skoleRuteData[0] = {
   datoer: ["2015-08-12" : [101, "Planleggingsdag"], "2015-08-13" : [110, ""] ] // 101: elevdag: true, laererdag: false, sfodag: true
 
 */
+<<<<<<< HEAD
 function getSchoolArray(){
   if(schoolList.length == 0){
     schoolList = getSortedCSV();
@@ -140,6 +143,17 @@ function getSchoolArray(){
   }else{
     return schoolList;
 
+=======
+function getSchoolArray() {
+
+  if (schoolData.length == 0) {
+    schoolArray = getSortedCSV();
+    schoolData = combineArrays();
+    return schoolData;
+  } else {
+    console.log(schoolData);
+    return schoolData;
+>>>>>>> a0732dfe4b6d6e758a8e1a09e9a113b06fb7d9af
   }
 }
 
@@ -148,8 +162,8 @@ function getCSV() {
   var result = [];
   $.get(skoleData, function (data) {
     var cache = $(document.createElement('p'));
-    cache.attr( "id", "cache");
-    cache.html(data);    
+    cache.attr("id", "cache");
+    cache.html(data);
     cache.hide();
     $(document.body).append(cache);
     vals = data;
@@ -163,7 +177,7 @@ function getSortedCSV() {
   var lines = vals.split("\n");
   var headers = lines[0].split(",");
 
-  for (var i = 1; i < lines.length-1; i++) {
+  for (var i = 1; i < lines.length - 1; i++) {
     var obj = [];
     var currentline = lines[i].split(",");
 
@@ -175,9 +189,21 @@ function getSortedCSV() {
   return result;
 }
 
+function combineArrays() {
+  var arr = schoolArray.slice(0);
 
+  for (var i = 0; i < skoleRuteArray.length; i++) {
+    for (var j = 0; j < schoolArray.length; j++) {
+      if (skoleRuteArray[i].name == schoolArray[j]["Skolenavn"]) {
+        arr[j].dates = skoleRuteArray[i].dates;
+      }
+    }
+  }
+  return arr;
+}
 
 getCSV();
+skoleRuteArray = getAllData();
 
 
 //array[i]["skolenavn"];
