@@ -1,3 +1,4 @@
+/* Changes done on all pages. !important to overwrite any other css on other stylesheets */
 * {
     /* Change all font to Lucida Grande */
     font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, sans-serif;
@@ -7,6 +8,7 @@
     box-sizing: border-box; /* Make divs with same height and width the same - http://www.w3schools.com/cssref/tryit.asp?filename=trycss3_box-sizing */
 }
 
+/* <body> css on all pages */
 body {
     background-color: #f5f5f5; /* Change BK-color for all pages */
 }
@@ -19,19 +21,22 @@ body {
     color: #495156;
 }
 
-/* The grey / blue color */
+/* The main grey / blue color for backgrounds */
 .mainColor {
     background-color: #495156;
 }
 
+/* The main grey / blue color for text */
 .mainColorText {
     color: #495156;
 }
 
+/* Set the search in index.html to be under the navbar and help modal */
 #indexSearch {
     z-index: 0;
 }
 
+/* The welcome text that's under the searchbar */
 #welcomeText {
     width: 50%;
     margin: -400px auto; /* Top Right Bottom Left */
@@ -43,6 +48,7 @@ body {
     color: #495156;
 }
 
+/* The two buttons (position and help) thats on either side of the searchbar in index.html */
 .input-group-addon {
     cursor: pointer;
 }

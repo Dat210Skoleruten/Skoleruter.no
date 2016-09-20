@@ -27,15 +27,18 @@
     animation-duration: 0.4s
 }
 
+/* Header on the modal */
 .modal-header {
     background-color: #495156;
 }
 
+/* The main text in the modal header */
 .modal-header h2 {
     margin-top: 10px;
     color: #fff;
 }
 
+/* The close button in the header */
 .modal-header .close {
     color: #fff; !important; /* TODO: WONT CHANGE COLOR! FIND OUT WHY! */
     margin: 2px 6px;

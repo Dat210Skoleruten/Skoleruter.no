@@ -1,3 +1,4 @@
+/* Sets the navbar over everything */
 .navbar {
     z-index: 1;
 }
@@ -9,6 +10,7 @@
     margin-top: 5px;
 }
 
+/* When hovering over the brand name */
 .navbar-brand:hover {
     color: #818181;
     transition: 0.3s;
@@ -24,9 +26,10 @@
     font-weight: normal;
     z-index: -1;
     color: #f1f1f1;
-    margin-top: 10px;
+    margin-top: 12px;
 }
 
+/* Sets the hamburger (that's in navbar-right) margin */
 .navbar-right {
     margin: 0;
 }
@@ -74,9 +77,8 @@ input.navSearch {
 input.navSearch:focus {
     width: 100%;
 }
-/* /Navbar search */
 
-/* TODO TEMPORARY FIX */
+/* TODO TEMPORARY FIX NOT PRETTY AT ALL AND NOT FUNCTIONAL */
 /* Small devices (tablets, 768px and up) */
 @media screen and (max-width: 768px) {
     input.navSearch {

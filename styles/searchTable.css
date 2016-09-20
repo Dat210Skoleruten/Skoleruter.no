@@ -1,3 +1,8 @@
+/* TODO: All the #myTable should be renamed to something else */
+/* TODO: It also looks like the school list doesn't work right now */
+/* TODO: And check if #myTable th, #myTable td is needed when above is fixed */
+
+/* The main table css */
 #myTable {
     border-collapse: collapse;
     width: 100%;
@@ -10,12 +15,14 @@
     background-color: #e5e5e5;
 }
 
+/* Make the table chose when to have the scrollbar and height of the list box*/
 #noScroll {
     height: 400px;
     overflow: auto;
     display: block;
 }
 
+/* The list rows */
 #myTable td a {
     display: block;
     text-decoration: none;
@@ -23,14 +30,17 @@
     padding: 12px;
 }
 
+/* The list rows text when hovering */
 #myTable td a:hover {
     color: #fff;
 }
 
+/* The list rows background when hovering */
 #myTable th, #myTable td:hover {
     background-color: #495156;
 }
 
+/* TODO: IS THIS NEEDED. CHECK IF IT IS. COMMENTED OUT FOR NOW
 #myTable tr {
     border-bottom: 1px solid #495156;
 }
@@ -38,3 +48,4 @@
 #myTable tr.header, #myTable tr:hover {
     background-color: #f1f1f1;
 }
+*/
