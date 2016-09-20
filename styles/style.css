@@ -43,6 +43,10 @@ body {
     color: #495156;
 }
 
+.input-group-addon {
+    cursor: pointer;
+}
+
 /* Medium devices (desktops, 992px and up) */
 @media screen and (max-width: 992px) {
     #title {
