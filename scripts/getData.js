@@ -2,6 +2,7 @@
 var skoleruteData = "http://hotell.difi.no/api/json/stavanger/skoleruter?"; //
 var skoleData = "https://raw.githubusercontent.com/Dat210Skoleruten/Code/master/skoler.csv"; //informasjon om skolene (lokasjon, adresse, kontaktinformasjon)
 var vals;
+var schoolList = [];
 
 $(document).ready(function () {
 
