@@ -146,7 +146,8 @@ skoleRuteData[0] = {
 */
 function getSchoolArray(){
   if(schoolList.length == 0){
-    return getSortedCSV();
+    schoolList = getSortedCSV();
+    return schoolList();
   }else{
     return schoolList;
   }
