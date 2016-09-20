@@ -3,7 +3,8 @@ var skoleruteData = "http://hotell.difi.no/api/json/stavanger/skoleruter?"; //
 var skoleData = "https://raw.githubusercontent.com/Dat210Skoleruten/Code/master/skoler.csv"; //informasjon om skolene (lokasjon, adresse, kontaktinformasjon)
 var vals;
 var schoolArray = [];
-var SkoleRuteArray = [];
+var skoleRuteArray = [];
+var schoolData = [];
 
 //TODO: ERROR HANDLIG
 
@@ -111,7 +112,7 @@ function formatDato(entry) {
 };
 
 
-//console.log(SkoleRuteArray);
+//console.log(skoleRuteArray);
 
 //getData("skole", "Hundvåg skole");
 
@@ -134,14 +135,15 @@ skoleRuteData[0] = {
   datoer: ["2015-08-12" : [101, "Planleggingsdag"], "2015-08-13" : [110, ""] ] // 101: elevdag: true, laererdag: false, sfodag: true
 
 */
-function getSchoolArray(){
-  
-  if(schoolArray.length == 0){
+function getSchoolArray() {
+
+  if (schoolData.length == 0) {
     schoolArray = getSortedCSV();
-    return schoolArray;
-  }else{
-    combineArrays();
-    return schoolArray;
+    schoolData = combineArrays();
+    return schoolData;
+  } else {
+    console.log(schoolData);
+    return schoolData;
   }
 }
 
@@ -150,8 +152,8 @@ function getCSV() {
   var result = [];
   $.get(skoleData, function (data) {
     var cache = $(document.createElement('p'));
-    cache.attr( "id", "cache");
-    cache.html(data);    
+    cache.attr("id", "cache");
+    cache.html(data);
     cache.hide();
     $(document.body).append(cache);
     vals = data;
@@ -165,7 +167,7 @@ function getSortedCSV() {
   var lines = vals.split("\n");
   var headers = lines[0].split(",");
 
-  for (var i = 1; i < lines.length-1; i++) {
+  for (var i = 1; i < lines.length - 1; i++) {
     var obj = [];
     var currentline = lines[i].split(",");
 
@@ -177,26 +179,21 @@ function getSortedCSV() {
   return result;
 }
 
-function combineArrays(){
+function combineArrays() {
   var arr = schoolArray.slice(0);
 
-  for(var i = 0; i < SkoleRuteArray.length; i++){
-    for(var j = 0; j < schoolArray.length; j++){
-      if($.inArray(schoolArray[i]["Skolenavn"], SkoleRuteArray) > -1){
-        arr[i].push(SkoleRuteArray[schoolArray["Skolenavn"]].dates);
+  for (var i = 0; i < skoleRuteArray.length; i++) {
+    for (var j = 0; j < schoolArray.length; j++) {
+      if (skoleRuteArray[i].name == schoolArray[j]["Skolenavn"]) {
+        arr[j].dates = skoleRuteArray[i].dates;
       }
     }
   }
-  console.log("arr: ");
-  console.log(arr);
-  console.log("SkoleRuteArray: ");
-  console.log(SkoleRuteArray);
-  console.log("schoolArray: ");
-  console.log(schoolArray);
+  return arr;
 }
 
 getCSV();
-SkoleRuteArray = getAllData();
+skoleRuteArray = getAllData();
 
 
 //array[i]["skolenavn"];
