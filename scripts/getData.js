@@ -147,7 +147,7 @@ skoleRuteData[0] = {
 function getSchoolArray(){
   if(schoolList.length == 0){
     schoolList = getSortedCSV();
-    return schoolList();
+    return schoolList;
   }else{
     return schoolList;
   }
@@ -157,8 +157,11 @@ function getCSV() {
 
   var result = [];
   $.get(skoleData, function (data) {
-
-    $("#test").html(data).hide();
+    var cache = $(document.createElement('p'));
+    cache.attr( "id", "cache");
+    cache.html(data);    
+    cache.hide();
+    $(document.body).append(cache);
     vals = data;
   });
 }
@@ -166,7 +169,7 @@ function getCSV() {
 function getSortedCSV() {
 
   var result = [];
-  vals = $("#test").text();
+  vals = $("#cache").text();
   var lines = vals.split("\n");
   var headers = lines[0].split(",");
 
@@ -179,7 +182,7 @@ function getSortedCSV() {
     }
     result.push(obj);
   }
-
+  console.log(result);
   return result;
 }
 

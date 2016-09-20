@@ -15,17 +15,15 @@ function search() {
         }
     }
 }
+
 $(document).ready(function () {
     
-   
-
 });
 
 // $("#indexSearch").(getListItems());
 
 function getListItems(){
-    console.log(vals);
-    console.log("test");
+    var schoolArray = getSchoolArray();
      if ($("#myTable").children().length == 0) {
          console.log("kjører");
             var list = getSortedCSV();
