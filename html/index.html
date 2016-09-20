@@ -68,7 +68,7 @@
                             class="glyphicon glyphicon-map-marker mainColorText" aria-hidden="true"></span></a></span>
 
                     <!-- input bar -->
-                    <input type="text" id="indexSearch" onkeyup="myFunction()" onfocus="getListItems()" class="form-control" placeholder="Søk etter din skole..." aria-hidden="true">
+                    <input type="text" id="indexSearch" onkeyup="search()" onfocus="getListItems()" class="form-control" placeholder="Søk etter din skole..." aria-hidden="true" autocomplete="off">
 
                     <!-- Help icon -->
                     <span data-toggle="tooltip" data-placement="bottom" title="Hjelpesenter" id="myBtn"
@@ -99,7 +99,6 @@
 <div>
     <!-- The Modal -->
     <div id="myModal" class="modal text-center">
-
         <!-- Modal content -->
         <div class="modal-content">
             <div class="modal-header">
@@ -112,13 +111,11 @@
                 <img src="../img/hjelp3.png" alt="Avatar" class="img">
                 <p>Lorem ipsum...</p>
               </div>
-
               <button class="accordion">Meny</button>
               <div class="panel">
                 <img src="../img/hjelp3.png" alt="Avatar" class="img">
                 <p>Lorem ipsum...</p>
               </div>
-
               <button class="accordion">FAQ</button>
               <div class="panel">
                 <img src="../img/hjelp3.png" alt="Avatar" class="img">

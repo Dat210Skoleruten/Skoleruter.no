@@ -11,16 +11,17 @@
 
     <p>Click the button to get your coordinates.</p>
 
-    <button onclick="findFiveClosest()">Try It</button>
+      <button onclick="printClosest()">Try It</button>
     <!--<button onclick="getLocation()">Try It</button> -->
 
-
+    <table id="myTable"></table>
     <p id="demo"></p>
     <p id="test"></p>
 
     <script>
 var lng, lat;
 var x = document.getElementById("demo");
+var tabell = document.getElementById("myTable");
 
 getLocation();
 
@@ -53,7 +54,7 @@ function distance(lat1, lon1, lat2, lon2) {
 }
 
 function findFiveClosest(){
-  var schoolList = getSortedCSV(); //Gets the data from the getSortedCSV() function in getData.js
+  var schoolList = getSchoolArray(); //Gets the data from the getSortedCSV() function in getData.js
   var dist_array = [];
 
   for(var i = 0; i < schoolList.length; i++){
@@ -78,6 +79,22 @@ function findFiveClosest(){
   //return closest_five;
 }
 
+  function printClosest(){
+    // FUNKER NÅ, SLAPP AV
+    //Pulls the sorted array with the five closest schools from the function findFiveClosest()
+    var arrOfClosest = findFiveClosest();
+    //console.log(arrOfClosest[0][1]); //testing if it reads the array
+    for(var i = 0; i < arrOfClosest.length; i++){
+      //Loops through the array and makes html elements to fill into a table
+      var tr = document.createElement('tr');
+      var td = document.createElement('td');
+      //appends all elements together
+      td.innerHTML = arrOfClosest[i][1] + " <span style='text-align=right;'>Avstand: " + arrOfClosest[i][0] + "</span>";
+      tr.appendChild(td);
+      tabell.appendChild(tr);
+    }
+  }
+//printClosest();
 </script>
 
 </body>

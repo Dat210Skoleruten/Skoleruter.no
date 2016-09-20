@@ -4,19 +4,8 @@ var skoleData = "https://raw.githubusercontent.com/Dat210Skoleruten/Code/master/
 var vals;
 var schoolList = [];
 
-$(document).ready(function () {
-
-  $("#btn").click(function () {
-    var sortedCSVArray = getSortedCSV();
-    console.log(sortedCSVArray);
-
-  });
-});
-
-
 //TODO: ERROR HANDLIG
 
-console.log("API TEST");
 
 /*
 //getData uses ajax and therfore does not deliver data in order !!!!
@@ -147,7 +136,7 @@ skoleRuteData[0] = {
 function getSchoolArray(){
   if(schoolList.length == 0){
     schoolList = getSortedCSV();
-    return schoolList();
+    return schoolList;
   }else{
     return schoolList;
 
@@ -158,8 +147,11 @@ function getCSV() {
 
   var result = [];
   $.get(skoleData, function (data) {
-
-    $("#test").html(data).hide();
+    var cache = $(document.createElement('p'));
+    cache.attr( "id", "cache");
+    cache.html(data);    
+    cache.hide();
+    $(document.body).append(cache);
     vals = data;
   });
 }
@@ -167,11 +159,11 @@ function getCSV() {
 function getSortedCSV() {
 
   var result = [];
-  vals = $("#test").text();
+  vals = $("#cache").text();
   var lines = vals.split("\n");
   var headers = lines[0].split(",");
 
-  for (var i = 1; i < lines.length; i++) {
+  for (var i = 1; i < lines.length-1; i++) {
     var obj = [];
     var currentline = lines[i].split(",");
 
@@ -180,7 +172,6 @@ function getSortedCSV() {
     }
     result.push(obj);
   }
-
   return result;
 }
 

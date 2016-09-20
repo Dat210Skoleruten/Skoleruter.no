@@ -25,6 +25,8 @@
     <script src="../scripts/getData.js"></script>
     <link rel="stylesheet" href="../styles/navbar.css">
     <link rel="stylesheet" href="../styles/cards.css">
+    <link rel="stylesheet" href="../styles/modal.css">
+
 </head>
 <body>
 
@@ -40,7 +42,7 @@
             <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="index.html">SKOLERUTE</a> <!-- HOME BUTTON -->
-        <p class="center">Byskogen Skole</p> <!-- CENTER TEXT -->
+        <p class="center">Augelend Skole</p> <!-- CENTER TEXT -->
     </div>
 
     <form class="navbar-form navbar-left">
@@ -145,6 +147,33 @@
         <li><a href="#">Cindy</a></li>
     </ul>     <!-- /Temp List -->
 </div>
+<!--temp button for google maps,-->
+<span data-toggle="tooltip" data-placement="bottom" title="Google map" id="myBtn"
+      class="input-group-addon"><a href="#"><span
+        class="glyphicon glyphicon-map-marker mainColorText"
+        aria-hidden="true"></span></a></span>
+        <!--end button-->
+
+<!-- Start på Hjelpesenter knapp -->
+<div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal text-center">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times</span>
+                <h2>Google maps</h2>
+          </div>
+          <div id="map" style="width:950px;height:400px;background:yellow"></div>
+        </div>
+    </div>
+</div>
+<!-- Slutt på hjelpesenter knapp -->
+
+<!--Script for google maps modal, don't move!-->
+<script src="../scripts/modal.js"></script>
+<script src="../scripts/googlemap.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
 
 </body>
 </html>
