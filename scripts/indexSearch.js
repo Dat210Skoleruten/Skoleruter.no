@@ -24,13 +24,13 @@ $(document).ready(function () {
 
 function getListItems(){
     var schoolArray = getSchoolArray();
+    console.log(schoolArray);
      if ($("#myTable").children().length == 0) {
          console.log("kjører");
-            var list = getSortedCSV();
-            console.log(list);
-            $.each(list, function (index, value) {
-                console.log("inni foreach")
-                $("#myTable").html("<tr><td><a href='" + value.Skolenavn + ".html'>" + value.Skolenavn + "</a></td></tr>")
+            $.each(schoolArray, function (index, value) {
+                console.log(value.Skolenavn);
+                console.log("inni foreach");
+                $("#myTable").html("<tr><td><a href='calender.html'>" + value.Skolenavn + "</a></td></tr>");
             });
         }
 }

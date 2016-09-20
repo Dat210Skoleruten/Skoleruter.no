@@ -182,7 +182,6 @@ function getSortedCSV() {
     }
     result.push(obj);
   }
-  console.log(result);
   return result;
 }
 
