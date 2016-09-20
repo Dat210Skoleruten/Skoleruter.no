@@ -68,7 +68,8 @@
                             class="glyphicon glyphicon-map-marker mainColorText" aria-hidden="true"></span></a></span>
 
                     <!-- input bar -->
-                    <input type="text" id="indexSearch" onkeyup="search()" onfocus="getListItems()" class="form-control" placeholder="Søk etter din skole..." aria-hidden="true" autocomplete="off">
+                    <input type="text" id="indexSearch" onkeyup="search()" onfocus="getListItems()" class="form-control"
+                           placeholder="Søk etter din skole..." aria-hidden="true" autocomplete="off">
 
                     <!-- Help icon -->
                     <span data-toggle="tooltip" data-placement="bottom" title="Hjelpesenter" id="myBtn"
@@ -87,12 +88,13 @@
     <!-- Search bar -->
     <div class="col-sm-10 col-sm-offset-1">
         <div class="col-lg-6 col-sm-offset-3">
-            <table id="myTable">
+            <div id="noScroll">
+                <table id="myTable">
 
-            </table>
+                </table>
+            </div>
         </div>
     </div>
-</div>
 </div>
 
 <!-- Start på Hjelpesenter knapp -->
@@ -106,21 +108,21 @@
                 <h2>Hjelpesenter</h2>
             </div>
             <div class="modal-body">
-              <button class="accordion">Hvordan søke?</button>
-              <div class="panel">
-                <img src="../img/hjelp3.png" alt="Avatar" class="img">
-                <p>Lorem ipsum...</p>
-              </div>
-              <button class="accordion">Meny</button>
-              <div class="panel">
-                <img src="../img/hjelp3.png" alt="Avatar" class="img">
-                <p>Lorem ipsum...</p>
-              </div>
-              <button class="accordion">FAQ</button>
-              <div class="panel">
-                <img src="../img/hjelp3.png" alt="Avatar" class="img">
-                <p>Lorem ipsum...</p>
-              </div>
+                <button class="accordion">Hvordan søke?</button>
+                <div class="panel">
+                    <img src="../img/hjelp3.png" alt="Avatar" class="img">
+                    <p>Lorem ipsum...</p>
+                </div>
+                <button class="accordion">Meny</button>
+                <div class="panel">
+                    <img src="../img/hjelp3.png" alt="Avatar" class="img">
+                    <p>Lorem ipsum...</p>
+                </div>
+                <button class="accordion">FAQ</button>
+                <div class="panel">
+                    <img src="../img/hjelp3.png" alt="Avatar" class="img">
+                    <p>Lorem ipsum...</p>
+                </div>
             </div>
         </div>
     </div>
