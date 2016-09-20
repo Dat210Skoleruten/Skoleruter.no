@@ -178,11 +178,17 @@ function getSortedCSV() {
 }
 
 function combineArrays(){
-  var arr = []
+  var arr = schoolArray.slice(0);
 
   for(var i = 0; i < SkoleRuteArray.length; i++){
-
+    for(var j = 0; j < schoolArray.length; j++){
+      if($.inArray(schoolArray[i]["Skolenavn"], SkoleRuteArray) > -1){
+        arr[i].push(SkoleRuteArray[schoolArray["Skolenavn"]].dates);
+      }
+    }
   }
+  console.log("arr: ");
+  console.log(arr);
   console.log("SkoleRuteArray: ");
   console.log(SkoleRuteArray);
   console.log("schoolArray: ");
