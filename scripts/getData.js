@@ -150,6 +150,7 @@ function getSchoolArray(){
     return schoolList();
   }else{
     return schoolList;
+
   }
 }
 
