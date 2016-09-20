@@ -154,6 +154,7 @@ function getCSV() {
 }
 
 function getSortedCSV() {
+
   var result = [];
   vals = $("#test").text();
   var lines = vals.split("\n");
@@ -171,6 +172,8 @@ function getSortedCSV() {
 
   return result;
 }
+
+
 
 getCSV();
 

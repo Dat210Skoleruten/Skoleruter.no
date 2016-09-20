@@ -66,7 +66,7 @@
                             class="glyphicon glyphicon-map-marker mainColorText" aria-hidden="true"></span></a></span>
 
                     <!-- input bar -->
-                    <input type="text" id="indexSearch" onkeyup="myFunction()" class="form-control"
+                    <input type="text" id="indexSearch" onkeyup="myFunction()" onfocus="getListItems()" class="form-control"
                            placeholder="Søk etter din skole..." aria-hidden="true">
 
                     <!-- Help icon -->
@@ -87,15 +87,7 @@
     <div class="col-sm-10 col-sm-offset-1">
         <div class="col-lg-6 col-sm-offset-3">
             <table id="myTable">
-                <tr>
-                    <td><a href="calendar.html">Byskogen Skole</a></td>
-                </tr>
-                <tr>
-                    <td><a href="#">Greveskogen Videregående Skole</a></td>
-                </tr>
-                <tr>
-                    <td><a href="#">Universitet i Stavanger</a></td>
-                </tr>
+             
             </table>
         </div>
     </div>

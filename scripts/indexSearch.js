@@ -15,3 +15,38 @@ function myFunction() {
         }
     }
 }
+$(document).ready(function () {
+    
+   
+
+});
+
+// $("#indexSearch").(getListItems());
+
+function getListItems(){
+    console.log(vals);
+    console.log("test");
+     if ($("#myTable").children().length == 0) {
+         console.log("kjører");
+            var list = getSortedCSV();
+            console.log(list);
+            $.each(list, function (index, value) {
+                console.log("inni foreach")
+                $("#myTable").html("<tr><td><a href='" + value.Skolenavn + ".html'>" + value.Skolenavn + "</a></td></tr>")
+            });
+        }
+}
+
+ //<tr>
+ //  <td><a href="calendar.html">Byskogen Skole</a></td>
+ // </tr>
+/*
+$("#indexSearch").keyup(function() {
+    console.log("test");
+ var list = getSortedCSV();
+ console.log(list);
+ $.each(list, function(index, value){
+     console.log("inni foreach")
+     $("#myTable").html("<tr><td><a href='" + value.Skolenavn + ".html'>" + value.Skolenavn + "</a></td></tr>")
+ })
+}); */
