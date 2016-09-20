@@ -32,6 +32,17 @@ body {
     z-index: 0;
 }
 
+#welcomeText {
+    width: 50%;
+    margin: -400px auto; /* Top Right Bottom Left */
+}
+
+#welcomeText p {
+    width: 50%;
+    margin: 0 auto;
+    color: #495156;
+}
+
 /* Medium devices (desktops, 992px and up) */
 @media screen and (max-width: 992px) {
     #title {

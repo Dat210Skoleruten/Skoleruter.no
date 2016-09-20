@@ -2,7 +2,8 @@
 var skoleruteData = "http://hotell.difi.no/api/json/stavanger/skoleruter?"; //
 var skoleData = "https://raw.githubusercontent.com/Dat210Skoleruten/Code/master/skoler.csv"; //informasjon om skolene (lokasjon, adresse, kontaktinformasjon)
 var vals;
-var schoolList = [];
+var schoolArray = [];
+var SkoleRuteArray = [];
 
 //TODO: ERROR HANDLIG
 
@@ -109,7 +110,7 @@ function formatDato(entry) {
   return [dayType, entry.kommentar];
 };
 
-var SkoleRuteArray = getAllData();
+
 //console.log(SkoleRuteArray);
 
 //getData("skole", "Hundvåg skole");
@@ -134,11 +135,13 @@ skoleRuteData[0] = {
 
 */
 function getSchoolArray(){
-  if(schoolList.length == 0){
-    schoolList = getSortedCSV();
-    return schoolList;
+  
+  if(schoolArray.length == 0){
+    schoolArray = getSortedCSV();
+    return schoolArray;
   }else{
-    return schoolList;
+    combineArrays();
+    return schoolArray;
   }
 }
 
@@ -174,9 +177,26 @@ function getSortedCSV() {
   return result;
 }
 
+function combineArrays(){
+  var arr = schoolArray.slice(0);
 
+  for(var i = 0; i < SkoleRuteArray.length; i++){
+    for(var j = 0; j < schoolArray.length; j++){
+      if($.inArray(schoolArray[i]["Skolenavn"], SkoleRuteArray) > -1){
+        arr[i].push(SkoleRuteArray[schoolArray["Skolenavn"]].dates);
+      }
+    }
+  }
+  console.log("arr: ");
+  console.log(arr);
+  console.log("SkoleRuteArray: ");
+  console.log(SkoleRuteArray);
+  console.log("schoolArray: ");
+  console.log(schoolArray);
+}
 
 getCSV();
+SkoleRuteArray = getAllData();
 
 
 //array[i]["skolenavn"];

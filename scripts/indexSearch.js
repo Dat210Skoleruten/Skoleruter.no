@@ -4,7 +4,6 @@ function search() {
     if(input.val() == 0){
         $("#myTable").hide();
     }else{
-        console.log("test");
         $("#myTable").show();
     }
     filter = input.val().toUpperCase();
@@ -30,12 +29,8 @@ $(document).ready(function () {
 
 function getListItems(){
     var schoolArray = getSchoolArray();
-    console.log(schoolArray);
      if ($("#myTable").children().length == 0) {
-         console.log("kjører");
             $.each(schoolArray, function (index, value) {
-                console.log(value);
-                console.log("inni foreach");
                 $("#myTable").append("<tr><td><a href='calendar.html'>" + value.Skolenavn + "</a></td></tr>");
             });
             $("#myTable").hide();
