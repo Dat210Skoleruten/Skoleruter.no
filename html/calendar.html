@@ -60,7 +60,8 @@
         <div class="form-group">
             <form>
                 <!-- input bar -->
-                <input type="text" class="navSearch" name="search" id="indexSearch" onkeyup="search()" onfocus="getListItems()" class="form-control"
+                <input type="text" class="navSearch" name="search" id="indexSearch" onkeyup="search()"
+                       onfocus="getListItems()" class="form-control"
                        placeholder="Søk .." aria-hidden="true" autocomplete="off">
             </form>
         </div>
@@ -160,14 +161,16 @@
         <li><a href="#">Cindy</a></li>
     </ul>     <!-- /Temp List -->
 </div>
+
 <!--temp button for google maps,-->
 <span data-toggle="tooltip" data-placement="bottom" title="Google map" id="myBtn"
       class="input-group-addon"><a href="#"><span
         class="glyphicon glyphicon-map-marker mainColorText"
-        aria-hidden="true"></span></a></span>
-        <!--end button-->
+        aria-hidden="true"></span></a>
+</span>
+<!--end button-->
 
-<!-- Start på Hjelpesenter knapp -->
+<!-- /Help center button -->
 <div>
     <!-- The Modal -->
     <div id="myModal" class="modal text-center">
@@ -176,12 +179,11 @@
             <div class="modal-header">
                 <span class="close">&times</span>
                 <h2>Google maps</h2>
-          </div>
-          <div id="map" style="width:950px;height:400px;background:yellow"></div>
+            </div>
+            <div id="map" style="width:950px;height:400px;background:yellow"></div>
         </div>
     </div>
-</div>
-<!-- Slutt på hjelpesenter knapp -->
+</div> <!-- /Help center button -->
 
 <!--Script for google maps modal, don't move!-->
 <script src="../scripts/modal.js"></script>

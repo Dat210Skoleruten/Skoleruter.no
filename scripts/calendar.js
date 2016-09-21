@@ -1,3 +1,4 @@
+/*
 $(document).ready(function () {
     $.each(schools, function (index, value) {
         //schools er array med skoler som skal tegnes i kalender
@@ -5,6 +6,7 @@ $(document).ready(function () {
         // skal generere kalender til calendar.html
     })
 })
+*/
 
 function calendarList() {
     var input, filter, ul, li, a, i;
