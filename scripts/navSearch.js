@@ -1,18 +1,13 @@
-/********** Tooltip **********/
-$(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-});
-
-function indexSearchList() {
+function navSearchList() {
     var input, filter, table, tr, td, i;
-    input = $("#indexSearch");
+    input = $("#navSearch");
     if (input.val() == 0) {
-        $("#indexList").hide();
+        $("#navList").hide();
     } else {
-        $("#indexList").show();
+        $("#navList").show();
     }
     filter = input.val().toUpperCase();
-    table = document.getElementById("indexList");
+    table = document.getElementById("navList");
     tr = table.getElementsByTagName("tr");
     for (i = 0; i < tr.length; i++) {
         td = tr[i].getElementsByTagName("td")[0];
@@ -32,13 +27,13 @@ $(document).ready(function () {
 
 // $("#indexSearch").(getListItems());
 
-function getIndexListItems() {
+function getNavListItems() {
     var schoolArray = getSchoolArray();
-    if ($("#indexList").children().length == 0) {
+    if ($("#navList").children().length == 0) {
         $.each(schoolArray, function (index, value) {
-            $("#indexList").append("<tr><td><a href='calendar.html'>" + value.Skolenavn + "</a></td></tr>");
+            $("#navList").append("<tr><td><a href='calendar.html'>" + value.Skolenavn + "</a></td></tr>");
         });
-        $("#indexList").hide();
+        $("#navList").hide();
     }
 
 }
