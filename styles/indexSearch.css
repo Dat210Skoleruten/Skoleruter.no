@@ -1,0 +1,33 @@
+/* The main table css */
+#indexList {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #495156;
+    font-size: 18px;
+}
+
+#indexList td {
+    text-align: left;
+    background-color: #e5e5e5;
+}
+
+/* The list rows */
+#indexList td a {
+    display: block;
+    text-decoration: none;
+    color: #495156;
+    padding: 12px;
+}
+/* The list rows text when hovering */
+/* The list rows background when hovering */
+#indexList td a:hover {
+    color: #fff;
+    background-color: #495156;
+}
+
+/* Make the table chose when to have the scrollbar and height of the list box*/
+#noScroll {
+    height: 400px;
+    overflow: auto;
+    display: block;
+}
