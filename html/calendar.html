@@ -38,6 +38,7 @@
     <script type="text/javascript" src="../scripts/googlemap.js"></script>
     <script type="text/javascript" src="../scripts/modal.js"></script>
     <script type="text/javascript" src="../scripts/navbar.js"></script>
+    <script type="text/javascript" src="../scripts/navSearch.js"></script>
 </head>
 <body>
 
@@ -60,8 +61,8 @@
         <div class="form-group">
             <form>
                 <!-- input bar -->
-                <input type="text" class="navSearch" name="search" id="indexSearch" onkeyup="search()"
-                       onfocus="getListItems()" class="form-control"
+                <input type="text" class="navSearch" name="search" id="navSearch" onkeyup="navSearchList()"
+                       onfocus="getNavListItems()" class="form-control"
                        placeholder="Søk .." aria-hidden="true" autocomplete="off">
             </form>
         </div>
