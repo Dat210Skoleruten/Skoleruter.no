@@ -1,3 +1,8 @@
+/********** Tooltip **********/
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+
 function search() {
     var input, filter, table, tr, td, i;
     input = $("#indexSearch");
