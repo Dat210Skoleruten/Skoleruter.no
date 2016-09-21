@@ -8,7 +8,8 @@ var schoolData = [];
 //TODO: ERROR HANDLIG
 
 
-console.log("Session test (should be empty first on first load): ",Session.get(schoolData) )
+console.log("Session test (should be empty first on first load): ",Session.get(schoolData) );
+
 
 /*
  //getData uses ajax and therfore does not deliver data in order !!!!
@@ -204,8 +205,10 @@ function combineArrays() {
 
 getCSV();
 skoleRuteArray = getAllData();
-
 Session.set(schoolData, skoleRuteArray);
+Cookies.set('test', { foo: 'bar' });
+
+console.log(Cookies.get('test')); 
 //array[i]["skolenavn"];
 
 
