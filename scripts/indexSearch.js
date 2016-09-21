@@ -7,12 +7,12 @@ function search() {
     var input, filter, table, tr, td, i;
     input = $("#indexSearch");
     if (input.val() == 0) {
-        $("#myTable").hide();
+        $("#indexList").hide();
     } else {
-        $("#myTable").show();
+        $("#indexList").show();
     }
     filter = input.val().toUpperCase();
-    table = document.getElementById("myTable");
+    table = document.getElementById("indexList");
     tr = table.getElementsByTagName("tr");
     for (i = 0; i < tr.length; i++) {
         td = tr[i].getElementsByTagName("td")[0];
@@ -34,11 +34,11 @@ $(document).ready(function () {
 
 function getListItems() {
     var schoolArray = getSchoolArray();
-    if ($("#myTable").children().length == 0) {
+    if ($("#indexList").children().length == 0) {
         $.each(schoolArray, function (index, value) {
-            $("#myTable").append("<tr><td><a href='calendar.html'>" + value.Skolenavn + "</a></td></tr>");
+            $("#indexList").append("<tr><td><a href='calendar.html'>" + value.Skolenavn + "</a></td></tr>");
         });
-        $("#myTable").hide();
+        $("#indexList").hide();
     }
 
 }

@@ -1,7 +1,7 @@
 var lng, lat;
 
 getLocation();
-tabell = document.getElementById('myTable');
+tabell = document.getElementById('indexList');
 
 function getLocation() {
     if (navigator.geolocation) {
