@@ -1,5 +1,7 @@
 #navSearchContainer {
     margin-top: -20px;
+    position: fixed;
+    z-index: 1;
 }
 
 /* The main table css */
