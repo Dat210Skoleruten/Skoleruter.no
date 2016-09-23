@@ -75,7 +75,7 @@ input.navSearch {
 
 /* navbar searchbar when focused */
 input.navSearch:focus {
-    width: 100%;
+    width: 115%;
 }
 
 /* TODO TEMPORARY FIX NOT PRETTY AT ALL AND NOT FUNCTIONAL */
@@ -88,5 +88,9 @@ input.navSearch:focus {
     .navbar-light {
         display: flex;
         justify-content: flex-end;
+    }
+
+    .navbar-header {
+        display: none;
     }
 }
