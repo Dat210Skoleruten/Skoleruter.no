@@ -34,11 +34,19 @@ $(document).ready(function () {
 
 function getIndexListItems() {
     var schoolArray = getSchoolArray();
-    if ($("#indexList").children().length == 0) {
-        $.each(schoolArray, function (index, value) {
-            $("#indexList").append("<tr><td><a href='calendar.html'>" + value.Skolenavn + "</a></td></tr>");
-        });
-        $("#indexList").hide();
-    }
+    $("#indexList").children().empty();
+    $.each(schoolArray, function (index, value) {
+        $("#indexList").append("<tr><td><a href='calendar.html'>" + value.Skolenavn + "</a></td></tr>");
+    });
+    $("#indexList").hide();
 
+}
+
+function getIndexListItemsPos() {
+    $("#indexList").show();
+    $("#indexList").children().empty();
+    var fiveClosest = findClosest();
+    for(var i = 0; i < 5; i++){ //5 closest schools
+        $("#indexList").append("<tr><td><a href='calendar.html'>" + fiveClosest[i][1] + "</a></td></tr>");
+    }
 }

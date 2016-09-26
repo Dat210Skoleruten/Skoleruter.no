@@ -145,7 +145,6 @@ function getSchoolArray() {
         schoolData = combineArrays();
         return schoolData;
     } else {
-        console.log(schoolData);
         return schoolData;
     }
 }
@@ -197,6 +196,7 @@ function combineArrays() {
 
 getCSV();
 skoleRuteArray = getAllData(); 
+console.log(skoleRuteArray);
 //Session.set(schoolData, skoleRuteArray);
 Cookies.set('test', { foo: 'bar' });
 

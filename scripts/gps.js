@@ -31,9 +31,8 @@ function distance(lat1, lon1, lat2, lon2) {
   return R * 2 * Math.asin(Math.sqrt(a));
 }
 
-function findFiveClosest(){
+function findClosest(){
   var schoolList = getSchoolArray(); //Gets the data from the getSortedCSV() function in getData.js
-  console.log(schoolList);
   var dist_array = [];
 
   for(var i = 0; i < schoolList.length; i++){
@@ -53,24 +52,7 @@ function findFiveClosest(){
   }
   sorted_distance = dist_array.sort(sortFunction); //Sorts array by distance
   //console.log(sorted_distance);
-  closest_five = sorted_distance.slice(0, 5); //new array with top five closest schools
+  //closest_five = sorted_distance.slice(0, 5); //new array with top five closest schools
   //console.log(closest_five);
-  return closest_five;
+  return sorted_distance;
 }
-
-//MÅ ENDRES SLIK AT DEN APPENDER TIL RIKTIG TABELL!
-  function printClosest(){
-    // FUNKER NÅ, SLAPP AV
-    //Pulls the sorted array with the five closest schools from the function findFiveClosest()
-    var arrOfClosest = findFiveClosest();
-    //console.log(arrOfClosest[0][1]); //testing if it reads the array
-    for(var i = 0; i < arrOfClosest.length; i++){
-      //Loops through the array and makes html elements to fill into a table
-      var tr = document.createElement('tr');
-      var td = document.createElement('td');
-      //appends all elements together
-      td.innerHTML = arrOfClosest[i][1] + " <span style='text-align=right;'>Avstand: " + arrOfClosest[i][0] + "</span>";
-      tr.appendChild(td);
-      tabell.appendChild(tr);
-    }
-  }

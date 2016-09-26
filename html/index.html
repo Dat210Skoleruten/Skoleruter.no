@@ -31,7 +31,7 @@
     <script type="text/javascript" src="../scripts/cookie.js"></script> 
     <script type="text/javascript" src="../scripts/session.js"></script>
     <script type="text/javascript" src="../scripts/getData.js"></script>
-    <!-- <script type="text/javascript" src="../scripts/gps.js"></script> -->
+    <script type="text/javascript" src="../scripts/gps.js"></script>
     <script type="text/javascript" src="../scripts/indexSearch.js"></script>
     <script type="text/javascript" src="../scripts/accordion.js"></script>
     <script type="text/javascript" src="../scripts/calendar.js"></script>
@@ -70,11 +70,11 @@
 
                     <!-- Position icon -->
                     <span data-toggle="tooltip" data-placement="bottom" title="Nærmeste skole"
-                          class="input-group-addon"><span class="glyphicon glyphicon-map-marker mainColorText"
+                          class="input-group-addon" onclick="getIndexListItemsPos()"><span class="glyphicon glyphicon-map-marker mainColorText"
                                                           aria-hidden="true"></span></span>
 
                     <!-- input bar -->
-                    <input type="text" id="indexSearch" onkeyup="indexSearchList()" onfocus="getIndexListItems()" class="form-control"
+                    <input type="text" id="indexSearch" onkeyup="indexSearchList()" onfocus="getIndexListItems();" class="form-control"
                            placeholder="Søk etter din skole..." aria-hidden="true" autocomplete="off">
 
                     <!-- Help icon -->
