@@ -36,7 +36,7 @@ function getIndexListItems() {
     var schoolArray = getSchoolArray();
     $("#indexList").children().empty();
     $.each(schoolArray, function (index, value) {
-        $("#indexList").append("<tr><td><a href='calendar.html'onclick ='Cookies.set('selected', "+value.Skolenavn+"')>" + value.Skolenavn + "</a></td></tr>");
+        $("#indexList").append("<tr><td><a href='calendar.html' onclick ='Cookies.set('selected','"+value.Skolenavn+"')>" + value.Skolenavn + "</a></td></tr>");
     });
     $("#indexList").hide();
 
