@@ -8,7 +8,7 @@ var schoolData = [];
 //TODO: ERROR HANDLIG
 
 
-console.log("Session test (should be empty first on first load): ", Session.get(schoolData) );
+//console.log("Session test (should be empty first on first load): ", Session.get(schoolData) );
 
 
 /*
@@ -137,14 +137,6 @@ function formatDato(entry) {
  datoer: ["2015-08-12" : [101, "Planleggingsdag"], "2015-08-13" : [110, ""] ] // 101: elevdag: true, laererdag: false, sfodag: true
 
  */
-function getSchoolArray() {
-    if (schoolList.length == 0) {
-        schoolList = getSortedCSV();
-        return schoolList;
-    } else {
-        return schoolList;
-    }
-}
 
 function getSchoolArray() {
 
@@ -205,7 +197,7 @@ function combineArrays() {
 
 getCSV();
 skoleRuteArray = getAllData(); 
-Session.set(schoolData, skoleRuteArray);
+//Session.set(schoolData, skoleRuteArray);
 Cookies.set('test', { foo: 'bar' });
 
 console.log(Cookies.get('test'));

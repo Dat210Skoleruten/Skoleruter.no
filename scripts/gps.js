@@ -33,6 +33,7 @@ function distance(lat1, lon1, lat2, lon2) {
 
 function findFiveClosest(){
   var schoolList = getSchoolArray(); //Gets the data from the getSortedCSV() function in getData.js
+  console.log(schoolList);
   var dist_array = [];
 
   for(var i = 0; i < schoolList.length; i++){
