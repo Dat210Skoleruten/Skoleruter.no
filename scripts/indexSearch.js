@@ -36,11 +36,15 @@ function getIndexListItems() {
     var schoolArray = getSchoolArray();
     $("#indexList").children().empty();
     $.each(schoolArray, function (index, value) {
-        var element = $("<tr><td><a href='calendar.html'>" + value.Skolenavn + "</a></td></tr>");
-        element.click(function(){
-            Cookies.set("selected", $(this).val());
+        var elem1 = $("<tr></tr>");
+        var elem2 = $("<td></td>");
+        var elem3 = $("<a href='calendar.html'>" + value.Skolenavn + "</a>");
+        elem3.click(function(){
+            Cookies.set("selected", $(this).text());
         });
-        $("#indexList").append(element);
+        elem2.append(elem3);
+        elem1.append(elem2);
+        $("#indexList").append(elem1);
     });
     $("#indexList").hide();
 
