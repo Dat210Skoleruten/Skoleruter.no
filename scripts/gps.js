@@ -7,15 +7,14 @@ function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
     } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
+        console.log("Geolocation is not supported by this browser.");
     }
 }
 
 function showPosition(position) {
     lat = position.coords.latitude;
     lng = position.coords.longitude;
-    x.innerHTML = "Latitude: " + position.coords.latitude +
-    "<br>Longitude: " + position.coords.longitude;
+  
     //console.log(distance(position.coords.latitude, position.coords.longitude, 40.545073, -74.068443))
 }
 
