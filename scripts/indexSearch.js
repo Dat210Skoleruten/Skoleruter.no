@@ -36,7 +36,11 @@ function getIndexListItems() {
     var schoolArray = getSchoolArray();
     $("#indexList").children().empty();
     $.each(schoolArray, function (index, value) {
-        $("#indexList").append("<tr><td><a href='calendar.html'onclick ='Cookies.set('selected', "+value.Skolenavn+"')>" + value.Skolenavn + "</a></td></tr>");
+        var element = $("<tr><td><a href='calendar.html'>" + value.Skolenavn + "</a></td></tr>");
+        element.click(function(){
+            Cookies.set("selected", $(this.val()));
+        });
+        $("#indexList").append(element);
     });
     $("#indexList").hide();
 
@@ -47,6 +51,10 @@ function getIndexListItemsPos() {
     $("#indexList").children().empty();
     var fiveClosest = findClosest();
     for(var i = 0; i < 5; i++){ //5 closest schools
-        $("#indexList").append("<tr><td><a href='calendar.html' onclick ='Cookies.set('selected', "+fiveClosest[i][1]+"')>" + fiveClosest[i][1] + "</a></td></tr>");
+        var element = $("<tr><td><a href='calendar.html'>" + fiveClosest[i][1] + "</a></td></tr>");
+        element.click(function(){
+            Cookies.set("selected", $(this.val()));
+        });
+        $("#indexList").append(element);
     }
 }
