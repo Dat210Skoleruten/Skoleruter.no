@@ -204,7 +204,7 @@ function combineArrays() {
 }
 
 getCSV();
-skoleRuteArray = getAllData();
+skoleRuteArray = getAllData(); 
 Session.set(schoolData, skoleRuteArray);
 Cookies.set('test', { foo: 'bar' });
 
