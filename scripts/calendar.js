@@ -1,19 +1,18 @@
 $(document).ready(function () {
+
     var selected = Cookies.get('selected');
+    console.log("selected school :" ,selected);
     var currentDate = new Date();
-    $.each(skoleRuteArray, function (index, value) {
-        //schools er array med skoler som skal tegnes i kalender
-        console.log(value);
+    var tmpArray = getSchoolArray(); //workaround with Session
+    console.log("tmpArray : ",tmpArray);
 
-        if (value["skolenavn"] == selected) {
+    for(var i = 0; i < tmpArray ; i++){
+      console.log(tmpArray[i]);
+
+    };
 
 
 
-
-
-            // skal generere kalender til calendar.html
-        }
-    });
 });
 
 function calendarList() {
