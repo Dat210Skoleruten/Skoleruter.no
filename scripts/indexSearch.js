@@ -55,10 +55,14 @@ function getIndexListItemsPos() {
     $("#indexList").children().empty();
     var fiveClosest = findClosest();
     for(var i = 0; i < 5; i++){ //5 closest schools
-        var element = $("<tr><td><a href='calendar.html'>" + fiveClosest[i][1] + "</a></td></tr>");
-        element.click(function(){
-            Cookies.set("selected", $(this).val());
+        var elem1 = $("<tr></tr>");
+        var elem2 = $("<td></td>");
+        var elem3 = $("<a href='calendar.html'>" + fiveClosest[i][1] + "</a>");
+        elem2.click(function(){
+            Cookies.set("selected", $(this).text());
         });
-        $("#indexList").append(element);
+        elem2.append(elem3);
+        elem1.append(elem2);
+        $("#indexList").append(elem1);
     }
 }
