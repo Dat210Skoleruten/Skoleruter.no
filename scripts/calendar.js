@@ -1,5 +1,7 @@
 
 console.log("schoolData:", getSchoolData());
+
+
 $(document).ready(function () {
   console.log("schoolData:" , Session.get('schoolData'));
     var selected = Cookies.get('selected');
@@ -33,16 +35,3 @@ function calendarList() {
         }
     }
 }
-
-
-$(document).ready(function(){
-    var skoleData = getSchoolArray(); //change to get school list from cookie
-    var skoleName = Cookies.get("selected");
-    var schools = [];
-    $.each(skoleData, function(index, value){
-        if(value.Skolenavn == skoleName){
-            schools.push(value);
-        }
-    });
-    console.log(schools[0]);
-});
