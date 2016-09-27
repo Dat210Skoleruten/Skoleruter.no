@@ -1,11 +1,13 @@
-$(document).ready(function () {
 
+console.log("schoolData:", getSchoolData());
+$(document).ready(function () {
+  console.log("schoolData:" , Session.get('schoolData'));
     var selected = Cookies.get('selected');
     console.log("selected school :" ,selected);
     var currentDate = new Date();
-    var tmpArray = getSchoolArray(); //workaround with Session
+    var tmpArray = getSchoolData(); //workaround with Session
     console.log("tmpArray : ",tmpArray);
-
+    $("#skoletittle").html(selected);
     for(var i = 0; i < tmpArray ; i++){
       console.log(tmpArray[i]);
 
