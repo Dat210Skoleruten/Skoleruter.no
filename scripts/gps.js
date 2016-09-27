@@ -5,6 +5,7 @@ tabell = document.getElementById('indexList');
 
 function getLocation() {
     if (navigator.geolocation) {
+        console.log("Geolocation is supported")
         navigator.geolocation.getCurrentPosition(showPosition);
     } else {
         console.log("Geolocation is not supported by this browser.");
