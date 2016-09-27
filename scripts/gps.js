@@ -14,7 +14,7 @@ function getLocation() {
 function showPosition(position) {
     lat = position.coords.latitude;
     lng = position.coords.longitude;
-  
+
     //console.log(distance(position.coords.latitude, position.coords.longitude, 40.545073, -74.068443))
 }
 
