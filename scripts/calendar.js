@@ -10,10 +10,7 @@ $(document).ready(function () {
     var tmpArray = getSchoolData(); //workaround with Session
     console.log("tmpArray : ",tmpArray);
     $("#schoolName").html(selected);
-    for(var i = 0; i < tmpArray ; i++){
-      console.log(tmpArray[i]);
-
-    };
+    console.log(findSchool(selected, tmpArray));
 
 
 
@@ -34,4 +31,12 @@ function calendarList() {
 
         }
     }
+}
+// findSchool finds the school with the name as string from array
+function findSchool(string, array){
+  for (var i = 0; i < array.length; i++) {
+    if (array[i].Skolenavn == string) {
+      return array[i];
+    }
+  }
 }
