@@ -2,7 +2,7 @@
 console.log("schoolData:", getSchoolData());
 
 $(document).ready(function () {
-  console.log("schoolData:" , Session.get('schoolData'));
+    console.log("schoolData:" , Session.get('schoolData'));
     var selected = Cookies.get('selected');
     console.log("selected school :" ,selected);
     var currentDate = new Date();
@@ -10,9 +10,6 @@ $(document).ready(function () {
     console.log("tmpArray : ",tmpArray);
     $("#schoolName").html(selected);
     console.log(findSchool(selected, tmpArray));
-
-
-
 });
 
 function calendarList() {
@@ -27,10 +24,10 @@ function calendarList() {
             li[i].style.display = "";
         } else {
             li[i].style.display = "none";
-
         }
     }
 }
+
 // findSchool finds the school with the name as string from array
 function findSchool(string, array){
   for (var i = 0; i < array.length; i++) {
@@ -39,3 +36,20 @@ function findSchool(string, array){
     }
   }
 }
+
+// TODO: finish calendar class
+// class calendar {
+//   var currentDate;
+//   var events = [];
+//
+//   constructor() {
+//     this.currentDate = new Date();
+//   }
+//   addEvent(dato, status, comment){
+//
+//
+//   }
+//
+//   buildCalendar()
+//
+// }
