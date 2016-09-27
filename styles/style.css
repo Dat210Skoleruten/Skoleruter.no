@@ -26,6 +26,10 @@ body {
     background-color: #495156;
 }
 
+.backgroundColor {
+    background-color: #f5f5f5;
+}
+
 /* The main grey / blue color for text */
 .mainColorText {
     color: #495156;
