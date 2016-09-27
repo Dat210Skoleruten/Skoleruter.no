@@ -50,10 +50,11 @@ function getIndexListItems() {
 
 }
 
-function getIndexListItemsPos() {
+function getIndexListItemsPos(closest) {
+  console.log("getIndexListItemsPos: ", closest )
     $("#indexList").show();
     $("#indexList").children().empty();
-    var fiveClosest = findClosest();
+    var fiveClosest = closest;
     for(var i = 0; i < 5; i++){ //5 closest schools
         var elem1 = $("<tr></tr>");
         var elem2 = $("<td></td>");

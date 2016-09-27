@@ -1,12 +1,10 @@
-var lng, lat;
-
 
 tabell = document.getElementById('indexList');
 
 function getLocation() {
     if (navigator.geolocation) {
         console.log("Geolocation is supported")
-        navigator.geolocation.getCurrentPosition(showPosition);
+        navigator.geolocation.getCurrentPosition(findClosest);
 
 
     } else {
@@ -21,7 +19,7 @@ function showPosition(position) {
 
     //console.log(distance(position.coords.latitude, position.coords.longitude, 40.545073, -74.068443))
 }
-getLocation();
+
 function distance(lat1, lon1, lat2, lon2) {
   var R = 6371; // Radius of the earth in km
   var dLat = (lat2 - lat1) * Math.PI / 180;  // deg2rad below
@@ -34,7 +32,10 @@ function distance(lat1, lon1, lat2, lon2) {
   return R * 2 * Math.asin(Math.sqrt(a));
 }
 
-function findClosest(){
+function findClosest(position){
+
+  var lat = position.coords.latitude;
+  var lng = position.coords.longitude;
 
 
   console.log("lat: ", lat , ", lon: ", lng);
@@ -62,5 +63,11 @@ function findClosest(){
   //closest_five = sorted_distance.slice(0, 5); //new array with top five closest schools
   //console.log(closest_five);
   console.log(sorted_distance);
-  return sorted_distance;
+  // return sorted_distance;
+
+
+
+
+  getIndexListItemsPos(sorted_distance);
+
 }
