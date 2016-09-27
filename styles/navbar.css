@@ -51,12 +51,12 @@
 
 /* Change hover of the hamburger button to same as navbar color */
 .nav li a:hover {
-    background-color: #495156; /*Change this color to the background color of the navbar */
+    background-color: #f5f5f5; /*Change this color to the background color of the navbar */
 }
 
 /* Change the on.visited color on the hamburger to navbar color */
 .nav li a:visited {
-    background-color: #495156; /*Change this color to the background color of the navbar */
+    background-color: #f5f5f5; /*Change this color to the background color of the navbar */
 }
 
 /* Navbar Search */

@@ -7,7 +7,7 @@ $(document).ready(function () {
     var currentDate = new Date();
     var tmpArray = getSchoolData(); //workaround with Session
     console.log("tmpArray : ",tmpArray);
-    $("#skoletittle").html(selected);
+    $("#schoolName").html(selected);
     for(var i = 0; i < tmpArray ; i++){
       console.log(tmpArray[i]);
 
