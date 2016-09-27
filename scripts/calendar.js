@@ -1,7 +1,6 @@
 
 console.log("schoolData:", getSchoolData());
 
-
 $(document).ready(function () {
   console.log("schoolData:" , Session.get('schoolData'));
     var selected = Cookies.get('selected');
