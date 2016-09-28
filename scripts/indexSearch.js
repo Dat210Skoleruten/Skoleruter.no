@@ -37,15 +37,15 @@ function getIndexListItems() {
         var elem1 = $("<tr></tr>");
         var elem2 = $("<td></td>");
         var elem3 = $("<div></div>");
-        var elem4 = $("<a href='calendar.html'>" + value.Skolenavn + "</a>");
-        var elem5 = $("<a href='#' class='addButton'><span class='glyphicon glyphicon-star-empty' aria-hidden='true'></span></a>");
-        elem3.click(function(){
+        var elem4 = $("<a href='calendar.html' class='listElement'>" + value.Skolenavn + "</a>");
+        var elem5 = $("<td><div><a href='#' class='addButton'><span class='glyphicon glyphicon-star-empty' aria-hidden='true'></span></a></div></td>");
+        elem3.click(function () {
             Cookies.set("selected", $(this).text());
         });
         elem3.append(elem4);
-        elem3.append(elem5);
         elem2.append(elem3);
         elem1.append(elem2);
+        elem1.append(elem5);
         $("#indexList").append(elem1);
     });
     $("#indexList").hide();
@@ -53,19 +53,23 @@ function getIndexListItems() {
 }
 
 function getIndexListItemsPos(closest) {
-  console.log("getIndexListItemsPos: ", closest )
+    console.log("getIndexListItemsPos: ", closest)
     $("#indexList").show();
     $("#indexList").children().empty();
     var fiveClosest = closest;
-    for(var i = 0; i < 5; i++){ //5 closest schools
+    for (var i = 0; i < 5; i++) { //5 closest schools
         var elem1 = $("<tr></tr>");
         var elem2 = $("<td></td>");
-        var elem3 = $("<a href='calendar.html'>" + fiveClosest[i][1] + "</a>");
-        elem2.click(function(){
+        var elem3 = $("<div></div>");
+        var elem4 = $("<a href='calendar.html' class='listElement'>" + fiveClosest[i][1] + "</a>");
+        var elem5 = $("<td><div><a href='#' class='addButton'><span class='glyphicon glyphicon-star-empty' aria-hidden='true'></span></a></div></td>");
+        elem2.click(function () {
             Cookies.set("selected", $(this).text());
         });
+        elem3.append(elem4);
         elem2.append(elem3);
         elem1.append(elem2);
+        elem1.append(elem5);
         $("#indexList").append(elem1);
     }
 }

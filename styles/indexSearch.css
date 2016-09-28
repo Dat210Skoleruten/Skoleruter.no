@@ -9,14 +9,15 @@
 #indexList td {
     text-align: left;
     background-color: #e5e5e5;
+    width: 100%;
 }
 
 /* The list rows */
-#indexList td a {
+#indexList td div a {
     display: inline-block;
     text-decoration: none;
     color: #495156;
-    padding: 12px;
+    padding: 12px; /* Top Right Bottom Left */
 }
 
 /* The list rows text when hovering */
@@ -30,9 +31,27 @@
 #noScroll {
     height: 400px;
     overflow: auto;
-    display: block;
+    display: block; 
+}
+
+.listElement {
+    width: 100%;
 }
 
 .addButton {
     float: right;
+}
+
+/* The list rows */
+.addButton td div a {
+    display: inline-block;
+    text-decoration: none;
+    color: #495156;
+}
+
+/* The list rows text when hovering */
+/* The list rows background when hovering */
+.addbutton td a:hover {
+    color: #fff;
+    background-color: #495156;
 }
