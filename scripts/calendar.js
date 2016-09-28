@@ -29,27 +29,67 @@ function calendarList() {
 }
 
 // findSchool finds the school with the name as string from array
-function findSchool(string, array){
-  for (var i = 0; i < array.length; i++) {
-    if (array[i].Skolenavn == string) {
-      return array[i];
+function findSchool(str, array) {
+    var tmpArr = [];
+    var strArr = str.split(",");
+    for (var i = 0; i < array.length; i++) {
+        for (var j = 0; j < strArr.length; j++) {
+            if (array[i].Skolenavn == strArr[j]) {
+                tmpArr.push(array[i]);
+            }
+        }
+
     }
-  }
+    return tmpArr;
 }
 
+
 // TODO: finish calendar class
-// class calendar {
-//   var currentDate;
-//   var events = [];
-//
-//   constructor() {
-//     this.currentDate = new Date();
-//   }
-//   addEvent(dato, status, comment){
-//
-//
-//   }
-//
-//   buildCalendar()
-//
-// }
+class calendar {
+    constructor(schoolNames, array) {
+        this.currentDate = new Date();
+        this.events = [];
+        this.schools = findSchool(schoolNames, array);
+        this.months = ["Januar", "Februar", "Mars", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Desember"];
+        this.month = currentDate.getMonth()+1;
+        if(month < 10){
+            month = "0"+month;
+        }
+    }
+
+    addEvent(dato, status, comment, school) {
+       
+
+    }
+    addSchool(schoolNames, array) {
+        //this.schools = findSchool(schoolNames, array);
+    }
+
+    buildCalendar() {
+        $(".days").empty();
+        $("#month").html(months[currentDate.getMonth()]); //set calendar month in html
+        $.each(schools[0].dates, function (i, date) {
+            var dateType = "000";
+            var daysInMonth = 0;
+            $.each(schools, function (j, school) {
+                //build calendar and table
+                if (date.substring(5, 7) == month) {
+                    daysInMonth++;
+                    var currDateType = school.dates[date];
+                    for (var c = 0; c < 3; c++) {
+                        if (currDateType[0].charAt(c) == '1') {
+                            dateType.charAt(c) == '1';
+                        }
+                    }
+                }
+            });
+            if(dateType == "000"){
+                var day = $("<li>"+date.substring(8,9)+"</li>")
+            }else{
+                var day = $("<li><span class='c"+ dateType + "'>" + date.substring(8,9) + "</span></li>");
+            }
+            
+            $(".days").append(day);
+        });
+    }
+}
