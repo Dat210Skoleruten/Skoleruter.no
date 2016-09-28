@@ -40,7 +40,7 @@ function getIndexListItems() {
         var elem2 = $("<td></td>");
         var elem3 = $("<div></div>");
         var elem4 = $("<a href='calendar.html'>" + value.Skolenavn + "</a>");
-        var elem5 = $("<a href='#'>add</a>");
+        var elem5 = $("<span class='glyphicon glyphicon-star-empty mainColorText' aria-hidden='true'></span>");
         elem3.click(function(){
             Cookies.set("selected", $(this).text());
         });

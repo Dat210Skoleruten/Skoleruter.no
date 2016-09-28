@@ -10,6 +10,13 @@
     text-align: left;
     background-color: #e5e5e5;
 }
+#indexList td span{
+  display: inline-block;
+  text-decoration: none;
+  color: #495156;
+  padding: 12px;
+  float: right;
+}
 
 /* The list rows */
 #indexList td a {
