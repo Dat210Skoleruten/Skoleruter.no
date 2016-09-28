@@ -13,7 +13,7 @@
 
 /* The list rows */
 #indexList td a {
-    display: block;
+    display: inline-block;
     text-decoration: none;
     color: #495156;
     padding: 12px;

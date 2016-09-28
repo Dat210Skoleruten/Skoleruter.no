@@ -38,10 +38,14 @@ function getIndexListItems() {
     $.each(schoolArray, function (index, value) {
         var elem1 = $("<tr></tr>");
         var elem2 = $("<td></td>");
-        var elem3 = $("<a href='calendar.html'>" + value.Skolenavn + "</a>");
+        var elem3 = $("<div></div>");
+        var elem4 = $("<a href='calendar.html'>" + value.Skolenavn + "</a>");
+        var elem5 = $("<a href='#'>add</a>");
         elem3.click(function(){
             Cookies.set("selected", $(this).text());
         });
+        elem3.append(elem4);
+        elem3.append(elem5);
         elem2.append(elem3);
         elem1.append(elem2);
         $("#indexList").append(elem1);
