@@ -30,8 +30,6 @@ $(document).ready(function () {
 
 });
 
-// $("#indexSearch").(getListItems());
-
 function getIndexListItems() {
     var schoolArray = getSchoolArray();
     $("#indexList").children().empty();
