@@ -39,7 +39,7 @@ function findClosest(position){
 
 
   console.log("lat: ", lat , ", lon: ", lng);
-  var schoolList = getSchoolArray(); //Gets the data from the getSortedCSV() function in getData.js
+  var schoolList = getSchoolData(); //Gets the data from the getSortedCSV() function in getData.js
   var dist_array = [];
 
   for(var i = 0; i < schoolList.length; i++){
