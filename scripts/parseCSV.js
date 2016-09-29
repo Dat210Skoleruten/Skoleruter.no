@@ -1,3 +1,9 @@
+/*
+parceCSV.js downloads schoolRoutes and Schools from the Stavanger Kommune Open data.
+When download is complete it stors each of the datatypes in a session.
+
+The function getSchoolData combines these two datasets to one containing all schools with theirs respective routes.
+*/
 
 
 if (Session.get("schoolRoutes") == null){
@@ -12,7 +18,7 @@ if (Session.get("schoolRoutes") == null){
   	}
   });
 }
-	//console.log("ruter:", data);
+
 if (Session.get("schools") == null){
   console.log("schools is null");
   Papa.parse("http://open.stavanger.kommune.no/dataset/8f8ac030-0d03-46e2-8eb7-844ee11a6203/resource/0371a1db-7074-4568-a0cc-499a5dccfe98/download/skoler.csv", {
@@ -26,41 +32,6 @@ if (Session.get("schools") == null){
   	}
   });
 }
-
-// $.ajax({
-// dataType: "text",
-// url: "http://open.stavanger.kommune.no/dataset/8f8ac030-0d03-46e2-8eb7-844ee11a6203/resource/0371a1db-7074-4568-a0cc-499a5dccfe98/download/skoler.csv",
-//   success: function (e) {
-// console.log("why no Cookies");
-//
-//     Cookies.set('v', "e");
-//   }
-// });
-
-
-
-// Papa.parse("http://hotell.difi.no/download/stavanger/skoleruter", {
-//   download: true,
-//   header: true,
-// 	complete: function(results) {
-//
-//      var csv = JSON.stringify(results.data);
-//      console.log(csv);
-//      Cookies.set("skoleruter", csv);
-// 	}
-// });
-//
-// Papa.parse("http://open.stavanger.kommune.no/dataset/8f8ac030-0d03-46e2-8eb7-844ee11a6203/resource/0371a1db-7074-4568-a0cc-499a5dccfe98/download/skoler.csv", {
-//   download: true,
-//   header: true,
-//   skipEmptyLines: true,
-//   complete: function(results) {
-//
-//     var csv = Papa.unparse(results.data);
-//     Cookies.set("skoler", csv);
-//   }
-//
-// });
 
 function getSchoolData(){
   var schoolRoutes = Session.get("schoolRoutes");

@@ -53,7 +53,6 @@ function getIndexListItems() {
 }
 
 function getIndexListItemsPos(closest) {
-    console.log("getIndexListItemsPos: ", closest)
     $("#indexList").show();
     $("#indexList").children().empty();
     var fiveClosest = closest;
