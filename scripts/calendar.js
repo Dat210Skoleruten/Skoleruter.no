@@ -67,12 +67,7 @@ class Calendar {
     }
 
     buildCalendar() {
-
-
-
-
-
-
+      console.log("Building Calendar");
 
         $(".days").empty();
         $("#month").html(this.months[this.currentDate.getMonth()]); //set calendar month in html
@@ -80,8 +75,10 @@ class Calendar {
         var dateType = "000";
         var daysInMonth = 0;
         for (var skoler in this.schools){
+          console.log(this.schools[skoler].Datoer.length);
           //console.log(this.schools[skoler]);
               for(var dates in this.schools[skoler].Datoer){
+                console.log(dates);
               //  console.log("Dato:", dates ,"Status:",this.schools[skoler].Datoer[dates][0],"Kommentar",this.schools[skoler].Datoer[dates][1]);
 
 
