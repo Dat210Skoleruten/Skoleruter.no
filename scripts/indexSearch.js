@@ -31,7 +31,7 @@ $(document).ready(function () {
 });
 
 function getIndexListItems() {
-    var schoolArray = getSchoolArray();
+    var schoolArray = getSchoolData();
     $("#indexList").children().empty();
     $.each(schoolArray, function (index, value) {
         var elem1 = $("<tr></tr>");

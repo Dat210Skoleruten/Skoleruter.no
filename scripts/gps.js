@@ -59,14 +59,6 @@ function findClosest(position){
     }
   }
   sorted_distance = dist_array.sort(sortFunction); //Sorts array by distance
-  //console.log(sorted_distance);
-  //closest_five = sorted_distance.slice(0, 5); //new array with top five closest schools
-  //console.log(closest_five);
-  console.log(sorted_distance);
-  // return sorted_distance;
-
-
-
 
   getIndexListItemsPos(sorted_distance);
 
