@@ -1,15 +1,16 @@
 
-console.log("schoolData:", getSchoolData());
+
 
 $(document).ready(function () {
-    console.log("schoolData:" , Session.get('schoolData'));
     var selected = Cookies.get('selected');
-    console.log("selected school :" ,selected);
+    console.log("Selected school:" ,selected);
     var currentDate = new Date();
     var tmpArray = getSchoolData(); //workaround with Session
-    console.log("tmpArray : ",tmpArray);
+    console.log("SchoolData:", tmpArray);
     $("#schoolName").html(selected);
-    console.log(findSchool(selected, tmpArray));
+
+    var cal = new Calendar(selected, tmpArray);
+    cal.buildCalendar();
 });
 
 function calendarList() {
@@ -45,20 +46,20 @@ function findSchool(str, array) {
 
 
 // TODO: finish calendar class
-class calendar {
+class Calendar {
     constructor(schoolNames, array) {
         this.currentDate = new Date();
         this.events = [];
         this.schools = findSchool(schoolNames, array);
         this.months = ["Januar", "Februar", "Mars", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Desember"];
-        this.month = currentDate.getMonth()+1;
+        this.month = this.currentDate.getMonth()+1;
         if(month < 10){
             month = "0"+month;
         }
     }
 
     addEvent(dato, status, comment, school) {
-       
+
 
     }
     addSchool(schoolNames, array) {
@@ -66,9 +67,22 @@ class calendar {
     }
 
     buildCalendar() {
+
+
+
+        console.log("Building Calendar");
+        console.log(this.schools[0]);
+        console.log(this.schools[0].Datoer);
+  for (var skoler in this.schools){
+    console.log(this.schools[skoler]);
+        for(var dates in this.schools[skoler].Datoer){
+          console.log(dates ,this.schools[skoler].Datoer[dates]);
+
+      }
+    }
         $(".days").empty();
-        $("#month").html(months[currentDate.getMonth()]); //set calendar month in html
-        $.each(schools[0].dates, function (i, date) {
+        $("#month").html(this.months[this.currentDate.getMonth()]); //set calendar month in html
+        $.each(this.schools[0].dates, function (i, date) {
             var dateType = "000";
             var daysInMonth = 0;
             $.each(schools, function (j, school) {
@@ -88,7 +102,7 @@ class calendar {
             }else{
                 var day = $("<li><span class='c"+ dateType + "'>" + date.substring(8,9) + "</span></li>");
             }
-            
+
             $(".days").append(day);
         });
     }
