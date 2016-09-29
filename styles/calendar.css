@@ -96,6 +96,71 @@ ul {
     padding: 20px;
 }
 
+.c000 {
+  background-color: red;
+  color: white;
+  opacity: 0.5;
+  filter: alpha(opacity=50); /* For IE8 and earlier */
+  padding: 20px;
+
+}
+
+.c001 {
+  background-color: red;
+  color: white;
+  opacity: 0.5;
+  filter: alpha(opacity=50); /* For IE8 and earlier */
+  padding: 20px;
+}
+
+.c010 {
+  background-color: red;
+  color: white;
+  opacity: 0.5;
+  filter: alpha(opacity=50); /* For IE8 and earlier */
+  padding: 20px;
+}
+
+.c011 {
+  background-color: red;
+  color: white;
+  opacity: 0.5;
+  filter: alpha(opacity=50); /* For IE8 and earlier */
+  padding: 20px;
+}
+.c100 {
+  background-color: red;
+  color: white;
+  opacity: 0.5;
+  filter: alpha(opacity=50); /* For IE8 and earlier */
+  padding: 20px;
+}
+.c101 {
+  background-color: red;
+  color: white;
+  opacity: 0.5;
+  filter: alpha(opacity=50); /* For IE8 and earlier */
+  padding: 20px;
+}
+.c110 {
+  background-color: red;
+  color: white;
+  opacity: 0.5;
+  filter: alpha(opacity=50); /* For IE8 and earlier */
+  padding: 20px;
+}
+.c111 {
+  background-color: green;
+  color: white;
+  opacity: 0.5;
+  filter: alpha(opacity=50); /* For IE8 and earlier */
+  padding: 20px;
+
+}
+
+
+
+
 /* Add media queries for smaller screens */
 @media screen and (max-width:720px) {
     .weekdays li, .days li {width: 13.1%;}

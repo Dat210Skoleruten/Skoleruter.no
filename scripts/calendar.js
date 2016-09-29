@@ -91,20 +91,21 @@ class Calendar {
 
                     daysInMonth++;
                     var currDateType = this.schools[skoler].Datoer[dates][0];
-                    for (var c = 0; c < 3; c++) {
-                        if (currDateType.charAt(c) == '1') {
-                            dateType.charAt(c) == '1';
-                            console.log("current charat:", currDateType.charAt(c));
-                            console.log("sat charat:",dateType.charAt(c));
-                        }
-
-
-            }
-            if(this.schools[skoler].Datoer[dates][0]  == "000"){
+            //         for (var c = 0; c < 3; c++) {
+            //             if (currDateType.charAt(c) == '1') {
+            //                 dateType.charAt(c) == '1';
+            //                 console.log("current charat:", currDateType.charAt(c));
+            //                 console.log("sat charat:",dateType.charAt(c));
+            //             }
+            //
+            //
+            // }
+            if(this.schools[skoler].Datoer[dates][0]  == "111"){
                 var day = $("<li>"+dates.substring(8,10)+"</li>")
-                console.log("day:", dates.substring(8,10));
+
             }else{
-                var day = $("<li><span class='c"+ dateType + "'>" + dates.substring(8,10) + "</span></li>");
+                var day = $("<li><span class='c"+ this.schools[skoler].Datoer[dates][0] + "'>" + dates.substring(8,10) + "</span></li>");
+                console.log("day:", dates.substring(8,10), this.schools[skoler].Datoer[dates][0]);
             }
 
             $(".days").append(day);
