@@ -11,6 +11,15 @@ $(document).ready(function () {
 
     var cal = new Calendar(selected, tmpArray);
     cal.buildCalendar();
+
+
+    $(".prev").click(function(){
+      console.log("prev");
+    });
+    $(".next").click(function(){
+      console.log("next");
+    });
+
 });
 
 function calendarList() {
@@ -53,8 +62,12 @@ class Calendar {
         this.schools = findSchool(schoolNames, array);
         this.months = ["Januar", "Februar", "Mars", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Desember"];
         this.month = this.currentDate.getMonth()+1;
+        this.currentYear = this.currentDate.getFullYear();
+        this.currentDay= this.currentDate.getDay();
+        this.firstDay = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), 1);
         if(month < 10){
             month = "0"+month;
+
         }
     }
 
@@ -70,21 +83,36 @@ class Calendar {
       console.log("Building Calendar");
 
         $(".days").empty();
-        $("#month").html(this.months[this.currentDate.getMonth()]); //set calendar month in html
-
+        $("#month").html(this.months[this.currentDate.getMonth()] + "<br> <span style='font-size:18px' id='year'>" +this.currentYear + "</span>"); //set calendar month in html
+        $("#year").html(this.currentYear);
         var dateType = "000";
         var daysInMonth = 0;
         for (var skoler in this.schools){
-          console.log(this.schools[skoler].Datoer.length);
+
+          if(this.firstDay.getDay() != 1){
+            var cDay = this.firstDay.getDay();
+            if (cDay == 0){
+              cDay = 7;
+            }
+            for (var i = 1; i <cDay ; i++) {
+                var day = $("<li></li>");
+                $(".days").append(day);
+
+            }
+          }
+
+
           //console.log(this.schools[skoler]);
               for(var dates in this.schools[skoler].Datoer){
-                console.log(dates);
+
               //  console.log("Dato:", dates ,"Status:",this.schools[skoler].Datoer[dates][0],"Kommentar",this.schools[skoler].Datoer[dates][1]);
 
 
 
+
+
                 //build calendar and table
-                if (dates.substring(5, 7) == this.month) {
+                if (dates.substring(5, 7) == this.month && dates.substring(0,4) == this.currentYear ) {
 
                     daysInMonth++;
                     var currDateType = this.schools[skoler].Datoer[dates][0];
@@ -94,7 +122,7 @@ class Calendar {
             //                 console.log("current charat:", currDateType.charAt(c));
             //                 console.log("sat charat:",dateType.charAt(c));
             //             }
-            //
+
             //
             // }
             if(this.schools[skoler].Datoer[dates][0]  == "111"){
@@ -102,7 +130,7 @@ class Calendar {
 
             }else{
                 var day = $("<li><span class='c"+ this.schools[skoler].Datoer[dates][0] + "'>" + dates.substring(8,10) + "</span></li>");
-                console.log("day:", dates.substring(8,10), this.schools[skoler].Datoer[dates][0]);
+
             }
 
             $(".days").append(day);
@@ -110,5 +138,11 @@ class Calendar {
 
         }
     }
+
+    for (daysInMonth; daysInMonth <= 35; daysInMonth++) {
+      var day = $("<li></li>");
+      $(".days").append(day);
+    }
+
+    }
   }
-}
