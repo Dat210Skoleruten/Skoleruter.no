@@ -70,43 +70,47 @@ class Calendar {
 
 
 
-        console.log("Building Calendar");
-        console.log(this.schools[0]);
-        console.log(this.schools[0].Datoer);
-  for (var skoler in this.schools){
-    console.log(this.schools[skoler]);
-        for(var dates in this.schools[skoler].Datoer){
-          console.log("Dato:", dates ,"Status:",this.schools[skoler].Datoer[dates][0],"Kommentar",this.schools[skoler].Datoer[dates][1]);
 
-      }
-    }
+
+
+
         $(".days").empty();
         $("#month").html(this.months[this.currentDate.getMonth()]); //set calendar month in html
 
+        var dateType = "000";
+        var daysInMonth = 0;
+        for (var skoler in this.schools){
+          //console.log(this.schools[skoler]);
+              for(var dates in this.schools[skoler].Datoer){
+              //  console.log("Dato:", dates ,"Status:",this.schools[skoler].Datoer[dates][0],"Kommentar",this.schools[skoler].Datoer[dates][1]);
 
 
-        $.each(this.schools[0].dates, function (i, date) {
-            var dateType = "000";
-            var daysInMonth = 0;
-            $.each(schools, function (j, school) {
+
                 //build calendar and table
-                if (date.substring(5, 7) == month) {
+                if (dates.substring(5, 7) == this.month) {
+
                     daysInMonth++;
-                    var currDateType = school.dates[date];
+                    var currDateType = this.schools[skoler].Datoer[dates][0];
                     for (var c = 0; c < 3; c++) {
-                        if (currDateType[0].charAt(c) == '1') {
+                        if (currDateType.charAt(c) == '1') {
                             dateType.charAt(c) == '1';
+                            console.log("current charat:", currDateType.charAt(c));
+                            console.log("sat charat:",dateType.charAt(c));
                         }
-                    }
-                }
-            });
-            if(dateType == "000"){
-                var day = $("<li>"+date.substring(8,9)+"</li>")
+
+
+            }
+            if(this.schools[skoler].Datoer[dates][0]  == "000"){
+                var day = $("<li>"+dates.substring(8,10)+"</li>")
+                console.log("day:", dates.substring(8,10));
             }else{
-                var day = $("<li><span class='c"+ dateType + "'>" + date.substring(8,9) + "</span></li>");
+                var day = $("<li><span class='c"+ dateType + "'>" + dates.substring(8,10) + "</span></li>");
             }
 
             $(".days").append(day);
-        });
+          }
+
+        }
     }
+  }
 }
