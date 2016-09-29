@@ -1,23 +1,23 @@
-
+    var tmpArray = getSchoolData(); //workaround with Session
+    var selected = Cookies.get('selected');
 
 
 $(document).ready(function () {
-    var selected = Cookies.get('selected');
+
     console.log("Selected school:" ,selected);
-    var currentDate = new Date();
-    var tmpArray = getSchoolData(); //workaround with Session
     console.log("SchoolData:", tmpArray);
     $("#schoolName").html(selected);
 
-    var cal = new Calendar(selected, tmpArray);
     cal.buildCalendar();
-
+    cal.nextMonth();
 
     $(".prev").click(function(){
-      alert("prev");
+      alert('prev')
+      cal.prevMonth();
     });
     $(".next").click(function(){
-      alert("next");
+      alert('next')
+      cal.nextMonth();
     });
 
 });
@@ -59,6 +59,7 @@ class Calendar {
 
     constructor(schoolNames, array) {
         this.currentDate = new Date();
+        //this.currentDate.setMonth(9); //for å teste andre månder
         this.events = [];
         this.schools = findSchool(schoolNames, array);
         this.months = ["Januar", "Februar", "Mars", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Desember"];
@@ -74,10 +75,14 @@ class Calendar {
     }
 
     prevMonth(){
-
+      console.log("prevMonth");
+      this.currentDate.setMonth(this.currentDate.getMonth()-1);
+      this.buildCalendar();
     };
     nextMonth(){
-
+      console.log("prevMonth");
+      this.currentDate.setMonth(this.currentDate.getMonth()+1);
+      this.buildCalendar();
     };
 
     buildCalendar() {
@@ -149,13 +154,14 @@ class Calendar {
         };
       };
 
-      for (daysInMonth; daysInMonth <= 35; daysInMonth++) {
+      for (daysInMonth; daysInMonth <= 36; daysInMonth++) {
         var day = $("<li></li>");
-        $(".days").append(day);
+        $('.days').append(day);
       };
-
     };
-    buildList(){
+    buildList () {
 
     };
   };
+
+  var cal = new Calendar(selected, tmpArray);

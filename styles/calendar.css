@@ -106,7 +106,7 @@ ul {
 }
 
 .c001 {
-  background-color: red;
+  background-color: green;
   color: white;
   opacity: 0.5;
   filter: alpha(opacity=50); /* For IE8 and earlier */
