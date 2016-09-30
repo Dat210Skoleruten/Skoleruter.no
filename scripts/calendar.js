@@ -10,12 +10,10 @@ $(document).ready(function () {
     cal.buildCalendar();
 
     $(".prev").click(function(){
-      alert('prev')
-    //  cal.prevMonth();
+        cal.prevMonth();
     });
     $(".next").click(function(){
-      alert('next')
-    //  cal.nextMonth();
+        cal.nextMonth();
     });
 
 });
