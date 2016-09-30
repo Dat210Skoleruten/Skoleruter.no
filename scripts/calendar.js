@@ -186,18 +186,15 @@
               var header = 0;
           for (var skoler in this.schools) {
             for (var dates in this.schools[skoler].Datoer) {
-                  for(var mnd in dates.substring(5, 7)){
                     if (this.schools[skoler].Datoer[dates][0] != "111") {
-
-                      if(header == 0){
-                      monthHeader = $("<li><a class='header'>" + this.months[mnd] + "</a></li></br>");
+                      
+                      monthHeader = $("<li><a class='header'>" + this.months[month] + "</a></li></br>");
                       $("#myUL").append(monthHeader);
-                      header = 1;
-                    };
+
                     list = $("<li><a>" + dates  + ", " + this.schools[skoler].Datoer[dates][1] + ", " + this.schools[skoler].Datoer[dates][0] + "</a></li>");
                     $("#myUL").append(list);
               };
-            };
+
           };
         };
      };
