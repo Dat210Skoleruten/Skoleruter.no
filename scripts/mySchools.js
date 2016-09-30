@@ -8,7 +8,7 @@ function checkCookie(val){
   console.log(elem.firstElementChild.firstElementChild.className);
   if(Cookies.get('mySchools') == null){
     console.log("mySchools var tom!");
-    Cookies.set('mySchools', val);
+    Cookies.set('mySchools', val, { expires: 365 });
     elem.firstElementChild.firstElementChild.setAttribute("class", 'glyphicon glyphicon-star');
   }
   else{
@@ -21,13 +21,13 @@ function checkCookie(val){
     for (var i = 0; i < ArrOfSchools.length; i++) {
       if (val == ArrOfSchools[i]) {
         ArrOfSchools.splice(i, 1);
-        Cookies.set('mySchools', ArrOfSchools.toString());
+        Cookies.set('mySchools', ArrOfSchools.toString(), { expires: 365 });
         elem.firstElementChild.firstElementChild.className = 'glyphicon glyphicon-star-empty';
         return;
       }
     }
     ArrOfSchools.push(val);
-    Cookies.set('mySchools', ArrOfSchools.toString());
+    Cookies.set('mySchools', ArrOfSchools.toString(), { expires: 365 });
     elem.firstElementChild.firstElementChild.className = 'glyphicon glyphicon-star';
   }
 }
