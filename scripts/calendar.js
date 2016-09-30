@@ -171,13 +171,13 @@
 
           };
         };
-//         buildList(){
-//         for (daysInMonth; daysInMonth < 42; daysInMonth++) {
-//           var day = $("<li></li>");
-//           $('.days').append(day);
-//         };
-//
-//
+
+        for (daysInMonth; daysInMonth < 42; daysInMonth++) {
+          var day = $("<li></li>");
+          $('.days').append(day);
+        };
+
+//buildList(){
 //           var month = this.now.getMonth() + 1;
 //           var monthHeader;
 //           var list;
