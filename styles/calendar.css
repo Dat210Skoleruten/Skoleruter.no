@@ -97,7 +97,8 @@ ul {
 }
 
 .c000 {
-  background-color: red;
+  /*Nobody day */
+  background-color: green;
   color: white;
   opacity: 0.5;
   filter: alpha(opacity=50); /* For IE8 and earlier */
@@ -106,7 +107,8 @@ ul {
 }
 
 .c001 {
-  background-color: green;
+  /*SFO Day */
+  background-color: sandybrown ;
   color: white;
   opacity: 0.5;
   filter: alpha(opacity=50); /* For IE8 and earlier */
@@ -114,7 +116,8 @@ ul {
 }
 
 .c010 {
-  background-color: red;
+  /*Teacher Day */
+  background-color: blue;
   color: white;
   opacity: 0.5;
   filter: alpha(opacity=50); /* For IE8 and earlier */
@@ -122,34 +125,43 @@ ul {
 }
 
 .c011 {
+  /*Teacher and SFO Day */
   background-color: red;
   color: white;
   opacity: 0.5;
   filter: alpha(opacity=50); /* For IE8 and earlier */
   padding: 20px;
 }
+
 .c100 {
-  background-color: red;
+  /*Student Day 'Dont think this exists' */
+  background-color: yellow;
   color: white;
   opacity: 0.5;
   filter: alpha(opacity=50); /* For IE8 and earlier */
   padding: 20px;
 }
+
 .c101 {
-  background-color: red;
+  /*Student and SFO Day 'Dont think this exists' */
+  background-color: yellow;
   color: white;
   opacity: 0.5;
   filter: alpha(opacity=50); /* For IE8 and earlier */
   padding: 20px;
 }
+
 .c110 {
-  background-color: red;
+  /*Student and Teacher Day  */
+  background-color: darkgreen;
   color: white;
   opacity: 0.5;
   filter: alpha(opacity=50); /* For IE8 and earlier */
   padding: 20px;
 }
+
 .c111 {
+  /*Student, Teacher and SFO Day */
   background-color: green;
   color: white;
   opacity: 0.5;
