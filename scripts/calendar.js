@@ -9,6 +9,13 @@ $(document).ready(function () {
 
     cal.buildCalendar();
 
+    $("#cal_prev").click(function(){
+        cal.prevMonth();
+    });
+    $("#cal_next").click(function(){
+        cal.nextMonth();
+    });
+
 
 });
 
