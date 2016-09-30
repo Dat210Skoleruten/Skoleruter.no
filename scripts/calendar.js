@@ -16,6 +16,19 @@ $(document).ready(function () {
         cal.nextMonth();
     });
 
+    $("body").keydown(function(e){
+        if(e.keyCode == 37){
+            cal.prevMonth();
+        }
+
+    });
+    $("body").keyup(function(e){
+        if(e.keyCode == 39){
+            cal.nextMonth();
+        }
+
+    });
+
 
 });
 
