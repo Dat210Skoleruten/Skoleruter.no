@@ -9,12 +9,6 @@ $(document).ready(function () {
 
     cal.buildCalendar();
 
-    $(".prev").click(function(){
-        cal.prevMonth();
-    });
-    $(".next").click(function(){
-        cal.nextMonth();
-    });
 
 });
 
@@ -76,7 +70,7 @@ class Calendar {
       this.buildCalendar();
     };
     nextMonth(){
-      console.log("prevMonth");
+      console.log("nextMonth");
       this.currentDate.setMonth(this.currentDate.getMonth()+1);
       this.buildCalendar();
     };
