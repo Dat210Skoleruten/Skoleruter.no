@@ -37,7 +37,7 @@ function getIndexListItems() {
       arrString = Cookies.get('mySchools');
       ArrayWSchools = arrString.split(",");
     }
-    var schoolArray = getSchoolArray();
+    var schoolArray = getSchoolData();
     console.log(ArrayWSchools);
     console.log(ArrayWSchools.length > 0);
     $("#indexList").children().empty();
