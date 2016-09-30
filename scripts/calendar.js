@@ -179,19 +179,20 @@
       };
 
   buildList () {
-            var month = this.now.getMonth() + 1;
+            var month = this.now.getMonth();
             var monthHeader;
             var list;
               $("#myUL").empty();
               var header = 0;
           for (var skoler in this.schools) {
             for (var dates in this.schools[skoler].Datoer) {
-                    if (this.schools[skoler].Datoer[dates][0] != "111") {
-                      
-                      monthHeader = $("<li><a class='header'>" + this.months[month] + "</a></li></br>");
-                      $("#myUL").append(monthHeader);
+                    if (this.schools[skoler].Datoer[dates][0] != "111" ) {
+                      for(month; month <= dates.substring(5, 7); month++ ){
 
-                    list = $("<li><a>" + dates  + ", " + this.schools[skoler].Datoer[dates][1] + ", " + this.schools[skoler].Datoer[dates][0] + "</a></li>");
+                      monthHeader = $("<li><a class='header'>" + this.months[month-1] + "</a></li></br>");
+                      $("#myUL").append(monthHeader);
+                      }
+                      list = $("<li><a>" + dates  + ", " + this.schools[skoler].Datoer[dates][1] + ", " + this.schools[skoler].Datoer[dates][0] + "</a></li>");
                     $("#myUL").append(list);
               };
 
