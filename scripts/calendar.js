@@ -1,178 +1,204 @@
     var tmpArray = getSchoolData(); //workaround with Session
     var selected = Cookies.get('selected');
 
-$(document).ready(function () {
+    $(document).ready(function() {
 
-    console.log("Selected school:" ,selected);
-    console.log("SchoolData:", tmpArray);
-    $("#schoolName").html(selected);
+      console.log("Selected school:", selected);
+      console.log("SchoolData:", tmpArray);
+      $("#schoolName").html(selected);
 
-    cal.buildCalendar();
+      cal.buildCalendar();
+      cal.buildList();
 
-    $("#cal_prev").click(function(){
+      $("#cal_prev").click(function() {
         cal.prevMonth();
-    });
-    $("#cal_next").click(function(){
+      });
+      $("#cal_next").click(function() {
         cal.nextMonth();
-    });
+      });
 
-    $("body").keydown(function(e){
-        if(e.keyCode == 37){
-            cal.prevMonth();
+      $("body").keydown(function(e) {
+        if (e.keyCode == 37) {
+          cal.prevMonth();
         }
 
-    });
-    $("body").keyup(function(e){
-        if(e.keyCode == 39){
-            cal.nextMonth();
+      });
+      $("body").keyup(function(e) {
+        if (e.keyCode == 39) {
+          cal.nextMonth();
         }
 
+      });
+
+
     });
 
-
-});
-
-function calendarList() {
-    var input, filter, ul, li, a, i;
-    input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("myUL");
-    li = ul.getElementsByTagName("li");
-    for (i = 0; i < li.length; i++) {
+    function calendarList() {
+      var input, filter, ul, li, a, i;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      ul = document.getElementById("myUL");
+      li = ul.getElementsByTagName("li");
+      for (i = 0; i < li.length; i++) {
         a = li[i].getElementsByTagName("a")[0];
         if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
+          li[i].style.display = "";
         } else {
-            li[i].style.display = "none";
+          li[i].style.display = "none";
         }
+      }
     }
-}
 
-// findSchool finds the school with the name as string from array
-function findSchool(str, array) {
-    var tmpArr = [];
-    var strArr = str.split(",");
-    for (var i = 0; i < array.length; i++) {
+    // findSchool finds the school with the name as string from array
+    function findSchool(str, array) {
+      var tmpArr = [];
+      var strArr = str.split(",");
+      for (var i = 0; i < array.length; i++) {
         for (var j = 0; j < strArr.length; j++) {
-            if (array[i].Skolenavn == strArr[j]) {
-                tmpArr.push(array[i]);
-            }
+          if (array[i].Skolenavn == strArr[j]) {
+            tmpArr.push(array[i]);
+          }
         }
 
+      }
+      return tmpArr;
     }
-    return tmpArr;
-}
 
 
-// TODO: finish calendar class
-class Calendar {
+    // TODO: finish calendar class
+    class Calendar {
 
-    constructor(schoolNames, array) {
+      constructor(schoolNames, array) {
         this.currentDate = new Date();
-      //  this.currentDate.setMonth(11); //for å teste andre månder
+        this.now = new Date();
+        //  this.currentDate.setMonth(11); //for å teste andre månder
         this.events = [];
         this.schools = findSchool(schoolNames, array);
-        this.months = ["Januar", "Februar", "Mars", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Desember"];
+        this.months = ["Januar", "Februar", "Mars", "April", "Mai", "Juni",
+          "Juli", "August", "September", "Oktober", "November", "Desember"
+        ];
       }
 
 
-    addEvent(dato, status, comment, school) {
+      addEvent(dato, status, comment, school) {
 
 
-    };
-    addSchool(schoolNames, array) {
+      };
+      addSchool(schoolNames, array) {
         //this.schools = findSchool(schoolNames, array);
-    }
-
-    prevMonth(){
-      console.log("prevMonth");
-      this.currentDate.setMonth(this.currentDate.getMonth()-1);
-      this.buildCalendar();
-    };
-    nextMonth(){
-      console.log("nextMonth");
-      this.currentDate.setMonth(this.currentDate.getMonth()+1);
-      this.buildCalendar();
-    };
-
-    buildCalendar() {
-      console.log("Building Calendar");
-
-      var month = this.currentDate.getMonth()+1;
-      var currentYear = this.currentDate.getFullYear();
-      var currentDay= this.currentDate.getDay();
-      var firstDay = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), 1);
-      if(month < 10){
-          month = "0"+month;
-
       }
+
+      prevMonth() {
+        console.log("prevMonth");
+        this.currentDate.setMonth(this.currentDate.getMonth() - 1);
+        this.buildCalendar();
+      };
+      nextMonth() {
+        console.log("nextMonth");
+        this.currentDate.setMonth(this.currentDate.getMonth() + 1);
+        this.buildCalendar();
+      };
+
+      buildCalendar() {
+        console.log("Building Calendar");
+
+        var month = this.currentDate.getMonth() + 1;
+        var currentYear = this.currentDate.getFullYear();
+        var currentDay = this.currentDate.getDay();
+        var firstDay = new Date(this.currentDate.getFullYear(), this.currentDate
+          .getMonth(), 1);
+        if (month < 10) {
+          month = "0" + month;
+
+        }
 
 
 
         $(".days").empty();
-        $("#month").html(this.months[this.currentDate.getMonth()] + "<br> <span style='font-size:18px' id='year'>" +currentYear + "</span>"); //set calendar month in html
+        $("#month").html(this.months[this.currentDate.getMonth()] +
+          "<br> <span style='font-size:18px' id='year'>" + currentYear +
+          "</span>"); //set calendar month in html
         $("#year").html(currentYear);
         var dateType = "000";
         var daysInMonth = 0;
-        for (var skoler in this.schools){
+        for (var skoler in this.schools) {
 
-          if(firstDay.getDay() != 1){
+          if (firstDay.getDay() != 1) {
             var cDay = firstDay.getDay();
-            if (cDay == 0){
+            if (cDay == 0) {
               cDay = 7;
             }
-            for (var i = 1; i <cDay ; i++) {
+            for (var i = 1; i < cDay; i++) {
               daysInMonth++;
-                var day = $("<li></li>");
-                $(".days").append(day);
+              var day = $("<li></li>");
+              $(".days").append(day);
 
             }
           }
 
 
           //console.log(this.schools[skoler]);
-              for(var dates in this.schools[skoler].Datoer){
+          for (var dates in this.schools[skoler].Datoer) {
 
-              //  console.log("Dato:", dates ,"Status:",this.schools[skoler].Datoer[dates][0],"Kommentar",this.schools[skoler].Datoer[dates][1]);
-
-
+            //  console.log("Dato:", dates ,"Status:",this.schools[skoler].Datoer[dates][0],"Kommentar",this.schools[skoler].Datoer[dates][1]);
 
 
 
-                //build calendar and table
-                if (dates.substring(5, 7) == month && dates.substring(0,4) == currentYear ) {
+            //build calendar and table
+            if (dates.substring(5, 7) == month && dates.substring(0, 4) ==
+              currentYear) {
 
-                    daysInMonth++;
-                    var currDateType = this.schools[skoler].Datoer[dates][0];
-            //         for (var c = 0; c < 3; c++) {
-            //             if (currDateType.charAt(c) == '1') {
-            //                 dateType.charAt(c) == '1';
-            //                 console.log("current charat:", currDateType.charAt(c));
-            //                 console.log("sat charat:",dateType.charAt(c));
-            //             }
+              daysInMonth++;
+              var currDateType = this.schools[skoler].Datoer[dates][0];
+              //         for (var c = 0; c < 3; c++) {
+              //             if (currDateType.charAt(c) == '1') {
+              //                 dateType.charAt(c) == '1';
+              //                 console.log("current charat:", currDateType.charAt(c));
+              //                 console.log("sat charat:",dateType.charAt(c));
+              //             }
 
-            //
-            // }
-            if(this.schools[skoler].Datoer[dates][0]  == "111"){
-                var day = $("<li>"+dates.substring(8,10)+"</li>")
+              //
+              // }
+              if (this.schools[skoler].Datoer[dates][0] == "111") {
+                var day = $("<li>" + dates.substring(8, 10) + "</li>")
 
-            }else{
-                var day = $("<li><span class='c"+ this.schools[skoler].Datoer[dates][0] + "'>" + dates.substring(8,10) + "</span></li>");
+              } else {
+                var day = $("<li><span class='c" + this.schools[skoler].Datoer[dates][0] + "'>" + dates.substring(8, 10) +
+                  "</span></li>");
+              };
+              $(".days").append(day);
             };
-            $(".days").append(day);
+
           };
+        };
+
+        for (daysInMonth; daysInMonth < 42; daysInMonth++) {
+          var day = $("<li></li>");
+          $('.days').append(day);
+        };
+      };
+      buildList() {
+          var month = this.now.getMonth() + 1;
+        var list;
+        $("#myUL").empty();
+
+        for (var skoler in this.schools) {
+          for (var dates in this.schools[skoler].Datoer) {
+
+      //      if (dates.substring(5, 7) == month && dates.substring(0, 4) == this.now.getFullYear()) {
+                  if (this.schools[skoler].Datoer[dates][0] != "111") {
+                    list = $("<li><a class='header'>" + dates + ", " + this.schools[skoler].Datoer[dates][1] + ", " +this.schools[skoler].Datoer[dates][0] + "</a></li>");
+                    $("#myUL").append(list);
+                  }
+
+
+    //          }
+
+
+            }
+          }
 
         };
       };
 
-      for (daysInMonth; daysInMonth < 42; daysInMonth++) {
-        var day = $("<li></li>");
-        $('.days').append(day);
-      };
-    };
-    buildList () {
-
-    };
-  };
-
-  var cal = new Calendar(selected, tmpArray);
+      var cal = new Calendar(selected, tmpArray);
