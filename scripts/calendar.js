@@ -181,32 +181,33 @@
         };
       };
 
-  buildList () {
-            var month = this.now.getMonth();
-            var monthHeader;
-            var list;
-            var currMonth;
-              $("#myUL").empty();
-              var header = 0;
-          for (var skoler in this.schools) {
-            for (var dates in this.schools[skoler].Datoer) {
-                    if (this.schools[skoler].Datoer[dates][0] != "111" ) {
-                      if(header == 0 && currMonth != parseInt(dates.substring(5, 7))){
-                            currMonth = parseInt(dates.substring(5, 7));
-                        monthHeader = $("<li><a class='header'>" + this.months[currMonth-1] + "</a></li></br>");
-                        $("#myUL").append(monthHeader);
-                        }
+      buildList() {
+        var month = this.now.getMonth();
+        var monthHeader;
+        var list;
+        var currMonth;
+        $("#myUL").empty();
+        var header = 0;
+        for (var skoler in this.schools) {
+          for (var dates in this.schools[skoler].Datoer) {
+            if (this.schools[skoler].Datoer[dates][0] != "111") {
+              if (header == 0 && currMonth != parseInt(dates.substring(5, 7))) {
+                currMonth = parseInt(dates.substring(5, 7));
 
-                      
-                      if (this.schools[skoler].Datoer[dates][1] != "Søndag" && this.schools[skoler].Datoer[dates][1] != "Lørdag") {
-                        list = $("<li><a>" + dates  + ", " + this.schools[skoler].Datoer[dates][1] + ", " + this.schools[skoler].Datoer[dates][0] + "</a></li>");
-                        $("#myUL").append(list);
-                    };
-                  }
+                monthHeader = $("<li><a class='header'>" + this.months[currMonth - 1] + ", " + dates.substring(0, 4) + "</a></li>");
+                $("#myUL").append(monthHeader);
+              }
+
+
+              if (this.schools[skoler].Datoer[dates][1] != "Søndag" && this.schools[skoler].Datoer[dates][1] != "Lørdag") {
+                list = $("<li><a>" + dates + ", " + this.schools[skoler].Datoer[dates][1] + ", " + this.schools[skoler].Datoer[dates][0] + "</a></li>");
+                $("#myUL").append(list);
               };
-
+            }
           };
-        };
-};
 
-      var cal = new Calendar(selected, tmpArray);
+        };
+      };
+    };
+
+    var cal = new Calendar(selected, tmpArray);

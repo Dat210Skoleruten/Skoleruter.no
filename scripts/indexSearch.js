@@ -1,5 +1,5 @@
 /********** Tooltip **********/
-$(function () {
+$(function() {
     $('[data-toggle="tooltip"]').tooltip()
 });
 
@@ -26,22 +26,22 @@ function indexSearchList() {
     }
 }
 
-$(document).ready(function () {
+$(document).ready(function() {
 
 });
 
 function getIndexListItems() {
     var arrString = ""
     var ArrayWSchools = [];
-    if(Cookies.get('mySchools') != null){
-      arrString = Cookies.get('mySchools');
-      ArrayWSchools = arrString.split(",");
+    if (Cookies.get('mySchools') != null) {
+        arrString = Cookies.get('mySchools');
+        ArrayWSchools = arrString.split(",");
     }
     var schoolArray = getSchoolData();
     console.log(ArrayWSchools);
     console.log(ArrayWSchools.length > 0);
     $("#indexList").children().empty();
-    $.each(schoolArray, function (index, value) {
+    $.each(schoolArray, function(index, value) {
         //the schools
 
         var elem1 = $("<tr></tr>");
@@ -50,22 +50,21 @@ function getIndexListItems() {
         var elem4 = $("<a href='calendar.html' class='listElement'>" + value.Skolenavn + "</a>");
         //the favbutton
         var elem5 = $("<td></td>");
-        var elem6 = $("<div id= '"+value.Skolenavn+"'></div>");
+        var elem6 = $("<div id= '" + value.Skolenavn + "'></div>");
 
         var elemen = document.getElementById(value.Skolenavn);
-        if(containsObject(value.Skolenavn, ArrayWSchools)){
-          var elem7 = $("<a href='#' class='addButton'><span class='glyphicon glyphicon-star' aria-hidden='true'><span hidden>"+ value.Skolenavn +"<span></span></a>");
-        }
-        else{
-          var elem7 = $("<a href='#' class='addButton'><span class='glyphicon glyphicon-star-empty' aria-hidden='true'><span hidden>"+ value.Skolenavn +"<span></span></a>");
+        if (containsObject(value.Skolenavn, ArrayWSchools)) {
+            var elem7 = $("<a href='#' class='addButton'><span class='glyphicon glyphicon-star' aria-hidden='true'><span hidden>" + value.Skolenavn + "<span></span></a>");
+        } else {
+            var elem7 = $("<a href='#' class='addButton'><span class='glyphicon glyphicon-star-empty' aria-hidden='true'><span hidden>" + value.Skolenavn + "<span></span></a>");
         }
 
-        elem3.click(function () {
+        elem3.click(function() {
             Cookies.set("selected", $(this).text());
         });
         //kristoffer
-        elem6.click(function(){
-          checkCookie($(this).attr("id"));
+        elem6.click(function() {
+            checkCookie($(this).attr("id"));
         });
         //    Cookies.set("myShools", $(this).closest("tr").children().text());
         //});
@@ -96,7 +95,7 @@ function getIndexListItemsPos(closest) {
         var elem3 = $("<div></div>");
         var elem4 = $("<a href='calendar.html' class='listElement'>" + fiveClosest[i][1] + "</a>");
         var elem5 = $("<td><div><a href='#' class='addButton'><span class='glyphicon glyphicon-star-empty' aria-hidden='true'></span></a></div></td>");
-        elem2.click(function () {
+        elem2.click(function() {
             Cookies.set("selected", $(this).text());
         });
         elem3.append(elem4);
