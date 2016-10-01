@@ -1,5 +1,6 @@
     var tmpArray = getSchoolData(); //workaround with Session
     var selected = Cookies.get('selected');
+    var mySchools = Cookies.get('mySchools');
 
     $(document).ready(function() {
 
@@ -77,6 +78,8 @@
         this.months = ["Januar", "Februar", "Mars", "April", "Mai", "Juni",
           "Juli", "August", "September", "Oktober", "November", "Desember"
         ];
+        console.log(schoolNames);
+        console.log(this.schools);
       }
 
 
@@ -193,9 +196,13 @@
                         monthHeader = $("<li><a class='header'>" + this.months[currMonth-1] + "</a></li></br>");
                         $("#myUL").append(monthHeader);
                         }
-                      }
-                      list = $("<li><a>" + dates  + ", " + this.schools[skoler].Datoer[dates][1] + ", " + this.schools[skoler].Datoer[dates][0] + "</a></li>");
-                      $("#myUL").append(list);
+
+                      
+                      if (this.schools[skoler].Datoer[dates][1] != "Søndag" && this.schools[skoler].Datoer[dates][1] != "Lørdag") {
+                        list = $("<li><a>" + dates  + ", " + this.schools[skoler].Datoer[dates][1] + ", " + this.schools[skoler].Datoer[dates][0] + "</a></li>");
+                        $("#myUL").append(list);
+                    };
+                  }
               };
 
           };
