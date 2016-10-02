@@ -1,3 +1,4 @@
+var tmpArray = getSchoolData();
 var selected = Cookies.get('selected');
 var mySchools = Cookies.get('mySchools');
 
