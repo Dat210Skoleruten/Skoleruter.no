@@ -27,7 +27,8 @@
     <link rel="stylesheet" type="text/css" href="../styles/modal.css">
     <link rel="stylesheet" type="text/css" href="../styles/indexSearch.css">
     <link rel="stylesheet" type="text/css" href="../styles/navSearch.css">
-
+    <link rel="stylesheet" type="text/css" href="../styles/calendarList.css">
+    
     <!-- Local scripts -->
     <script type="text/javascript" src="../scripts/cookie.js"></script>
     <script type="text/javascript" src="../scripts/session.js"></script>
@@ -41,7 +42,6 @@
     <script type="text/javascript" src="../scripts/navbar.js"></script>
     <script type="text/javascript" src="../scripts/navSearch.js"></script>
     <script type="text/javascript" src="../scripts/mySchools.js"></script>
-
 </head>
 <body>
 
@@ -62,7 +62,6 @@
         <p class="center" id="schoolName"></p> <!-- CENTER TEXT -->
     </div>
 
-
     <form class="navbar-form navbar-left">
         <div class="form-group">
             <form>
@@ -74,22 +73,11 @@
         </div>
     </form>
 
-
     <ul class="nav navbar-nav navbar-right">
         <li><a href="#" onclick="openNav()"><span class="glyphicon glyphicon-menu-hamburger hamburger"></span></a>
         </li>
     </ul>
 </nav> <!-- /Navbar  -->
-
-<!-- The school list table
-<div class="container-fluid col-lg-7" id="navSearchContainer">
-    <div class="col-lg-5 col-sm-offset-2">
-        <div id="noScroll">
-            <table id="navList">
-            </table>
-        </div>
-    </div>
-</div> /The school list table -->
 
 <!-- Navbar toggle div -->
 <div id="mySidenav" class="sidenav">
@@ -100,41 +88,58 @@
     <a href="om.html">OM SKOLERUTE</a>
 </div> <!-- /Navbar toggle div -->
 
-<br>
+</br>
 
-<div class="col-md-5 text-center col-lg-offset-1">
-    <!-- Temp calendar. Only css for the moment -->
-    <div class="month">
-        <ul>
-            <li class="prev" id="cal_prev">❮</li>
-            <li class="next" id="cal_next">❯</li>
-            <li style="text-align:center" id="month">
-                August<br>
-                <span style="font-size:18px" id="year">2016</span>
-            </li>
+<div class="legendBar col-md-10 col-lg-offset-1">
+    <p><span style="color:blue">Blue:</span> Teacher Day</p>
+    <p><span style="color:red">Red:</span> Teacher & SFO Day</p>
+    <p><span style="color:yellow">Yellow:</span> Student Day</p>
+    <p><span style="color:yellow">Yellow:</span> Student & SFO Day</p>
+    <p><span style="color:sandybrown">Sandybrown:</span> SFO Day</p>
+    <p><span style="color:darkgreen">Darkgreen:</span> Student & Teacher Day</p>
+    <p><span style="color:green">Gren:</span> Student, Teacher & SFO Day</p>
+    <p><span style="color:green">Green:</span> Nobody day</p>
+</div>
+
+</br></br></br>
+
+<div class="row">
+    <div class="col-md-5 text-center col-lg-offset-1">
+        <div class="month">
+            <ul>
+                <li class="prev" id="cal_prev">❮</li>
+                <li class="next" id="cal_next">❯</li>
+                <li style="text-align:center" id="month">
+                    August<br>
+                    <span style="font-size:18px" id="year">2016</span>
+                </li>
+            </ul>
+        </div>
+
+        <ul class="weekdays">
+            <li>Man</li>
+            <li>Tir</li>
+            <li>Ons</li>
+            <li>Tor</li>
+            <li>Fre</li>
+            <li>Lør</li>
+            <li>Søn</li>
+        </ul>
+
+        <ul class="days">
+
         </ul>
     </div>
 
-    <ul class="weekdays">
-        <li>Man</li>
-        <li>Tir</li>
-        <li>Ons</li>
-        <li>Tor</li>
-        <li>Fre</li>
-        <li>Lør</li>
-        <li>Søn</li>
-    </ul>
+    <div class="col-md-5 text-center">
+        <!-- Temp List -->
+        <input type="text" id="myInput" onkeyup="calendarList()" placeholder="Search for names.."
+               title="Type in a name">
 
-    <ul class="days">
-    </ul>     <!-- /Temp calendar  -->
+        <ul id="myUL">
+        </ul>
+    </div>
 </div>
-<div class="col-md-5 text-center">
-    <!-- Temp List -->
-    <input type="text" id="myInput" onkeyup="calendarList()" placeholder="Search for names.."
-           title="Type in a name">
 
-    <ul id="myUL">
-
-</div>
 </body>
 </html>

@@ -1,17 +1,25 @@
-/* No need to comment any here yet
-because the calendar is not finished
-but it should get comments when we're starting
-to work here */
+/* legendBar */
+.legendBar {
+    background-color: #495156;
+    padding: 5px;
+}
 
-/* CSS Calendar */
+.legendBar p {
+    display: inline-block;
+    margin-top: 10px;
+    color: black;
+    padding-left: 15px;
+    margin-left: 5px;
+}
+
 ul {
     list-style-type: none;
 }
 
 .month {
-    padding: 30px 25px;
+    padding: 25px 25px;
     width: 100%;
-    background: #495156;
+    background-color: #495156;
 }
 
 .month ul {
@@ -28,14 +36,28 @@ ul {
 
 .month .prev {
     float: left;
-    padding-top: 10px;
+    padding-top: 5px;
     cursor: pointer;
+    font-size: 35px;
+}
+
+.month .prev:hover {
+    color: #818181;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
 }
 
 .month .next {
     float: right;
-    padding-top: 10px;
+    padding-top: 5px;
     cursor: pointer;
+    font-size: 35px;
+}
+
+.month .next:hover {
+    color: #818181;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
 }
 
 .weekdays {
@@ -49,131 +71,105 @@ ul {
     width: 13.6%;
     color: #666;
     text-align: center;
+    font-weight: bold;
 }
 
 .days {
     padding: 10px 0;
-    background: #eee;
+    background-color: #eee;
     margin: 0;
 }
 
+/* Individual day cell */
 .days li {
-    list-style-type: none;
     display: inline-block;
     width: 13.6%;
     text-align: center;
     margin-bottom: 5px;
     font-size: 15px;
-    color: #777;
     padding: 20px;
+    border: 1px solid lightgray; /* Temp */
+    cursor: default;
 }
 
-.days li .active {
-    padding: 5px;
-    background: #1abc9c;
-    color: white !important
+/* Temp */
+.days li:hover {
+    background-color: #818181;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
 }
 
+/* Temp colors for design purpose */
+/*
 .blue {
     background-color: blue;
     color: white;
-    opacity: 0.5;
-    filter: alpha(opacity=50); /* For IE8 and earlier */
-    padding: 20px;
 }
 
 .green {
     background-color: green;
     color: white;
-    opacity: 0.5;
-    filter: alpha(opacity=50); /* For IE8 and earlier */
-    padding: 20px;
 }
 
 .red {
     background-color: red;
     color: white;
-    opacity: 0.5;
-    filter: alpha(opacity=50); /* For IE8 and earlier */
-    padding: 20px;
 }
 
+.active {
+    background-color: lightgoldenrodyellow;
+}
+*/
+
+/* Nobody day */
 .c000 {
-  /*Nobody day */
-  background-color: green;
-  color: white;
-  opacity: 0.5;
-  filter: alpha(opacity=50); /* For IE8 and earlier */
-  padding: 20px;
+  background-color: green; /* Transparent */
+  color: white; /* Black */
 
 }
 
+/* SFO Day */
 .c001 {
-  /*SFO Day */
   background-color: sandybrown ;
   color: white;
-  opacity: 0.5;
-  filter: alpha(opacity=50); /* For IE8 and earlier */
-  padding: 20px;
 }
 
+/* Teacher Day */
 .c010 {
-  /*Teacher Day */
   background-color: blue;
   color: white;
-  opacity: 0.5;
-  filter: alpha(opacity=50); /* For IE8 and earlier */
-  padding: 20px;
 }
 
+/* Teacher and SFO Day */
 .c011 {
-  /*Teacher and SFO Day */
   background-color: red;
   color: white;
-  opacity: 0.5;
-  filter: alpha(opacity=50); /* For IE8 and earlier */
-  padding: 20px;
 }
 
+/* Student Day 'Dont think this exists' */
 .c100 {
-  /*Student Day 'Dont think this exists' */
   background-color: yellow;
   color: white;
-  opacity: 0.5;
-  filter: alpha(opacity=50); /* For IE8 and earlier */
-  padding: 20px;
 }
 
+/* Student and SFO Day 'Dont think this exists' */
 .c101 {
-  /*Student and SFO Day 'Dont think this exists' */
   background-color: yellow;
   color: white;
-  opacity: 0.5;
-  filter: alpha(opacity=50); /* For IE8 and earlier */
-  padding: 20px;
 }
 
+/* Student and Teacher Day  */
 .c110 {
-  /*Student and Teacher Day  */
   background-color: darkgreen;
   color: white;
-  opacity: 0.5;
-  filter: alpha(opacity=50); /* For IE8 and earlier */
-  padding: 20px;
 }
 
+/* Student, Teacher and SFO Day */
 .c111 {
-  /*Student, Teacher and SFO Day */
   background-color: green;
   color: white;
-  opacity: 0.5;
-  filter: alpha(opacity=50); /* For IE8 and earlier */
-  padding: 20px;
 
 }
-
-
-
 
 /* Add media queries for smaller screens */
 @media screen and (max-width:720px) {
@@ -188,40 +184,3 @@ ul {
 @media screen and (max-width: 290px) {
     .weekdays li, .days li {width: 12.2%;}
 }
-/* CSS Calendar end */
-
-/* CSS list */
-#myInput {
-    width: 100%;
-    font-size: 16px;
-    padding: 12px 20px 12px 40px;
-    border: 1px solid #ddd;
-    margin-bottom: 12px;
-}
-
-#myUL {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-#myUL li a {
-    border: 1px solid #ddd;
-    margin-top: -1px; /* Prevent double borders */
-    background-color: #f6f6f6;
-    padding: 12px;
-    text-decoration: none;
-    font-size: 18px;
-    color: black;
-    display: block
-}
-
-#myUL li a.header {
-    background-color: #e2e2e2;
-    cursor: default;
-}
-
-#myUL li a:hover:not(.header) {
-    background-color: #eee;
-}
-/* CSS list end */
