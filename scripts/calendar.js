@@ -166,7 +166,7 @@ class Calendar {
 
           } else {
             var day = $("<li class='c" + this.schools[skoler].Datoer[dates][0] + "'>" + dates.substring(8, 10) +
-              "</span></li>");
+              "</li>");
           };
           $(".days").append(day);
         };
