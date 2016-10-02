@@ -165,7 +165,7 @@ class Calendar {
             var day = $("<li>" + dates.substring(8, 10) + "</li>")
 
           } else {
-            var day = $("<li><span class='c" + this.schools[skoler].Datoer[dates][0] + "'>" + dates.substring(8, 10) +
+            var day = $("<li class='c" + this.schools[skoler].Datoer[dates][0] + "'>" + dates.substring(8, 10) +
               "</span></li>");
           };
           $(".days").append(day);
