@@ -2,7 +2,6 @@ function printMySchools(){
   var elem = document.getElementById("myFavScho");
 
   if(Cookies.get("mySchools") != null){
-    console.log("funker til nå")
     var theString = "Skoler valgt: "
     var arr = Cookies.get("mySchools").split(",");
     for(var i = 0; i < arr.length; i++){
