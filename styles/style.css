@@ -21,6 +21,12 @@ body {
     color: #495156;
 }
 
+#icon {
+    font-size: 6em;
+    color: #495156;
+    margin-top: -30px;
+}
+
 /* The main grey / blue color for backgrounds */
 .mainColor {
     background-color: #495156;
