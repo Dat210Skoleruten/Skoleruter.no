@@ -1,16 +1,46 @@
 <!doctype html>
-        <html>
+<html>
 <head>
     <title>
         Test av kode
     </title>
+    <meta charset="UTF-8">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-        <script type="text/javascript" src="../scripts/gps.js"></script>
-        <script type="text/javascript" src="../scripts/tests.js"></script>
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
+    <script type="text/javascript">
+        window.cookieconsent_options = {"message":"Denne siden bruker cookies for å gi deg den beste opplevelsen mulig.","dismiss":"Ok!","learnMore":"Mer info","link":null,"theme":"dark-bottom"};
+    </script>
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+    <!-- End Cookie Consent plugin -->
+
+    <script type="text/javascript" src="../scripts/cookie.js"></script>
+    <script type="text/javascript" src="../scripts/session.js"></script>
+    <script type="text/javascript" src="../scripts/papaparse.min.js"></script>
+    <script type="text/javascript" src="../scripts/parseCSV.js"></script>
+    <script type="text/javascript" src="../scripts/gps.js"></script>
+    <script type="text/javascript" src="../scripts/indexSearch.js"></script>
+    <script type="text/javascript" src="../scripts/googlemap.js"></script>
+    <script type="text/javascript" src="../scripts/navbar.js"></script>
+    <script type="text/javascript" src="../scripts/mySchools.js"></script>
+    <script type="text/javascript" src="../scripts/tests.js"></script>
+    <script type="text/javascript" src="../scripts/calendar.js"></script>
 
 </head>
 <body>
 
-<button onclick="gpsDistanceTest();"> Test distanse </button>
+<button onclick="gpsDistanceTest();"> Test distance </button>
+<button onclick="findSchoolTest();"> Test find school </button>
 </body>
 </html>
