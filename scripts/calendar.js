@@ -80,6 +80,7 @@ class Calendar {
 
   constructor(schoolNames, array) {
     this.currentDate = new Date();
+    this.currentDate.setDate(1);
     this.now = new Date();
     //  this.currentDate.setMonth(11); //for å teste andre månder
     this.events = [];
@@ -226,7 +227,7 @@ class Calendar {
         if (this.schools[skoler].Datoer[dates][0] != "111" && this.schools[skoler].Datoer[dates][0] != "110") {
           var eventDate = new Date(dates);
           console.log( eventDate );
-          if (eventDate > this.currentDate) { //bytt med this.now hvis liste skal være statisk
+          if (eventDate >= this.currentDate) { //bytt med this.now hvis liste skal være statisk
             if (header == 0 && currMonth != parseInt(dates.substring(5, 7))) {
               currMonth = parseInt(dates.substring(5, 7));
 
