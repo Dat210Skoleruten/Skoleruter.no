@@ -109,68 +109,100 @@ ul {
 
 /* Nobody day */
 .c000 {
-  background-color: green; /* Transparent */
-  color: white; /* Black */
-
+    background-color: transparent;
+    color: darkgray;
 }
 
 /* SFO Day */
 .c001 {
-  background-color: sandybrown ;
-  color: white;
+    background-color: red;
+    color: white;
 }
 
 /* Teacher Day */
 .c010 {
-  background-color: blue;
-  color: white;
+    background-color: blue;
+    color: white;
 }
 
 /* Teacher and SFO Day */
 .c011 {
-  background-color: red;
-  color: white;
+    background-image: linear-gradient(
+            to right,
+            red,
+            red 50%,
+            blue 50%,
+            blue 100%
+    );
+    color: white;
 }
 
 /* Student Day 'Dont think this exists' */
 .c100 {
-  background-color: yellow;
-  color: white;
+    background-color: green;
+    color: white;
 }
 
 /* Student and SFO Day 'Dont think this exists' */
 .c101 {
-  background-color: yellow;
-  color: white;
+    background-image: linear-gradient(
+            to right,
+            green,
+            green 50%,
+            red 50%,
+            red 100%
+    );
+    color: white;
 }
 
 /* Student and Teacher Day  */
 .c110 {
-  background-color: darkgreen;
-  color: white;
+    background-image: linear-gradient(
+            to right,
+            green,
+            green 50%,
+            blue 50%,
+            blue 100%
+    );
+    color: white;
 }
 
 /* Student, Teacher and SFO Day */
 .c111 {
-  background-color: green;
-  color: white;
-
+    background-image: linear-gradient(
+            to right,
+            red,
+            red 33%,
+            blue 33%,
+            blue 66%,
+            green 66%
+    );
+    color: white;
 }
 
-li.now {
-   border: 3px solid blue; 
+.now {
+    border: 3px dashed orchid;
 }
 
 /* Add media queries for smaller screens */
-@media screen and (max-width:720px) {
-    .weekdays li, .days li {width: 13.1%;}
+@media screen and (max-width: 720px) {
+    .weekdays li, .days li {
+        width: 13.1%;
+    }
 }
 
 @media screen and (max-width: 420px) {
-    .weekdays li, .days li {width: 12.5%;}
-    .days li .active {padding: 2px;}
+    .weekdays li, .days li {
+        width: 12.5%;
+    }
+
+    .days li .active {
+        padding: 2px;
+    }
 }
 
 @media screen and (max-width: 290px) {
-    .weekdays li, .days li {width: 12.2%;}
+    .weekdays li, .days li {
+        width: 12.2%;
+    }
 }
