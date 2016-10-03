@@ -221,7 +221,7 @@ class Calendar {
     var header = 0;
     for (var skoler in this.schools) {
       for (var dates in this.schools[skoler].Datoer) {
-        if (this.schools[skoler].Datoer[dates][0] != "111") {
+        if (this.schools[skoler].Datoer[dates][0] != "111" && this.schools[skoler].Datoer[dates][0] != "110") {
           var eventDate = new Date(dates);
           console.log( eventDate );
           if (eventDate > this.now) {
