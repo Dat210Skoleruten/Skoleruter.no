@@ -7,6 +7,11 @@ $(document).ready(function() {
   console.log("Selected school:", selected);
   console.log("SchoolData:", tmpArray);
   $("#schoolName").html(selected);
+  // setter href for hver skole når du trykker på hver av dem
+  var chosenScho = findSchool(selected, tmpArray);
+  var elem = document.getElementById("schoolLink");
+  elem.href = chosenScho[0].Hjemmeside;
+
 
   cal.buildCalendar();
   cal.buildList();
@@ -178,10 +183,10 @@ class Calendar {
           //if date today. Append class "today"
           var thisDate = new Date(parseInt(dates.substring(0, 4)), parseInt(dates.substring(5, 7)), parseInt(dates.substring(8, 10)));
 
-          console.log(this.now.getFullYear() ,(this.now.getMonth()+1) , (this.now.getDay()+2) , dates );  
+          console.log(this.now.getFullYear() ,(this.now.getMonth()+1) , (this.now.getDay()+2) , dates );
           if (parseInt(dates.substring(0, 4)) == this.now.getFullYear() && parseInt(dates.substring(5, 7)) == (this.now.getMonth()+1) && parseInt(dates.substring(8, 10)) == (this.now.getDay()+2)) {
             day.addClass("now");
-          } 
+          }
 
           $(".days").append(day);
         };
