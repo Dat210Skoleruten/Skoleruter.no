@@ -15,7 +15,12 @@ function checkCookie(val){
   //  console.log("else", Cookies.get('mySchools') == null);
 
     schoStr = Cookies.get('mySchools');
+    if(schoStr.substring(0,1) == ","){
+        schoStr.splice(0,1);
+        console.log("FOUND COMMA!")
+    }
     ArrOfSchools = schoStr.split(",");
+
   //  console.log(ArrOfSchools);
   //  console.log("toloaasd");
     for (var i = 0; i < ArrOfSchools.length; i++) {

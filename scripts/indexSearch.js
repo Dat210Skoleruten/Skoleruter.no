@@ -104,18 +104,18 @@ function getIndexListItemsPos(closest) {
 }*/
 
 function getIndexListItemsPos(closest) {
-    console.log("getIndexListItemsPos: ", closest)
+    //console.log("getIndexListItemsPos: ", closest)
     var ArrayWSchools = [];
     if(Cookies.get('mySchools') != null){
       arrString = Cookies.get('mySchools');
       ArrayWSchools = arrString.split(",");
     }
-    
+
     $("#indexList").show();
     $("#indexList").children().empty();
     var fiveClosest = closest;
     $.each(fiveClosest, function (index, value) { //5 closest schools
-      console.log("print value: ", value[1]);
+      //console.log("print value: ", value[1]);
       var elem1 = $("<tr></tr>");
       var elem2 = $("<td></td>");
       var elem3 = $("<div></div>");
