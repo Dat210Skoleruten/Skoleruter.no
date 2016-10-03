@@ -162,13 +162,15 @@ class Calendar {
 
           //
           // }
+          /*
           if (this.schools[skoler].Datoer[dates][0] == "111") {
             var day = $("<li>" + dates.substring(8, 10) + "</li>")
 
-          } else {
+          }
+           else {*/
             var day = $("<li class='c" + this.schools[skoler].Datoer[dates][0] + "'>" + dates.substring(8, 10) +
               "</li>");
-          };
+          //};
           //if date today. Append class "today"
           var thisDate = new Date(parseInt(dates.substring(0, 4)), parseInt(dates.substring(5, 7)), parseInt(dates.substring(8, 10)));
 
