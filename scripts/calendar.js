@@ -81,6 +81,7 @@ class Calendar {
   constructor(schoolNames, array) {
     this.currentDate = new Date();
     this.currentDate.setDate(1);
+    this.currentDate.setHours(0,0,0,0)
     //this.currentDate.setTime(0);
     this.now = new Date();
     //  this.currentDate.setMonth(11); //for å teste andre månder
