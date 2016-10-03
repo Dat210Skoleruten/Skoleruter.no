@@ -15,10 +15,11 @@ function checkCookie(val){
   //  console.log("else", Cookies.get('mySchools') == null);
 
     schoStr = Cookies.get('mySchools');
-    if(schoStr.substring(0,1) == ","){
-        schoStr.splice(0,1);
-        console.log("FOUND COMMA!")
-    }
+    console.log(schoStr);
+    //if(schoStr.substring(0,1) == ","){
+    //    schoStr = schoStr.substring(1, schoStr.length);
+    //    console.log("FOUND COMMA!")
+    //}
     ArrOfSchools = schoStr.split(",");
 
   //  console.log(ArrOfSchools);
@@ -28,6 +29,9 @@ function checkCookie(val){
         ArrOfSchools.splice(i, 1);
         Cookies.set('mySchools', ArrOfSchools.toString(), { expires: 365 });
         elem.firstElementChild.firstElementChild.className = 'glyphicon glyphicon-star-empty';
+        if(ArrOfSchools.toString() == ""){
+          Cookies.remove("mySchools");
+        }
         return;
       }
     }
