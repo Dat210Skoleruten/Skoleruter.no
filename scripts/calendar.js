@@ -105,12 +105,14 @@ class Calendar {
     console.log("prevMonth");
     this.currentDate.setMonth(this.currentDate.getMonth() - 1);
     this.buildCalendar();
+    this.buildList();
   };
 
   nextMonth() {
     console.log("nextMonth");
     this.currentDate.setMonth(this.currentDate.getMonth() + 1);
     this.buildCalendar();
+    this.buildList();
   };
 
   buildCalendar() {
@@ -144,7 +146,7 @@ class Calendar {
         }
         for (var i = 1; i < cDay; i++) {
           daysInMonth++;
-          var day = $("<li></li>");
+          var day = $("<li>.</li>");
           $(".days").append(day);
 
         }
@@ -207,7 +209,7 @@ class Calendar {
     };
 
     for (daysInMonth; daysInMonth < 42; daysInMonth++) {
-      var day = $("<li></li>");
+      var day = $("<li>.</li>");
       $('.days').append(day);
     };
   };
@@ -224,11 +226,11 @@ class Calendar {
         if (this.schools[skoler].Datoer[dates][0] != "111" && this.schools[skoler].Datoer[dates][0] != "110") {
           var eventDate = new Date(dates);
           console.log( eventDate );
-          if (eventDate > this.now) {
+          if (eventDate > this.currentDate) {
             if (header == 0 && currMonth != parseInt(dates.substring(5, 7))) {
               currMonth = parseInt(dates.substring(5, 7));
 
-              monthHeader = $("<li><a class='header'>" + this.months[currMonth - 1] + ", " + dates.substring(0, 4) + "</a></li>");
+              monthHeader = $("<br><li><a class='header'>" + this.months[currMonth - 1] + ", " + dates.substring(0, 4) + "</a></li>");
               $("#myUL").append(monthHeader);
             }
 
