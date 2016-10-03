@@ -81,6 +81,7 @@ class Calendar {
   constructor(schoolNames, array) {
     this.currentDate = new Date();
     this.currentDate.setDate(1);
+    //this.currentDate.setTime(0);
     this.now = new Date();
     //  this.currentDate.setMonth(11); //for å teste andre månder
     this.events = [];
@@ -147,7 +148,9 @@ class Calendar {
         }
         for (var i = 1; i < cDay; i++) {
           daysInMonth++;
-          var day = $("<li>.</li>");
+
+          var day = $("<li class='before'> </li>");  //dagene før måneden har startet
+
           $(".days").append(day);
 
         }
@@ -210,7 +213,9 @@ class Calendar {
     };
 
     for (daysInMonth; daysInMonth < 42; daysInMonth++) {
-      var day = $("<li>.</li>");
+
+      var day = $("<li class='after'></li>"); //dagene etter måneden
+
       $('.days').append(day);
     };
   };

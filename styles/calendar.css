@@ -81,6 +81,10 @@ ul {
     text-align: center;
     font-weight: bold;
 }
+.before, .after {
+    visibility: hidden;
+
+}
 
 .days {
     padding: 10px 0;
