@@ -7,12 +7,17 @@
     display: inline-block;
     margin-top: 10px;
     color: black;
-    padding-left: 15px;
     margin-left: 5px;
 }
 
 .legendBox {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+}
 
+.legendBar span {
+    margin-left: 15px;
 }
 
 ul {
@@ -91,7 +96,7 @@ ul {
     margin-bottom: 5px;
     font-size: 15px;
     padding: 20px;
-    border: 1px solid lightgray; /* Temp */
+    border: 0.1px solid lightgray; /* Temp */
     cursor: default;
 }
 
