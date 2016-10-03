@@ -144,7 +144,7 @@ class Calendar {
         }
         for (var i = 1; i < cDay; i++) {
           daysInMonth++;
-          var day = $("<li></li>");
+          var day = $("<li class='before'> </li>");  //dagene før måneden har startet
           $(".days").append(day);
 
         }
@@ -207,7 +207,7 @@ class Calendar {
     };
 
     for (daysInMonth; daysInMonth < 42; daysInMonth++) {
-      var day = $("<li></li>");
+      var day = $("<li class='after'></li>"); //dagene etter måneden
       $('.days').append(day);
     };
   };
