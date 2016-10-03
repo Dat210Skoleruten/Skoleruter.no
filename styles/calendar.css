@@ -107,6 +107,11 @@ ul {
     -webkit-transition: 0.3s;
 }
 
+.weekend{
+    background-color: transparent;
+    color: lightgrey;
+}
+
 .SFO {
     background-color: #B6D0C5;
 }
