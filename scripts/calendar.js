@@ -125,10 +125,7 @@ class Calendar {
 
         }
 
-        console.log(this.now.getFullYear(), (this.now.getMonth() + 1), (this.now.getDay() + 2), dates);
-        if (parseInt(dates.substring(0, 4)) == this.now.getFullYear() && parseInt(dates.substring(5, 7)) == (this.now.getMonth() + 1) && parseInt(dates.substring(8, 10)) == (this.now.getDay() + 2)) {
-            day.addClass("now");
-        }
+        
 
         $(".days").empty();
         $("#month").html(this.months[this.currentDate.getMonth()] +
