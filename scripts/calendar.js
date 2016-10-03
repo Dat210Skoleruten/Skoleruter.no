@@ -4,9 +4,20 @@ var mySchools = Cookies.get('mySchools');
 
 $(document).ready(function () {
 
+<<<<<<< HEAD
     console.log("Selected school:", selected);
     console.log("SchoolData:", tmpArray);
     $("#schoolName").html(selected);
+=======
+  console.log("Selected school:", selected);
+  console.log("SchoolData:", tmpArray);
+  $("#schoolName").html(selected);
+  // setter href for hver skole når du trykker på hver av dem
+  var chosenScho = findSchool(selected, tmpArray);
+  var elem = document.getElementById("schoolLink");
+  elem.href = chosenScho[0].Hjemmeside;
+
+>>>>>>> origin/DevBranch
 
     cal.buildCalendar();
     cal.buildList();
@@ -117,6 +128,13 @@ class Calendar {
 
         }
 
+<<<<<<< HEAD
+=======
+          console.log(this.now.getFullYear() ,(this.now.getMonth()+1) , (this.now.getDay()+2) , dates );
+          if (parseInt(dates.substring(0, 4)) == this.now.getFullYear() && parseInt(dates.substring(5, 7)) == (this.now.getMonth()+1) && parseInt(dates.substring(8, 10)) == (this.now.getDay()+2)) {
+            day.addClass("now");
+          }
+>>>>>>> origin/DevBranch
 
         $(".days").empty();
         $("#month").html(this.months[this.currentDate.getMonth()] +
