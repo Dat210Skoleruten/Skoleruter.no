@@ -222,18 +222,22 @@ class Calendar {
     for (var skoler in this.schools) {
       for (var dates in this.schools[skoler].Datoer) {
         if (this.schools[skoler].Datoer[dates][0] != "111") {
-          if (header == 0 && currMonth != parseInt(dates.substring(5, 7))) {
-            currMonth = parseInt(dates.substring(5, 7));
+          var eventDate = new Date(dates);
+          console.log( eventDate );
+          if (eventDate > this.now) {
+            if (header == 0 && currMonth != parseInt(dates.substring(5, 7))) {
+              currMonth = parseInt(dates.substring(5, 7));
 
-            monthHeader = $("<li><a class='header'>" + this.months[currMonth - 1] + ", " + dates.substring(0, 4) + "</a></li>");
-            $("#myUL").append(monthHeader);
+              monthHeader = $("<li><a class='header'>" + this.months[currMonth - 1] + ", " + dates.substring(0, 4) + "</a></li>");
+              $("#myUL").append(monthHeader);
+            }
+
+
+            if (this.schools[skoler].Datoer[dates][1] != "Søndag" && this.schools[skoler].Datoer[dates][1] != "Lørdag") {
+              list = $("<li><a>" + dates.substring(8, 10) + ", " + this.schools[skoler].Datoer[dates][1] + ", " + this.schools[skoler].Datoer[dates][0] + "</a></li>");
+              $("#myUL").append(list);
+            };
           }
-
-
-          if (this.schools[skoler].Datoer[dates][1] != "Søndag" && this.schools[skoler].Datoer[dates][1] != "Lørdag") {
-            list = $("<li><a>" + dates.substring(8, 10) + ", " + this.schools[skoler].Datoer[dates][1] + ", " + this.schools[skoler].Datoer[dates][0] + "</a></li>");
-            $("#myUL").append(list);
-          };
         }
       };
 
