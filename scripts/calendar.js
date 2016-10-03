@@ -105,14 +105,14 @@ class Calendar {
     console.log("prevMonth");
     this.currentDate.setMonth(this.currentDate.getMonth() - 1);
     this.buildCalendar();
-    this.buildList();
+    this.buildList(); //fjærn denn hvis listen skal være statisk
   };
 
   nextMonth() {
     console.log("nextMonth");
     this.currentDate.setMonth(this.currentDate.getMonth() + 1);
     this.buildCalendar();
-    this.buildList();
+    this.buildList(); //fjærn denn hvis listen skal være statisk
   };
 
   buildCalendar() {
@@ -226,7 +226,7 @@ class Calendar {
         if (this.schools[skoler].Datoer[dates][0] != "111" && this.schools[skoler].Datoer[dates][0] != "110") {
           var eventDate = new Date(dates);
           console.log( eventDate );
-          if (eventDate > this.currentDate) {
+          if (eventDate > this.currentDate) { //bytt med this.now hvis liste skal være statisk
             if (header == 0 && currMonth != parseInt(dates.substring(5, 7))) {
               currMonth = parseInt(dates.substring(5, 7));
 
