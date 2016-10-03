@@ -181,7 +181,7 @@ class Calendar {
           var dayType = "";
           var dayNum = this.schools[skoler].Datoer[dates][0];
 
-          if (dayNum == "001") {
+          if (dayNum == "001" || dayNum == "011") {
             dayType = "SFO";
           } else if (this.schools[skoler].Datoer[dates][1] == "Lørdag" || this.schools[skoler].Datoer[dates][1] == "Søndag") {
             dayType = "weekend";
@@ -231,7 +231,7 @@ class Calendar {
 
 
           if (this.schools[skoler].Datoer[dates][1] != "Søndag" && this.schools[skoler].Datoer[dates][1] != "Lørdag") {
-            list = $("<li><a>" + dates + ", " + this.schools[skoler].Datoer[dates][1] + ", " + this.schools[skoler].Datoer[dates][0] + "</a></li>");
+            list = $("<li><a>" + dates.substring(8, 10) + ", " + this.schools[skoler].Datoer[dates][1] + ", " + this.schools[skoler].Datoer[dates][0] + "</a></li>");
             $("#myUL").append(list);
           };
         }
