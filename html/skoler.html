@@ -44,8 +44,9 @@
     <script type="text/javascript" src="../scripts/navbar.js"></script>
     <script type="text/javascript" src="../scripts/navSearch.js"></script>
     <script type="text/javascript" src="../scripts/mySchools.js"></script>
+    <script type="text/javascript" src="../scripts/printmySchools.js"></script>
 </head>
-<body>
+<body onload="printMySchools()">
 
 <!-- Navbar bar -->
 <nav class="navbar navbar-light backgroundColor">
@@ -88,7 +89,7 @@
 <!--Viser hvilke skoler som er valgt-->
 <div class="container-fluid">
   <div class="legendBar col-md-8 col-lg-offset-2">
-    <p style ="color: #495156;">Skoler valgt: </p>
+    <p style ="color: #495156;">Skoler valgt: <span id="myFavScho"></span> </p>
   </div>
 </div><!--/Skoler valgt-->
 
