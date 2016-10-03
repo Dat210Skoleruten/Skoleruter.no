@@ -21,20 +21,16 @@ Dest:
 
 var pos = {Lat: [59.913869, 59.41589, 60.30435],
     Lon: [10.752245, 9.325796, 5.27869],
-    Fasit: []};
+    Fasit: [306,213,154]};
 var result = [];
     for(var i=0; i < 3; i++){
 
         result[i] = distance(58.937299,5.697201,pos.Lat[i],pos.Lon[i]);
-        var dist = result[i] - pos.Fasit[i];
+        var dist = result[i];
         console.log(dist);
+        console.log(pos.Fasit[i]);
     }
-
-
-
-
-
-
+    
 
 }
 
