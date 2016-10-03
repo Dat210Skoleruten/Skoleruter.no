@@ -168,7 +168,11 @@ class Calendar {
 
           }
            else {*/
-            var day = $("<li class='c" + this.schools[skoler].Datoer[dates][0] + "'>" + dates.substring(8, 10) +
+          var dayType;
+          if(this.schools[skoler].Datoer[dates][0].substring(1) == "01") dayType = "SFO";
+          else if(this.schools[skoler].Datoer[dates][0].substring(1) == "00") dayType = "fri";
+
+          var day = $("<li class='" + dayType + "'>" + dates.substring(8, 10) +
               "</li>");
           //};
           //if date today. Append class "today"

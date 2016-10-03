@@ -107,80 +107,15 @@ ul {
     -webkit-transition: 0.3s;
 }
 
-/* Nobody day */
-.c000 {
-    background-color: transparent;
-    color: darkgray;
+.SFO {
+    background-color: #B6D0C5;
 }
 
-/* SFO Day */
-.c001 {
-    background-color: red;
-    color: white;
+.fri {
+    background-color: #6BA9BF;
 }
 
-/* Teacher Day */
-.c010 {
-    background-color: blue;
-    color: white;
-}
-
-/* Teacher and SFO Day */
-.c011 {
-    background-image: linear-gradient(
-            to right,
-            red,
-            red 50%,
-            blue 50%,
-            blue 100%
-    );
-    color: white;
-}
-
-/* Student Day 'Dont think this exists' */
-.c100 {
-    background-color: green;
-    color: white;
-}
-
-/* Student and SFO Day 'Dont think this exists' */
-.c101 {
-    background-image: linear-gradient(
-            to right,
-            green,
-            green 50%,
-            red 50%,
-            red 100%
-    );
-    color: white;
-}
-
-/* Student and Teacher Day  */
-.c110 {
-    background-image: linear-gradient(
-            to right,
-            green,
-            green 50%,
-            blue 50%,
-            blue 100%
-    );
-    color: white;
-}
-
-/* Student, Teacher and SFO Day */
-.c111 {
-    background-image: linear-gradient(
-            to right,
-            red,
-            red 33%,
-            blue 33%,
-            blue 66%,
-            green 66%
-    );
-    color: white;
-}
-
-.now {
+li.now {
     border: 3px dashed orchid;
 }
 
