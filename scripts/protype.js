@@ -1,3 +1,4 @@
+//Week number prototype
 Date.prototype.getWeekNumber = function(){
     var d = new Date(+this);
     d.setHours(0,0,0);
