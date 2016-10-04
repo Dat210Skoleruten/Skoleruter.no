@@ -60,7 +60,8 @@ function getIndexListItems() {
         }
 
         elem3.click(function () {
-            Cookies.set("selected", $(this).text());
+          Cookies.set("calendarType", "selected");
+          Cookies.set("selected", $(this).text());
         });
         //Checks if cookie is set or not, decides if it should add or delete a variable to the mySchools-cookie
         elem6.click(function(){
@@ -131,6 +132,7 @@ function getIndexListItemsPos(closest) {
         var elem7 = $("<a href='#' class='addButton'><span class='glyphicon glyphicon-star-empty' aria-hidden='true'><span hidden>"+ value[1] +"<span></span></a>");
       }
       elem3.click(function () {
+          Cookies.set("calendarType", "selected");
           Cookies.set("selected", $(this).text());
       });
       //Checks if cookie is set or not, decides if it should add or delete a variable to the mySchools-cookie
