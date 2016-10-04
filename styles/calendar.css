@@ -113,6 +113,10 @@ ul {
     background-color: #6BA9BF;
 }
 
+.SFOfri{
+    background-color: red;
+}
+
 li.now {
     box-shadow:0px 0px 0px 2px black inset;
     font-weight: bold;

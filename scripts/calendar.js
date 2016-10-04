@@ -2,7 +2,7 @@ var tmpArray = getSchoolData();
 var selected = Cookies.get('selected');
 var mySchools = Cookies.get('mySchools');
 
-$(document).ready(function () {
+$(document).ready(function() {
 
   console.log("Selected school:", selected);
   console.log("SchoolData:", tmpArray);
@@ -20,20 +20,20 @@ $(document).ready(function () {
   cal.buildList();
 
 
-  $("#cal_prev").click(function () {
+  $("#cal_prev").click(function() {
     cal.prevMonth();
   });
-  $("#cal_next").click(function () {
+  $("#cal_next").click(function() {
     cal.nextMonth();
   });
 
-  $("body").keyup(function (e) {
+  $("body").keyup(function(e) {
     if (e.keyCode == 37) {
       cal.prevMonth();
     }
 
   });
-  $("body").keyup(function (e) {
+  $("body").keyup(function(e) {
     if (e.keyCode == 39) {
       cal.nextMonth();
     }
@@ -83,7 +83,7 @@ class Calendar {
     this.currentDate = new Date();
     this.currentDate.setDate(1);
     this.currentDate.setHours(0, 0, 0, 0)
-    //this.currentDate.setTime(0);
+      //this.currentDate.setTime(0);
     this.now = new Date();
     //  this.currentDate.setMonth(11); //for å teste andre månder
     this.events = [];
@@ -141,85 +141,96 @@ class Calendar {
     $("#year").html(currentYear);
     var dateType = "000";
     var daysInMonth = 0;
-    for (var skoler in this.schools) {
 
-      if (firstDay.getDay() != 1) {
-        var cDay = firstDay.getDay();
-        if (cDay == 0) {
-          cDay = 7;
-        }
-        for (var i = 1; i < cDay; i++) {
-          daysInMonth++;
-
-          var day = $("<li class='before'>.</li>");  //dagene før måneden har startet
-
-          $(".days").append(day);
-
-        }
+    if (firstDay.getDay() != 1) {
+      var cDay = firstDay.getDay();
+      if (cDay == 0) {
+        cDay = 7;
       }
+      for (var i = 1; i < cDay; i++) {
+        daysInMonth++;
 
+        var day = $("<li class='before'>.</li>"); //dagene før måneden har startet
 
-      //console.log(this.schools[skoler]);
-      for (var dates in this.schools[skoler].Datoer) {
+        $(".days").append(day);
 
-        //  console.log("Dato:", dates ,"Status:",this.schools[skoler].Datoer[dates][0],"Kommentar",this.schools[skoler].Datoer[dates][1]);
+      }
+    }
 
+    for (var currDate in this.schools[0].Datoer) {
+      var dates = currDate;
+      if (dates.substring(5, 7) == month && dates.substring(0, 4) == currentYear) {
+        var eventDate = new Date(dates);
+        var totDayType = [];
 
-        //build calendar and table
-        if (dates.substring(5, 7) == month && dates.substring(0, 4) ==
-          currentYear) {
+        for (var skoler in this.schools) {
 
-          daysInMonth++;
-          var currDateType = this.schools[skoler].Datoer[dates][0];
-          //         for (var c = 0; c < 3; c++) {
-          //             if (currDateType.charAt(c) == '1') {
-          //                 dateType.charAt(c) == '1';
-          //                 console.log("current charat:", currDateType.charAt(c));
-          //                 console.log("sat charat:",dateType.charAt(c));
-          //             }
-
-          //
-          // }
-          /*
-           if (this.schools[skoler].Datoer[dates][0] == "111") {
-           var day = $("<li>" + dates.substring(8, 10) + "</li>")
-
-           }
-           else {*/
-          var eventDate = new Date(dates);
-          console.log(eventDate.getDay())
           var dayType = "";
+          //console.log(dates);
+          //console.log(this.schools[skoler]);
+          // for (var dates in this.schools[skoler].Datoer[temp]) {
+
+          //  console.log("Dato:", dates ,"Status:",this.schools[skoler].Datoer[dates][0],"Kommentar",this.schools[skoler].Datoer[dates][1]);
+
+
+          //build calendar and table
+
           var dayNum = this.schools[skoler].Datoer[dates][0];
 
           if (dayNum == "001" || dayNum == "011") {
             dayType = "SFO";
           } else if (eventDate.getDay() == 6 || eventDate.getDay() == 0) {
             dayType = "weekend";
-            
+
           } else if (dayNum == "000" || dayNum == "010") {
             dayType = "fri";
           }
-          if(eventDate.getDay() == 1){
-            var day = $("<li class='" + dayType + "'>" + "<div class='weekNum'>" + eventDate.getWeekNumber()  + "</div>"+ " " + dates.substring(8, 10) +
-                "</li>");
-          } else {
-            var day = $("<li class='" + dayType + "'>" + dates.substring(8, 10) +
-                "</li>");
-          }
-          //};
-          //if date today. Append class "today"
-          var thisDate = new Date(parseInt(dates.substring(0, 4)), parseInt(dates.substring(5, 7)), parseInt(dates.substring(8, 10)));
+          totDayType.push(dayType);
 
-          //console.log(this.now.getFullYear() ,(this.now.getMonth()+1) , (this.now.getDay()+2) , dates );
-          if (parseInt(dates.substring(0, 4)) == this.now.getFullYear() && parseInt(dates.substring(5, 7)) == (this.now.getMonth() + 1) && parseInt(dates.substring(8, 10)) == (this.now.getDay() + 2)) {
-            day.addClass("now");
-          }
-
-          $(".days").append(day);
         };
 
+        daysInMonth++;
+        var isOnlySFO = false;
+        var isFri = false;
+        var chosenDayType = "";
+        for (var currDateType in totDayType) {
+          if (totDayType[currDateType] == "SFO") isOnlySFO = true;
+          if (totDayType[currDateType] == "fri") isFri = true;
+        }
+        console.log("isOnlySFO: ", isOnlySFO, ", isFri: ", isFri);
+
+        if (isOnlySFO && isFri) {
+          chosenDayType = "SFOfri";
+        } else if (isOnlySFO && !isFri) {
+          chosenDayType = "SFO";
+        }
+        if (!isOnlySFO && isFri) {
+          chosenDayType = "fri";
+        }
+        if (!isOnlySFO && !isFri) {
+          chosenDayType = "";
+        }
+        console.log(chosenDayType);
+        var day;
+        if (eventDate.getDay() == 1) {
+          day = $("<li class='" + chosenDayType + "'>" + "<div class='weekNum'>" + eventDate.getWeekNumber() + "</div>" + " " + dates.substring(8, 10) +
+            "</li>");
+        } else {
+          day = $("<li class='" + chosenDayType + "'>" + dates.substring(8, 10) +
+            "</li>");
+        }
+        //};
+        //if date today. Append class "today"
+        var thisDate = new Date(dates);
+
+        //console.log(this.now.getFullYear() ,(this.now.getMonth()+1) , (this.now.getDay()+2) , dates );
+        if (parseInt(dates.substring(0, 4)) == this.now.getFullYear() && parseInt(dates.substring(5, 7)) == (this.now.getMonth() + 1) && parseInt(dates.substring(8, 10)) == (this.now.getDay() + 2)) {
+          day.addClass("now");
+        }
+
+        $(".days").append(day);
       };
-    };
+    }
 
     for (daysInMonth; daysInMonth < 42; daysInMonth++) {
 
@@ -239,7 +250,7 @@ class Calendar {
       for (var dates in this.schools[skoler].Datoer) {
         if (this.schools[skoler].Datoer[dates][0] != "111" && this.schools[skoler].Datoer[dates][0] != "110") {
           var eventDate = new Date(dates);
-          console.log(eventDate);
+          // console.log(eventDate);
           if (eventDate >= this.currentDate) { //bytt med this.now hvis liste skal være statisk
             if (header == 0 && currMonth != parseInt(dates.substring(5, 7))) {
               currMonth = parseInt(dates.substring(5, 7));
