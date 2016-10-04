@@ -229,7 +229,6 @@ class Calendar {
   };
 
   buildList() {
-    var month = this.now.getMonth();
     var monthHeader;
     var list;
     var currMonth;
