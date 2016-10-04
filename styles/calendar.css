@@ -20,6 +20,15 @@
     margin-left: 15px;
 }
 
+.dateNum {
+    float: left;
+}
+
+.rightLegend {
+    float: right;
+    cursor: pointer;
+}
+
 ul {
     list-style-type: none;
 }
@@ -83,7 +92,7 @@ ul {
 }
 .before, .after {
     visibility: hidden;
-
+    margin-top: -5px;
 }
 
 .days {
@@ -97,7 +106,6 @@ ul {
     display: inline-block;
     width: 14%;
     text-align: center;
-    margin-bottom: 5px;
     font-size: 15px;
     padding: 20px;
     border: 0.1px solid lightgray; /* Temp */
@@ -122,7 +130,7 @@ ul {
 
 }
 
-.weekend{
+.weekend {
     background-color: transparent;
     color: lightgrey;
 }
@@ -136,7 +144,7 @@ ul {
 }
 
 li.now {
-    border: 3px dashed orchid;
+    box-shadow:0px 0px 0px 2px black inset;
 }
 
 /* Add media queries for smaller screens */

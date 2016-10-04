@@ -32,4 +32,10 @@
 #myUL li a:hover:not(.header) {
     background-color: #eee;
 }
-/* CSS list end */
+
+#noScrollCalendar {
+    height: 540px;
+    overflow: auto;
+    display: block;
+}
+

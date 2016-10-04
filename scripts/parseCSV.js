@@ -59,7 +59,7 @@ function getSchoolData(){
       }
   }
 
-
+loop1:
   for(var i = 0 ; i < schools.length; i++){
     schools[i]['Datoer'] = [];
     for (var j = 0; j < data.length; j++) {
@@ -67,8 +67,11 @@ function getSchoolData(){
       if (schools[i].Skolenavn == data[j].name){
 
         schools[i].Datoer = data[j].dates;
+        continue loop1;
       }
     }
+    schools.splice(i, 1);
+    i--;
 
   }
 

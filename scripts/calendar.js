@@ -2,7 +2,7 @@ var tmpArray = getSchoolData();
 var selected = Cookies.get('selected');
 var mySchools = Cookies.get('mySchools');
 
-$(document).ready(function() {
+$(document).ready(function () {
 
   console.log("Selected school:", selected);
   console.log("SchoolData:", tmpArray);
@@ -20,20 +20,20 @@ $(document).ready(function() {
   cal.buildList();
 
 
-  $("#cal_prev").click(function() {
+  $("#cal_prev").click(function () {
     cal.prevMonth();
   });
-  $("#cal_next").click(function() {
+  $("#cal_next").click(function () {
     cal.nextMonth();
   });
 
-  $("body").keydown(function(e) {
+  $("body").keydown(function (e) {
     if (e.keyCode == 37) {
       cal.prevMonth();
     }
 
   });
-  $("body").keyup(function(e) {
+  $("body").keyup(function (e) {
     if (e.keyCode == 39) {
       cal.nextMonth();
     }
@@ -82,6 +82,7 @@ class Calendar {
   constructor(schoolNames, array) {
     this.currentDate = new Date();
     this.currentDate.setDate(1);
+    this.currentDate.setHours(0, 0, 0, 0)
     //this.currentDate.setTime(0);
     this.now = new Date();
     //  this.currentDate.setMonth(11); //for å teste andre månder
@@ -238,7 +239,7 @@ class Calendar {
       for (var dates in this.schools[skoler].Datoer) {
         if (this.schools[skoler].Datoer[dates][0] != "111" && this.schools[skoler].Datoer[dates][0] != "110") {
           var eventDate = new Date(dates);
-          console.log( eventDate );
+          console.log(eventDate);
           if (eventDate >= this.currentDate) { //bytt med this.now hvis liste skal være statisk
             if (header == 0 && currMonth != parseInt(dates.substring(5, 7))) {
               currMonth = parseInt(dates.substring(5, 7));
@@ -246,17 +247,31 @@ class Calendar {
               monthHeader = $("<br><li><a class='header'>" + this.months[currMonth - 1] + ", " + dates.substring(0, 4) + "</a></li>");
               $("#myUL").append(monthHeader);
             }
+            var dayType = "";
+            var dayComment = this.schools[skoler].Datoer[dates][1];
+            var dayNum = this.schools[skoler].Datoer[dates][0];
 
+            if (dayNum == "001" || dayNum == "011") {
+              dayType = "SFO";
+            } else if (dayComment == "Lørdag" || dayComment == "Søndag") {
+              dayType = "weekend";
+            } else if (dayNum == "000" || dayNum == "010") {
+              dayType = "fri";
+            }
 
-            if (this.schools[skoler].Datoer[dates][1] != "Søndag" && this.schools[skoler].Datoer[dates][1] != "Lørdag") {
-              list = $("<li><a>" + dates.substring(8, 10) + ", " + this.schools[skoler].Datoer[dates][1] + ", " + this.schools[skoler].Datoer[dates][0] + "</a></li>");
-              $("#myUL").append(list);
-            };
-          }
+            if (dayType == "SFO") {
+              list = $("<li><a><span class='dateNum'>" + dates.substring(8, 10) + "</span> Kun SFO </a></li>");
+            } else if (dayType == "fri" && dayComment == "") {
+              list = $("<li><a><span class='dateNum'>" + dates.substring(8, 10) + "</span> Skolefri </a></li>");
+            } else if (dayType != "weekend") {
+              list = $("<li><a><span class='dateNum'>" + dates.substring(8, 10) + "</span> " + dayComment + "</a></li>");
+            }
+            $("#myUL").append(list);
+          };
         }
-      };
-
+      }
     };
+
   };
 };
 
