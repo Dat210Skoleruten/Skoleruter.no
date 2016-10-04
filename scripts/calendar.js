@@ -243,7 +243,7 @@ class Calendar {
 
 
             if (this.schools[skoler].Datoer[dates][1] != "Søndag" && this.schools[skoler].Datoer[dates][1] != "Lørdag") {
-              list = $("<li><a>" + dates.substring(8, 10) + ", " + this.schools[skoler].Datoer[dates][1] + ", " + this.schools[skoler].Datoer[dates][0] + "</a></li>");
+              list = $("<li><a><span class='dateNum'" + dates.substring(8, 10) + "</span>, " + this.schools[skoler].Datoer[dates][1] + "</a></li>");
               $("#myUL").append(list);
             };
           }
