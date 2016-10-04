@@ -114,7 +114,7 @@ ul {
 }
 
 .SFOfri{
-    background-color: red;
+    background: linear-gradient(to right bottom, #B6D0C5 50%, #6BA9BF 50% );
 }
 
 li.now {
