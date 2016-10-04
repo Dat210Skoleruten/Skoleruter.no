@@ -92,7 +92,6 @@ ul {
 }
 .before, .after {
     visibility: hidden;
-    margin-top: -5px;
 }
 
 .days {
