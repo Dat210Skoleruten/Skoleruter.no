@@ -3,7 +3,6 @@ var selected = Cookies.get('selected');
 var mySchools = Cookies.get('mySchools');
 
 $(document).ready(function() {
-
   console.log("Selected school:", selected);
   console.log("SchoolData:", tmpArray);
   $("#schoolName").html(selected);
@@ -246,8 +245,10 @@ class Calendar {
     var currMonth;
     $("#myUL").empty();
     var header = 0;
-    for (var skoler in this.schools) {
-      for (var dates in this.schools[skoler].Datoer) {
+    for (var dates in this.schools[0].Datoer) {
+
+      for (var skoler in this.schools) {
+
         if (this.schools[skoler].Datoer[dates][0] != "111" && this.schools[skoler].Datoer[dates][0] != "110") {
           var eventDate = new Date(dates);
           // console.log(eventDate);
@@ -269,14 +270,29 @@ class Calendar {
             } else if (dayNum == "000" || dayNum == "010") {
               dayType = "fri";
             }
-
-            if (dayType == "SFO") {
-              list = $("<li><a><span class='dateNum'>" + dates.substring(8, 10) + "</span> Kun SFO </a></li>");
-            } else if (dayType == "fri" && dayComment == "") {
-              list = $("<li><a><span class='dateNum'>" + dates.substring(8, 10) + "</span> Skolefri </a></li>");
-            } else if (dayType != "weekend") {
-              list = $("<li><a><span class='dateNum'>" + dates.substring(8, 10) + "</span> " + dayComment + "</a></li>");
+            var status;
+            var currDay = "";
+            var currName = "";
+            if (skoler == 0) {
+              currDay = "<span class='dateNum'>" + dates.substring(8, 10) + "</span> ";
             }
+            if (dayType == "SFO") {
+              status = "Kun SFO";
+            } else if (dayType == "fri" && dayComment == "") {
+              status = "Skolefri";
+
+            } else if (dayType != "weekend") {
+              status = dayComment;
+
+            }else{
+              continue;
+            }
+
+            if(this.schools.length > 1){
+              currName = this.schools[skoler].Skolenavn + ": ";
+            }
+            // console.log(status);
+            list = $("<li><a>" + currDay + currName + status + " </a></li>");
             $("#myUL").append(list);
           };
         }
@@ -286,4 +302,4 @@ class Calendar {
   };
 };
 
-var cal = new Calendar(selected, tmpArray);
+var cal = new Calendar(Cookies.get(Cookies.get("calendarType")), tmpArray);
