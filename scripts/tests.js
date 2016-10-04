@@ -2,7 +2,6 @@
  * test.js is used for testing js code
  */
 
-
 function gpsDistanceTest() {
     // body...
     /*
@@ -19,24 +18,24 @@ function gpsDistanceTest() {
 
      */
 
-    var pos = {Lat: [59.913869, 59.41589, 60.30435],
+    var pos = {
+        Lat: [59.913869, 59.41589, 60.30435],
         Lon: [10.752245, 9.325796, 5.27869],
-        Fasit: [306,213,154]};
-    var result = [];
-    for(var i=0; i < 3; i++){
+        Fasit: [306, 213, 154]
+    };
 
-        result[i] = distance(58.937299,5.697201,pos.Lat[i],pos.Lon[i]);
+    var result = [];
+
+    for (var i = 0; i < 3; i++) {
+        result[i] = distance(58.937299, 5.697201, pos.Lat[i], pos.Lon[i]);
         var dist = result[i];
 
         console.log(Math.round(dist), pos.Fasit[i]);
 
-        if(Math.round(dist) == pos.Fasit[i]){
+        if (Math.round(dist) == pos.Fasit[i]) {
             console.log("PASS");
         }
-
     }
-
-
 }
 
 function findSchoolTest() {
@@ -45,10 +44,10 @@ function findSchoolTest() {
     var result = findSchool(schoolNames, getSchoolData());
     console.log("SKOLEDATA", result);
 
-    for(var i in result) {
+    for (var i in result) {
         console.log("Skolene", result[i].Skolenavn);
         var skoleNavnet = schoolNames.split(",");
-        if(result[i].Skolenavn == skoleNavnet[i]){
+        if (result[i].Skolenavn == skoleNavnet[i]) {
             console.log("PASS");
         }
     }

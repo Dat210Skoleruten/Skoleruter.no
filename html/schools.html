@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Skolerute - Kalender</title>
+    <title>Skolerute - Mine Skoler</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -80,7 +80,6 @@
     </ul>
 </nav> <!-- /Navbar  -->
 
-
 <!-- Navbar toggle div -->
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span class="glyphicon glyphicon-remove"></span></a>
@@ -92,6 +91,7 @@
 
 <br>
 
+<!-- Legend Bar -->
 <div class="container-fluid">
     <div class="legendBar col-md-8 col-md-offset-2">
         <p>
@@ -100,18 +100,20 @@
         <p>
         <div class="legendBox" style="background-color: #B6D0C5"></div>
         Kun SFO</p>
-        <p style="color: #495156;" id="myFavScho"></p>
-        <a class="rightLegend"><span id="selecookiefav" style="display:none; visibility: hidden" onclick="calenderCookie()"
+        <p style="color: #495156; float: right" id="myFavScho"></p>
+        <a class="rightLegend"><span id="selecookiefav" style="display:none; visibility: hidden"
+                                     onclick="calenderCookie()"
                                      class="glyphicon glyphicon-star-empty" aria-hidden="true"></span></a>
-        <a class="rightLegend" id="schoolLink" style="display:none; visibility: hidden"target="_blank"><span class="glyphicon glyphicon-link"
-                                                                     aria-hidden="true"></span></a>
+        <a class="rightLegend" id="schoolLink" style="display:none; visibility: hidden" target="_blank"><span
+                class="glyphicon glyphicon-link"
+                aria-hidden="true"></span></a>
     </div>
-</div>
+</div> <!-- /Legend Bar -->
 
-<br>
-
+<!-- Calendar & List -->
 <div class="container-fluid">
     <div class="row">
+        <!-- Calendar -->
         <div class="col-md-4 text-center col-md-offset-2">
             <div class="month">
                 <ul>
@@ -135,23 +137,21 @@
             </ul>
 
             <ul class="days">
-
             </ul>
-        </div>
+        </div> <!-- /Calendar -->
 
+        <!-- List -->
         <div class="col-md-4 text-center">
             <div id="noScrollCalendar">
-                <!-- Temp List -->
                 <input type="text" id="myInput" onkeyup="calendarList()" placeholder="Search for names.."
                        title="Type in a name">
 
                 <ul id="myUL">
-
                 </ul>
             </div>
         </div>
-    </div>
-</div>
+    </div> <!-- /List -->
+</div> <!-- /Calendar & List -->
 
 </body>
 </html>
