@@ -25,7 +25,6 @@ $(document).ready(function () {
 
 });
 
-// $("#indexSearch").(getListItems());
 
 function getNavListItems() {
     var schoolArray = getSchoolArray();
