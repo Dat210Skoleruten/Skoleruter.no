@@ -27,7 +27,7 @@ $(document).ready(function () {
     cal.nextMonth();
   });
 
-  $("body").keydown(function (e) {
+  $("body").keyup(function (e) {
     if (e.keyCode == 37) {
       cal.prevMonth();
     }
