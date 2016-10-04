@@ -305,8 +305,7 @@ var calMode;
 if (Cookies.get("calendarType") == "mySchools" || Cookies.get("calendarType") == "selected") {
   calMode = Cookies.get(Cookies.get("calendarType"));
 }else{
-  calMode = selected
-
+  calMode = selected;
 }
-
+console.log(calMode);
 var cal = new Calendar(calMode, tmpArray);
