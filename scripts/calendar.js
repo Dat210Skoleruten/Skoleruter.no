@@ -252,20 +252,19 @@ class Calendar {
               dayType = "fri";
             }
 
-            if(dayType == "SFO"){
+            if (dayType == "SFO") {
               list = $("<li><a><span class='dateNum'>" + dates.substring(8, 10) + "</span> Kun SFO </a></li>");
-            }else if(dayType == "fri" && dayComment == ""){
+            } else if (dayType == "fri" && dayComment == "") {
               list = $("<li><a><span class='dateNum'>" + dates.substring(8, 10) + "</span> Skolefri </a></li>");
-            }else if (dayType != "weekend") {
+            } else if (dayType != "weekend") {
               list = $("<li><a><span class='dateNum'>" + dates.substring(8, 10) + "</span> " + dayComment + "</a></li>");
             }
-              $("#myUL").append(list);
-            };
-          }
+            $("#myUL").append(list);
+          };
         }
-      };
-
+      }
     };
+
   };
 };
 
