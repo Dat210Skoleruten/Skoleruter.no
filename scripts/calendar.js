@@ -106,10 +106,10 @@ class Calendar {
         var dayNum = this.schools[entries].Datoer[dates][1];
         if (dayNum == "001" || dayNum == "011") {
           dayType = "SFO";
-        } else {
-          dayType = "Ikke SFO idag";
+        } else if (dayNum == "000" || dayNum == "010") {
+            dayType = "Fri/Ingen SFO";
         }
-      newCal.addEvent(this.schools[entries].Datoer[dates][1], selSchool, dayType, dates, dates);
+      newCal.addEvent(this.schools[entries].Datoer[dates][1], dayType, selSchool, dates, dates);
       }
     }
     newCal.download();
