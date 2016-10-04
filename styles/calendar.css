@@ -24,6 +24,11 @@
     float: left;
 }
 
+.rightLegend {
+    float: right;
+    cursor: pointer;
+}
+
 ul {
     list-style-type: none;
 }
