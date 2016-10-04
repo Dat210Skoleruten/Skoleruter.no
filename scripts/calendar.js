@@ -20,6 +20,7 @@ $(document).ready(function () {
     $("#cal_prev").click(function () {
         cal.prevMonth();
     });
+
     $("#cal_next").click(function () {
         cal.nextMonth();
     });
@@ -30,6 +31,7 @@ $(document).ready(function () {
         }
 
     });
+
     $("body").keyup(function (e) {
         if (e.keyCode == 39) {
             cal.nextMonth();
@@ -43,6 +45,7 @@ function calendarList() {
     filter = input.value.toUpperCase();
     ul = document.getElementById("myUL");
     li = ul.getElementsByTagName("li");
+
     for (i = 0; i < li.length; i++) {
         a = li[i].getElementsByTagName("a")[0];
         if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
@@ -57,6 +60,7 @@ function calendarList() {
 function findSchool(str, array) {
     var tmpArr = [];
     var strArr = str.split(",");
+
     for (var j = 0; j < strArr.length; j++) {
         for (var i = 0; i < array.length; i++) {
 
@@ -72,7 +76,6 @@ function findSchool(str, array) {
 
 // TODO: finish calendar class
 class Calendar {
-
     constructor(schoolNames, array) {
         this.currentDate = new Date();
         this.currentDate.setDate(1);
@@ -113,7 +116,6 @@ class Calendar {
 
     buildCalendar() {
         console.log("Building Calendar");
-
         var month = this.currentDate.getMonth() + 1;
         var currentYear = this.currentDate.getFullYear();
         var currentDay = this.currentDate.getDay();
@@ -139,21 +141,19 @@ class Calendar {
 
             for (var i = 1; i < cDay; i++) {
                 daysInMonth++;
-
                 var day = $("<li class='before'>.</li>"); //dagene før måneden har startet
-
                 $(".days").append(day);
             }
         }
 
         for (var currDate in this.schools[0].Datoer) {
             var dates = currDate;
+
             if (dates.substring(5, 7) == month && dates.substring(0, 4) == currentYear) {
                 var eventDate = new Date(dates);
                 var totDayType = [];
 
                 for (var skoler in this.schools) {
-
                     var dayType = "";
                     //console.log(dates);
                     //console.log(this.schools[skoler]);
@@ -163,6 +163,7 @@ class Calendar {
 
                     //build calendar and table
                     var dayNum = this.schools[skoler].Datoer[dates][0];
+
                     if (dayNum == "001" || dayNum == "011") {
                         dayType = "SFO";
                     } else if (eventDate.getDay() == 6 || eventDate.getDay() == 0) {
@@ -223,9 +224,7 @@ class Calendar {
         }
 
         for (daysInMonth; daysInMonth < 42; daysInMonth++) {
-
             var day = $("<li class='after'>.</li>"); //dagene etter måneden.
-
             $('.days').append(day);
         };
     };
@@ -237,9 +236,7 @@ class Calendar {
         $("#myUL").empty();
         var header = 0;
         for (var dates in this.schools[0].Datoer) {
-
             for (var skoler in this.schools) {
-
                 if (this.schools[skoler].Datoer[dates][0] != "111" && this.schools[skoler].Datoer[dates][0] != "110") {
                     var eventDate = new Date(dates);
                     // console.log(eventDate);
@@ -275,10 +272,8 @@ class Calendar {
                             status = "Kun SFO";
                         } else if (dayType == "fri" && dayComment == "") {
                             status = "Skolefri";
-
                         } else if (dayType != "weekend") {
                             status = dayComment;
-
                         } else {
                             continue;
                         }
@@ -302,7 +297,6 @@ if (Cookies.get("calendarType") == "mySchools" || Cookies.get("calendarType") ==
     calMode = Cookies.get(Cookies.get("calendarType"));
 } else {
     calMode = selected
-
 }
 
 var cal = new Calendar(calMode, tmpArray);
