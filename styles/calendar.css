@@ -87,7 +87,7 @@ ul {
 }
 .before, .after {
     visibility: hidden;
-
+    margin-top: -5px;
 }
 
 .days {
@@ -101,7 +101,6 @@ ul {
     display: inline-block;
     width: 14%;
     text-align: center;
-    margin-bottom: 5px;
     font-size: 15px;
     padding: 20px;
     border: 0.1px solid lightgray; /* Temp */
@@ -115,7 +114,7 @@ ul {
     -webkit-transition: 0.3s;
 }
 
-.weekend{
+.weekend {
     background-color: transparent;
     color: lightgrey;
 }
@@ -129,7 +128,7 @@ ul {
 }
 
 li.now {
-    border: 3px dashed black;
+    box-shadow:0px 0px 0px 2px black inset;
 }
 
 /* Add media queries for smaller screens */
