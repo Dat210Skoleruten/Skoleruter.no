@@ -222,14 +222,13 @@ class Calendar {
 
     for (daysInMonth; daysInMonth < 42; daysInMonth++) {
 
-      var day = $("<li class='after'>.</li>"); //dagene etter måneden
+      var day = $("<li class='after'></li>"); //dagene etter måneden.
 
       $('.days').append(day);
     };
   };
 
   buildList() {
-    var month = this.now.getMonth();
     var monthHeader;
     var list;
     var currMonth;
