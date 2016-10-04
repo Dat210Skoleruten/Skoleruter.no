@@ -109,7 +109,7 @@ class Calendar {
         } else {
           dayType = "Ikke SFO idag";
         }
-        var skriv = newCal.addEvent(this.schools[entries].Datoer[dates][1], selSchool, dayType, dates, dates);
+      newCal.addEvent(this.schools[entries].Datoer[dates][1], selSchool, dayType, dates, dates);
       }
     }
     newCal.download();
