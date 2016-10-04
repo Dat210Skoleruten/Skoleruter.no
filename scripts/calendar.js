@@ -19,6 +19,7 @@ $(document).ready(function() {
   cal.buildCalendar();
   cal.buildList();
 
+
   $("#cal_prev").click(function() {
     cal.prevMonth();
   });
@@ -184,6 +185,7 @@ class Calendar {
 
            }
            else {*/
+          var eventDate = new Date(dates);
           var dayType = "";
           var dayNum = this.schools[skoler].Datoer[dates][0];
 
@@ -195,8 +197,13 @@ class Calendar {
           } else if (dayNum == "000" || dayNum == "010") {
             dayType = "fri";
           }
-          var day = $("<li class='" + dayType + "'>" + dates.substring(8, 10) +
-            "</li>");
+          if(eventDate.getDay() == 1){
+            var day = $("<li class='" + dayType + "'>" + "<div class='weekNum'>" + eventDate.getWeekNumber()  + "</div>"+ " " + dates.substring(8, 10) +
+                "</li>");
+          } else {
+            var day = $("<li class='" + dayType + "'>" + dates.substring(8, 10) +
+                "</li>");
+          }
           //};
           //if date today. Append class "today"
           var thisDate = new Date(parseInt(dates.substring(0, 4)), parseInt(dates.substring(5, 7)), parseInt(dates.substring(8, 10)));
