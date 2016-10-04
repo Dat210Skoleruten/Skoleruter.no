@@ -1,25 +1,37 @@
 <html>
 <head>
+
+    <script type="text/javascript" src="../scripts/protype.js"></script>
+    <script type="text/javascript" src="../scripts/cookie.js"></script>
+    <script type="text/javascript" src="../scripts/session.js"></script>
+    <script type="text/javascript" src="../scripts/papaparse.min.js"></script>
+    <script type="text/javascript" src="../scripts/gps.js"></script>
+    <script type="text/javascript" src="../scripts/indexSearch.js"></script>
+    <script type="text/javascript" src="../scripts/accordion.js"></script>
+    <script type="text/javascript" src="../scripts/parseCSV.js"></script>
+    <script type="text/javascript" src="../scripts/calendar.js"></script>
+    <script type="text/javascript" src="../scripts/googlemap.js"></script>
+    <script type="text/javascript" src="../scripts/navbar.js"></script>
+    <script type="text/javascript" src="../scripts/navSearch.js"></script>
+    <script type="text/javascript" src="../scripts/mySchools.js"></script>
+    <script type="text/javascript" src="../scripts/menuController.js"></script>
     <script type="text/javascript" src="https://rawgithub.com/nwcell/ics.js/master/ics.deps.min.js"></script>
    <!-- <script src="scripts/getData.js"></script> -->
-
     <script>
+        //cal.addEvent(subject, description, location, begin, end);
 var arr = {Kommentar: "Sommerferie", Skolenavn: "Auglend", Sfodag: "Ja", Dato: "2016-06-06"};
 
-        function makeCal(skoleArr){
-        var nykal = ics();
-        var kommentar = skoleArr[0];
-            var skolenavn = skoleArr[1];
-            var sfodag = skoleArr[2]
-            var dato = skoleArr[3];
+        function makeCal(skoleArr) {
+            var nyKal = ics();
+            var kommentar = skoleArr.Kommentar;
+            var skolenavn = skoleArr.Skolenavn;
+            var sfodag = skoleArr.Sfodag;
+            var dato = skoleArr.Dato;
 
-    for(var i=1; i < skoleArr.length; i++) {
+            nyKal.addEvent(kommentar, skolenavn, sfodag, dato, dato);
 
-    nykal.addEvent(kommentar, skolenavn, sfodag , dato, dato);
-}
-        nykal.download();
-    }
-
+            nyKal.download();
+        }
         </script>
     </head>
     <body>

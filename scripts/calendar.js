@@ -104,6 +104,25 @@ class Calendar {
     //this.schools = findSchool(schoolNames, array);
   }
 
+  iCal(){
+  var selSchool = Cookies.get('selected');
+  var newCal = new ics();
+    for (var currDate in this.schools[0].Datoer) {
+      for (var entries in this.schools) {
+        var dates = currDate;
+        var dayType = "";
+        var dayNum = this.schools[entries].Datoer[dates][1];
+        if(dayNum == "001" || dayNum == "011"){
+          dayType = "SFO";
+        } else {
+          dayType = "Ikke SFO idag";
+        }
+         var skriv = newCal.addEvent(this.schools[entries].Datoer[dates][1], selSchool, dayType, dates, dates);
+      }
+    } newCal.download();
+
+  }
+
   prevMonth() {
     console.log("prevMonth");
     this.currentDate.setMonth(this.currentDate.getMonth() - 1);
@@ -196,7 +215,7 @@ class Calendar {
           if (totDayType[currDateType] == "fri") isFri = true;
           if (totDayType[currDateType] == "weekend") weekend = true;
         }
-        console.log("isOnlySFO: ", isOnlySFO, ", isFri: ", isFri, "isWeekend", weekend);
+       // console.log("isOnlySFO: ", isOnlySFO, ", isFri: ", isFri, "isWeekend", weekend);
 
         if (weekend){
           chosenDayType = "weekend";
@@ -209,7 +228,7 @@ class Calendar {
         }else if (!isOnlySFO && !isFri) {
           chosenDayType = "";
         }
-        console.log(chosenDayType);
+        //console.log(chosenDayType);
         var day;
         if (eventDate.getDay() == 1) {
           day = $("<li class='" + chosenDayType + "'>" + "<div class='weekNum'>" + eventDate.getWeekNumber() + "</div>" + " " + dates.substring(8, 10) +
