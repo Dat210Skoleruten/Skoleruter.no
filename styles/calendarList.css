@@ -34,7 +34,7 @@
 }
 
 #noScrollCalendar {
-    height: 595px;
+    height: 540px;
     overflow: auto;
     display: block;
 }
