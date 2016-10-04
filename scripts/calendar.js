@@ -187,14 +187,15 @@ class Calendar {
            }
            else {*/
           var eventDate = new Date(dates);
+          console.log(eventDate.getDay())
           var dayType = "";
           var dayNum = this.schools[skoler].Datoer[dates][0];
 
           if (dayNum == "001" || dayNum == "011") {
             dayType = "SFO";
-          } else if (this.schools[skoler].Datoer[dates][1] == "Lørdag" || this.schools[skoler].Datoer[dates][1] == "Søndag") {
+          } else if (eventDate.getDay() == 6 || eventDate.getDay() == 0) {
             dayType = "weekend";
-            console.log(this.schools[skoler].Datoer[dates][0], dates);
+            
           } else if (dayNum == "000" || dayNum == "010") {
             dayType = "fri";
           }
