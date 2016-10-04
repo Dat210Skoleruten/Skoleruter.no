@@ -20,6 +20,10 @@
     margin-left: 15px;
 }
 
+.dateNum {
+    
+}
+
 ul {
     list-style-type: none;
 }
@@ -125,7 +129,7 @@ ul {
 }
 
 li.now {
-    border: 3px dashed orchid;
+    border: 3px dashed black;
 }
 
 /* Add media queries for smaller screens */
