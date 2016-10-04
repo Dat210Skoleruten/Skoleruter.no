@@ -14,14 +14,13 @@ $(document).ready(function() {
   var elem = document.getElementById("schoolLink");
   elem.href = chosenScho[0].Hjemmeside;
 
-
   cal.buildCalendar();
   cal.buildList();
-
 
   $("#cal_prev").click(function() {
     cal.prevMonth();
   });
+
   $("#cal_next").click(function() {
     cal.nextMonth();
   });
@@ -32,14 +31,12 @@ $(document).ready(function() {
     }
 
   });
+
   $("body").keyup(function(e) {
     if (e.keyCode == 39) {
       cal.nextMonth();
     }
-
   });
-
-
 });
 
 function calendarList() {
@@ -48,6 +45,7 @@ function calendarList() {
   filter = input.value.toUpperCase();
   ul = document.getElementById("myUL");
   li = ul.getElementsByTagName("li");
+
   for (i = 0; i < li.length; i++) {
     a = li[i].getElementsByTagName("a")[0];
     if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
@@ -62,6 +60,7 @@ function calendarList() {
 function findSchool(str, array) {
   var tmpArr = [];
   var strArr = str.split(",");
+
   for (var j = 0; j < strArr.length; j++) {
     for (var i = 0; i < array.length; i++) {
 
@@ -77,7 +76,6 @@ function findSchool(str, array) {
 
 // TODO: finish calendar class
 class Calendar {
-
   constructor(schoolNames, array) {
     this.currentDate = new Date();
     this.currentDate.setDate(1);
@@ -94,15 +92,29 @@ class Calendar {
     console.log(this.schools);
   }
 
+  addEvent(dato, status, comment, school) {};
 
-  addEvent(dato, status, comment, school) {
+  addSchool(schoolNames, array) {};
 
+  iCal() {
+    var selSchool = Cookies.get('selected');
+    var newCal = new ics();
+    for (var currDate in this.schools[0].Datoer) {
+      for (var entries in this.schools) {
+        var dates = currDate;
+        var dayType = "";
+        var dayNum = this.schools[entries].Datoer[dates][1];
+        if (dayNum == "001" || dayNum == "011") {
+          dayType = "SFO";
+        } else {
+          dayType = "Ikke SFO idag";
+        }
+        var skriv = newCal.addEvent(this.schools[entries].Datoer[dates][1], selSchool, dayType, dates, dates);
+      }
+    }
+    newCal.download();
 
   };
-
-  addSchool(schoolNames, array) {
-    //this.schools = findSchool(schoolNames, array);
-  }
 
   prevMonth() {
     console.log("prevMonth");
@@ -175,10 +187,12 @@ class Calendar {
           //build calendar and table
 
           var dayNum = this.schools[skoler].Datoer[dates][0];
+
           if (dayNum == "001" || dayNum == "011") {
             dayType = "SFO";
           } else if (eventDate.getDay() == 6 || eventDate.getDay() == 0) {
             dayType = "weekend";
+
           } else if (dayNum == "000" || dayNum == "010") {
             dayType = "fri";
           }
@@ -196,11 +210,11 @@ class Calendar {
           if (totDayType[currDateType] == "fri") isFri = true;
           if (totDayType[currDateType] == "weekend") weekend = true;
         }
-        console.log("isOnlySFO: ", isOnlySFO, ", isFri: ", isFri, "isWeekend", weekend);
+        console.log("isOnlySFO: ", isOnlySFO, ", isFri: ", isFri);
 
-        if (weekend){
+        if(weekend){
           chosenDayType = "weekend";
-        } else if(isOnlySFO && isFri) {
+        }else if (isOnlySFO && isFri) {
           chosenDayType = "SFOfri";
         } else if (isOnlySFO && !isFri) {
           chosenDayType = "SFO";
@@ -246,9 +260,7 @@ class Calendar {
     $("#myUL").empty();
     var header = 0;
     for (var dates in this.schools[0].Datoer) {
-
       for (var skoler in this.schools) {
-
         if (this.schools[skoler].Datoer[dates][0] != "111" && this.schools[skoler].Datoer[dates][0] != "110") {
           var eventDate = new Date(dates);
           // console.log(eventDate);
@@ -259,6 +271,7 @@ class Calendar {
               monthHeader = $("<br><li><a class='header'>" + this.months[currMonth - 1] + ", " + dates.substring(0, 4) + "</a></li>");
               $("#myUL").append(monthHeader);
             }
+
             var dayType = "";
             var dayComment = this.schools[skoler].Datoer[dates][1];
             var dayNum = this.schools[skoler].Datoer[dates][0];
@@ -270,25 +283,26 @@ class Calendar {
             } else if (dayNum == "000" || dayNum == "010") {
               dayType = "fri";
             }
+
             var status;
             var currDay = "";
             var currName = "";
+
             if (skoler == 0) {
               currDay = "<span class='dateNum'>" + dates.substring(8, 10) + "</span> ";
             }
+
             if (dayType == "SFO") {
               status = "Kun SFO";
             } else if (dayType == "fri" && dayComment == "") {
               status = "Skolefri";
-
             } else if (dayType != "weekend") {
               status = dayComment;
-
-            }else{
+            } else {
               continue;
             }
 
-            if(this.schools.length > 1){
+            if (this.schools.length > 1) {
               currName = this.schools[skoler].Skolenavn + ": ";
             }
             // console.log(status);
@@ -298,14 +312,16 @@ class Calendar {
         }
       }
     };
-
   };
 };
+
+
+
 var calMode;
 if (Cookies.get("calendarType") == "mySchools" || Cookies.get("calendarType") == "selected") {
   calMode = Cookies.get(Cookies.get("calendarType"));
-}else{
+} else {
   calMode = selected;
+
 }
-console.log(calMode);
 var cal = new Calendar(calMode, tmpArray);
