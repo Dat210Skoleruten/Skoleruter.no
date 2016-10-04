@@ -301,5 +301,12 @@ class Calendar {
 
   };
 };
+var calMode;
+if (Cookies.get("calendarType") == "mySchools" || Cookies.get("calendarType") == "selected") {
+  calMode = Cookies.get(Cookies.get("calendarType"));
+}else{
+  calMode = selected
 
-var cal = new Calendar(Cookies.get(Cookies.get("calendarType")), tmpArray);
+}
+
+var cal = new Calendar(calMode, tmpArray);
