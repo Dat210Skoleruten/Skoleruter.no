@@ -175,12 +175,10 @@ class Calendar {
           //build calendar and table
 
           var dayNum = this.schools[skoler].Datoer[dates][0];
-
           if (dayNum == "001" || dayNum == "011") {
             dayType = "SFO";
           } else if (eventDate.getDay() == 6 || eventDate.getDay() == 0) {
             dayType = "weekend";
-
           } else if (dayNum == "000" || dayNum == "010") {
             dayType = "fri";
           }
@@ -191,22 +189,24 @@ class Calendar {
         daysInMonth++;
         var isOnlySFO = false;
         var isFri = false;
+        var weekend = false;
         var chosenDayType = "";
         for (var currDateType in totDayType) {
           if (totDayType[currDateType] == "SFO") isOnlySFO = true;
           if (totDayType[currDateType] == "fri") isFri = true;
+          if (totDayType[currDateType] == "weekend") weekend = true;
         }
-        console.log("isOnlySFO: ", isOnlySFO, ", isFri: ", isFri);
+        console.log("isOnlySFO: ", isOnlySFO, ", isFri: ", isFri, "isWeekend", weekend);
 
-        if (isOnlySFO && isFri) {
+        if (weekend){
+          chosenDayType = "weekend";
+        } else if(isOnlySFO && isFri) {
           chosenDayType = "SFOfri";
         } else if (isOnlySFO && !isFri) {
           chosenDayType = "SFO";
-        }
-        if (!isOnlySFO && isFri) {
+        }else if (!isOnlySFO && isFri) {
           chosenDayType = "fri";
-        }
-        if (!isOnlySFO && !isFri) {
+        }else if (!isOnlySFO && !isFri) {
           chosenDayType = "";
         }
         console.log(chosenDayType);
