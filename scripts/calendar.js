@@ -90,9 +90,9 @@ class Calendar {
         if (dayNum == "001" || dayNum == "011") {
           dayType = "SFO";
         } else if (dayNum == "000" || dayNum == "010") {
-            dayType = "Fri/Ingen SFO";
+          dayType = "Fri/Ingen SFO";
         }
-        if(this.schools[entries].Datoer[dates][1] != "") {
+        if (this.schools[entries].Datoer[dates][1] != "" && this.schools[entries].Datoer[dates][1] != "Lørdag" && this.schools[entries].Datoer[dates][1] != "Søndag") {
           //se på SFO
           newCal.addEvent(this.schools[entries].Datoer[dates][1], dayType, selSchool, dates, dates);
         }
@@ -198,15 +198,15 @@ class Calendar {
         }
         console.log("isOnlySFO: ", isOnlySFO, ", isFri: ", isFri);
 
-        if(weekend){
+        if (weekend) {
           chosenDayType = "weekend";
-        }else if (isOnlySFO && isFri) {
+        } else if (isOnlySFO && isFri) {
           chosenDayType = "SFOfri";
         } else if (isOnlySFO && !isFri) {
           chosenDayType = "SFO";
-        }else if (!isOnlySFO && isFri) {
+        } else if (!isOnlySFO && isFri) {
           chosenDayType = "fri";
-        }else if (!isOnlySFO && !isFri) {
+        } else if (!isOnlySFO && !isFri) {
           chosenDayType = "";
         }
         console.log(chosenDayType);
