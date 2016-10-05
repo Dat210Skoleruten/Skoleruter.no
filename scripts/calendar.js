@@ -109,6 +109,7 @@ class Calendar {
         } else if (dayNum == "000" || dayNum == "010") {
             dayType = "Fri/Ingen SFO";
         }
+        //se på SFO
       newCal.addEvent(this.schools[entries].Datoer[dates][1], dayType, selSchool, dates, dates);
       }
     }
