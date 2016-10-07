@@ -1,8 +1,6 @@
 $(document).ready(function() {
   setSchoolData(Cookies.get('selected')); // Sets name & hyperlink on html document
 
-
-
   cal.buildCalendar(); // Builds calendar
   cal.buildList(); // Builds List
 
@@ -36,7 +34,6 @@ $(document).ready(function() {
 function findSchool(str, array) {
   var selectedSchools = [];
   var strArr = str.split(",");
-
   for (var j = 0; j < strArr.length; j++) {
     for (var i = 0; i < array.length; i++) {
 
@@ -54,6 +51,7 @@ function findSchool(str, array) {
 function setSchoolData(name) {
   if (name == "" || name == null) {
     $("#schoolName").html('Ingen skole valgt');
+    alert("Ingen skole valgt");
     return
   }
   $("#schoolName").html(name);
