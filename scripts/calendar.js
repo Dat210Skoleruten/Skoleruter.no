@@ -56,6 +56,7 @@ function setSchoolData(name) {
     $("#schoolName").html('Ingen skole valgt');
     return
   }
+  $("#schoolName").html(name);
   // setter href for hver skole når du trykker på hver av dem
   var chosenScho = findSchool(name, getSchoolData());
   var elem = document.getElementById("schoolLink");
