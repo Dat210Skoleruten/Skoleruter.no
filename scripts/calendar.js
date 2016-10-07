@@ -3,16 +3,16 @@ var selected = Cookies.get('selected');
 var mySchools = Cookies.get('mySchools');
 
 $(document).ready(function() {
-  console.log("Selected school:", selected);
-  console.log("SchoolData:", tmpArray);
   $("#schoolName").html(selected);
-  console.log("Selected school:", selected);
-  console.log("SchoolData:", tmpArray);
   $("#schoolName").html(selected);
   // setter href for hver skole når du trykker på hver av dem
-  var chosenScho = findSchool(selected, tmpArray);
-  var elem = document.getElementById("schoolLink");
-  elem.href = chosenScho[0].Hjemmeside;
+  if (Cookies.get('selected') != null) {
+    var chosenScho = findSchool(selected, tmpArray);
+    var elem = document.getElementById("schoolLink");
+    elem.href = chosenScho[0].Hjemmeside;
+  }
+
+  var cal = new Calendar(Cookies.get(Cookies.get("calendarType")), tmpArray);
 
   cal.buildCalendar();
   cal.buildList();
@@ -51,7 +51,6 @@ function findSchool(str, array) {
         tmpArr.push(array[i]);
       }
     }
-
   }
   return tmpArr;
 }
@@ -300,14 +299,3 @@ class Calendar {
     };
   };
 };
-
-
-
-var calMode;
-if (Cookies.get("calendarType") == "mySchools" || Cookies.get("calendarType") == "selected") {
-  calMode = Cookies.get(Cookies.get("calendarType"));
-} else {
-  calMode = selected;
-
-}
-var cal = new Calendar(calMode, tmpArray);
