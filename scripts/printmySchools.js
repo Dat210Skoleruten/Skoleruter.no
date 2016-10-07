@@ -2,17 +2,13 @@ function printMySchools() {
     var elem = document.getElementById("myFavScho");
 
     if (Cookies.get("mySchools") != null) {
-        var theString = "Skoler valgt: "
+        var theString = "";
         var arr = Cookies.get("mySchools").split(",");
 
         for (var i = 0; i < arr.length; i++) {
-            if (i == arr.length - 1) {
-                theString += arr[i] + ".";
-            }
-            else {
-                theString += arr[i] + ", ";
-            }
+                theString += "<p class='favorite'>" + arr[i] + "<span class='glyphicon glyphicon-remove legendRemove' aria-hidden='true'></span></p>";
         }
+        console.log(theString);
         elem.innerHTML = theString;
     } else {
         elem.innerHTML = "Ingen skoler valgt!";
