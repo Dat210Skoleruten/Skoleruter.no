@@ -122,6 +122,14 @@ li.now {
     font-weight: bold;
 }
 
+.favorite {
+    background-color: #495156;
+}
+
+.legendRemove {
+    color: white;
+}
+
 /* Add media queries for smaller screens */
 @media screen and (max-width: 720px) {
     .weekdays li, .days li {
