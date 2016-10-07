@@ -1,21 +1,10 @@
-var tmpArray = getSchoolData();
-var selected = Cookies.get('selected');
-var mySchools = Cookies.get('mySchools');
-
 $(document).ready(function() {
-  $("#schoolName").html(selected);
-  $("#schoolName").html(selected);
-  // setter href for hver skole når du trykker på hver av dem
-  if (Cookies.get('selected') != null) {
-    var chosenScho = findSchool(selected, tmpArray);
-    var elem = document.getElementById("schoolLink");
-    elem.href = chosenScho[0].Hjemmeside;
-  }
+  setSchoolData(Cookies.get('selected')); // Sets name & hyperlink on html document
 
-  var cal = new Calendar(Cookies.get(Cookies.get("calendarType")), tmpArray);
 
-  cal.buildCalendar();
-  cal.buildList();
+
+  cal.buildCalendar(); // Builds calendar
+  cal.buildList(); // Builds List
 
   $("#cal_prev").click(function() {
     cal.prevMonth();
@@ -26,37 +15,56 @@ $(document).ready(function() {
   });
 
   $("body").keyup(function(e) {
-    if (e.keyCode == 37) {
+    if (e.keyCode == 37) { // Left arrow
       cal.prevMonth();
     }
-
   });
 
   $("body").keyup(function(e) {
-    if (e.keyCode == 39) {
+    if (e.keyCode == 39) { // Right arrow
       cal.nextMonth();
     }
   });
 });
 
-// findSchool finds the school with the name as string from array
+/**
+ * [findSchool description]
+ * @param  {[type]} str   [description]
+ * @param  {[type]} array [description]
+ * @return {[type]}       [description]
+ */
 function findSchool(str, array) {
-  var tmpArr = [];
+  var selectedSchools = [];
   var strArr = str.split(",");
 
   for (var j = 0; j < strArr.length; j++) {
     for (var i = 0; i < array.length; i++) {
 
       if (array[i].Skolenavn == strArr[j]) {
-        tmpArr.push(array[i]);
+        selectedSchools.push(array[i]);
       }
     }
   }
-  return tmpArr;
+  return selectedSchools;
+}
+/**
+ * [setSchoolData description]
+ * @param {[string]} name [description]
+ */
+function setSchoolData(name) {
+  if (name == "" || name == null) {
+    $("#schoolName").html('Ingen skole valgt');
+    return
+  }
+  // setter href for hver skole når du trykker på hver av dem
+  var chosenScho = findSchool(name, getSchoolData());
+  var elem = document.getElementById("schoolLink");
+  elem.href = chosenScho[0].Hjemmeside;
 }
 
-
-// TODO: finish calendar class
+/**
+ * 
+ */
 class Calendar {
   constructor(schoolNames, array) {
     this.currentDate = new Date();
@@ -70,8 +78,6 @@ class Calendar {
     this.months = ["Januar", "Februar", "Mars", "April", "Mai", "Juni",
       "Juli", "August", "September", "Oktober", "November", "Desember"
     ];
-    console.log(schoolNames);
-    console.log(this.schools);
   }
 
   addEvent(dato, status, comment, school) {};
@@ -160,19 +166,8 @@ class Calendar {
         var totDayType = [];
 
         for (var skoler in this.schools) {
-
           var dayType = "";
-          //console.log(dates);
-          //console.log(this.schools[skoler]);
-          // for (var dates in this.schools[skoler].Datoer[temp]) {
-
-          //  console.log("Dato:", dates ,"Status:",this.schools[skoler].Datoer[dates][0],"Kommentar",this.schools[skoler].Datoer[dates][1]);
-
-
-          //build calendar and table
-
           var dayNum = this.schools[skoler].Datoer[dates][0];
-
           if (dayNum == "001" || dayNum == "011") {
             dayType = "SFO";
           } else if (eventDate.getDay() == 6 || eventDate.getDay() == 0) {
@@ -182,7 +177,6 @@ class Calendar {
             dayType = "fri";
           }
           totDayType.push(dayType);
-
         };
 
         daysInMonth++;
@@ -195,8 +189,6 @@ class Calendar {
           if (totDayType[currDateType] == "fri") isFri = true;
           if (totDayType[currDateType] == "weekend") weekend = true;
         }
-        console.log("isOnlySFO: ", isOnlySFO, ", isFri: ", isFri);
-
         if (weekend) {
           chosenDayType = "weekend";
         } else if (isOnlySFO && isFri) {
@@ -208,7 +200,6 @@ class Calendar {
         } else if (!isOnlySFO && !isFri) {
           chosenDayType = "";
         }
-        console.log(chosenDayType);
         var day;
         if (eventDate.getDay() == 1) {
           day = $("<li class='" + chosenDayType + "'>" + "<div class='weekNum'>" + eventDate.getWeekNumber() + "</div>" + " " + dates.substring(8, 10) +
@@ -221,7 +212,6 @@ class Calendar {
         //if date today. Append class "today"
         var thisDate = new Date(dates);
 
-        //console.log(this.now.getFullYear() ,(this.now.getMonth()+1) , (this.now.getDay()+2) , dates );
         if (parseInt(dates.substring(0, 4)) == this.now.getFullYear() && parseInt(dates.substring(5, 7)) == (this.now.getMonth() + 1) && parseInt(dates.substring(8, 10)) == (this.now.getDay() + 2)) {
           day.addClass("now");
         }
@@ -239,6 +229,7 @@ class Calendar {
   };
 
   buildList() {
+    console.log('Building List')
     var monthHeader;
     var list;
     var currMonth;
@@ -248,7 +239,6 @@ class Calendar {
       for (var skoler in this.schools) {
         if (this.schools[skoler].Datoer[dates][0] != "111" && this.schools[skoler].Datoer[dates][0] != "110") {
           var eventDate = new Date(dates);
-          // console.log(eventDate);
           if (eventDate >= this.currentDate) { //bytt med this.now hvis liste skal være statisk
             if (header == 0 && currMonth != parseInt(dates.substring(5, 7))) {
               currMonth = parseInt(dates.substring(5, 7));
@@ -290,7 +280,6 @@ class Calendar {
             if (this.schools.length > 1) {
               currName = this.schools[skoler].Skolenavn + ": ";
             }
-            // console.log(status);
             list = $("<li><a>" + currDay + currName + status + " </a></li>");
             $("#myUL").append(list);
           };
@@ -299,3 +288,4 @@ class Calendar {
     };
   };
 };
+var cal = new Calendar(Cookies.get(Cookies.get("calendarType")), getSchoolData()); // Creates a calendar
