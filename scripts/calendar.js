@@ -208,11 +208,9 @@ class Calendar {
           day = $("<li class='" + chosenDayType + "'>" + dates.substring(8, 10) +
             "</li>");
         }
-        //};
-        //if date today. Append class "today"
+        //if date today, add now class
         var thisDate = new Date(dates);
         thisDate.setHours(0, 0, 0, 0);
-        console.log(thisDate.getTime() ,this.now.getTime(), thisDate.getTime() == this.now.getTime());
         if (thisDate.getTime() == this.now.getTime()) {
           day.addClass("now");
         }
