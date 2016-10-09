@@ -68,9 +68,10 @@ class Calendar {
   constructor(schoolNames, array) {
     this.currentDate = new Date();
     this.currentDate.setDate(1);
-    this.currentDate.setHours(0, 0, 0, 0)
+    this.currentDate.setHours(0, 0, 0, 0);
       //this.currentDate.setTime(0);
     this.now = new Date();
+    this.now.setHours(0, 0, 0, 0);
     //  this.currentDate.setMonth(11); //for å teste andre månder
     this.events = [];
     this.schools = findSchool(schoolNames, array);
@@ -210,8 +211,9 @@ class Calendar {
         //};
         //if date today. Append class "today"
         var thisDate = new Date(dates);
-
-        if (parseInt(dates.substring(0, 4)) == this.now.getFullYear() && parseInt(dates.substring(5, 7)) == (this.now.getMonth() + 1) && parseInt(dates.substring(8, 10)) == (this.now.getDay() + 2)) {
+        thisDate.setHours(0, 0, 0, 0);
+        console.log(thisDate.getTime() ,this.now.getTime(), thisDate.getTime() == this.now.getTime());
+        if (thisDate.getTime() == this.now.getTime()) {
           day.addClass("now");
         }
 
