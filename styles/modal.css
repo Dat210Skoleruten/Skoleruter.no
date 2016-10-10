@@ -40,9 +40,16 @@
 
 /* The close button in the header */
 .modal-header .close {
-    color: #fff; !important; /* TODO: WONT CHANGE COLOR! FIND OUT WHY! */
+    color: #fff;
     margin: 2px 6px;
     font-size: 30px;
+}
+
+/* Small devices (tablets, 768px and up) */
+@media screen and (max-width: 768px) {
+    .modal-header h2 {
+        font-size: 1em;
+    }
 }
 
 /* Add Animation */

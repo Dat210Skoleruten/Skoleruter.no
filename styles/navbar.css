@@ -27,17 +27,15 @@
     margin-top: 12px;
 }
 
-/* Sets the hamburger (that's in navbar-right) margin */
-.navbar-right {
-    margin: 0;
+.navbar-header {
+    float: left;
 }
 
 /* The sidebar icon */
 .hamburger {
     font-size: 25px;
-    left: -20px;
     color: #495156;
-    margin: 2px /* Top Right Bottom Left */
+    margin: 15px 50px 0 0; /* Top Right Bottom Left */
 }
 
 /* Change hamburger hover color */
@@ -45,6 +43,7 @@
     color: #818181;
     transition: 0.3s;
     -webkit-transition: 0.3s;
+    cursor: pointer;
 }
 
 /* Change hover of the hamburger button to same as navbar color */
@@ -79,16 +78,20 @@
 /* TODO TEMPORARY FIX NOT PRETTY AT ALL AND NOT FUNCTIONAL */
 /* Small devices (tablets, 768px and up) */
 @media screen and (max-width: 768px) {
-    input.navSearch {
-        display: none;
-    }
-
-    .navbar-light {
+    .hamburger {
         display: flex;
         justify-content: flex-end;
     }
+}
 
-    .navbar-header {
+@media screen and (max-width: 600px) {
+   a.navbar-brand {
+       display: none;
+   }
+}
+
+@media screen and (max-width: 275px) {
+    .center {
         display: none;
     }
 }

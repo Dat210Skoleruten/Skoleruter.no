@@ -123,20 +123,8 @@ li.now {
 }
 
 /* Add media queries for smaller screens */
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 350px) {
     .weekdays li, .days li {
-        width: 13.1%;
-    }
-}
-
-@media screen and (max-width: 420px) {
-    .weekdays li, .days li {
-        width: 12.5%;
-    }
-}
-
-@media screen and (max-width: 290px) {
-    .weekdays li, .days li {
-        width: 12.2%;
+        width: 12.9%;
     }
 }
