@@ -81,6 +81,6 @@ footer {
 /* Small devices (tablets, 768px and up) */
 @media screen and (max-width: 768px) {
     #title {
-        font-size: 4em;
+        font-size: 3em;
     }
 }
