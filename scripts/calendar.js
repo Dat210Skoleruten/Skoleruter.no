@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  setSchoolData(Cookies.get('selected')); // Sets name & hyperlink on html document
+  setSchoolData(Cookies.get('selected'), Cookies.get("calendarType")); // Sets name & hyperlink on html document
 
   cal.buildCalendar(); // Builds calendar
   cal.buildList(); // Builds List
@@ -48,17 +48,19 @@ function findSchool(str, array) {
  * [setSchoolData description]
  * @param {[string]} name [description]
  */
-function setSchoolData(name) {
-  if (name == "" || name == null) {
-    $("#schoolName").html('Ingen skole valgt');
-    alert("Ingen skole valgt");
-    return
+function setSchoolData(name, type) {
+  if (type == 'selected') {
+    if (name == "" || name == null) {
+      $("#schoolName").html('Ingen skole valgt');
+      alert("Ingen skole valgt");
+      return
+    }
+    $("#schoolName").html(name);
+    // setter href for hver skole når du trykker på hver av dem
+    var chosenScho = findSchool(name, getSchoolData());
+    var elem = document.getElementById("schoolLink");
+    elem.href = chosenScho[0].Hjemmeside;
   }
-  $("#schoolName").html(name);
-  // setter href for hver skole når du trykker på hver av dem
-  var chosenScho = findSchool(name, getSchoolData());
-  var elem = document.getElementById("schoolLink");
-  elem.href = chosenScho[0].Hjemmeside;
 }
 
 /**
@@ -69,7 +71,7 @@ class Calendar {
     this.currentDate = new Date();
     this.currentDate.setDate(1);
     this.currentDate.setHours(0, 0, 0, 0);
-      //this.currentDate.setTime(0);
+    //this.currentDate.setTime(0);
     this.now = new Date();
     this.now.setHours(0, 0, 0, 0);
     //  this.currentDate.setMonth(11); //for å teste andre månder
