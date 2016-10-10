@@ -16,7 +16,9 @@ $(document).keydown(function (e) {
   }
   if (e.keyCode == 13 && theTable.firstChild != null) {
     e.preventDefault();
+    Cookies.set("calendarType", "selected");
     Cookies.set("selected", schoolText);
+
     window.location.href = "calendar.html";
   }
 });
