@@ -1,4 +1,4 @@
-/* The main table css */
+/* The index.html schoolList css */
 #indexList {
     border-collapse: collapse;
     width: 100%;
@@ -49,8 +49,8 @@
     color: #495156;
 }
 
-/* The list rows text when hovering */
-/* The list rows background when hovering */
+/* The list rows text when hovering
+   The list rows background when hovering */
 .addbutton td a:hover {
     color: #fff;
     background-color: #495156;

@@ -63,6 +63,14 @@ body {
     cursor: pointer;
 }
 
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    overflow:hidden;
+}
+
 /* Medium devices (desktops, 992px and up) */
 @media screen and (max-width: 992px) {
     #title {

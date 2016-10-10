@@ -38,6 +38,5 @@ div.panel {
 }
 
 div.panel.show {
-
     max-height: 500px;
 }
