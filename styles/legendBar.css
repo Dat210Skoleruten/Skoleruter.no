@@ -33,12 +33,21 @@
     -webkit-transition: 0.3s;
 }
 
-.favorite {
-    padding: 3px;
+p.favorite {
+    padding: 2px;
     background-color: #DDDDDD;
-    color: white;
+    color: black;
+    margin-left: 5px;
+    text-align: center;
 }
 
 .legendRemove {
-    color: white;
+    color: #495156;
+    margin-top: 2px;
+    margin-right: 5px;
+}
+
+.legendRemove:hover {
+    color: red;
+    cursor: pointer;
 }
