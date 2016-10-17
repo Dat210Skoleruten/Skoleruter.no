@@ -4,25 +4,14 @@ function checkCookie(val) {
     var schoStr = "";
     var ArrOfSchools = [];
     var elem = document.getElementById(val);
-    //console.log(elem.firstElementChild.firstElementChild.className);
 
     if (Cookies.get('mySchools') == null) {
-        //  console.log("mySchools var tom!");
         Cookies.set('mySchools', val, {expires: 365});
         elem.firstElementChild.firstElementChild.setAttribute("class", 'glyphicon glyphicon-star');
     } else {
-        //  console.log("else", Cookies.get('mySchools') == null);
-
         schoStr = Cookies.get('mySchools');
-        console.log(schoStr);
-        //if(schoStr.substring(0,1) == ","){
-        //    schoStr = schoStr.substring(1, schoStr.length);
-        //    console.log("FOUND COMMA!")
-        //}
         ArrOfSchools = schoStr.split(",");
 
-        //  console.log(ArrOfSchools);
-        //  console.log("toloaasd");
         for (var i = 0; i < ArrOfSchools.length; i++) {
             if (val == ArrOfSchools[i]) {
                 ArrOfSchools.splice(i, 1);
@@ -34,7 +23,6 @@ function checkCookie(val) {
                 return;
             }
         }
-
         ArrOfSchools.push(val);
         Cookies.set('mySchools', ArrOfSchools.toString(), {expires: 365});
         elem.firstElementChild.firstElementChild.className = 'glyphicon glyphicon-star';
@@ -95,4 +83,32 @@ function calenderCookie() {
         Cookies.set('mySchools', ArrOfSchools.toString(), {expires: 365});
         elem.className = 'glyphicon glyphicon-star';
     }
+}
+
+function removeSchool(school){
+  mySchoolString = Cookies.get('mySchools');
+
+  if(Cookies.get('mySchools') != null){
+    ArrOfSchools = mySchoolString.split(",");
+
+    console.log("(this) = ", school);
+    for (var i = 0; i < ArrOfSchools.length; i++) {
+      if (school == ArrOfSchools[i]) {
+          ArrOfSchools.splice(i, 1);
+          Cookies.set('mySchools', ArrOfSchools.toString(), {expires: 365});
+      }
+      if (ArrOfSchools.toString() == "") {
+          Cookies.remove("mySchools");
+      }
+    }
+    //if(Cookies.get('mySchools') != null){
+      printMySchools();
+      var cal = new calendar(Cookies.get(Cookies.get("calendarType")), getSchoolData());
+      cal.buildCalendar();
+      cal.buildList();
+  //  }
+  }
+  else{
+    console.log("Ingen skoler valgt!");
+  }
 }

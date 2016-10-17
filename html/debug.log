@@ -1,0 +1,1 @@
+[1012/091356:ERROR:scoped_process_suspend.cc(38)] NtResumeProcess: Forsøkte å få tilgang til en avsluttende prosess.  (0xc000010a)
