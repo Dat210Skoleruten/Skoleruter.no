@@ -106,6 +106,26 @@ function removeSchool(school){
       var cal = new calendar(Cookies.get(Cookies.get("calendarType")), getSchoolData());
       cal.buildCalendar();
       cal.buildList();
+
+      $("#cal_prev").click(function() {
+          cal.prevMonth();
+      });
+
+      $("#cal_next").click(function() {
+          cal.nextMonth();
+      });
+
+      $("body").keyup(function(e) {
+          if (e.keyCode == 37) { // Left arrow
+              cal.prevMonth();
+          }
+      });
+
+      $("body").keyup(function(e) {
+          if (e.keyCode == 39) { // Right arrow
+              cal.nextMonth();
+          }
+      });
   //  }
   }
   else{
