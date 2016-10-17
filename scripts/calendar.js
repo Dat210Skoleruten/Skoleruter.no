@@ -1,9 +1,11 @@
 $(document).ready(function() {
   setSchoolData(Cookies.get('selected'), Cookies.get("calendarType")); // Sets name & hyperlink on html document
 
-  cal.buildCalendar(); // Builds calendar
-  cal.buildList(); // Builds List
+    cal = new calendar(Cookies.get(Cookies.get("calendarType")), getSchoolData());
+    cal.buildCalendar(); // Builds calendar
+    cal.buildList(); // Builds List
 
+  
   $("#cal_prev").click(function() {
     cal.prevMonth();
   });
@@ -47,6 +49,7 @@ function findSchool(str, array) {
 
   return selectedSchools;
 }
+
 /**
  * [setSchoolData description]
  * @param {[string]} name [description]
@@ -66,4 +69,4 @@ function setSchoolData(name, type) {
   }
 }
 
-var cal = new calendar(Cookies.get(Cookies.get("calendarType")), getSchoolData()); // Creates a calendar
+var cal; // Creates a calendar
