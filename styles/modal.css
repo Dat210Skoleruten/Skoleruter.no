@@ -45,6 +45,11 @@
     font-size: 30px;
 }
 
+.imgSize {
+    height: 100%;
+    width: 100%;
+}
+
 /* Small devices (tablets, 768px and up) */
 @media screen and (max-width: 768px) {
     .modal-header h2 {
