@@ -84,7 +84,9 @@ function calendar(schoolNames, array) {
 
 			}
 		}
-
+		if(this.schools.length == 0){
+			return;
+		}
 		for (var currDate in this.schools[0].Datoer) {
 			var dates = currDate;
 			if (dates.substring(5, 7) == month && dates.substring(0, 4) == currentYear) {
@@ -160,6 +162,10 @@ function calendar(schoolNames, array) {
 		var currMonth;
 		$("#myUL").empty();
 		var header = 0;
+		console.log(this.schools);
+		if(this.schools.length == 0){
+			return;
+		}
 		for (var dates in this.schools[0].Datoer) {
 			for (var skoler in this.schools) {
 				if (this.schools[skoler].Datoer[dates][0] != "111" && this.schools[skoler].Datoer[dates][0] != "110") {
