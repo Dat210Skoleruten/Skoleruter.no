@@ -78,4 +78,4 @@ function setSchoolData(name, type) {
 }
 
 var cal; // Creates a calendar
-console.log("debugging synchronous 1.5");
+console.log("debugging synchronous 1.6");
