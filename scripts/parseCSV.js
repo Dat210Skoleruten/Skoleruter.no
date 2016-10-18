@@ -39,6 +39,7 @@ function parseSecondData(callback) {
                 Session.set('schools', results.data);
                 console.log("schools:", Session.get('schools'));
                 if (callback && typeof callback == "function") {
+                    console.log("running callback function");
                     callback();
                 }
             }
