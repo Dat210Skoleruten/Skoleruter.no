@@ -4,7 +4,7 @@ $(function () {
 });
 
 $(document).ready(function () {
-    console.log("calendar document ready: 0")
+    console.log("calendar document ready: 0");
     parseData(function () {
         setSchoolData(Cookies.get('selected'), Cookies.get("calendarType")); // Sets name & hyperlink on html document
         console.log("parseData and parseSecondData completed: 5");
@@ -78,4 +78,4 @@ function setSchoolData(name, type) {
 }
 
 var cal; // Creates a calendar
-
+console.log("debugging synchronous");
