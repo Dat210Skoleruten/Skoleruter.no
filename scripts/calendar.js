@@ -4,7 +4,35 @@ $(function () {
 });
 
 $(document).ready(function () {
-    
+    console.log("calendar document ready: 0")
+    parseData(function () {
+        setSchoolData(Cookies.get('selected'), Cookies.get("calendarType")); // Sets name & hyperlink on html document
+        console.log("parseData and parseSecondData completed: 5");
+        cal = new calendar(Cookies.get(Cookies.get("calendarType")), getSchoolData());
+        cal.buildCalendar(); // Builds calendar
+        cal.buildList(); // Builds List
+
+
+        $("#cal_prev").click(function () {
+            cal.prevMonth();
+        });
+
+        $("#cal_next").click(function () {
+            cal.nextMonth();
+        });
+
+        $("body").keyup(function (e) {
+            if (e.keyCode == 37) { // Left arrow
+                cal.prevMonth();
+            }
+        });
+
+        $("body").keyup(function (e) {
+            if (e.keyCode == 39) { // Right arrow
+                cal.nextMonth();
+            }
+        });
+    });
 });
 
 /**
@@ -50,31 +78,4 @@ function setSchoolData(name, type) {
 }
 
 var cal; // Creates a calendar
-parseData(function(){
-    setSchoolData(Cookies.get('selected'), Cookies.get("calendarType")); // Sets name & hyperlink on html document
 
-    cal = new calendar(Cookies.get(Cookies.get("calendarType")), getSchoolData());
-    cal.buildCalendar(); // Builds calendar
-    cal.buildList(); // Builds List
-
-
-    $("#cal_prev").click(function () {
-        cal.prevMonth();
-    });
-
-    $("#cal_next").click(function () {
-        cal.nextMonth();
-    });
-
-    $("body").keyup(function (e) {
-        if (e.keyCode == 37) { // Left arrow
-            cal.prevMonth();
-        }
-    });
-
-    $("body").keyup(function (e) {
-        if (e.keyCode == 39) { // Right arrow
-            cal.nextMonth();
-        }
-    });
-});
