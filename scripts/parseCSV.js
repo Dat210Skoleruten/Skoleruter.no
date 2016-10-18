@@ -38,14 +38,14 @@ function parseSecondData(callback) {
                 console.log("download schools complete");
                 Session.set('schools', results.data);
                 console.log("schools:", Session.get('schools'));
-                if (callback != null) {
+                if (callback && typeof callback == "function") {
                     callback();
                 }
             }
         });
         return;
     }
-    if (callback != null) {
+    if (callback && typeof callback == "function") {
         callback();
     }
 }
