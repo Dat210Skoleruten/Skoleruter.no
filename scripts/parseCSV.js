@@ -14,7 +14,7 @@ function parseData(callback) {
             header: true,
             complete: function (results, callback) {
                 console.log("parseData complete: 2");
-                console.log("download schoolRoutes complete")
+                console.log("download schoolRoutes complete");
                 Session.set("schoolRoutes", results.data);
                 console.log("schoolRoutes:", Session.get('schoolRoutes'));
                 parseSecondData(callback);
