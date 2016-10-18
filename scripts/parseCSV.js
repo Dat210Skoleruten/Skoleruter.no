@@ -20,7 +20,9 @@ function parseData(callback) {
                 parseSecondData(callback);
             }
         });
+        return;
     }
+    parseSecondData(callback);
 }
 
 function parseSecondData(callback){
@@ -36,7 +38,9 @@ function parseSecondData(callback){
                 console.log("download schools complete");
                 Session.set('schools', results.data);
                 console.log("schools:", Session.get('schools'));
-                callback();
+                if(callback){
+                    callback();
+                }
             }
         });
     }
