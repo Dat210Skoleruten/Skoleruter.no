@@ -20,11 +20,14 @@ function indexSearchList() {
     for (i = 0; i < tr.length; i++) {
         td = tr[i].getElementsByTagName("td")[0];
         if (td) {
-            if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
+            for(var x = 0; x<filter.length; x++){
+              if (td.firstElementChild.firstElementChild.innerHTML.toUpperCase().substring(0,x+1) == filter) {
+                  tr[i].style.display = "";
+              } else {
+                  tr[i].style.display = "none";
+              }
             }
+
         }
     }
 }
