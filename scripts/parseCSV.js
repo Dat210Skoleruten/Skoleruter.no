@@ -25,7 +25,7 @@ function parseData(callback) {
     parseSecondData(callback);
 }
 
-function parseSecondData(callback){
+function parseSecondData(callback) {
     console.log("parseSecondData starting: 3");
     if (Session.get("schools") == null) {
         console.log("schools is null, downloading schools");
@@ -38,11 +38,15 @@ function parseSecondData(callback){
                 console.log("download schools complete");
                 Session.set('schools', results.data);
                 console.log("schools:", Session.get('schools'));
-                if(callback){
+                if (callback) {
                     callback();
                 }
             }
         });
+        return;
+    }
+    if (callback) {
+        callback();
     }
 }
 
