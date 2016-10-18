@@ -40,3 +40,8 @@
     display: block;
 }
 
+/* Date number in calendarList */
+.dateNum {
+    float: left;
+}
+
