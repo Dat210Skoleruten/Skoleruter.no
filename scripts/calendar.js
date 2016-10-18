@@ -75,3 +75,4 @@ function setSchoolData(name, type) {
 }
 
 var cal; // Creates a calendar
+parseData();

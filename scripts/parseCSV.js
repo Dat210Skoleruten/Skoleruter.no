@@ -5,32 +5,33 @@
  The function getSchoolData combines these two datasets to one containing all schools with theirs respective routes.
  */
 
+function parseData() {
+    if (Session.get("schoolRoutes") == null) {
+        console.log("downloading schoolRoutes");
+        Papa.parse("http://open.stavanger.kommune.no/dataset/86d3fe44-111e-4d82-be5a-67a9dbfbfcbb/resource/32d52130-ce7c-4282-9d37-3c68c7cdba92/download/skolerute-2016-17.csv", { //Denne linken stopper å fungere August 2017
+            download: true,
+            header: true,
+            complete: function (results) {
+                console.log("download schoolRoutes complete")
+                Session.set("schoolRoutes", results.data);
+                console.log("schoolRoutes:", Session.get('schoolRoutes'));
+            }
+        });
+    }
 
-if (Session.get("schoolRoutes") == null) {
-    console.log("downloading schoolRoutes");
-    Papa.parse("http://open.stavanger.kommune.no/dataset/86d3fe44-111e-4d82-be5a-67a9dbfbfcbb/resource/32d52130-ce7c-4282-9d37-3c68c7cdba92/download/skolerute-2016-17.csv", { //Denne linken stopper å fungere August 2017
-        download: true,
-        header: true,
-        complete: function (results) {
-            console.log("download schoolRoutes complete")
-            Session.set("schoolRoutes", results.data);
-            console.log("schoolRoutes:", Session.get('schoolRoutes'));
-        }
-    });
-}
-
-if (Session.get("schools") == null) {
-    console.log("schools is null, downloading schools");
-    Papa.parse("http://open.stavanger.kommune.no/dataset/8f8ac030-0d03-46e2-8eb7-844ee11a6203/resource/0371a1db-7074-4568-a0cc-499a5dccfe98/download/skoler.csv", {
-        download: true,
-        header: true,
-        skipEmptyLines: true,
-        complete: function (results) {
-            console.log("download schools complete");
-            Session.set('schools', results.data);
-            console.log("schools:", Session.get('schools'));
-        }
-    });
+    if (Session.get("schools") == null) {
+        console.log("schools is null, downloading schools");
+        Papa.parse("http://open.stavanger.kommune.no/dataset/8f8ac030-0d03-46e2-8eb7-844ee11a6203/resource/0371a1db-7074-4568-a0cc-499a5dccfe98/download/skoler.csv", {
+            download: true,
+            header: true,
+            skipEmptyLines: true,
+            complete: function (results) {
+                console.log("download schools complete");
+                Session.set('schools', results.data);
+                console.log("schools:", Session.get('schools'));
+            }
+        });
+    }
 }
 
 function getSchoolData() {
@@ -49,29 +50,29 @@ function getSchoolData() {
                 }
             }
             if (!found) { //if school is not already in data array, add school and current entry's date
-                data.push({name: entry.skole, dates: []});
+                data.push({ name: entry.skole, dates: [] });
                 data[data.length - 1].dates[entry.dato] = formatDato(entry);
             }
         } else {
-            data.push({name: entry.skole, dates: []});
+            data.push({ name: entry.skole, dates: [] });
             data[data.length - 1].dates[entry.dato] = formatDato(entry);
         }
     }
 
     loop1:
-        for (var i = 0; i < schools.length; i++) {
-            schools[i]['Datoer'] = [];
-            for (var j = 0; j < data.length; j++) {
+    for (var i = 0; i < schools.length; i++) {
+        schools[i]['Datoer'] = [];
+        for (var j = 0; j < data.length; j++) {
 
-                if (schools[i].Skolenavn == data[j].name) {
+            if (schools[i].Skolenavn == data[j].name) {
 
-                    schools[i].Datoer = data[j].dates;
-                    continue loop1;
-                }
+                schools[i].Datoer = data[j].dates;
+                continue loop1;
             }
-            schools.splice(i, 1);
-            i--;
         }
+        schools.splice(i, 1);
+        i--;
+    }
     return schools;
 }
 
@@ -97,3 +98,5 @@ function formatDato(entry) {
     }
     return [dayType, entry.kommentar];
 };
+
+parseData();
