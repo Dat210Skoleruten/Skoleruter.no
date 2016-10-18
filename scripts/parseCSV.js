@@ -12,7 +12,7 @@ function parseData(callback) {
         Papa.parse("http://open.stavanger.kommune.no/dataset/86d3fe44-111e-4d82-be5a-67a9dbfbfcbb/resource/32d52130-ce7c-4282-9d37-3c68c7cdba92/download/skolerute-2016-17.csv", { //Denne linken stopper å fungere August 2017
             download: true,
             header: true,
-            complete: function (results, callback) {
+            complete: function (results) {
                 console.log("parseData complete: 2 " + (callback && typeof callback == "function"));
                 console.log("download schoolRoutes complete");
                 Session.set("schoolRoutes", results.data);
@@ -33,7 +33,7 @@ function parseSecondData(callback) {
             download: true,
             header: true,
             skipEmptyLines: true,
-            complete: function (results, callback) {
+            complete: function (results) {
                 console.log("parseSecondData completing: 4 " + (callback && typeof callback == "function"));
                 console.log("download schools complete");
                 Session.set('schools', results.data);
