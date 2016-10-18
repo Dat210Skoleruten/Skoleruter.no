@@ -6,14 +6,14 @@
  */
 
 function parseData(callback) {
-    console.log("parseData starting: 1");
+    console.log("parseData starting: 1" + (callback && typeof callback == "function"));
     if (Session.get("schoolRoutes") == null) {
         console.log("downloading schoolRoutes");
         Papa.parse("http://open.stavanger.kommune.no/dataset/86d3fe44-111e-4d82-be5a-67a9dbfbfcbb/resource/32d52130-ce7c-4282-9d37-3c68c7cdba92/download/skolerute-2016-17.csv", { //Denne linken stopper å fungere August 2017
             download: true,
             header: true,
             complete: function (results, callback) {
-                console.log("parseData complete: 2");
+                console.log("parseData complete: 2" + (callback && typeof callback == "function"));
                 console.log("download schoolRoutes complete");
                 Session.set("schoolRoutes", results.data);
                 console.log("schoolRoutes:", Session.get('schoolRoutes'));
@@ -26,7 +26,7 @@ function parseData(callback) {
 }
 
 function parseSecondData(callback) {
-    console.log("parseSecondData starting: 3");
+    console.log("parseSecondData starting: 3" + (callback && typeof callback == "function"));
     if (Session.get("schools") == null) {
         console.log("schools is null, downloading schools");
         Papa.parse("http://open.stavanger.kommune.no/dataset/8f8ac030-0d03-46e2-8eb7-844ee11a6203/resource/0371a1db-7074-4568-a0cc-499a5dccfe98/download/skoler.csv", {
@@ -34,7 +34,7 @@ function parseSecondData(callback) {
             header: true,
             skipEmptyLines: true,
             complete: function (results, callback) {
-                console.log("parseSecondData completing: 4");
+                console.log("parseSecondData completing: 4" + (callback && typeof callback == "function"));
                 console.log("download schools complete");
                 Session.set('schools', results.data);
                 console.log("schools:", Session.get('schools'));
