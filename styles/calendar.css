@@ -13,6 +13,7 @@ ul {
     padding: 0;
 }
 
+/* Month and year text */
 .month ul li {
     color: white;
     font-size: 20px;
@@ -94,6 +95,7 @@ ul {
     -webkit-transition: 0.3s;
 }
 
+/* Week number */
 .weekNum {
     position: relative;
     float: left;
