@@ -33,6 +33,29 @@ function calendar(schoolNames, array) {
 
 	};
 
+	this.setMonth = function(thisYear, month) {
+		console.log("setMonth");
+		var months = {
+    		'Januar' : 0,
+    		'Februar' : 1,
+    		'Mars' : 2,
+    		'April' : 3,
+    		'Mai' : 4,
+    		'Juni' : 5,
+    		'Juli' : 6,
+    		'August' : 7,
+    		'September' : 8,
+    		'Oktober' : 9,
+    		'November' : 10,
+    		'Desember' : 11,
+		}
+		month = months[month];
+		this.currentDate.setFullYear(thisYear);
+		this.currentDate.setMonth(month);
+		this.buildCalendar();
+		this.buildList(); //fjærn denn hvis listen skal være statisk
+	};
+
 	this.prevMonth = function() {
 		console.log("prevMonth");
 		this.currentDate.setMonth(this.currentDate.getMonth() - 1);
@@ -218,5 +241,11 @@ function calendar(schoolNames, array) {
 				}
 			}
 		}
+		 $(".header").click(function () {
+               var date = $(this).html().split(",");
+               cal.setMonth(date[1], date[0]);
+        });
+		 //Scrolls to the top of the list after listBuild
+		 $("#noScrollCalendar").animate({ scrollTop: 0 }, "fast"); 
 	}
 }
