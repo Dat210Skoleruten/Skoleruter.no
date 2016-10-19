@@ -27,7 +27,7 @@
 
 #myUL li a.header {
     background-color: #e2e2e2;
-    cursor: default;
+    cursor: pointer;
 }
 
 #myUL li a:hover:not(.header) {
@@ -45,4 +45,3 @@
 .dateNum {
     float: left;
 }
-
