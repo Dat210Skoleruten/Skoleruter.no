@@ -28,7 +28,7 @@ function pushMessange() {
 				this.close();
 			}
 
-	}
+	});
 }
 
 pushMessange();
