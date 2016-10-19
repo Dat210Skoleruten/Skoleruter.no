@@ -20,8 +20,8 @@ function pushMessange() {
 
 	Push.create('Skolerute', {
 			body: '#Test# En eller flere av dine skoler har snart feriedag. Trykk her for å se mer! #TEST#',
-			icon: '../img/skolelogo.png'
-			timeout: 5000
+			icon: '../img/skolelogo.png',
+			timeout: 5000,
 			onClick: function() {
 				//TODO: Open Skolerute/MineSkoler.html
 				window.focus();
