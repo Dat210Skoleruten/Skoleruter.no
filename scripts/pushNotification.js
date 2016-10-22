@@ -25,6 +25,7 @@ function pushMessange() {
 			onClick: function() {
 				//TODO: Open Skolerute/MineSkoler.html
 				window.focus();
+				window.location.href = "https://skoleruter.azurewebsites.net/html/schools.html";
 				this.close();
 			}
 
