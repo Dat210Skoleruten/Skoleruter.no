@@ -25,6 +25,7 @@ function pushMessange() {
 			onClick: function() {
 				//TODO: Open Skolerute/MineSkoler.html
 				window.focus();
+				Cookies.set("calendarType", "mySchools");
 				window.location.href = "schools.html";
 				console.log("push clicked");
 				this.close();
