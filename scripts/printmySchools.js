@@ -4,9 +4,10 @@ function printMySchools() {
     if (Cookies.get("mySchools") != null) {
         var theString = "";
         var arr = Cookies.get("mySchools").split(",");
+        var sortedArr = arr.sort();
 
-        for (var i = 0; i < arr.length; i++) {
-                theString += "<p class='favorite'>" + arr[i] + "<span class='glyphicon glyphicon-remove legendRemove' aria-hidden='true' id='"+arr[i]+"' onclick='removeSchool(this.id)'></span></p>";
+        for (var i = 0; i < sortedArr.length; i++) {
+                theString += "<p class='favorite'>" + sortedArr[i] + "<span class='glyphicon glyphicon-remove legendRemove' aria-hidden='true' id='"+sortedArr[i]+"' onclick='removeSchool(this.id)'></span></p>";
         }
         console.log(theString);
         elem.innerHTML = theString;
