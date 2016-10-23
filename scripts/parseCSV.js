@@ -50,7 +50,8 @@ function parseSecondData(callback) {
 function getSchoolData() {
     var schoolRoutes = Session.get("schoolRoutes");
     var schools = Session.get("schools");
-    var data = []
+    var data = [];
+
 
     for (var i = 0; i < schoolRoutes.length; i++) {
         var entry = schoolRoutes[i];
