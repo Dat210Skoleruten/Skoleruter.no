@@ -37,7 +37,7 @@ $(document).ready(function () {
 });
 
 function getIndexListItems() {
-    var arrString = ""
+    var arrString = "";
     var ArrayWSchools = [];
 
     if (Cookies.get('mySchools') != null) {
