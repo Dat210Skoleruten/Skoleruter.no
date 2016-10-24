@@ -27,27 +27,26 @@ $(document).ready(function () {
     }
 
     $("#gif1").click(function(){
-        
-        if($(this).attr("src") ==  "../img/play.png"){
-            $(this).attr("src", "../img/Soke_og_Bruke_kalender.gif");
+        if($(this).attr("src") ==  "img/play.png"){
+            $(this).attr("src", "img/Soke_og_Bruke_kalender.gif");
         }else{
-            $(this).attr("src", "../img/play.png");
+            $(this).attr("src", "img/play.png");
         }
     });
 
     $("#gif2").click(function(){
-        if($(this).attr("src") ==  "../img/play.png"){
-            $(this).attr("src", "../img/LeggeTil_Fjerne_MineSkoler.gif");
+        if($(this).attr("src") ==  "img/play.png"){
+            $(this).attr("src", "img/LeggeTil_Fjerne_MineSkoler.gif");
         }else{
-            $(this).attr("src", "../img/play.png");
+            $(this).attr("src", "img/play.png");
         }
     });
 
     $("#gif3").click(function(){
-         if($(this).attr("src") ==  "../img/play.png"){
-            $(this).attr("src", "../img/GPS.gif");
+         if($(this).attr("src") ==  "img/play.png"){
+            $(this).attr("src", "img/GPS.gif");
         }else{
-            $(this) .attr("src", "../img/play.png");
+            $(this) .attr("src", "img/play.png");
         }
     });
 });
