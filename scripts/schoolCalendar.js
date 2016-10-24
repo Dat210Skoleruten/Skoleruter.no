@@ -153,10 +153,10 @@ function calendar(schoolNames, array) {
 				}
 				var day;
 				if (eventDate.getDay() == 1) {
-					day = $("<li class='" + chosenDayType + "'>" + "<div class='weekNum'>" + eventDate.getWeekNumber() + "</div>" + " " + dates.substring(8, 10) +
+					day = $("<li class='" + chosenDayType + " " + dates + "'>" + "<div class='weekNum'>" + eventDate.getWeekNumber() + "</div>" + " " + dates.substring(8, 10) +
 						"</li>");
 				} else {
-					day = $("<li class='" + chosenDayType + "'>" + dates.substring(8, 10) +
+					day = $("<li class='" + chosenDayType + " " + dates + "'>" + dates.substring(8, 10) +
 						"</li>");
 				}
 				//if date today, add now class
@@ -167,6 +167,7 @@ function calendar(schoolNames, array) {
 				}
 
 				$(".days").append(day);
+
 			};
 		}
 
@@ -234,7 +235,7 @@ function calendar(schoolNames, array) {
 						if (this.schools.length > 1) {
 							currName = this.schools[skoler].Skolenavn + ": ";
 						}
-						list = $("<li><a>" + currDay + currName + status + " </a></li>");
+						list = $("<li class="+ dates + "><a>" + currDay + currName + status + " </a></li>");
 						$("#myUL").append(list);
 
 					}
@@ -246,6 +247,29 @@ function calendar(schoolNames, array) {
                cal.setMonth(date[1], date[0]);
         });
 		 //Scrolls to the top of the list after listBuild
-		 $("#noScrollCalendar").animate({ scrollTop: 0 }, "fast"); 
+		 $("#noScrollCalendar").animate({ scrollTop: 0 }, "fast");
 	}
+
+	this.addHover = function(){
+
+		for(var l in this.schools[0].Datoer){ // can iterate over dates but does not working with jQuery hover assigning
+			//console.log(l);
+		}
+
+		$.each( this.schools[0].Datoer, function( l ){ // cant iterate over array but should work with jQuery hover
+			console.log(l);
+		});
+
+		jQuery.each( this.schools[0].Datoer, function( i, val ) {
+			console.log(i);
+			console.log(val);
+			$( "." + val ).hover(function () {
+				console.log("hover");
+				$("." + val).toggleClass("hovered");
+				console.log(val);
+			});
+		});
+	}
+
+
 }

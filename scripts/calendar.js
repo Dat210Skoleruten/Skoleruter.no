@@ -9,6 +9,7 @@ $(document).ready(function () {
         cal = new calendar(Cookies.get(Cookies.get("calendarType")), getSchoolData());
         cal.buildCalendar(); // Builds calendar
         cal.buildList(); // Builds List
+        cal.addHover();
 
 
         $("#cal_prev").click(function () {
