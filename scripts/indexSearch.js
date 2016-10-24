@@ -32,26 +32,27 @@ function indexSearchList() {
     }
 }
 
-$(document).ready(function () {
-
-});
-
 function getIndexListItems() {
     var arrString = "";
     var ArrayWSchools = [];
 
     if (Cookies.get('mySchools') != null) {
-        arrString = Cookies.get('mySchools');
-        ArrayWSchools = arrString.split(",");
+        arrString = Cookies.get('mySchools').split(",");
+        ArrayWSchools = arrString.sort();
     }
 
     var schoolArray = getSchoolData();
-    console.log(ArrayWSchools);
+    console.log(ArrayWSchools + "DENNE");
     console.log(ArrayWSchools.length > 0);
     $("#indexList").children().empty();
+    schoolArray = schoolArray.sort(function(a, b){
+        if(a.Skolenavn < b.Skolenavn) return -1;
+        if(a.Skolenavn > b.Skolenavn) return 1;
+        return 0;
+    })
+    console.log(schoolArray);
     $.each(schoolArray, function (index, value) {
         //the schools
-
         var elem1 = $("<tr></tr>");
         var elem2 = $("<td></td>");
         var elem3 = $("<div></div>");
@@ -93,8 +94,8 @@ function getIndexListItemsPos(closest) {
     var ArrayWSchools = [];
 
     if (Cookies.get('mySchools') != null) {
-        arrString = Cookies.get('mySchools');
-        ArrayWSchools = arrString.split(",");
+        arrString = Cookies.get('mySchools').split(",");
+        ArrayWSchools = arrString.sort();
     }
 
     $("#indexList").show();
