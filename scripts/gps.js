@@ -26,7 +26,7 @@ function distance(lat1, lon1, lat2, lon2) {
         Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
         (1 - Math.cos(dLon)) / 2;
 
-    return R * 2 * Math.asin(Math.sqrt(a));
+    return R * 2 * Math.afsin(Math.sqrt(a));
 }
 
 function findClosest(position) {

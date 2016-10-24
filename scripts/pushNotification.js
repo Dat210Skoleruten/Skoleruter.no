@@ -26,7 +26,7 @@ function pushMessange() {
 				//TODO: Open Skolerute/MineSkoler.html
 				window.focus();
 				Cookies.set("calendarType", "mySchools");
-				window.location.href = "schools.html";
+				window.location.href = "html/schools.html";
 				console.log("push clicked");
 				this.close();
 			}

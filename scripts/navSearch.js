@@ -34,7 +34,7 @@ function getNavListItems() {
 
     if ($("#navList").children().length == 0) {
         $.each(schoolArray, function (index, value) {
-            $("#navList").append("<tr><td><a href='calendar.html'>" + value.Skolenavn + "</a></td></tr>");
+            $("#navList").append("<tr><td><a href='html/calendar.html'>" + value.Skolenavn + "</a></td></tr>");
         });
         $("#navList").hide();
     }
