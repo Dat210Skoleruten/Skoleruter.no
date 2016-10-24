@@ -56,7 +56,7 @@ function getIndexListItems() {
         var elem1 = $("<tr></tr>");
         var elem2 = $("<td></td>");
         var elem3 = $("<div></div>");
-        var elem4 = $("<a href='calendar.html' class='listElement'>" + value.Skolenavn + "</a>");
+        var elem4 = $("<a href='html/calendar.html' class='listElement'>" + value.Skolenavn + "</a>");
         //the favbutton
         var elem5 = $("<td></td>");
         var elem6 = $("<div id= '" + value.Skolenavn + "'></div>");
@@ -106,7 +106,7 @@ function getIndexListItemsPos(closest) {
         var elem1 = $("<tr></tr>");
         var elem2 = $("<td></td>");
         var elem3 = $("<div></div>");
-        var elem4 = $("<a href='calendar.html' class='listElement'>" + value[1] + "</a>");
+        var elem4 = $("<a href='html/calendar.html' class='listElement'>" + value[1] + "</a>");
         //the favbutton
         var elem5 = $("<td></td>");
         var elem6 = $("<div id= '" + value[1] + "'></div>");
