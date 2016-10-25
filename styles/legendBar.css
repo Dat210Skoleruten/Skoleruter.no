@@ -50,3 +50,12 @@ p.favorite {
     color: red;
     cursor: pointer;
 }
+
+/* Add media queries for smaller screens */
+@media screen and (max-width: 990px) {
+    .glyphicon-calendar {
+        visibility: hidden;
+    }
+}
+
+
