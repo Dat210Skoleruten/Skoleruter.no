@@ -46,11 +46,6 @@ html, body {
     color: #495156;
 }
 
-/* Set the search in index.html to be under the navbar and help modal */
-#indexSearch {
-    z-index: 0;
-}
-
 /* The welcome text that's under the searchbar */
 #welcomeText {
     width: 50%;
@@ -65,6 +60,10 @@ html, body {
 
 /* The two buttons (position and help) thats on either side of the searchbar in index.html */
 .input-group-addon {
+    cursor: pointer;
+}
+
+.indexSchoolButton {
     cursor: pointer;
 }
 
