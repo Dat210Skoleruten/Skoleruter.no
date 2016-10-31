@@ -1,4 +1,13 @@
 //function to check
+var currCal = null;
+
+function getCurrCal(){
+    if(currCal != null){
+        return currCal;
+    }else{
+        console.log("NO CALENDAR SET");
+    }
+}
 function checkCookie(val) {
     console.log(Cookies.get('mySchools') == null);
     var schoStr = "";
@@ -102,8 +111,10 @@ function removeSchool(school){
       }
     }
     //if(Cookies.get('mySchools') != null){
+
       printMySchools();
       var cal = new calendar(Cookies.get(Cookies.get("calendarType")), getSchoolData());
+      currCal = cal;
       cal.buildCalendar();
       cal.buildList();
 
@@ -125,6 +136,11 @@ function removeSchool(school){
           if (e.keyCode == 39) { // Right arrow
               cal.nextMonth();
           }
+      });
+
+      $(".header").click(function () {
+          var date = $(this).html().split(",");
+          cal.setMonth(date[1], date[0]);
       });
   //  }
   }

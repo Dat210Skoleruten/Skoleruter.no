@@ -248,10 +248,17 @@ function calendar(schoolNames, array) {
 				}
 			}
 		}
-		 $(".header").click(function () {
-               var date = $(this).html().split(",");
-               cal.setMonth(date[1], date[0]);
-        });
+
+		$(".header").click(function () {
+			var date = $(this).html().split(",");
+			var currCal = getCurrCal();
+			if (currCal != null) {
+				currCal.setMonth(date[1], date[0]);
+			} else {
+				cal.setMonth(date[1], date[0]);
+			}
+		});
+
 		 //Scrolls to the top of the list after listBuild
 		 $("#noScrollCalendar").animate({ scrollTop: 0 }, "fast");
 	}
