@@ -5,8 +5,7 @@ function getLocation() {
         console.log("Geolocation is supported")
         navigator.geolocation.getCurrentPosition(findClosest);
     } else {
-        var element = document.getElementById("noPosition");
-        element.style.color("red");
+        document.getElementById("noPosition").style.color("red");
         console.log("Geolocation is not supported by this browser.");
     }
 }
