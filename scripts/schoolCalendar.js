@@ -13,6 +13,7 @@ function calendar(schoolNames, array) {
 	this.iCal = function() {
 		var selSchool = Cookies.get('selected');
 		var newCal = new ics();
+
 		for (var currDate in this.schools[0].Datoer) {
 			for (var entries in this.schools) {
 				var dates = currDate;
@@ -30,7 +31,6 @@ function calendar(schoolNames, array) {
 			}
 		}
 		newCal.download();
-
 	};
 
 	this.setMonth = function(thisYear, month) {
@@ -49,6 +49,7 @@ function calendar(schoolNames, array) {
     		'November' : 10,
     		'Desember' : 11,
 		}
+
 		month = months[month];
 		this.currentDate.setFullYear(thisYear);
 		this.currentDate.setMonth(month);
@@ -78,12 +79,11 @@ function calendar(schoolNames, array) {
 		var currentDay = this.currentDate.getDay();
 		var firstDay = new Date(this.currentDate.getFullYear(), this.currentDate
 			.getMonth(), 1);
+
 		if (month < 10) {
 			month = "0" + month;
 
 		}
-
-
 
 		$(".days").empty();
 		$("#month").html(this.months[this.currentDate.getMonth()] +
@@ -95,9 +95,11 @@ function calendar(schoolNames, array) {
 
 		if (firstDay.getDay() != 1) {
 			var cDay = firstDay.getDay();
+
 			if (cDay == 0) {
 				cDay = 7;
 			}
+
 			for (var i = 1; i < cDay; i++) {
 				daysInMonth++;
 
@@ -112,6 +114,7 @@ function calendar(schoolNames, array) {
 		}
 		for (var currDate in this.schools[0].Datoer) {
 			var dates = currDate;
+
 			if (dates.substring(5, 7) == month && dates.substring(0, 4) == currentYear) {
 				var eventDate = new Date(dates);
 				var totDayType = [];
@@ -119,6 +122,7 @@ function calendar(schoolNames, array) {
 				for (var skoler in this.schools) {
 					var dayType = "";
 					var dayNum = this.schools[skoler].Datoer[dates][0];
+
 					if (dayNum == "001" || dayNum == "011") {
 						dayType = "SFO";
 					} else if (eventDate.getDay() == 6 || eventDate.getDay() == 0) {
@@ -135,11 +139,13 @@ function calendar(schoolNames, array) {
 				var isFri = false;
 				var weekend = false;
 				var chosenDayType = "";
+
 				for (var currDateType in totDayType) {
 					if (totDayType[currDateType] == "SFO") isOnlySFO = true;
 					if (totDayType[currDateType] == "fri") isFri = true;
 					if (totDayType[currDateType] == "weekend") weekend = true;
 				}
+
 				if (weekend) {
 					chosenDayType = "weekend";
 				} else if (isOnlySFO && isFri) {
@@ -152,6 +158,7 @@ function calendar(schoolNames, array) {
 					chosenDayType = "";
 				}
 				var day;
+
 				if (eventDate.getDay() == 1) {
 					day = $("<li class='" + chosenDayType + " " + dates + "'>" + "<div class='weekNum'>" + eventDate.getWeekNumber() + "</div>" + " " + dates.substring(8, 10) +
 						"</li>");
@@ -162,19 +169,16 @@ function calendar(schoolNames, array) {
 				//if date today, add now class
 				var thisDate = new Date(dates);
 				thisDate.setHours(0, 0, 0, 0);
+
 				if (thisDate.getTime() == this.now.getTime()) {
 					day.addClass("now");
 				}
-
 				$(".days").append(day);
-
 			};
 		}
 
 		for (daysInMonth; daysInMonth < 42; daysInMonth++) {
-
 			var day = $("<li class='after'>.</li>"); //dagene etter måneden.
-
 			$('.days').append(day);
 		};
 	};
@@ -187,6 +191,7 @@ function calendar(schoolNames, array) {
 		$("#myUL").empty();
 		var header = 0;
 		console.log(this.schools);
+
 		if(this.schools.length == 0){
 			return;
 		}
@@ -194,6 +199,7 @@ function calendar(schoolNames, array) {
 			for (var skoler in this.schools) {
 				if (this.schools[skoler].Datoer[dates][0] != "111" && this.schools[skoler].Datoer[dates][0] != "110") {
 					var eventDate = new Date(dates);
+
 					if (eventDate >= this.currentDate) { //bytt med this.now hvis liste skal være statisk
 						if (header == 0 && currMonth != parseInt(dates.substring(5, 7))) {
 							currMonth = parseInt(dates.substring(5, 7));
