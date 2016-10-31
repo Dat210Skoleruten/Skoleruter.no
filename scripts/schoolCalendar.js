@@ -251,18 +251,7 @@ function calendar(schoolNames, array) {
 	}
 
 	this.addHover = function(){
-
-		for(var l in this.schools[0].Datoer){ // can iterate over dates but does not working with jQuery hover assigning
-			//console.log(l);
-		}
-
-		$.each( this.schools[0].Datoer, function( l ){ // cant iterate over array but should work with jQuery hover
-			console.log(l);
-		});
-
 		jQuery.each( this.schools[0].Datoer, function( i, val ) {
-			console.log(i);
-			console.log(val);
 			$( "." + val ).hover(function () {
 				console.log("hover");
 				$("." + val).toggleClass("hovered");
@@ -270,6 +259,4 @@ function calendar(schoolNames, array) {
 			});
 		});
 	}
-
-
 }
