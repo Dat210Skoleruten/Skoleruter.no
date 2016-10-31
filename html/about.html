@@ -25,6 +25,8 @@
     <link rel="stylesheet" type="text/css" href="../styles/sidebar.css"/>
     <link rel="stylesheet" type="text/css" href="../styles/navbar.css">
     <link rel="stylesheet" type="text/css" href="../styles/cards.css">
+    <link rel="stylesheet" type="text/css" href="../styles/accordion.css">
+    <link rel="stylesheet" type="text/css" href="../styles/modal.css">
 
     <!-- Local scripts -->
     <script type="text/javascript" src="../scripts/navbar.js"></script>
@@ -37,35 +39,15 @@
 
         <!-- Home button -->
         <a class="navbar-brand" href="../index.html"><span class="glyphicon glyphicon-education"
-                                                                aria-hidden="true"></span> SKOLERUTE</a>
+                                                           aria-hidden="true"></span> SKOLERUTE</a>
         <!-- Center text -->
         <p class="center">Om Skolerute</p> <!-- CENTER TEXT -->
     </div>
-
-    <!-- <form class="navbar-form navbar-left">
-        <div class="form-group">
-            <form>
-               <input type="text" id="navSearch" onkeyup="navSearchList()" onfocus="getNavListItems()"
-                       class="navSearch"
-                       placeholder="Søk..." aria-hidden="true" autocomplete="off">
-            </form>
-        </div>
-    </form> -->
 
     <ul class="nav navbar-nav navbar-right">
         <li><span onclick="openNav()" class="glyphicon glyphicon-menu-hamburger hamburger"></span></li>
     </ul>
 </nav> <!-- /Navbar  -->
-
-<!-- The school list table
-<div class="container-fluid col-lg-7" id="navSearchContainer">
-    <div class="col-lg-5 col-sm-offset-2">
-        <div id="noScroll">
-            <table id="navList">
-            </table>
-        </div>
-    </div>
-</div> --> <!-- /The school list table -->
 
 <!-- Navbar toggle div -->
 <div id="mySidenav" class="sidenav">
@@ -73,36 +55,12 @@
     <a href="../index.html">HJEM</a>
     <a href="schools.html">FAVORITTER</a>
     <a href="about.html">OM SKOLERUTE</a>
+    <a href="#" ata-toggle="tooltip" data-placement="bottom" title="Hjelpesenter" id="myBtn"><span
+            class="glyphicon glyphicon-question-sign"
+            aria-hidden="true"></span> HJELP</a>
 </div> <!-- /Navbar toggle div -->
 
 <br>
-
-<!-- About text
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-xs-8 col-xs-offset-2 text-center">
-            <p>Skolerute.no er utviklet med basis i egne behov. Som far til tre småbarn, to på barneskole og en i
-                barnehage, så får man et behov for å organisere. Gjennom eget rotehue kom gjerne en planleggingsdag
-                eller annen fridag i skolen brått på. Har man da planlagt helt andre ting, som for eksempel en
-                jobbreise, ja, da er ofte gode råd dyre og man priser seg lykkelig over at man har familie i samme by.
-
-                Det var i et slikt tilfelle at ideen om en digital skolerute kom opp. Hva om skoleruten kunne komme inn
-                i jobb / fritid / familiekalenderen med et klikk? Slik at man slipper å lure og kan ta et kjapt blikk på
-                kalenderen i det man planlegger et nytt møte eller jobbreise? Som sagt, så gjort. Nå kan du navigere deg
-                til din kommunes skolerute fra ønsket enhet (for eksempel din iPhone, iPad, Android, Mac-eller
-                Windowspc) og med et par klikk få hele skoleruten automatisk inn i din egen kalender.
-
-                Skolerute.no gjelder i en prøveperiode kun for kommunene Tromsø, Harstad og Lenvik i Troms fylke, men
-                flere vil komme. Ta gjerne kontakt om du har ønske om digital skolerute for nettopp din kommune.
-
-                Dette er den offisielle skoleruten som kommunene publiserer på sine websider. De aller fleste skoler har
-                i tillegg egne planleggingsdager og / eller avspasserig for skolens dag og og lignende. Disse må du
-                fortsatt legge inn selv, men du har i alle fall spart deg for irriterende mye skriving på telefonen.
-                Kanskje en og annen overraskelse av typen «Det kom som julekvelden på kjerringa» også.
-            </p>
-        </div>
-    </div>
-</div>  /About text  -->
 
 <h1 class="text-center" id="team">Utviklet av</h1>
 
@@ -167,6 +125,60 @@
         </div>
     </div> <!-- /Second card column -->
 </div>
+
+<!-- Help center -->
+<div class="container-fluid">
+    <!-- The Modal -->
+    <div id="myModal" class="modal text-center">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="glyphicon glyphicon-remove close"></span>
+                <h2>Hjelpesenter</h2>
+            </div>
+            <div class="modal-body">
+                <button class="accordion">Søke og bruke kalenderen</button>
+                <div class="panel">
+                    <img id="gif4" src="../img/play.png" alt="Avatar" class="img imgSize">
+                    <p>I kalenderen kan du legge til hendelsene i din personlige kalender, gå til skolens hjemmeside, og
+                        legge skolen til favoritter</p>
+                </div>
+                <button class="accordion">Legge til og fjerne favoritter</button>
+                <div class="panel">
+                    <img id="gif5" src="../img/play.png" alt="Avatar" class="img imgSize">
+                </div>
+                <button class="accordion">Finne skoler nærheten</button>
+                <div class="panel">
+                    <img id="gif6" src="../img/play.png" alt="Avatar" class="img imgSize">
+                    <p>Jo høyere skolen er i listen, jo nærmere er den din lokasjon</p>
+                </div>
+                <button class="accordion">FAQ</button>
+                <div class="panel">
+                    <h3>Ofte stilte spørsmål:</h3>
+                    <p>
+                        Q: Hvorfor finner jeg ingen Videregående skoler?
+                        <br/>
+                        A: Vi har kun informasjon om barne- og ungdomskoler i Stavanger.
+                    </p>
+                    <p>
+                        Q: Jeg finner ikke en skole i Sandnes, hvorfor?
+                        <br/>
+                        A: Vi har bare informasjon for barne- og ungdomskoler i Stavanger.
+                    </p>
+                    <p>
+                        Q: GPS knappen fungerer ikke, hvorfor?
+                        <br/>
+                        A: For at kanppen skal fungere, må du gi nettleseren tilatelse til å hente din posisjon.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- /Help center -->
+
+<!-- Have to be here for it to work -->
+<script src="../scripts/modal.js"></script>
+<script src="../scripts/accordion.js"></script>
 
 </body>
 </html>

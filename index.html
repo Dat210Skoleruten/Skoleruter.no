@@ -58,6 +58,9 @@
     <a href="index.html">HJEM</a>
     <a href="html/schools.html">FAVORITTER</a>
     <a href="html/about.html">OM SKOLERUTE</a>
+    <a href="#" ata-toggle="tooltip" data-placement="bottom" title="Hjelpesenter" id="myBtn"><span
+            class="glyphicon glyphicon-question-sign"
+            aria-hidden="true"></span> HJELP</a>
 </div> <!-- /Navbar toggle div -->
 
 <div class="container-fluid">
@@ -84,17 +87,11 @@
                            autocomplete="off">
 
                     <!-- Favorite icon -->
-                    <a href="html/schools.html" data-toggle="tooltip" data-placement="bottom" title="Gå til favoritter" id="goToFave"
-                          class="input-group-addon" style="cursor:pointer;"><span
+                    <a href="html/schools.html" onclick="Cookies.set('calendarType', 'mySchools')" data-toggle="tooltip"
+                       data-placement="bottom" title="Gå til favoritter" id="goToFave"
+                       class="input-group-addon" style="cursor:pointer;"><span
                             class="glyphicon glyphicon-star mainColorText"
                             aria-hidden="true"></span></a>
-
-
-                    <!-- Help icon -->
-                    <span data-toggle="tooltip" data-placement="bottom" title="Hjelpesenter" id="myBtn"
-                          class="input-group-addon" style="cursor:help;"><span
-                            class="glyphicon glyphicon-question-sign mainColorText"
-                            aria-hidden="true"></span></span>
                 </div>
             </div><!-- /.col-lg-6 col-sm-offset-3"> -->
         </form> <!-- /Form -->
@@ -144,19 +141,19 @@
                 <div class="panel">
                     <h3>Ofte stilte spørsmål:</h3>
                     <p>
-                      Q: Hvorfor finner jeg ingen Videregående skoler?
-                      <br/>
-                      A: Vi har kun informasjon om barne- og ungdomskoler i Stavanger.
+                        Q: Hvorfor finner jeg ingen Videregående skoler?
+                        <br/>
+                        A: Vi har kun informasjon om barne- og ungdomskoler i Stavanger.
                     </p>
                     <p>
-                      Q: Jeg finner ikke en skole i Sandnes, hvorfor?
-                      <br/>
-                      A: Vi har bare informasjon for barne- og ungdomskoler i Stavanger.
+                        Q: Jeg finner ikke en skole i Sandnes, hvorfor?
+                        <br/>
+                        A: Vi har bare informasjon for barne- og ungdomskoler i Stavanger.
                     </p>
                     <p>
-                      Q: GPS knappen fungerer ikke, hvorfor?
-                      <br/>
-                      A: For at kanppen skal fungere, må du gi nettleseren tilatelse til å hente din posisjon.
+                        Q: GPS knappen fungerer ikke, hvorfor?
+                        <br/>
+                        A: For at kanppen skal fungere, må du gi nettleseren tilatelse til å hente din posisjon.
                     </p>
                 </div>
             </div>

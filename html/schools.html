@@ -27,6 +27,8 @@
     <link rel="stylesheet" type="text/css" href="../styles/navbar.css">
     <link rel="stylesheet" type="text/css" href="../styles/calendarList.css">
     <link rel="stylesheet" type="text/css" href="../styles/legendBar.css">
+    <link rel="stylesheet" type="text/css" href="../styles/accordion.css">
+    <link rel="stylesheet" type="text/css" href="../styles/modal.css">
 
     <!-- Local scripts -->
     <script type="text/javascript" src="../scripts/protype.js"></script>
@@ -50,7 +52,7 @@
 
         <!-- Home button -->
         <a class="navbar-brand" href="../index.html"><span class="glyphicon glyphicon-education"
-                                                                aria-hidden="true"></span> SKOLERUTE</a>
+                                                           aria-hidden="true"></span> SKOLERUTE</a>
         <!-- Center text -->
         <p class="center">Favoritter</p>
     </div>
@@ -66,6 +68,9 @@
     <a href="../index.html">HJEM</a>
     <a href="schools.html">FAVORITTER</a>
     <a href="about.html">OM SKOLERUTE</a>
+    <a href="#" ata-toggle="tooltip" data-placement="bottom" title="Hjelpesenter" id="myBtn"><span
+            class="glyphicon glyphicon-question-sign"
+            aria-hidden="true"></span> HJELP</a>
 </div> <!-- /Navbar toggle div -->
 
 <br>
@@ -128,6 +133,60 @@
         </div>
     </div> <!-- /List -->
 </div> <!-- /Calendar & List -->
+
+<!-- Help center -->
+<div class="container-fluid">
+    <!-- The Modal -->
+    <div id="myModal" class="modal text-center">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="glyphicon glyphicon-remove close"></span>
+                <h2>Hjelpesenter</h2>
+            </div>
+            <div class="modal-body">
+                <button class="accordion">Søke og bruke kalenderen</button>
+                <div class="panel">
+                    <img id="gif4" src="../img/play.png" alt="Avatar" class="img imgSize">
+                    <p>I kalenderen kan du legge til hendelsene i din personlige kalender, gå til skolens hjemmeside, og
+                        legge skolen til favoritter</p>
+                </div>
+                <button class="accordion">Legge til og fjerne favoritter</button>
+                <div class="panel">
+                    <img id="gif5" src="../img/play.png" alt="Avatar" class="img imgSize">
+                </div>
+                <button class="accordion">Finne skoler nærheten</button>
+                <div class="panel">
+                    <img id="gif6" src="../img/play.png" alt="Avatar" class="img imgSize">
+                    <p>Jo høyere skolen er i listen, jo nærmere er den din lokasjon</p>
+                </div>
+                <button class="accordion">FAQ</button>
+                <div class="panel">
+                    <h3>Ofte stilte spørsmål:</h3>
+                    <p>
+                        Q: Hvorfor finner jeg ingen Videregående skoler?
+                        <br/>
+                        A: Vi har kun informasjon om barne- og ungdomskoler i Stavanger.
+                    </p>
+                    <p>
+                        Q: Jeg finner ikke en skole i Sandnes, hvorfor?
+                        <br/>
+                        A: Vi har bare informasjon for barne- og ungdomskoler i Stavanger.
+                    </p>
+                    <p>
+                        Q: GPS knappen fungerer ikke, hvorfor?
+                        <br/>
+                        A: For at kanppen skal fungere, må du gi nettleseren tilatelse til å hente din posisjon.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- /Help center -->
+
+<!-- Have to be here for it to work -->
+<script src="../scripts/modal.js"></script>
+<script src="../scripts/accordion.js"></script>
 
 </body>
 </html>

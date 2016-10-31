@@ -1,3 +1,7 @@
+#indexSearch {
+    z-index: 0;
+}
+
 /* The index.html schoolList css */
 #indexList {
     border-collapse: collapse;
