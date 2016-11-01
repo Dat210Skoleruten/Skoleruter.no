@@ -19,8 +19,8 @@ html, body {
 }
 
 #indexHTML {
-    overflow-x: hidden; /* Remove vertical scroll on all pages */
-    -ms-overflow-x: hidden; /* Remove vertical scroll on all pages for older IE*/
+    overflow-y: hidden; /* Remove vertical scroll on all pages */
+    -ms-overflow-y: hidden; /* Remove vertical scroll on all pages for older IE*/
 }
 
 /* <h1> on the frontpage */
