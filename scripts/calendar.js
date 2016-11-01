@@ -26,8 +26,8 @@ $(document).ready(function () {
         $( "#calendar").on( "swiperight", swiperightHandler );
 
         */
-        $("#calendar").on("tap",function(){
-            $(this).hide();
+        $("#calendar").on("swipeleft",function(){
+            alert("WORKS");
         });
 
         $("body").keyup(function (e) {
