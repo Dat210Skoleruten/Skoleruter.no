@@ -3,6 +3,17 @@ $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 });
 
+function swipeleftHandler(){
+    console.log("swipe left");
+    cal.prevMonth();
+};
+
+function swiperightHandler(){
+    console.log("swipe right");
+    cal.nextMonth();
+
+};
+
 
 $(document).ready(function () {
     parseData(function () {
@@ -12,14 +23,8 @@ $(document).ready(function () {
         cal.buildList(); // Builds List
         cal.addHover();
 
-        $("body").on("swipeleft",function(){
-            console.log("swipe left");
-            cal.prevMonth();
-        });
-        $("body").on("swiperight", function () {
-            console.log("swipe right");
-            cal.nextMonth();
-        });
+        $( "#calendar" ).on( "swipeleft", swipeleftHandler );
+        $( "#calendar").on( "swiperight", swiperightHandler );
 
         $("body").keyup(function (e) {
             if (e.keyCode == 37) { // Left arrow
