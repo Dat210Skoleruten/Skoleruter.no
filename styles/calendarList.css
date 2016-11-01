@@ -45,3 +45,11 @@
 .dateNum {
     float: left;
 }
+
+/* Medium devices (desktops, 992px and up) */
+@media screen and (max-width: 992px) {
+    #noScrollCalendar {
+        overflow: visible;
+    }
+}
+
