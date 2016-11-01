@@ -182,13 +182,6 @@ function calendar(schoolNames, array) {
 			$('.days').append(day);
 		};
 
-		$("#calendar").on("swipeleft", function(){
-			cal.prevMonth();
-		});
-
-		$("#calendar").on("swiperight", function(){
-			cal.nextMonth();
-		});
 	};
 
 	this.buildList = function() {
