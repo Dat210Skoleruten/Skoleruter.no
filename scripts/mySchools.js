@@ -108,6 +108,8 @@ function removeSchool(school){
       }
       if (ArrOfSchools.toString() == "") {
           Cookies.remove("mySchools");
+          location.reload();
+
       }
     }
     //if(Cookies.get('mySchools') != null){
