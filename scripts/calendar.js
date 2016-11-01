@@ -11,11 +11,11 @@ $(document).ready(function () {
         cal.buildList(); // Builds List
         cal.addHover();
 
-        $("#cal_prev").on("swipeleft", function(){
+        $("#calendar").on("swipeleft", function(){
                 cal.prevMonth();
         });
 
-        $("#cal_prev").on("swiperight", function(){
+        $("#calendar").on("swiperight", function(){
             cal.nextMonth();
         });
 
