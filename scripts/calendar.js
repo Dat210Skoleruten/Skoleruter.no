@@ -4,11 +4,11 @@ $(function () {
 });
 $(document).on("pagecreate","#calendar", function(){
 
-    $("#calendar").on("swipeleft", function(){
+    $("#monthBox").on("swipeleft", function(){
         cal.prevMonth();
     });
 
-    $("#calendar").on("swiperight", function(){
+    $("#monthBox").on("swiperight", function(){
         cal.nextMonth();
     });
 
