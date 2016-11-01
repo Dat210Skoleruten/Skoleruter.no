@@ -5,10 +5,12 @@ $(function () {
 $(document).on("pagecreate","#calendar", function(){
 
     $("#monthBox").on("swipeleft", function(){
+        console.log("Swipe left");
         cal.prevMonth();
     });
 
     $("#monthBox").on("swiperight", function(){
+        console.log("Swipe left");
         cal.nextMonth();
     });
 
