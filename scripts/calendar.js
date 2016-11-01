@@ -11,6 +11,14 @@ $(document).ready(function () {
         cal.buildList(); // Builds List
         cal.addHover();
 
+        $("#cal_prev").on("swipeleft", function(){
+                cal.prevMonth();
+        });
+
+        $("#cal_prev").on("swiperight", function(){
+            cal.nextMonth();
+        });
+
 
         $("#cal_prev").click(function () {
             cal.prevMonth();
