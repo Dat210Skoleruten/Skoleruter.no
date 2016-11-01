@@ -3,16 +3,6 @@ $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 });
 
-/*function swipeleftHandler(){
-    console.log("swipe left");
-    cal.prevMonth();
-};
-
-function swiperightHandler(){
-    console.log("swipe right");
-    cal.nextMonth();
-};*/
-
 
 $(document).ready(function () {
     parseData(function () {
@@ -22,12 +12,12 @@ $(document).ready(function () {
         cal.buildList(); // Builds List
         cal.addHover();
 
-        /*$( "#calendar" ).on( "swipeleft", swipeleftHandler );
-        $( "#calendar").on( "swiperight", swiperightHandler );
+        $("#cal_prev").click(function() {
+            cal.prevMonth();
+        });
 
-        */
-        $("#calendar").on("swipeleft",function(){
-            alert("WORKS");
+        $("#cal_next").click(function() {
+            cal.nextMonth();
         });
 
         $("body").keyup(function (e) {
