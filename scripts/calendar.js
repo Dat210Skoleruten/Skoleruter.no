@@ -4,7 +4,6 @@ $(function () {
 });
 
 
-
 $(document).ready(function () {
     parseData(function () {
         setSchoolData(Cookies.get('selected'), Cookies.get("calendarType")); // Sets name & hyperlink on html document
@@ -13,20 +12,12 @@ $(document).ready(function () {
         cal.buildList(); // Builds List
         cal.addHover();
 
-        $("#monthBox").on("swipeleft", function(){
-            console.log("Swipe left");
+        $("body").on("swipeleft",function(){
+            console.log("swipe left");
             cal.prevMonth();
         });
-
-        $("#monthBox").on("swiperight", function(){
-            console.log("Swipe left");
-            cal.nextMonth();
-
-        $("#cal_prev").click(function () {
-            cal.prevMonth();
-        });
-
-        $("#cal_next").click(function () {
+        $("body").on("swiperight", function () {
+            console.log("swipe right");
             cal.nextMonth();
         });
 
