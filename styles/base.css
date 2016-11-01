@@ -18,11 +18,6 @@ html, body {
     -ms-overflow-x: hidden; /* Remove horizontal scroll on all pages for older IE*/
 }
 
-#indexHTML {
-    overflow-y: hidden; /* Remove vertical scroll on all pages */
-    -ms-overflow-y: hidden; /* Remove vertical scroll on all pages for older IE*/
-}
-
 /* <h1> on the frontpage */
 #title {
     font-size: 8em;
