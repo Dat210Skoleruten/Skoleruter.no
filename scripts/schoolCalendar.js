@@ -181,6 +181,14 @@ function calendar(schoolNames, array) {
 			var day = $("<li class='after'>.</li>"); //dagene etter måneden.
 			$('.days').append(day);
 		};
+
+		$("#calendar").on("swipeleft", function(){
+			cal.prevMonth();
+		});
+
+		$("#calendar").on("swiperight", function(){
+			cal.nextMonth();
+		});
 	};
 
 	this.buildList = function() {

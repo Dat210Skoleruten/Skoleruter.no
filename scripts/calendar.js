@@ -2,17 +2,7 @@
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 });
-$(document).on("pagecreate","#calendar", function(){
 
-    $("#calendar").on("swipeleft", function(){
-        cal.prevMonth();
-    });
-
-    $("#calendar").on("swiperight", function(){
-        cal.nextMonth();
-    });
-
-});
 
 $(document).ready(function () {
     parseData(function () {
