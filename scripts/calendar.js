@@ -2,6 +2,16 @@
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 });
+$(document).on("pagecreate", function(){
+    $("#calendar").on("swipeleft", function(){
+        cal.prevMonth();
+    });
+
+    $("#calendar").on("swiperight", function(){
+        cal.nextMonth();
+    });
+
+});
 
 $(document).ready(function () {
     parseData(function () {
@@ -10,16 +20,7 @@ $(document).ready(function () {
         cal.buildCalendar(); // Builds calendar
         cal.buildList(); // Builds List
         cal.addHover();
-
-        $("#calendar").on("swipeleft", function(){
-                cal.prevMonth();
-        });
-
-        $("#calendar").on("swiperight", function(){
-            cal.nextMonth();
-        });
-
-
+        
         $("#cal_prev").click(function () {
             cal.prevMonth();
         });
