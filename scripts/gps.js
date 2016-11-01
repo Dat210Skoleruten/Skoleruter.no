@@ -1,12 +1,38 @@
 tabell = document.getElementById('indexList');
-
+$(function(){
+checkLocation();
+});
+function checkLocation() {
+    if (navigator.geolocation) {
+        console.log("Geolocation is supported")
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    }
+}
 function getLocation() {
     if (navigator.geolocation) {
         console.log("Geolocation is supported")
-        navigator.geolocation.getCurrentPosition(findClosest);
+        navigator.geolocation.getCurrentPosition(findClosest, showError);
     } else {
-        document.getElementById("noPosition").style.color("red");
         console.log("Geolocation is not supported by this browser.");
+    }
+}
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            console.log("User denied the request for Geolocation.");
+            document.getElementById("position").style.backgroundColor = "gray";
+            $('#position').attr('data-original-title','Skru på stedstjenester');
+
+            break;
+        case error.POSITION_UNAVAILABLE:
+            console.log("Location information is unavailable.");
+            break;
+        case error.TIMEOUT:
+            console.log("The request to get user location timed out.");
+            break;
+        case error.UNKNOWN_ERROR:
+            console.log("An unknown error occurred.");
+            break;
     }
 }
 
