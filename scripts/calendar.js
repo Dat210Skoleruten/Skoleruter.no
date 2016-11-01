@@ -2,7 +2,8 @@
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 });
-$(document).on("pagecreate", function(){
+$(document).on("pagecreate","#calendar", function(){
+
     $("#calendar").on("swipeleft", function(){
         cal.prevMonth();
     });
@@ -20,7 +21,7 @@ $(document).ready(function () {
         cal.buildCalendar(); // Builds calendar
         cal.buildList(); // Builds List
         cal.addHover();
-        
+
         $("#cal_prev").click(function () {
             cal.prevMonth();
         });
