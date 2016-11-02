@@ -76,7 +76,6 @@ function calendar(schoolNames, array) {
 
 		var month = this.currentDate.getMonth() + 1;
 		var currentYear = this.currentDate.getFullYear();
-		var currentDay = this.currentDate.getDay();
 		var firstDay = new Date(this.currentDate.getFullYear(), this.currentDate
 			.getMonth(), 1);
 

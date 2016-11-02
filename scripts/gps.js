@@ -4,7 +4,6 @@ checkLocation();
 });
 function checkLocation() {
     if (navigator.geolocation) {
-        console.log("Geolocation is supported")
         navigator.geolocation.getCurrentPosition(showPosition, showError);
     }
 }
