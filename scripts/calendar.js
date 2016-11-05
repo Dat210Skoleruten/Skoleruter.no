@@ -14,6 +14,18 @@ $(document).ready(function () {
         $('month').on('swipeleft', function() {cal.prevMonth();});
         $('month').on('swiperight', function() {cal.nextMonth();});
 
+
+        document.ontouchmove = function(e) {
+            var target = e.currentTarget;
+            while(target) {
+                if(checkIfElementShouldScroll(target))
+                    return;
+                target = target.parentNode;
+            }
+
+            e.preventDefault();
+        };
+
         $("#cal_prev").click(function() {
             cal.prevMonth();
         });
