@@ -39,11 +39,12 @@
     <script type="text/javascript" src="scripts/navbar.js"></script>
     <script type="text/javascript" src="scripts/mySchools.js"></script>
     <script type="text/javascript" src="scripts/menuController.js"></script>
+    <script type="text/javascript" src="scripts/printMySchools.js"></script>
     <script type="text/javascript" src="scripts/chooseTop.js"></script>
     <script type="text/javascript" src="scripts/push.min.js"></script>
     <script type="text/javascript" src="scripts/pushNotification.js"></script>
 </head>
-<body>
+<body onLoad="showFavorites()">
 
 <!-- Navbar bar -->
 <nav class="navbar navbar-light backgroundColor">
@@ -164,8 +165,7 @@
 <!-- Welcome text -->
 <div class="container-fluid">
     <div class="text-center" id="welcomeText">
-        <p> Velkommen! Her kan du søke på barne- og ungdomskoler i Stavanger og få en oversikt
-            over ferier og andre fridager!</p>
+        <p class="welcome"></p>
     </div>
 </div>  <!-- /Welcome text -->
 
