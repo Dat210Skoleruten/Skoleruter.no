@@ -11,6 +11,8 @@ $(document).ready(function () {
         cal.buildCalendar(); // Builds calendar
         cal.buildList(); // Builds List
         cal.addHover();
+        $('month').on('swipeleft', function() {cal.prevMonth();});
+        $('month').on('swiperight', function() {cal.nextMonth();});
 
         $("#cal_prev").click(function() {
             cal.prevMonth();
