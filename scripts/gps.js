@@ -68,18 +68,20 @@ function findClosest(position) {
         //to calculate the distance.
 
         var dist = distance(lat, lng, schoolList[i]["Latitude"], schoolList[i]["Longitude"]);
-        dist_array[i] = [dist, schoolList[i]["Skolenavn"]]; //Makes new array with distance an scoolname as attributes
+        //dist_array[i] = [dist, schoolList[i]["Skolenavn"]]; //Makes new array with distance an scoolname as attributes
+        dist_array[i] = {Distance: dist, Skolenavn: schoolList[i]["Skolenavn"]};
     }
 
     function sortFunction(a, b) {
-        if (a[0] === b[0]) {
+        if (a.Distance === b.Distance) {
             return 0;
         }
         else {
-            return (a[0] < b[0]) ? -1 : 1;
+            return (a.Distance < b.Distance) ? -1 : 1;
         }
     }
 
     sorted_distance = dist_array.sort(sortFunction); //Sorts array by distance
-    getIndexListItemsPos(sorted_distance);
+    console.log("sorted distance= ", sorted_distance);
+    getIndexListItems(sorted_distance);
 }
