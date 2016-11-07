@@ -3,14 +3,14 @@ function showFavorites() {
         $("goToFave").removeClass("disableClick");
         $('#goToFave').css("backgroundColor", "#EEEEEE");
         $('#goToFave').attr('data-original-title', 'Gå til favoritter');
-        $("#goToFave").removeAttr('disabled');
+        $("#goToFave").off('click', DoPrevent);
 
     } else {
         $('#goToFave').css("backgroundColor", "gray");
         $("goToFave").addClass("disableClick");
         $('#goToFave').attr('data-original-title', 'Du har ingen favoritter enda!');
 
-        $("#goToFave").attr('disabled', true);
+        $("#goToFave").on('click', DoPrevent);
     }
 }
 
@@ -31,4 +31,9 @@ function printMySchools() {
         elem.innerHTML = "Ingen skoler valgt!";
         elem.style.color = "red";
     }
+}
+
+function DoPrevent(e) {
+  e.preventDefault();
+  e.stopPropagation();
 }
