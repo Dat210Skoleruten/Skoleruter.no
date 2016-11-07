@@ -3,18 +3,14 @@ function showFavorites() {
         $("goToFave").removeClass("disableClick");
         $('#goToFave').css("backgroundColor", "#EEEEEE");
         $('#goToFave').attr('data-original-title', 'Gå til favoritter');
-        $("#goToFave").off("click", function(e){
-            e.preventDefault();
-        });
+        $("#goToFave").removeAttr('disabled');
 
     } else {
         $('#goToFave').css("backgroundColor", "gray");
         $("goToFave").addClass("disableClick");
         $('#goToFave').attr('data-original-title', 'Du har ingen favoritter enda!');
 
-        $("#goToFave").on("click", function(e){
-            e.preventDefault();
-        });
+        $("#goToFave").attr('disabled', true);
     }
 }
 
