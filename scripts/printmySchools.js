@@ -4,8 +4,9 @@ function showFavorites() {
     if (Cookies.get("mySchools") != null) {
         var output = "";
         var arr = Cookies.get("mySchools").split(",");
+        $("goToFave").removeClass("disableClick");
         var sortedArr = arr.sort();
-
+        $('#goToFave').css("backgroundColor", "white");
         for (var i = 0; i < sortedArr.length; i++) {
             output += "<p class='welcome'>" + sortedArr[i] + "   har neste fridag:" + "</p>";
         }
@@ -13,8 +14,8 @@ function showFavorites() {
         welcomeText.innerHTML = output;
     } else {
         document.getElementById("goToFave").style.backgroundColor = "gray";
-        $("goToFave").attr("disabled", "disabled");
-        $("#goToFave").attr("href", "");
+        $("goToFave").addClass("disableClick");
+        //$("#goToFave").attr("href", "");
         welcomeText.innerHTML = "Velkommen! Her kan du søke på barne- og ungdomskoler i Stavanger og få en oversikt over ferier og andre fridager!";
         $('#goToFave').attr('data-original-title', 'Du har ingen favoritter enda!');
     }

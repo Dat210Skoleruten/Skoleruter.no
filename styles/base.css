@@ -67,6 +67,10 @@ html, body {
     cursor: pointer;
 }
 
+.disableClick{
+    pointer-events: none;
+}
+
 /* Medium devices (desktops, 992px and up) */
 @media screen and (max-width: 992px) {
     #title {
