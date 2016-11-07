@@ -11,12 +11,14 @@ $(document).ready(function () {
         cal.buildList(); // Builds List
         cal.addHover();
 
-        $('month').on('swipeleft', function () {
+        $('.month').on("swipeleft", function () {
             alert("You swiped left!")
+            cosnole.log("Swiped left")
         });
 
-        $('month').on('swiperight', function () {
+        $('.month').on("swiperight", function () {
             alert("You swiped right!")
+            cosnole.log("Swiped right")
         });
 
         document.ontouchmove = function (e) {
