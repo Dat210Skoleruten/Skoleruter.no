@@ -19,7 +19,7 @@ function showError(error) {
     switch(error.code) {
         case error.PERMISSION_DENIED:
             console.log("User denied the request for Geolocation.");
-            document.getElementById("position").style.backgroundColor = "gray";
+            document.getElementById("position").style.opacity = 0.4;
             $('#position').attr('data-original-title','Skru på stedstjenester');
 
             break;

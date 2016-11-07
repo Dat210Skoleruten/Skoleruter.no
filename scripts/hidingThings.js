@@ -14,5 +14,4 @@ $(document).mouseup(function (e)
     {
         closeNav();
     }
-
 });
