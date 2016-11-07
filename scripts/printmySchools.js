@@ -1,12 +1,12 @@
 function showFavorites() {
     if (Cookies.get("mySchools") != null) {
         $("goToFave").removeClass("disableClick");
-        $('#goToFave').css("backgroundColor", "#EEEEEE");
+        $('#goToFave').css("opacity", 1);
         $('#goToFave').attr('data-original-title', 'Gå til favoritter');
         $("#goToFave").off('click', DoPrevent);
 
     } else {
-        $('#goToFave').css("backgroundColor", "gray");
+        $('#goToFave').css("opacity", 0.4);
         $("goToFave").addClass("disableClick");
         $('#goToFave').attr('data-original-title', 'Du har ingen favoritter enda!');
 
