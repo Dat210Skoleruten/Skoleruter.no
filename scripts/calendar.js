@@ -11,15 +11,6 @@ $(document).ready(function () {
         cal.buildList(); // Builds List
         cal.addHover();
 
-        $('.month').on("swipeleft", function () {
-            alert("You swiped left!")
-            console.log("Swiped left")
-        });
-
-        $('.month').on("swiperight", function () {
-            alert("You swiped right!")
-            console.log("Swiped right")
-        });
 
         document.ontouchmove = function (e) {
             var target = e.currentTarget;
@@ -52,6 +43,19 @@ $(document).ready(function () {
         });
 
     });
+});
+
+$(document).on("pagecreate", "#pageone", function() {
+    $('.month').on("swipeleft", function () {
+        alert("You swiped left!")
+        console.log("Swiped left")
+    });
+
+    $('.month').on("swiperight", function () {
+        alert("You swiped right!")
+        console.log("Swiped right")
+    });
+
 });
 
 /**
