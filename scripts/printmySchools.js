@@ -12,9 +12,11 @@ function showFavorites(){
 
         welcomeText.innerHTML = output;
     } else {
-        document.getElementById("goToFave").style.backgroundColor = "gray";
-        $("goToFave").attr("disabled","disabled");
-         welcomeText.innerHTML = "Velkommen! Her kan du søke på barne- og ungdomskoler i Stavanger og få en oversikt over ferier og andre fridager!";
+        var a = document.getElementById("goToFave");
+            a.href = "#";
+             document.getElementById("goToFave").style.backgroundColor = "gray";
+             $("goToFave").attr("disabled","disabled");
+            welcomeText.innerHTML = "Velkommen! Her kan du søke på barne- og ungdomskoler i Stavanger og få en oversikt over ferier og andre fridager!";
            $('#goToFave').attr('data-original-title','Du har ingen favoritter enda!');
 
     }
