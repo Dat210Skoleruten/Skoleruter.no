@@ -3,7 +3,7 @@ $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 });
 
-$(document).ready("#pageone", function () {
+$(document).ready(function () {
     parseData(function () {
         setSchoolData(Cookies.get('selected'), Cookies.get("calendarType")); // Sets name & hyperlink on html document
         cal = new calendar(Cookies.get(Cookies.get("calendarType")), getSchoolData());
