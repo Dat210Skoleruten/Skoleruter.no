@@ -28,12 +28,13 @@ ul {
     cursor: pointer;
     font-size: 35px;
     -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none;   /* Chrome/Safari/Opera */
-    -khtml-user-select: none;    /* Konqueror */
-    -moz-user-select: none;      /* Firefox */
-    -ms-user-select: none;       /* Internet Explorer/Edge */
-    user-select: none;           /* Non-prefixed version, currently
-                                  not supported by any browser */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                           not supported by any browser */
 }
 
 .month .prev:hover {
@@ -49,12 +50,13 @@ ul {
     cursor: pointer;
     font-size: 35px;
     -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none;   /* Chrome/Safari/Opera */
-    -khtml-user-select: none;    /* Konqueror */
-    -moz-user-select: none;      /* Firefox */
-    -ms-user-select: none;       /* Internet Explorer/Edge */
-    user-select: none;           /* Non-prefixed version, currently
-                                  not supported by any browser */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                           not supported by any browser */
 }
 
 .month .next:hover {
@@ -87,12 +89,13 @@ ul {
     background-color: #eee;
     margin: 0;
     -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none;   /* Chrome/Safari/Opera */
-    -khtml-user-select: none;    /* Konqueror */
-    -moz-user-select: none;      /* Firefox */
-    -ms-user-select: none;       /* Internet Explorer/Edge */
-    user-select: none;           /* Non-prefixed version, currently
-                                  not supported by any browser */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                           not supported by any browser */
 }
 
 /* Individual day cell */
@@ -112,7 +115,7 @@ ul {
     -webkit-transition: 0.3s;
 }
 
-.hovered{
+.hovered {
     opacity: 0.7;
     transition: 0.3s;
     -webkit-transition: 0.3s;
@@ -142,12 +145,12 @@ ul {
     background-color: #6BA9BF;
 }
 
-.SFOfri{
-    background: linear-gradient(to right bottom, #B6D0C5 50%, #6BA9BF 50% );
+.SFOfri {
+    background: linear-gradient(to right bottom, #B6D0C5 50%, #6BA9BF 50%);
 }
 
 li.now {
-    box-shadow:0px 0px 0px 2px black inset;
+    box-shadow: 0px 0px 0px 2px black inset;
     font-weight: bold;
 }
 

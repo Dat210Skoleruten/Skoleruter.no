@@ -64,29 +64,29 @@ function getSchoolData() {
                 }
             }
             if (!found) { //if school is not already in data array, add school and current entry's date
-                data.push({ name: entry.skole, dates: [] });
+                data.push({name: entry.skole, dates: []});
                 data[data.length - 1].dates[entry.dato] = formatDato(entry);
             }
         } else {
-            data.push({ name: entry.skole, dates: [] });
+            data.push({name: entry.skole, dates: []});
             data[data.length - 1].dates[entry.dato] = formatDato(entry);
         }
     }
 
     loop1:
-    for (var i = 0; i < schools.length; i++) {
-        schools[i]['Datoer'] = [];
-        for (var j = 0; j < data.length; j++) {
+        for (var i = 0; i < schools.length; i++) {
+            schools[i]['Datoer'] = [];
+            for (var j = 0; j < data.length; j++) {
 
-            if (schools[i].Skolenavn == data[j].name) {
+                if (schools[i].Skolenavn == data[j].name) {
 
-                schools[i].Datoer = data[j].dates;
-                continue loop1;
+                    schools[i].Datoer = data[j].dates;
+                    continue loop1;
+                }
             }
+            schools.splice(i, 1);
+            i--;
         }
-        schools.splice(i, 1);
-        i--;
-    }
     return schools;
 }
 

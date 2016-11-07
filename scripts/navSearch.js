@@ -25,9 +25,7 @@ function navSearchList() {
 }
 
 $(document).ready(function () {
-
 });
-
 
 function getNavListItems() {
     var schoolArray = getSchoolArray();

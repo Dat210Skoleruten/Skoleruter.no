@@ -2,6 +2,7 @@
 .navbar {
     z-index: 1;
 }
+
 /* The brand name in the navbar */
 .navbar-brand {
     color: #495156;
@@ -66,9 +67,9 @@
 }
 
 @media screen and (max-width: 600px) {
-   #navbar-name {
-       display: none;
-   }
+    #navbar-name {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 275px) {

@@ -20,6 +20,7 @@ function showFavorites() {
 function printMySchools() {
     var elem = document.getElementById("myFavScho");
     $('myFavScho').empty;
+
     if (Cookies.get("mySchools") != null) {
         var theString = "";
         var arr = Cookies.get("mySchools").split(",");

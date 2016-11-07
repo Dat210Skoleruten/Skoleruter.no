@@ -3,7 +3,6 @@ $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 });
 
-
 $(document).ready(function () {
     parseData(function () {
         setSchoolData(Cookies.get('selected'), Cookies.get("calendarType")); // Sets name & hyperlink on html document
@@ -11,14 +10,17 @@ $(document).ready(function () {
         cal.buildCalendar(); // Builds calendar
         cal.buildList(); // Builds List
         cal.addHover();
-        $('month').on('swipeleft', function() {cal.prevMonth();});
-        $('month').on('swiperight', function() {cal.nextMonth();});
+        $('month').on('swipeleft', function () {
+            cal.prevMonth();
+        });
+        $('month').on('swiperight', function () {
+            cal.nextMonth();
+        });
 
-
-        document.ontouchmove = function(e) {
+        document.ontouchmove = function (e) {
             var target = e.currentTarget;
-            while(target) {
-                if(checkIfElementShouldScroll(target))
+            while (target) {
+                if (checkIfElementShouldScroll(target))
                     return;
                 target = target.parentNode;
             }
@@ -26,11 +28,11 @@ $(document).ready(function () {
             e.preventDefault();
         };
 
-        $("#cal_prev").click(function() {
+        $("#cal_prev").click(function () {
             cal.prevMonth();
         });
 
-        $("#cal_next").click(function() {
+        $("#cal_next").click(function () {
             cal.nextMonth();
         });
 

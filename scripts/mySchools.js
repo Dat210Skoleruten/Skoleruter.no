@@ -1,27 +1,26 @@
 //function to check
 var currCal = null;
 
-function getCurrCal(){
-    if(currCal != null){
+function getCurrCal() {
+    if (currCal != null) {
         return currCal;
-    }else{
+    } else {
         console.log("NO CALENDAR SET");
     }
 }
 function checkCookie(val) {
     var elem = document.getElementById(val);
 
-    if(checking(val)){
+    if (checking(val)) {
         elem.firstElementChild.firstElementChild.className = 'glyphicon glyphicon-heart-empty';
-    }else{
+    } else {
         elem.firstElementChild.firstElementChild.setAttribute("class", 'glyphicon glyphicon-heart');
     }
-
     showFavorites() // printMySchools.js - if mySchools is empty, grey out mySchools button in index and vice versa
 }
 
-function checking(school){
-    
+function checking(school) {
+
     if (Cookies.get('mySchools') == null) {
         Cookies.set('mySchools', school, {expires: 365});
         return false;
@@ -39,10 +38,11 @@ function checking(school){
                 return true;
             }
         }
+
         ArrOfSchools.push(school);
         Cookies.set('mySchools', ArrOfSchools.toString(), {expires: 365});
         return false;
-    }     
+    }
 }
 
 function containsObject(val, list) {
@@ -74,54 +74,53 @@ function checkCalSelect() {
 function calenderCookie() {
     var elem = document.getElementById("selecookiefav");
 
-    if(checking(Cookies.get("selected"))){
+    if (checking(Cookies.get("selected"))) {
         elem.className = 'glyphicon glyphicon-heart-empty';
-    }else{
+    } else {
         elem.className = 'glyphicon glyphicon-heart';
     }
 }
 
-function removeSchool(school){
-  //mySchoolString = Cookies.get('mySchools');
+function removeSchool(school) {
+    //mySchoolString = Cookies.get('mySchools');
+    if (Cookies.get('mySchools') != null) {
+        checking(school);
+        //if(Cookies.get('mySchools') != null){
 
-  if(Cookies.get('mySchools') != null){
-    checking(school);
-    //if(Cookies.get('mySchools') != null){
+        printMySchools();
+        cal.rebuildSchools();
+        cal.buildCalendar();
+        cal.buildList();
 
-      printMySchools();
-      cal.rebuildSchools();
-      cal.buildCalendar();
-      cal.buildList();
- 
 
-      $("#cal_prev").click(function() {
-          cal.prevMonth();
-      });
+        $("#cal_prev").click(function () {
+            cal.prevMonth();
+        });
 
-      $("#cal_next").click(function() {
-          cal.nextMonth();
-      });
+        $("#cal_next").click(function () {
+            cal.nextMonth();
+        });
 
-      $("body").keyup(function(e) {
-          if (e.keyCode == 37) { // Left arrow
-              cal.prevMonth();
-          }
-      });
+        $("body").keyup(function (e) {
+            if (e.keyCode == 37) { // Left arrow
+                cal.prevMonth();
+            }
+        });
 
-      $("body").keyup(function(e) {
-          if (e.keyCode == 39) { // Right arrow
-              cal.nextMonth();
-          }
-      });
+        $("body").keyup(function (e) {
+            if (e.keyCode == 39) { // Right arrow
+                cal.nextMonth();
+            }
+        });
 
-      $(".header").click(function () {
-          var date = $(this).html().split(",");
-          cal.setMonth(date[1], date[0]);
-      });
-  //  }
-  }
-  else{
-    console.log("Ingen skoler valgt!");
-  }
+        $(".header").click(function () {
+            var date = $(this).html().split(",");
+            cal.setMonth(date[1], date[0]);
+        });
+        //  }
+    }
+    else {
+        console.log("Ingen skoler valgt!");
+    }
 }
 

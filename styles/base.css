@@ -67,7 +67,7 @@ html, body {
     cursor: pointer;
 }
 
-.disableClick{
+.disableClick {
     pointer-events: none;
 }
 
