@@ -71,6 +71,21 @@ function calendar(schoolNames, array) {
 		this.buildList(); //fjærn denn hvis listen skal være statisk
 	};
 
+	this.removeSchool = function(schoolName){
+		for (var i=this.schools.length-1; i>=0; i--) {
+    		if (this.schools[i] === schoolName) {
+        	this.schools.splice(i, 1);
+        	}
+        }
+        this.buildCalendar();
+		this.buildList(); //fjærn denn hvis listen skal være statisk
+
+	};
+
+	this.addSchool = function(schoolName){
+
+	};
+
 	this.buildCalendar = function() {
 		console.log("Building Calendar");
 

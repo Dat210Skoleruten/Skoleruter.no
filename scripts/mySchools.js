@@ -89,10 +89,8 @@ function removeSchool(school){
     //if(Cookies.get('mySchools') != null){
 
       printMySchools();
-      var cal = new calendar(Cookies.get(Cookies.get("calendarType")), getSchoolData());
-      currCal = cal;
-      cal.buildCalendar();
-      cal.buildList();
+      cal.removeSchool(school);
+ 
 
       $("#cal_prev").click(function() {
           cal.prevMonth();
