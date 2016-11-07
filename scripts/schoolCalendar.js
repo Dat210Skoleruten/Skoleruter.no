@@ -1,3 +1,9 @@
+/**
+ * [calendar description]
+ * @param  {[type]} schoolNames [description]
+ * @param  {[type]} array       [description]
+ * @return {[type]}             [description]
+ */
 function calendar(schoolNames, array) {
 	this.currentDate = new Date();
 	this.currentDate.setDate(1);
@@ -5,11 +11,15 @@ function calendar(schoolNames, array) {
 	this.now = new Date();
 	this.now.setHours(0, 0, 0, 0);
 	this.events = [];
+	this.schoolList = schoolNames;
 	this.schools = findSchool(schoolNames, array);
 	this.months = ["Januar", "Februar", "Mars", "April", "Mai", "Juni",
 		"Juli", "August", "September", "Oktober", "November", "Desember"
 	];
-
+	/**
+	 * [iCal description]
+	 * @return {[type]} [description]
+	 */
 	this.iCal = function() {
 		var selSchool = Cookies.get('selected');
 		var newCal = new ics();
@@ -32,7 +42,11 @@ function calendar(schoolNames, array) {
 		}
 		newCal.download();
 	};
-
+	/**
+	 * [setMonth description]
+	 * @param {[type]} thisYear [description]
+	 * @param {[type]} month    [description]
+	 */
 	this.setMonth = function(thisYear, month) {
 		console.log("setMonth");
 		var months = {
@@ -56,36 +70,65 @@ function calendar(schoolNames, array) {
 		this.buildCalendar();
 		this.buildList(); //fjærn denn hvis listen skal være statisk
 	};
-
+	/**
+	 * [prevMonth description]
+	 * @return {[type]} [description]
+	 */
 	this.prevMonth = function() {
 		console.log("prevMonth");
 		this.currentDate.setMonth(this.currentDate.getMonth() - 1);
 		this.buildCalendar();
 		this.buildList(); //fjærn denn hvis listen skal være statisk
 	};
-
+	/**
+	 * [nextMonth description]
+	 * @return {[type]} [description]
+	 */
 	this.nextMonth = function() {
 		console.log("nextMonth");
 		this.currentDate.setMonth(this.currentDate.getMonth() + 1);
 		this.buildCalendar();
 		this.buildList(); //fjærn denn hvis listen skal være statisk
 	};
-
+	/**
+	 * [removeSchool description]
+	 * @param  {[type]} schoolName [description]
+	 * @return {[type]}            [description]
+	 */
 	this.removeSchool = function(schoolName){
 		for (var i=this.schools.length-1; i>=0; i--) {
     		if (this.schools[i] === schoolName) {
         	this.schools.splice(i, 1);
+        	console.log(this.schools);
         	}
         }
         this.buildCalendar();
 		this.buildList(); //fjærn denn hvis listen skal være statisk
 
 	};
-
+	this.rebuildSchools = function(){
+		this.schools = findSchool(Cookies.get(Cookies.get("calendarType")), getSchoolData());
+	};
+	/**
+	 * [addSchool description]
+	 * @param {[type]} schoolName [description]
+	 */
 	this.addSchool = function(schoolName){
 
 	};
+	/**
+	 * [checkNextWeek description]
+	 * @return {[type]} [description]
+	 */
+	this.checkNextWeek = function(){
 
+			//TODO:Check next week
+			return true
+	}
+	/**
+	 * [buildCalendar description]
+	 * @return {[type]} [description]
+	 */
 	this.buildCalendar = function() {
 		console.log("Building Calendar");
 
@@ -197,7 +240,10 @@ function calendar(schoolNames, array) {
 		};
 
 	};
-
+	/**
+	 * [buildList description]
+	 * @return {[type]} [description]
+	 */
 	this.buildList = function() {
 		console.log('Building List')
 		var monthHeader;
@@ -208,6 +254,7 @@ function calendar(schoolNames, array) {
 		console.log(this.schools);
 
 		if(this.schools.length == 0){
+
 			return;
 		}
 		for (var dates in this.schools[0].Datoer) {
@@ -239,7 +286,7 @@ function calendar(schoolNames, array) {
 						var currDay = "";
 						var currName = "";
 
-						if (skoler == 0) {
+						if (skoler == 0) { 
 							currDay = "<span class='dateNum'>" + dates.substring(8, 10) + "</span> ";
 						}
 
@@ -277,7 +324,9 @@ function calendar(schoolNames, array) {
 		 //Scrolls to the top of the list after listBuild
 		 $("#noScrollCalendar").animate({ scrollTop: 0 }, "fast");
 	}
-
+	/**
+	 * [addHover description]
+	 */
 	this.addHover = function(){
 		jQuery.each( this.schools[0].Datoer, function( i, val ) {
 			$( "." + val ).hover(function () {

@@ -89,7 +89,9 @@ function removeSchool(school){
     //if(Cookies.get('mySchools') != null){
 
       printMySchools();
-      cal.removeSchool(school);
+      cal.rebuildSchools();
+      cal.buildCalendar();
+      cal.buildList();
  
 
       $("#cal_prev").click(function() {

@@ -6,13 +6,15 @@ var millisTill10 = new Date(pushNow.getFullYear(), pushNow.getMonth(), pushNow.g
 if (millisTill10 < 0) {
 	millisTill10 += 86400000; // it's after 10am, try 10am tomorrow.
 }
-setTimeout(function() { alert("It's 10am!") }, millisTill10);
+setTimeout(pushNeeded(), millisTill10);
 
 
 function pushNeeded() {
 	//TODO: check if push notification is needed.
 	//if YES, pushMessage()
 	//if NO, do nothing
+	//pushCal = new calendar(Cookies.get("mySchools"), getSchoolData());
+	//pushCal.checkNextWeek();
 }
 
 
