@@ -9,33 +9,38 @@ function getCurrCal(){
     }
 }
 function checkCookie(val) {
-    console.log(Cookies.get('mySchools') == null);
-    var schoStr = "";
-    var ArrOfSchools = [];
     var elem = document.getElementById(val);
 
-    if (Cookies.get('mySchools') == null) {
-        Cookies.set('mySchools', val, {expires: 365});
+    if(checking(val)){
+        elem.firstElementChild.firstElementChild.className = 'glyphicon glyphicon-star-empty';
+    }else{
         elem.firstElementChild.firstElementChild.setAttribute("class", 'glyphicon glyphicon-star');
+    }
+}
+
+function checking(school){
+    
+    if (Cookies.get('mySchools') == null) {
+        Cookies.set('mySchools', school, {expires: 365});
+        return false;
     } else {
         schoStr = Cookies.get('mySchools');
         ArrOfSchools = schoStr.split(",");
 
         for (var i = 0; i < ArrOfSchools.length; i++) {
-            if (val == ArrOfSchools[i]) {
+            if (school == ArrOfSchools[i]) {
                 ArrOfSchools.splice(i, 1);
                 Cookies.set('mySchools', ArrOfSchools.toString(), {expires: 365});
-                elem.firstElementChild.firstElementChild.className = 'glyphicon glyphicon-star-empty';
                 if (ArrOfSchools.toString() == "") {
                     Cookies.remove("mySchools");
                 }
-                return;
+                return true;
             }
         }
-        ArrOfSchools.push(val);
+        ArrOfSchools.push(school);
         Cookies.set('mySchools', ArrOfSchools.toString(), {expires: 365});
-        elem.firstElementChild.firstElementChild.className = 'glyphicon glyphicon-star';
-    }
+        return false;
+    }     
 }
 
 function containsObject(val, list) {
@@ -66,52 +71,19 @@ function checkCalSelect() {
 
 function calenderCookie() {
     var elem = document.getElementById("selecookiefav");
-    var schoStr = "";
-    var ArrOfSchools = [];
 
-    if (Cookies.get('mySchools') == null) {
-        //  console.log("mySchools var tom!");
-        Cookies.set('mySchools', Cookies.get("selected"), {expires: 365});
-        elem.className = 'glyphicon glyphicon-star';
-    } else {
-        //  console.log("else", Cookies.get('mySchools') == null);
-        schoStr = Cookies.get('mySchools');
-        ArrOfSchools = schoStr.split(",");
-        //  console.log(ArrOfSchools);
-        //  console.log("toloaasd");
-
-        for (var i = 0; i < ArrOfSchools.length; i++) {
-            if (Cookies.get("selected") == ArrOfSchools[i]) {
-                ArrOfSchools.splice(i, 1);
-                Cookies.set('mySchools', ArrOfSchools.toString(), {expires: 365});
-                elem.className = 'glyphicon glyphicon-star-empty';
-                return;
-            }
-        }
-        ArrOfSchools.push(Cookies.get("selected"));
-        Cookies.set('mySchools', ArrOfSchools.toString(), {expires: 365});
+    if(checking(Cookies.get("selected"))){
+        elem.className = 'glyphicon glyphicon-star-empty';
+    }else{
         elem.className = 'glyphicon glyphicon-star';
     }
 }
 
 function removeSchool(school){
-  mySchoolString = Cookies.get('mySchools');
+  //mySchoolString = Cookies.get('mySchools');
 
   if(Cookies.get('mySchools') != null){
-    ArrOfSchools = mySchoolString.split(",");
-
-    console.log("(this) = ", school);
-    for (var i = 0; i < ArrOfSchools.length; i++) {
-      if (school == ArrOfSchools[i]) {
-          ArrOfSchools.splice(i, 1);
-          Cookies.set('mySchools', ArrOfSchools.toString(), {expires: 365});
-      }
-      if (ArrOfSchools.toString() == "") {
-          Cookies.remove("mySchools");
-          location.reload();
-
-      }
-    }
+    checking(school);
     //if(Cookies.get('mySchools') != null){
 
       printMySchools();
@@ -150,3 +122,4 @@ function removeSchool(school){
     console.log("Ingen skoler valgt!");
   }
 }
+
