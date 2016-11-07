@@ -16,6 +16,8 @@ function checkCookie(val) {
     }else{
         elem.firstElementChild.firstElementChild.setAttribute("class", 'glyphicon glyphicon-star');
     }
+
+    showFavorites() // printMySchools.js - if mySchools is empty, grey out mySchools button in index and vice versa
 }
 
 function checking(school){
