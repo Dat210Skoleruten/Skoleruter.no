@@ -1,4 +1,4 @@
-function showFavorites(){
+function showFavorites() {
     var welcomeText = document.getElementById("welcomeText");
 
     if (Cookies.get("mySchools") != null) {
@@ -12,15 +12,15 @@ function showFavorites(){
 
         welcomeText.innerHTML = output;
     } else {
-        var a = document.getElementById("goToFave");
-            a.href = "#";
-             document.getElementById("goToFave").style.backgroundColor = "gray";
-             $("goToFave").attr("disabled","disabled");
-            welcomeText.innerHTML = "Velkommen! Her kan du søke på barne- og ungdomskoler i Stavanger og få en oversikt over ferier og andre fridager!";
-           $('#goToFave').attr('data-original-title','Du har ingen favoritter enda!');
+        $('#my-goToFave').click(function(e) {
+            e.preventDefault();
+        });
 
+        document.getElementById("goToFave").style.backgroundColor = "gray";
+        $("goToFave").attr("disabled", "disabled");
+        welcomeText.innerHTML = "Velkommen! Her kan du søke på barne- og ungdomskoler i Stavanger og få en oversikt over ferier og andre fridager!";
+        $('#goToFave').attr('data-original-title', 'Du har ingen favoritter enda!');
     }
-
 }
 function printMySchools() {
     var elem = document.getElementById("myFavScho");
@@ -31,7 +31,7 @@ function printMySchools() {
         var sortedArr = arr.sort();
 
         for (var i = 0; i < sortedArr.length; i++) {
-                theString += "<p class='favorite'>" + sortedArr[i] + "<span class='glyphicon glyphicon-remove legendRemove' aria-hidden='true' id='"+sortedArr[i]+"' onclick='removeSchool(this.id)'></span></p>";
+            theString += "<p class='favorite'>" + sortedArr[i] + "<span class='glyphicon glyphicon-remove legendRemove' aria-hidden='true' id='" + sortedArr[i] + "' onclick='removeSchool(this.id)'></span></p>";
         }
         console.log(theString);
         elem.innerHTML = theString;
