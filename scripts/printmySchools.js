@@ -12,12 +12,9 @@ function showFavorites() {
 
         welcomeText.innerHTML = output;
     } else {
-        $('#my-goToFave').click(function(e) {
-            e.preventDefault();
-        });
-
         document.getElementById("goToFave").style.backgroundColor = "gray";
         $("goToFave").attr("disabled", "disabled");
+        $("#goToFave").attr("href", "");
         welcomeText.innerHTML = "Velkommen! Her kan du søke på barne- og ungdomskoler i Stavanger og få en oversikt over ferier og andre fridager!";
         $('#goToFave').attr('data-original-title', 'Du har ingen favoritter enda!');
     }
