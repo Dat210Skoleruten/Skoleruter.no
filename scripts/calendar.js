@@ -46,16 +46,15 @@ $(document).ready(function () {
 });
 
 $(document).on("pagecreate", "#pageone", function() {
-    $('.month').on("swipeleft", function () {
+    $('ui').on("swipeleft", function () {
         alert("You swiped left!")
         console.log("Swiped left")
     });
 
-    $('.month').on("swiperight", function () {
+    $('ui').on("swiperight", function () {
         alert("You swiped right!")
         console.log("Swiped right")
     });
-
 });
 
 /**
