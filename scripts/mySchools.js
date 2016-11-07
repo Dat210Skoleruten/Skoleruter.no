@@ -12,9 +12,9 @@ function checkCookie(val) {
     var elem = document.getElementById(val);
 
     if(checking(val)){
-        elem.firstElementChild.firstElementChild.className = 'glyphicon glyphicon-star-empty';
+        elem.firstElementChild.firstElementChild.className = 'glyphicon glyphicon-heart-empty';
     }else{
-        elem.firstElementChild.firstElementChild.setAttribute("class", 'glyphicon glyphicon-star');
+        elem.firstElementChild.firstElementChild.setAttribute("class", 'glyphicon glyphicon-heart');
     }
 
     showFavorites() // printMySchools.js - if mySchools is empty, grey out mySchools button in index and vice versa
@@ -65,7 +65,7 @@ function checkCalSelect() {
 
         for (var i = 0; i < ArrOfSchools.length; i++) {
             if (Cookies.get("selected") == ArrOfSchools[i]) {
-                elem.className = "glyphicon glyphicon-star";
+                elem.className = "glyphicon glyphicon-heart";
             }
         }
     }
@@ -75,9 +75,9 @@ function calenderCookie() {
     var elem = document.getElementById("selecookiefav");
 
     if(checking(Cookies.get("selected"))){
-        elem.className = 'glyphicon glyphicon-star-empty';
+        elem.className = 'glyphicon glyphicon-heart-empty';
     }else{
-        elem.className = 'glyphicon glyphicon-star';
+        elem.className = 'glyphicon glyphicon-heart';
     }
 }
 
