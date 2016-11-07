@@ -45,6 +45,7 @@ $(document).ready(function () {
     });
 });
 
+/* Trying to swipe */
 $(document).on("pagecreate", "#pageone", function() {
     $('ui').on("swipeleft", function () {
         alert("You swiped left!")
