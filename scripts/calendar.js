@@ -3,7 +3,7 @@ $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 });
 
-$(document).ready(function () {
+$(document).ready("#pageone", function () {
     parseData(function () {
         setSchoolData(Cookies.get('selected'), Cookies.get("calendarType")); // Sets name & hyperlink on html document
         cal = new calendar(Cookies.get(Cookies.get("calendarType")), getSchoolData());
@@ -13,12 +13,12 @@ $(document).ready(function () {
 
         $('.month').on("swipeleft", function () {
             alert("You swiped left!")
-            cosnole.log("Swiped left")
+            console.log("Swiped left")
         });
 
         $('.month').on("swiperight", function () {
             alert("You swiped right!")
-            cosnole.log("Swiped right")
+            console.log("Swiped right")
         });
 
         document.ontouchmove = function (e) {
