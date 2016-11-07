@@ -56,25 +56,6 @@
     background-color: #f5f5f5; /*Change this color to the background color of the navbar */
 }
 
-/* Navbar Search */
-/* Cant do input[type="text"] because not IE6 compatible */
-/*input.navSearch {
-    width: 130px;
-    box-sizing: border-box;
-    border: 0;
-    font-size: 16px;
-    background-color: #f5f5f5;
-    padding: 6px 20px 6px; !* Top Right Bottom Left *!
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
-    margin-top: 6px;
-}
-
-/* Navbar searchbar when focused */
-/*input.navSearch:focus {
-    width: 115%;
-}*/
-
 /* TODO TEMPORARY FIX NOT PRETTY AT ALL AND NOT FUNCTIONAL */
 /* Small devices (tablets, 768px and up) */
 @media screen and (max-width: 768px) {
@@ -85,7 +66,7 @@
 }
 
 @media screen and (max-width: 600px) {
-   a.navbar-brand {
+   #navbar-name {
        display: none;
    }
 }

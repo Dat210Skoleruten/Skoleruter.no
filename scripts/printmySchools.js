@@ -37,6 +37,6 @@ function printMySchools() {
 }
 
 function DoPrevent(e) {
-  e.preventDefault();
-  e.stopPropagation();
+    e.preventDefault();
+    e.stopPropagation();
 }

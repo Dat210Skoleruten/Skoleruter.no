@@ -20,14 +20,13 @@ function indexSearchList() {
     for (i = 0; i < tr.length; i++) {
         td = tr[i].getElementsByTagName("td")[0];
         if (td) {
-            for(var x = 0; x<filter.length; x++){
-              if (td.firstElementChild.firstElementChild.innerHTML.toUpperCase().substring(0,x+1) == filter) {
-                  tr[i].style.display = "";
-              } else {
-                  tr[i].style.display = "none";
-              }
+            for (var x = 0; x < filter.length; x++) {
+                if (td.firstElementChild.firstElementChild.innerHTML.toUpperCase().substring(0, x + 1) == filter) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
             }
-
         }
     }
 }
@@ -42,16 +41,16 @@ function getIndexListItems(closest) {
         ArrayWSchools = arrString.sort();
     }
 
-    if(closest == 'List'){
+    if (closest == 'List') {
         var schoolArray = getSchoolData();
 
         $("#indexList").children().empty();
-        schoolArray = schoolArray.sort(function(a, b){
-            if(a.Skolenavn < b.Skolenavn) return -1;
-            if(a.Skolenavn > b.Skolenavn) return 1;
+        schoolArray = schoolArray.sort(function (a, b) {
+            if (a.Skolenavn < b.Skolenavn) return -1;
+            if (a.Skolenavn > b.Skolenavn) return 1;
             return 0;
         })
-    }else{
+    } else {
         $("#indexList").show();
         $("#indexList").children().empty();
         var schoolArray = closest;
@@ -89,8 +88,8 @@ function getIndexListItems(closest) {
         elem1.append(elem5);
         $("#indexList").append(elem1);
     });
-    
-    if(closest == 'List'){
+
+    if (closest == 'List') {
         $("#indexList").hide();
     }
 }
