@@ -56,6 +56,7 @@ function distance(lat1, lon1, lat2, lon2) {
 }
 
 function findClosest(position) {
+    $("#indexSearch").val("");
     var lat = position.coords.latitude;
     var lng = position.coords.longitude;
 
