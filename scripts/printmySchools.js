@@ -6,7 +6,7 @@ function showFavorites() {
         var arr = Cookies.get("mySchools").split(",");
         $("goToFave").removeClass("disableClick");
         var sortedArr = arr.sort();
-        $('#goToFave').css("backgroundColor", "white");
+        $('#goToFave').css("backgroundColor", "#F5F5F5");
         for (var i = 0; i < sortedArr.length; i++) {
             output += "<p class='welcome'>" + sortedArr[i] + "   har neste fridag:" + "</p>";
         }
