@@ -3,7 +3,9 @@ function showFavorites() {
         $("goToFave").removeClass("disableClick");
         $('#goToFave').css("backgroundColor", "#EEEEEE");
         $('#goToFave').attr('data-original-title', 'Gå til favoritter');
-        $("#goToFave").on("click", function(e){});
+        $("#goToFave").off("click", function(e){
+            e.preventDefault();
+        });
 
     } else {
         $('#goToFave').css("backgroundColor", "gray");
