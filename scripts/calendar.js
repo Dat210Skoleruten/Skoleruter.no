@@ -10,11 +10,13 @@ $(document).ready(function () {
         cal.buildCalendar(); // Builds calendar
         cal.buildList(); // Builds List
         cal.addHover();
+
         $('month').on('swipeleft', function () {
-            cal.prevMonth();
+            alert("You swiped left!")
         });
+
         $('month').on('swiperight', function () {
-            cal.nextMonth();
+            alert("You swiped right!")
         });
 
         document.ontouchmove = function (e) {
@@ -24,7 +26,6 @@ $(document).ready(function () {
                     return;
                 target = target.parentNode;
             }
-
             e.preventDefault();
         };
 
@@ -70,7 +71,6 @@ function findSchool(str, array) {
             }
         }
     }
-
     return selectedSchools;
 }
 
