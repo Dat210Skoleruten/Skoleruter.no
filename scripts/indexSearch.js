@@ -4,7 +4,6 @@ $(function () {
 });
 
 function indexSearchList() {
-    
     var input, filter, table, tr, td, i;
     input = $("#indexSearch");
 
@@ -93,5 +92,4 @@ function getIndexListItems(closest) {
     if (closest == 'List') {
         $("#indexList").hide();
     }
-    testHover();
 }

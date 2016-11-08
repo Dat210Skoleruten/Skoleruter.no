@@ -119,6 +119,5 @@ function removeSchool(school) {
     else {
         console.log("Ingen skoler valgt!");
     }
-    
 }
 
