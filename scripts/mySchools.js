@@ -20,14 +20,12 @@ function checkCookie(val) {
 }
 
 function checking(school) {
-
     if (Cookies.get('mySchools') == null) {
         Cookies.set('mySchools', school, {expires: 365});
         return false;
     } else {
         schoStr = Cookies.get('mySchools');
         ArrOfSchools = schoStr.split(",");
-
         for (var i = 0; i < ArrOfSchools.length; i++) {
             if (school == ArrOfSchools[i]) {
                 ArrOfSchools.splice(i, 1);
@@ -38,7 +36,6 @@ function checking(school) {
                 return true;
             }
         }
-
         ArrOfSchools.push(school);
         Cookies.set('mySchools', ArrOfSchools.toString(), {expires: 365});
         return false;

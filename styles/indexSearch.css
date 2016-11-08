@@ -25,11 +25,14 @@
 }
 
 /* The list rows text when hovering */
-/* The list rows background when hovering */
+/* The list rows background when hovering 
 #indexList td a:hover {
     color: #fff;
     background-color: #495156;
 }
+*/
+
+
 
 /* Make the table chose when to have the scrollbar and height of the list box*/
 #noScroll {
@@ -54,8 +57,9 @@
 }
 
 /* The list rows text when hovering
-   The list rows background when hovering */
+   The list rows background when hovering 
 .addbutton td a:hover {
     color: #fff;
     background-color: #495156;
 }
+*/
