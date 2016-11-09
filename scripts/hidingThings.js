@@ -14,7 +14,8 @@ if(!checkIfMobile()){
         closeNav();
     }
     });
-}else{
+}
+if(checkIfMobile()){
     $(document).mouseup(function (e) {
     var navbar = $("#mySidenav")
 
