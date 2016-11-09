@@ -17,7 +17,7 @@ if(!checkIfMobile()){
 }else{
     $(document).mouseup(function (e) {
     var navbar = $("#mySidenav")
-    
+
     if (!navbar.is(e.target) // if the target of the click isn't the container...
         && navbar.has(e.target).length === 0) { // ... nor a descendant of the container
         closeNav();
@@ -25,7 +25,6 @@ if(!checkIfMobile()){
     });
 }
     
-
 function checkIfMobile(){
     if( navigator.userAgent.match(/Android/i)
         || navigator.userAgent.match(/webOS/i)

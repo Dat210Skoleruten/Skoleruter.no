@@ -47,14 +47,14 @@
 }
 
 /* The list rows text when hovering
-   The list rows background when hovering 
+   The list rows background when hovering */
 .addbutton td a:hover {
     color: #fff;
     background-color: #495156;
-}*/
+}
     /* The list rows text when hovering */
-    /* The list rows background when hovering 
+    /* The list rows background when hovering */
 #indexList td a:hover {
     color: #fff;
     background-color: #495156;
-}*/
+}
