@@ -27,7 +27,7 @@ h4 {
 }
 
 /* Small devices */
-@media screen and (max-width: 530px) {
+@media screen and (max-width: 600px) {
     h4 {
         font-size: 7px;
     }
