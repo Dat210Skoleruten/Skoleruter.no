@@ -46,18 +46,15 @@
     color: #495156;
 }
 
-@media screen and (min-width: 1024px){
-    /* The list rows text when hovering
-   The list rows background when hovering */
-    .addbutton td a:hover {
-        color: #fff;
-        background-color: #495156;
-    }
+/* The list rows text when hovering
+   The list rows background when hovering 
+.addbutton td a:hover {
+    color: #fff;
+    background-color: #495156;
+}*/
     /* The list rows text when hovering */
-    /* The list rows background when hovering */
-    #indexList td a:hover {
-        color: #fff;
-        background-color: #495156;
-    }
-
-}
+    /* The list rows background when hovering 
+#indexList td a:hover {
+    color: #fff;
+    background-color: #495156;
+}*/

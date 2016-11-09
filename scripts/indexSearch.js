@@ -32,7 +32,6 @@ function indexSearchList() {
 }
 
 function getIndexListItems(closest) {
-
     var arrString = "";
     var ArrayWSchools = [];
 
@@ -92,4 +91,5 @@ function getIndexListItems(closest) {
     if (closest == 'List') {
         $("#indexList").hide();
     }
+    testHover();
 }
