@@ -64,3 +64,25 @@ function isMobile(){
         return false;
     }
 }
+
+function getPlatform(){
+    if(navigator.userAgent.match(/Android/i)){
+        return "Android";
+    }else if(navigator.userAgent.match(/webOS/i)){
+        return "webOS";
+    }else if(navigator.userAgent.match(/iPhone/i)){
+        return "iPhone";
+    }else if(navigator.userAgent.match(/iPad/i)){
+        return "iPad";
+    }else if(navigator.userAgent.match(/iPod/i)){
+        return "iPod";
+    }else if(navigator.userAgent.match(/BlackBerry/i)){
+        return "BlackBerry";
+    }else if(navigator.userAgent.match(/Windows Phone/i)){
+        return "Windows Phone";
+    }else{
+        return "UNKNOWN";
+    }
+}
+
+$("body").append("<p>" + getPlatform() + "</p>");
