@@ -56,6 +56,7 @@ function getIndexListItems(closest) {
     }
 
     $.each(schoolArray, function (index, value) { //5 closest schools
+
         var elem1 = $("<tr></tr>");
         var elem2 = $("<td></td>");
         var elem3 = $("<div></div>");
@@ -70,17 +71,14 @@ function getIndexListItems(closest) {
         else {
             var elem7 = $("<a href='#' class='addButton'><span class='glyphicon glyphicon-heart-empty' aria-hidden='true'><span hidden>" + value.Skolenavn + "<span></span></a>");
         }
-        
         elem3.click(function () {
             Cookies.set("calendarType", "selected");
             Cookies.set("selected", $(this).text());
         });
-
         //Checks if cookie is set or not, decides if it should add or delete a variable to the mySchools-cookie
         elem6.click(function () {
             checkCookie($(this).attr("id"));
         });
-
         elem3.append(elem4);
         elem2.append(elem3);
         elem1.append(elem2);
