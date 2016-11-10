@@ -68,11 +68,11 @@ function isMobile(){
 }
 
 function getPlatform(){
-    if(navigator.userAgent.match(/Android/i)){
+    if(/Android/i.test(navigator.userAgent)){
         return "Android";
-    }else if(navigator.userAgent.match(/webOS/i)){
+    }else if(/webOS/i.test(navigator.userAgent)){
         return "webOS";
-    }else if(navigator.userAgent.match(/iPhone/i)){
+    }else if(/iPhone/i.test(navigator.userAgent)){
         return "iPhone";
     }else if(navigator.userAgent.match(/iPad/i)){
         return "iPad";
