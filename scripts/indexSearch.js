@@ -91,5 +91,5 @@ function getIndexListItems(closest) {
     if (closest == 'List') {
         $("#indexList").hide();
     }
-    //testHover();
+    testHover();
 }
