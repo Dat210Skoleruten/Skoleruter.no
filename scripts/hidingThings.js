@@ -51,14 +51,16 @@ if (isMobile()) {
 
 
 function isMobile(){
-    if( navigator.userAgent.match(/Android/i)
+    /*if( navigator.userAgent.match(/Android/i)
         || navigator.userAgent.match(/webOS/i)
         || navigator.userAgent.match(/iPhone/i)
         || navigator.userAgent.match(/iPad/i)
         || navigator.userAgent.match(/iPod/i)
         || navigator.userAgent.match(/BlackBerry/i)
         || navigator.userAgent.match(/Windows Phone/i)
-    ){
+    ){*/
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Windows Phone/i.test(navigator.userAgent) ) {
+ // some code..
         return true;
     }else{
         return false;
