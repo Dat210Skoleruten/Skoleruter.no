@@ -17,7 +17,7 @@
         }
     }); */
 
-if (!checkIfMobile()) {
+if (!isMobile()) {
     $(document).mouseup(function (e) {
         var indexlist = $("#indexList");    
         var navbar = $("#mySidenav")
@@ -27,7 +27,6 @@ if (!checkIfMobile()) {
             indexlist.hide();
             $("#indexSearch").val("");
         }
-
         if (!navbar.is(e.target) // if the target of the click isn't the container...
             && navbar.has(e.target).length === 0) { // ... nor a descendant of the container
             closeNav();
@@ -35,13 +34,17 @@ if (!checkIfMobile()) {
     });
 }
 
-if (checkIfMobile()) {
+if (isMobile()) {
     $(document).mouseup(function (e) {
         var navbar = $("#mySidenav")
 
         if (!navbar.is(e.target) // if the target of the click isn't the container...
             && navbar.has(e.target).length === 0) { // ... nor a descendant of the container
             closeNav();
+        }
+        if (!$("#indexSearch").is(e.target) // if the target of the click isn't the container...
+            && $("#indexSearch").has(e.target).length === 0) { // ... nor a descendant of the container
+            $("#indexSearch").blur();
         }
     });
 }
