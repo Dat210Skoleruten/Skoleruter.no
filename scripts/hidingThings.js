@@ -74,13 +74,17 @@ function getPlatform(){
         return "webOS";
     }else if(/iPhone/i.test(navigator.userAgent)){
         return "iPhone";
-    }else if(navigator.userAgent.match(/iPad/i)){
+    }else if(/iPad/i.test(navigator.userAgent)){
         return "iPad";
-    }else if(navigator.userAgent.match(/iPod/i)){
+    }else if(/iPod/i.test(navigator.userAgent)){
         return "iPod";
-    }else if(navigator.userAgent.match(/BlackBerry/i)){
+    }else if(/BlackBerry/i.test(navigator.userAgent)){
         return "BlackBerry";
-    }else if(navigator.userAgent.match(/Windows Phone/i)){
+    }else if(/IEMobile/i.test(navigator.userAgent)){
+        return "IEMobile";
+    }else if(/Opera Mini/i.test(navigator.userAgent)){
+        return "Opera Mini";
+    }else if(/Windows Phone/i.test(navigator.userAgent)){
         return "Windows Phone";
     }else{
         return "UNKNOWN";
