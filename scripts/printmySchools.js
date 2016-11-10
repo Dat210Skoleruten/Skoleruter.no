@@ -6,7 +6,6 @@ function showFavorites() {
         $('#goToFave').css("opacity", 1);
         $('#goToFave').attr('data-original-title', 'Gå til favoritter');
         $("#goToFave").off('click', DoPrevent);
-
     } else {
         $('#goToFave').css("opacity", 0.4);
         $("goToFave").addClass("disableClick");

@@ -32,9 +32,7 @@ ul {
     -khtml-user-select: none; /* Konqueror */
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none;
-    /* Non-prefixed version, currently
-                           not supported by any browser */
+    user-select: none; /* Non-prefixed version, currently not supported by any browser */
 }
 
 .month .prev:hover {
@@ -157,6 +155,6 @@ li.now {
 /* Add media queries for smaller screens */
 @media screen and (max-width: 350px) {
     .weekdays li, .days li {
-        width: 12.9%;
+        width: 12.8%;
     }
 }
