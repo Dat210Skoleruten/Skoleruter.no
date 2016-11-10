@@ -1,4 +1,4 @@
-$(document).mouseup(function (e) {
+/*$(document).mouseup(function (e) {
         var indexlist = $("#indexList");
         var navbar = $("#mySidenav")
 
@@ -15,11 +15,11 @@ $(document).mouseup(function (e) {
             && navbar.has(e.target).length === 0) { // ... nor a descendant of the container
             closeNav();
         }
-    });
-/*
+    }); */
+
 if (!checkIfMobile()) {
     $(document).mouseup(function (e) {
-        var indexlist = $("#indexList");
+        var indexlist = $("#indexList");    
         var navbar = $("#mySidenav")
 
         if (!indexlist.is(e.target) // if the target of the click isn't the container...
@@ -45,7 +45,7 @@ if (checkIfMobile()) {
         }
     });
 }
-*/
+
 
 function isMobile(){
     if( navigator.userAgent.match(/Android/i)
