@@ -228,11 +228,10 @@ function calendar(schoolNames, array) {
                 var day;
 
                 if (eventDate.getDay() == 1) {
-                    day = $("<li class='" + chosenDayType + " " + dates + "'>" + "<div class='weekNum'>" + eventDate.getWeekNumber() + "</div>" + " " + dates.substring(8, 10) +
-                        "</li>");
+                    day = $("<li class='" + chosenDayType + " " + dates + "'>" + "<div class='weekNum'>" + eventDate.getWeekNumber() + "</div>" + " " + "<span class='daySpan text-center'>" + dates.substring(8, 10) +
+                        + "</span>" + "</li>");
                 } else {
-                    day = $("<li class='" + chosenDayType + " " + dates + "'>" + dates.substring(8, 10) +
-                        "</li>");
+                    day = $("<li class='" + chosenDayType + " " + "<span class='daySpan text-center'>" + dates + "'>" + dates.substring(8, 10) + "</span>" + "</li>");
                 }
                 //if date today, add now class
                 var thisDate = new Date(dates);
