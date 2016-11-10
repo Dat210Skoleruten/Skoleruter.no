@@ -85,4 +85,4 @@ function getPlatform(){
     }
 }
 
-$("body").append("<p>" + getPlatform() + "</p>");
+$("body").append("<p> platform: " + getPlatform() + "</p>");
