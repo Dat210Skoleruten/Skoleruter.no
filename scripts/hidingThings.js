@@ -87,7 +87,6 @@ function getPlatform(){
     }
 }
 
-var newDiv = $("<div id='currPlatform'></div>")
-newDiv.text(getPlatform());
-$("body").append("<p> platform: " + newDiv + "</p>");
-$('body').append('<div>footer</div>');
+$(document).ready(function(){
+    $("#currPlatform").html(getPlatform());
+});
