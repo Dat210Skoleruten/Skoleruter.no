@@ -1,3 +1,4 @@
+/*
 if (!checkIfMobile()) {
     $(document).mouseup(function (e) {
         var indexlist = $("#indexList");
@@ -26,6 +27,7 @@ if (checkIfMobile()) {
         }
     });
 }
+*/
 
 function checkIfMobile() {
     if (navigator.userAgent.match(/Android/i)
