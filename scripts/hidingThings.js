@@ -6,8 +6,8 @@ $(document).mouseup(function (e) {
             && indexlist.has(e.target).length === 0) { // ... nor a descendant of the container
             indexlist.hide();
             $("#indexSearch").val("");
+            $("#indexSearch").blur();
         }
-
         if (!navbar.is(e.target) // if the target of the click isn't the container...
             && navbar.has(e.target).length === 0) { // ... nor a descendant of the container
             closeNav();
