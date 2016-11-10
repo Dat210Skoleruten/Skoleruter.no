@@ -18,7 +18,6 @@ function showFavorites() {
         if(isMobile()){
             $("#goToFave").tooltip('disable');
         }
-
     } else {
         $('#goToFave').css("opacity", 0.4);
         $("goToFave").addClass("disableClick");
