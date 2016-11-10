@@ -1,4 +1,12 @@
 function showFavorites() {
+    console.log("showfavourites running");
+    if($("#position").hasClass("isInactive")){
+        $("#position").tooltip('enable');
+        console.log("gps tooltip enable");
+    }else{
+        $("#position").tooltip('disable');
+        console.log("gps tooltip disable");
+    }
     if (Cookies.get("mySchools") != null) {
         $("goToFave").removeClass("disableClick");
         $("#goToFave span").removeClass("glyphicon glyphicon-heart-empty");
@@ -6,6 +14,10 @@ function showFavorites() {
         $('#goToFave').css("opacity", 1);
         $('#goToFave').attr('data-original-title', 'Gå til favoritter');
         $("#goToFave").off('click', DoPrevent);
+        $("#goToFave").removeClass("isInactive");
+        if(isMobile()){
+            $("#goToFave").tooltip('disable');
+        }
 
     } else {
         $('#goToFave').css("opacity", 0.4);
@@ -14,7 +26,10 @@ function showFavorites() {
         $("#goToFave span").addClass("glyphicon glyphicon-heart-empty");
         $('#goToFave').attr('data-original-title', 'Du har ingen favoritter enda!');
         $("#goToFave").on('click', DoPrevent);
+        $("#goToFave").addClass("isInactive");
+        $("#goToFave").tooltip('enable');
     }
+    
 }
 
 function printMySchools() {

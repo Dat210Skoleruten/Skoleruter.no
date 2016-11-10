@@ -18,6 +18,10 @@ function testHover(){
         $(this).css("color", "#495156");
         $(this).css("background-color", "#e5e5e5")
     });
-  }   
+  }else{
+      if(!$("#goToFave").hasClass("isInactive")){
+         showFavorites();
+      }
+  }
 }
     

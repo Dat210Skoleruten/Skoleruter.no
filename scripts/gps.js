@@ -16,12 +16,15 @@ function getLocation() {
     }
 }
 function showError(error) {
+    if(error == null){
+        $('#position').removeClass("isInactive");
+        return false;
+    }
     switch(error.code) {
         case error.PERMISSION_DENIED:
             console.log("User denied the request for Geolocation.");
             document.getElementById("position").style.opacity = 0.4;
             $('#position').attr('data-original-title','Skru på stedstjenester');
-
             break;
         case error.POSITION_UNAVAILABLE:
             console.log("Location information is unavailable.");
@@ -33,6 +36,9 @@ function showError(error) {
             console.log("An unknown error occurred.");
             break;
     }
+    $('#position').addClass("isInactive");
+    return true;
+
 }
 
 
