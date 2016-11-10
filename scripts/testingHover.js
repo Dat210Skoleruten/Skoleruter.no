@@ -1,5 +1,5 @@
 function testHover(){
- if(!checkIfMobile()){
+ if(!isMobile()){
      $("#indexList td a").mouseover(function(){
         console.log("Entering");
         $(this).css("color", "#fff");
@@ -18,7 +18,6 @@ function testHover(){
         $(this).css("color", "#495156");
         $(this).css("background-color", "#e5e5e5")
     });
-    
   }   
 }
     
