@@ -85,4 +85,6 @@ function getPlatform(){
     }
 }
 
-$("body").append("<p> platform: " + getPlatform() + "</p>");
+var newDiv = $("<div id='currPlatform'></div>")
+newDiv.text(getPlatform());
+$("body").append("<p> platform: " + newDiv + "</p>");
