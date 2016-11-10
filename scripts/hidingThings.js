@@ -49,41 +49,18 @@ if (isMobile()) {
     });
 }
 
-/*
+
 function isMobile(){
-    if( navigator.userAgent.match(/Android/i)
+    /*if( navigator.userAgent.match(/Android/i)
         || navigator.userAgent.match(/webOS/i)
         || navigator.userAgent.match(/iPhone/i)
         || navigator.userAgent.match(/iPad/i)
         || navigator.userAgent.match(/iPod/i)
         || navigator.userAgent.match(/BlackBerry/i)
         || navigator.userAgent.match(/Windows Phone/i)
-    ){
+    ){*/
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|Android|IEMobile|Opera Mini|Windows Phone/i.test(navigator.userAgent)) {
  // some code..
-        return true;
-    }else{
-        return false;
-    }
-}*/
-function isMobile(){
-    if(/Android/i.test(navigator.userAgent)){
-        return true;
-    }else if(/webOS/i.test(navigator.userAgent)){
-        return true;
-    }else if(/iPhone/i.test(navigator.userAgent)){
-        return true;
-    }else if(/iPad/i.test(navigator.userAgent)){
-        return true;
-    }else if(/iPod/i.test(navigator.userAgent)){
-        return true;
-    }else if(/BlackBerry/i.test(navigator.userAgent)){
-        return true;
-    }else if(/IEMobile/i.test(navigator.userAgent)){
-        return true;
-    }else if(/Opera Mini/i.test(navigator.userAgent)){
-        return true;
-    }else if(/Windows Phone/i.test(navigator.userAgent)){
         return true;
     }else{
         return false;
