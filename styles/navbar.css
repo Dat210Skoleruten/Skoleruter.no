@@ -57,18 +57,22 @@
     background-color: #f5f5f5; /*Change this color to the background color of the navbar */
 }
 
-/* TODO TEMPORARY FIX NOT PRETTY AT ALL AND NOT FUNCTIONAL */
 /* Small devices (tablets, 768px and up) */
 @media screen and (max-width: 768px) {
     .hamburger {
         display: flex;
         justify-content: flex-end;
+        margin-top: 10px;
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 665px) {
     #navbar-name {
         display: none;
+    }
+
+    .hamburger {
+        margin-left: 90%;
     }
 }
 
