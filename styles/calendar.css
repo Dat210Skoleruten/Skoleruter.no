@@ -158,3 +158,20 @@ li.now {
         width: 12.8%;
     }
 }
+
+/* Add media queries for smaller screens */
+@media screen and (max-width: 376px) {
+    .daySpan {
+        position: relative;
+        right: 4px;
+    }
+}
+
+
+/* Add media queries for smaller screens */
+@media screen and (max-width: 320px) {
+    .daySpan {
+        position: relative;
+        right: 8px;
+    }
+}
