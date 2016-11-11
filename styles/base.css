@@ -16,6 +16,7 @@ html, body {
     background-color: #f5f5f5; /* Change BK-color for all pages */
     overflow-x: hidden; /* Remove horizontal scroll on all pages */
     -ms-overflow-x: hidden; /* Remove horizontal scroll on all pages for older IE*/
+    -webkit-overflow-scrolling: touch;
 }
 
 /* <h1> on the frontpage */

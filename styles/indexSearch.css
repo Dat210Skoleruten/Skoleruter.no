@@ -28,6 +28,7 @@
 #noScroll {
     height: 400px;
     overflow: auto;
+    -webkit-overflow-scrolling: touch;
     display: block;
 }
 
@@ -45,16 +46,3 @@
     text-decoration: none;
     color: #495156;
 }
-
-/* The list rows text when hovering
-   The list rows background when hovering
-.addbutton td a:hover {
-    color: #fff;
-    background-color: #495156;
-} */
-    /* The list rows text when hovering */
-    /* The list rows background when hovering 
-#indexList td a:hover {
-    color: #fff;
-    background-color: #495156;
-}*/
