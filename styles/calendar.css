@@ -167,7 +167,6 @@ li.now {
     }
 }
 
-
 /* Add media queries for smaller screens */
 @media screen and (max-width: 320px) {
     .daySpan {

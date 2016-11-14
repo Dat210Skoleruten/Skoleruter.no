@@ -16,7 +16,7 @@
 }
 
 .legendBar span {
-    margin-left: 15px;
+    margin-left: 10px;
 }
 
 .rightLegend {
@@ -32,12 +32,13 @@
     -webkit-transition: 0.3s;
 }
 
-p.favorite {
-    padding: 2px;
+.fav {
     background-color: #DDDDDD;
     color: black;
     margin-left: 5px;
     text-align: center;
+    display: inline-block;
+    cursor: pointer;
 }
 
 .legendRemove {
