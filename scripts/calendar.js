@@ -4,13 +4,14 @@ $(function () {
 });
 
 $(document).ready(function () {
-
+    /*
     var el = document.getElementById('schoolName');
     swipedetect(el, function(swipedir){
     //swipedir contains either "none", "left", "right", "top", or "down"
     if (swipedir =='left')
         alert('You just swiped left!');
     })    
+    */
 
     parseData(function () {
         setSchoolData(Cookies.get('selected'), Cookies.get("calendarType")); // Sets name & hyperlink on html document
@@ -112,7 +113,7 @@ function setSchoolData(name, type) {
 
 var cal; // Creates a calendar
 
-
+/*
 function swipedetect(el, callback){
   
     var touchsurface = el,
@@ -159,4 +160,4 @@ function swipedetect(el, callback){
         e.preventDefault()
     }, false)
 }
-
+*/
