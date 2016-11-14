@@ -5,6 +5,7 @@ $(function () {
 
 $(document).ready(function () {
 
+    var el = document.getElementById('calBox');
     swipedetect(el, function(swipedir){
     //swipedir contains either "none", "left", "right", "top", or "down"
     if (swipedir =='left')
@@ -17,8 +18,8 @@ $(document).ready(function () {
         cal.buildCalendar(); // Builds calendar
         cal.buildList(); // Builds List
         cal.addHover();
-        /*
 
+        /*
         document.ontouchmove = function (e) {
             var target = e.currentTarget;
             while (target) {
