@@ -49,6 +49,13 @@ function printMySchools() {
         elem.innerHTML = "Ingen skoler valgt!";
         elem.style.color = "red";
     }
+
+    $(".favorite").click(function () {
+        Cookies.set("calendarType", "selected");
+        Cookies.set("selected", $(this).text());
+        window.location.replace("calendar.html");
+    });
+
 }
 
 function DoPrevent(e) {
