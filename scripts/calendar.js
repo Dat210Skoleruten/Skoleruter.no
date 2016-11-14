@@ -5,7 +5,7 @@ $(function () {
 
 $(document).ready(function () {
 
-    var el = $(".month");
+    var el = document.getElementById('monthBox');
     swipedetect(el, function(swipedir){
     //swipedir contains either "none", "left", "right", "top", or "down"
     if (swipedir =='left')
