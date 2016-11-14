@@ -5,7 +5,7 @@ $(function () {
 
 $(document).ready(function () {
 
-    var el = document.getElementById('calBox');
+    var el = document.getElementById('schoolName');
     swipedetect(el, function(swipedir){
     //swipedir contains either "none", "left", "right", "top", or "down"
     if (swipedir =='left')
