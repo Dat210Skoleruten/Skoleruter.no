@@ -9,8 +9,9 @@ $(document).ready(function () {
     swipedetect(el, function(swipedir){
     //swipedir contains either "none", "left", "right", "top", or "down"
     if (swipedir =='left')
-        alert('You just swiped left!');
-        $("#schoolName").css("color", "blue");
+        cal.nextMonth();
+    if (swipedir =='right')
+        cal.prevMonth();
     });
 
 
