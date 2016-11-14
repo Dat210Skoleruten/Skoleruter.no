@@ -41,7 +41,7 @@ function printMySchools() {
         var sortedArr = arr.sort();
 
         for (var i = 0; i < sortedArr.length; i++) {
-            theString += "<p class='favorite'>" + sortedArr[i] + "<span class='glyphicon glyphicon-remove legendRemove' aria-hidden='true' id='" + sortedArr[i] + "' onclick='removeSchool(this.id)'></span></p>";
+            theString += "<div><p class='favorite'>" + sortedArr[i] + "</p><span class='glyphicon glyphicon-remove legendRemove' aria-hidden='true' id='" + sortedArr[i] + "' onclick='removeSchool(this.id)'></span></div>";
         }
         console.log(theString);
         elem.innerHTML = theString;
