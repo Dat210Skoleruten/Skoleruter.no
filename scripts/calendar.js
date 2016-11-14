@@ -20,7 +20,7 @@ $(document).ready(function () {
         cal.buildList(); // Builds List
         cal.addHover();
 
-        /*
+        
         document.ontouchmove = function (e) {
             var target = e.currentTarget;
             while (target) {
@@ -30,7 +30,7 @@ $(document).ready(function () {
             }
             e.preventDefault();
         };
-        */
+        
 
         
 
