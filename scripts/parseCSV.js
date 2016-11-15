@@ -5,10 +5,12 @@
  The function getSchoolData combines these two datasets to one containing all schools with theirs respective routes.
  */
 
+
 function parseData(callback) {
     if (Session.get("schoolRoutes") == null) {
         console.log("downloading schoolRoutes");
-        Papa.parse("https://skoleruter.azurewebsites.net/skolerute-2016-17.csv", { //Denne linken stopper å fungere August 2017 "http://open.stavanger.kommune.no/dataset/86d3fe44-111e-4d82-be5a-67a9dbfbfcbb/resource/32d52130-ce7c-4282-9d37-3c68c7cdba92/download/skolerute-2016-17.csv"
+        url = UrlExists("skolerute-2016-17.csv") ? "skolerute-2016-17.csv" : "https://skoleruter.azurewebsites.net/skolerute-2016-17.csv";
+        Papa.parse(url, { //Denne linken stopper å fungere August 2017 "http://open.stavanger.kommune.no/dataset/86d3fe44-111e-4d82-be5a-67a9dbfbfcbb/resource/32d52130-ce7c-4282-9d37-3c68c7cdba92/download/skolerute-2016-17.csv"
             download: true,
             header: true,
             complete: function (results) {
@@ -26,7 +28,8 @@ function parseData(callback) {
 function parseSecondData(callback) {
     if (Session.get("schools") == null) {
         console.log("schools is null, downloading schools");
-        Papa.parse("https://skoleruter.azurewebsites.net/skoler.csv", { //"http://open.stavanger.kommune.no/dataset/8f8ac030-0d03-46e2-8eb7-844ee11a6203/resource/0371a1db-7074-4568-a0cc-499a5dccfe98/download/skoler.csv"
+        url = UrlExists("skoler.csv") ? "skoler.csv" : "https://skoleruter.azurewebsites.net/skoler.csv";
+        Papa.parse(url, { //"http://open.stavanger.kommune.no/dataset/8f8ac030-0d03-46e2-8eb7-844ee11a6203/resource/0371a1db-7074-4568-a0cc-499a5dccfe98/download/skoler.csv"
             download: true,
             header: true,
             skipEmptyLines: true,
@@ -45,6 +48,14 @@ function parseSecondData(callback) {
     if (callback && typeof callback == "function") {
         callback();
     }
+}
+
+function UrlExists(url)
+{
+    var http = new XMLHttpRequest();
+    http.open('HEAD', url, false);
+    http.send();
+    return http.status!=404;
 }
 
 function getSchoolData() {
