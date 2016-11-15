@@ -37,7 +37,7 @@ function calendar(schoolNames, array) {
                 }
                 if (this.schools[entries].Datoer[dates][1] != "" && this.schools[entries].Datoer[dates][1] != "Lørdag" && this.schools[entries].Datoer[dates][1] != "Søndag") {
                     //se på SFO
-                    newCal.addEvent(this.schools[entries].Datoer[dates][1], dayType, selSchool, dates, "");
+                    newCal.addEvent(this.schools[entries].Datoer[dates][1], dayType, selSchool, "", dates);
                 }
             }
         }
