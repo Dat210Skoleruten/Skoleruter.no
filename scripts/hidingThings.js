@@ -1,21 +1,3 @@
-/*$(document).mouseup(function (e) {
-        var indexlist = $("#indexList");
-        var navbar = $("#mySidenav")
-
-        if (!indexlist.is(e.target) // if the target of the click isn't the container...
-            && indexlist.has(e.target).length === 0) { // ... nor a descendant of the container
-            indexlist.hide();
-            $("#indexSearch").val("");
-        }
-        if (!$("#indexSearch").is(e.target) // if the target of the click isn't the container...
-            && $("#indexSearch").has(e.target).length === 0) { // ... nor a descendant of the container
-            $("#indexSearch").blur();
-        }
-        if (!navbar.is(e.target) // if the target of the click isn't the container...
-            && navbar.has(e.target).length === 0) { // ... nor a descendant of the container
-            closeNav();
-        }
-    }); */
 
 if (!isMobile()) {
     $(document).mouseup(function (e) {
@@ -51,20 +33,7 @@ if (isMobile()) {
 
 
 function isMobile(){
-    /*if( navigator.userAgent.match(/Android/i)
-        || navigator.userAgent.match(/webOS/i)
-        || navigator.userAgent.match(/iPhone/i)
-        || navigator.userAgent.match(/iPad/i)
-        || navigator.userAgent.match(/iPod/i)
-        || navigator.userAgent.match(/BlackBerry/i)
-        || navigator.userAgent.match(/Windows Phone/i)
-    ){*/
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|Android|IEMobile|Opera Mini|Windows Phone/i.test(navigator.userAgent)) {
- // some code..
-        return true;
-    }else{
-        return false;
-    }
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|Android|IEMobile|Opera Mini|Windows Phone/i.test(navigator.userAgent);
 }
 
 function getPlatform(){
@@ -87,7 +56,7 @@ function getPlatform(){
     }else if(/Windows Phone/i.test(navigator.userAgent)){
         return "Windows Phone";
     }else{
-        return "UNKNOWN";
+        return "Probably Chrome";
     }
 }
 
