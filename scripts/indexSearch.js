@@ -92,4 +92,9 @@ function getIndexListItems(closest) {
         $("#indexList").hide();
     }
     testHover();
+
+    if( Cookes.get("mySchools") != null && Cookes.get("visiting") == null){
+    Cookes.set("visiting", "true");
+    window.location.href = 'html/calendar.html';
+}
 }
