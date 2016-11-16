@@ -5,6 +5,13 @@
  The function getSchoolData combines these two datasets to one containing all schools with theirs respective routes.
  */
 
+  //Check if mySchools Cookes is set and go to schools.html
+
+    if( Cookies.get("mySchools") != null && Cookies.get("visiting") == null){
+    Cookies.set("visiting", "true");
+    window.location.href = 'html/calendar.html';
+}
+
 
 
 function parseData(callback) {
