@@ -97,8 +97,8 @@ function getIndexListItems(closest) {
     
     //Check if mySchools Cookes is set and go to schools.html
 
-    if( Cookes.get("mySchools") != null && Cookes.get("visiting") == null){
-    Cookes.set("visiting", "true");
+    if( Cookies.get("mySchools") != null && Cookies.get("visiting") == null){
+    Cookies.set("visiting", "true");
     window.location.href = 'html/calendar.html';
 }
 }
