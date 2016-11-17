@@ -9,6 +9,7 @@
 
     if( Cookies.get("mySchools") != null && Cookies.get("visiting") == null){
     Cookies.set("visiting", "true");
+    Cookies.set("selected", "mySchools");
     window.location.href = 'html/schools.html';
 }
 
