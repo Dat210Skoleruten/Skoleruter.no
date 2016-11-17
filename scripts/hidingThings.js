@@ -61,5 +61,5 @@ function getPlatform(){
 }
 
 $(document).ready(function(){
-    $("#currPlatform").html(getPlatform());
+    //$("#currPlatform").html(getPlatform()); // debug: showing current platform of the device
 });
