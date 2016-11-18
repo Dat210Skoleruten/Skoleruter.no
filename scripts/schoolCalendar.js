@@ -181,6 +181,7 @@ function calendar(schoolNames, array) {
 
         for (var currDate in this.schools[0].Datoer) {
             var dates = currDate;
+            console.log(dates);
 
             if (dates.substring(5, 7) == month && dates.substring(0, 4) == currentYear) {
                 var eventDate = new Date(dates);
