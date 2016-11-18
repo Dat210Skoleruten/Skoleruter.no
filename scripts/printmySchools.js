@@ -2,8 +2,10 @@ function showFavorites() {
     console.log("showfavourites running");
     if($("#position").hasClass("isInactive")){
         $("#position").tooltip('enable');
+        $('#goToFave').attr('data-original-title', 'Aktiver stedstjenester');
         console.log("gps tooltip enable");
     }else{
+        $('#position').attr('data-original-title', 'Nærmeste skoler');
         if(isMobile()){
              $("#position").tooltip('disable');
             console.log("gps tooltip disable");
