@@ -4,7 +4,7 @@ function showFavorites() {
         $("#position").tooltip('enable');
         console.log("gps tooltip enable");
     }else{
-        if(isMobile){
+        if(isMobile()){
              $("#position").tooltip('disable');
             console.log("gps tooltip disable");
         }
