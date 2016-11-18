@@ -4,8 +4,10 @@ function showFavorites() {
         $("#position").tooltip('enable');
         console.log("gps tooltip enable");
     }else{
-        $("#position").tooltip('disable');
-        console.log("gps tooltip disable");
+        if(isMobile){
+             $("#position").tooltip('disable');
+            console.log("gps tooltip disable");
+        }
     }
     if (Cookies.get("mySchools") != null) {
         $("goToFave").removeClass("disableClick");
