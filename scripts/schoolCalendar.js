@@ -279,54 +279,56 @@ function calendar(schoolNames, array) {
                 }
                 if (this.schools[school].Datoer[dates][0] != "111" && this.schools[school].Datoer[dates][0] != "110") {
                     var eventDate = new Date(dates);
+                    if(eventDate.getDay() != 0 && eventDate.getDay() != 6){
 
-                    if (eventDate >= this.currentDate) { //bytt med this.now hvis liste skal være statisk
-                        if (header == 0 && currMonth != parseInt(dates.substring(5, 7))) {
-                            currMonth = parseInt(dates.substring(5, 7));
+                        if (eventDate >= this.currentDate) { //bytt med this.now hvis liste skal være statisk
+                            if (header == 0 && currMonth != parseInt(dates.substring(5, 7))) {
+                                currMonth = parseInt(dates.substring(5, 7));
 
-                            monthHeader = $("<br><li><span class='header'>" + this.months[currMonth - 1] + ", " + dates.substring(0, 4) + "</span></li>");
-                            $("#myUL").append(monthHeader);
+                                monthHeader = $("<br><li><span class='header'>" + this.months[currMonth - 1] + ", " + dates.substring(0, 4) + "</span></li>");
+                                $("#myUL").append(monthHeader);
+                            }
+
+                            var dayType = "";
+                            var dayComment = this.schools[school].Datoer[dates][1];
+                            var dayNum = this.schools[school].Datoer[dates][0];
+
+                            if (dayNum == "001" || dayNum == "011") {
+                                dayType = "SFO";
+                            } else if (dayComment == "Lørdag" || dayComment == "Søndag") {
+                                dayType = "weekend";
+                            } else if (dayNum == "000" || dayNum == "010") {
+                                dayType = "fri";
+                            }
+
+                            var status;
+                            var currName = "";
+
+                            if (dayType == "SFO") {
+                                status = "Kun SFO";
+                            } else if (dayType == "fri" && dayComment == "") {
+                                status = "Skolefri";
+                            } else if (dayType != "weekend") {
+                                status = dayComment;
+                            } else {
+                                continue;
+                            }
+
+                            if (this.schools.length > 1) {
+                                currName = this.schools[school].Skolenavn + ": ";
+                            }
+                            if(!hasSetFirstSchool){
+                                currDay = "<span class='dateNum " + dayType +"'>" + dates.substring(8, 10) + "</span> ";
+                                list = $("<li class=" + dates + "><span>" + currDay + currName + status + " </span></li>");
+                                hasSetFirstSchool = true;
+                            }else{
+                                currDay = "<span class='dateNum " + dayType +"'></span> ";
+                                list = $("<li class=" + dates + "><span>" + currDay + currName + status + " </span></li>");
+                            }
+                            
+                            $("#myUL").append(list);
+
                         }
-
-                        var dayType = "";
-                        var dayComment = this.schools[school].Datoer[dates][1];
-                        var dayNum = this.schools[school].Datoer[dates][0];
-
-                        if (dayNum == "001" || dayNum == "011") {
-                            dayType = "SFO";
-                        } else if (dayComment == "Lørdag" || dayComment == "Søndag") {
-                            dayType = "weekend";
-                        } else if (dayNum == "000" || dayNum == "010") {
-                            dayType = "fri";
-                        }
-
-                        var status;
-                        var currName = "";
-
-                        if (dayType == "SFO") {
-                            status = "Kun SFO";
-                        } else if (dayType == "fri" && dayComment == "") {
-                            status = "Skolefri";
-                        } else if (dayType != "weekend") {
-                            status = dayComment;
-                        } else {
-                            continue;
-                        }
-
-                        if (this.schools.length > 1) {
-                            currName = this.schools[school].Skolenavn + ": ";
-                        }
-                        if(!hasSetFirstSchool){
-                            currDay = "<span class='dateNum " + dayType +"'>" + dates.substring(8, 10) + "</span> ";
-                            list = $("<li class=" + dates + "><span>" + currDay + currName + status + " </span></li>");
-                            hasSetFirstSchool = true;
-                        }else{
-                            currDay = "<span class='dateNum " + dayType +"'></span> ";
-                            list = $("<li class=" + dates + "><span>" + currDay + currName + status + " </span></li>");
-                        }
-                        
-                        $("#myUL").append(list);
-
                     }
                 }
             }
