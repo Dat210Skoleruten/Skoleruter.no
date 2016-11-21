@@ -41,9 +41,12 @@
     cursor: pointer;
 }
 
+.favorite:hover {
+    color: #6BA9BF;
+}
+
 .legendRemove {
     color: #495156;
-    margin-top: 2px;
     margin-right: 5px;
 }
 
