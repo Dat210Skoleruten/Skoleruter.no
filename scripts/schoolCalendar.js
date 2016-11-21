@@ -317,7 +317,7 @@ function calendar(schoolNames, array) {
                             currName = this.schools[school].Skolenavn + ": ";
                         }
                         if(!hasSetFirstSchool){
-                            currDay = "<span class='dateNum " + dayType +"'>" + dates.substring(8, 10) + ".s" + "</span> ";
+                            currDay = "<span class='dateNum " + dayType +"'>" + dates.substring(8, 10) + "." + "</span> ";
                             list = $("<li class=" + dates + "><span>" + currDay + currName + status + " </span></li>");
                             hasSetFirstSchool = true;
                         }else{
