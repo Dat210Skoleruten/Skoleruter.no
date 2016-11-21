@@ -38,11 +38,11 @@
     margin-left: 5px;
     text-align: center;
     display: inline-block;
-    cursor: pointer;
 }
 
 .favorite:hover {
     color: #6BA9BF;
+    cursor: pointer;
 }
 
 .legendRemove {
