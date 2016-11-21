@@ -15,6 +15,33 @@ function indexSearchList() {
         $("#indexList").show();
     }
 
+    var fired = false
+    $("body").keydown(function (e) {
+        if(!fired){
+            fired = true;
+            if (e.keyCode == 38) { // up arrow
+                console.log("up");
+                
+            }else if (e.keyCode == 40) { // down arrow
+                console.log("down");
+                if($("#selSchool").length > 0){
+                    console.log("found selSchool");
+
+                }else{
+                    console.log("didnt find selSchool");
+                    console.log($(".listElement"));
+                    for( i = 0; i < 10; i++){
+                        var tmp = $(".listElement")[i];
+                        console.log(tmp);
+                        console.log(tmp.style.display);
+                    }
+                }
+
+            }
+        }
+            
+    });
+
     filter = input.val().toUpperCase();
     table = document.getElementById("indexList");
 

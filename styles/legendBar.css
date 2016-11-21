@@ -48,6 +48,7 @@
 .legendRemove {
     color: #495156;
     margin-right: 5px;
+    top: 3px;
 }
 
 .legendRemove:hover {
