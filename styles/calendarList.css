@@ -23,6 +23,7 @@
     font-size: 18px;
     color: black;
     display: block;
+    text-align: left !important;
 }
 
 #myUL li span.header {
@@ -51,6 +52,7 @@
     min-height: 25px !important;
     border-radius: 100% !important;
     border: none !important;
+    margin-right: 20px;
 }
 
 .dateNum:first-child{
