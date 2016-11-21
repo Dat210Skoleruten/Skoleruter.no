@@ -187,9 +187,9 @@ function calendar(schoolNames, array) {
                 var eventDate = new Date(dates);
                 var totDayType = [];
 
-                for (var skoler in this.schools) {
+                for (var school in this.schools) {
                     var dayType = "";
-                    var dayNum = this.schools[skoler].Datoer[dates][0];
+                    var dayNum = this.schools[school].Datoer[dates][0];
 
                     if (dayNum == "001" || dayNum == "011") {
                         dayType = "SFO";
@@ -271,21 +271,26 @@ function calendar(schoolNames, array) {
             return;
         }
         for (var dates in this.schools[0].Datoer) {
-            for (var skoler in this.schools) {
-                if (this.schools[skoler].Datoer[dates][0] != "111" && this.schools[skoler].Datoer[dates][0] != "110") {
+            var currDay = "";
+            var hasSetFirstSchool = false;
+            for (var school in this.schools) {
+                if (currDay.length <= 0) {
+                    currDay = "<span class='dateNum'>" + dates.substring(8, 10) + "</span> ";
+                }
+                if (this.schools[school].Datoer[dates][0] != "111" && this.schools[school].Datoer[dates][0] != "110") {
                     var eventDate = new Date(dates);
 
                     if (eventDate >= this.currentDate) { //bytt med this.now hvis liste skal være statisk
                         if (header == 0 && currMonth != parseInt(dates.substring(5, 7))) {
                             currMonth = parseInt(dates.substring(5, 7));
 
-                            monthHeader = $("<br><li><a class='header'>" + this.months[currMonth - 1] + ", " + dates.substring(0, 4) + "</a></li>");
+                            monthHeader = $("<br><li><span class='header'>" + this.months[currMonth - 1] + ", " + dates.substring(0, 4) + "</span></li>");
                             $("#myUL").append(monthHeader);
                         }
 
                         var dayType = "";
-                        var dayComment = this.schools[skoler].Datoer[dates][1];
-                        var dayNum = this.schools[skoler].Datoer[dates][0];
+                        var dayComment = this.schools[school].Datoer[dates][1];
+                        var dayNum = this.schools[school].Datoer[dates][0];
 
                         if (dayNum == "001" || dayNum == "011") {
                             dayType = "SFO";
@@ -296,12 +301,7 @@ function calendar(schoolNames, array) {
                         }
 
                         var status;
-                        var currDay = "";
                         var currName = "";
-
-                        if (skoler == 0) {
-                            currDay = "<span class='dateNum'>" + dates.substring(8, 10) + "</span> ";
-                        }
 
                         if (dayType == "SFO") {
                             status = "Kun SFO";
@@ -314,9 +314,17 @@ function calendar(schoolNames, array) {
                         }
 
                         if (this.schools.length > 1) {
-                            currName = this.schools[skoler].Skolenavn + ": ";
+                            currName = this.schools[school].Skolenavn + ": ";
                         }
-                        list = $("<li class=" + dates + "><a>" + currDay + currName + status + " </a></li>");
+                        if(!hasSetFirstSchool){
+                            currDay = "<span class='dateNum " + dayType +"'>" + dates.substring(8, 10) + "</span> ";
+                            list = $("<li class=" + dates + "><span>" + currDay + currName + status + " </span></li>");
+                            hasSetFirstSchool = true;
+                        }else{
+                            currDay = "<span class='dateNum " + dayType +"'></span> ";
+                            list = $("<li class=" + dates + "><span>" + currDay + currName + status + " </span></li>");
+                        }
+                        
                         $("#myUL").append(list);
 
                     }

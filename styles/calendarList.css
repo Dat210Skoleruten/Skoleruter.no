@@ -14,7 +14,7 @@
     margin-top: -20px;
 }
 
-#myUL li a {
+#myUL li span {
     border: 1px solid #ddd;
     margin-top: -1px; /* Prevent double borders */
     background-color: #f6f6f6;
@@ -25,12 +25,12 @@
     display: block
 }
 
-#myUL li a.header {
+#myUL li span.header {
     background-color: #e2e2e2;
     cursor: pointer;
 }
 
-#myUL li a:hover:not(.header) {
+#myUL li span:hover:not(.header) {
     background-color: #eee;
 }
 
@@ -44,8 +44,18 @@
 /* Date number in calendarList */
 .dateNum {
     float: left;
+    padding: 0px !important;
+    width: 1.3em !important;    
+    height: 1.3em !important;
+    min-width: 25px !important;
+    min-height: 25px !important;
+    border-radius: 100% !important;
+    border: none !important;
 }
 
+.dateNum:first-child{
+    font-size: 18px !important;
+}
 /* Medium devices (desktops, 992px and up) */
 @media screen and (max-width: 992px) {
     #noScrollCalendar {
