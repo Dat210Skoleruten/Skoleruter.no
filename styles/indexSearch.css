@@ -39,7 +39,9 @@
 .addButton {
     float: right;
 }
-
+.addButton:hover{
+    cursor: pointer;
+}
 /* The list rows */
 .addButton td div a {
     display: inline-block;
