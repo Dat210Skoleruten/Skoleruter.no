@@ -29,6 +29,7 @@
 #myUL li span.header {
     background-color: #e2e2e2;
     cursor: pointer;
+    text-align: center !important;
 }
 
 #myUL li span:hover:not(.header) {
