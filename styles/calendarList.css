@@ -46,6 +46,13 @@
 /* Date number in calendarList */
 .dateNum {
     float: left;
+    cursor: default;
+    border: none !important;
+    position: absolute;
+}
+
+.dateDot{
+    float:right !important;
     padding: 0px !important;
     width: 1.3em !important;    
     height: 1.3em !important;
@@ -55,6 +62,7 @@
     border: none !important;
     margin-right: 20px;
     cursor: default;
+
 }
 
 .dateNum:first-child{
