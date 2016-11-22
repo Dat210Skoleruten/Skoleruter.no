@@ -130,22 +130,6 @@ function calendar(schoolNames, array) {
      */
     this.checkNextWeek = function () {
 
-        var startDay = new Date()
-        var endDay = new Date()
-        endDay.setDate(endDay.getDate() + 7);
-
-         if (this.schools.length == 0) {
-            return false;
-        }
-
-         for (var currDate in this.schools[0].Datoer) {
-            var eventDate = new Date(dates);
-            
-            if (dates.substring(5, 7) == star && dates.substring(0, 4) == currentYear) {
-                
-            
-
-                for (var school in this.schools) {
 
 
 
