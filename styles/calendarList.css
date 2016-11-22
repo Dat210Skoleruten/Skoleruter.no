@@ -31,6 +31,10 @@
     cursor: pointer;
     text-align: center !important;
 }
+#myUL li span.header:hover {
+color: #6BA9BF;
+cursor: pointer;
+}
 
 #myUL li span:hover:not(.header) {
     background-color: #eee;
@@ -66,4 +70,6 @@
         overflow: visible;
     }
 }
+
+
 
