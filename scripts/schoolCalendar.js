@@ -292,14 +292,6 @@ function calendar(schoolNames, array) {
         for (var dates in this.schools[0].Datoer) {
             var currDay = "";
             var hasSetFirstSchool = false;
-
-            if (header == 0 && currMonth != parseInt(dates.substring(5, 7))) {
-                currMonth = parseInt(dates.substring(5, 7));
-
-                monthHeader = $("<br><li><span class='header'>" + this.months[currMonth - 1] + ", " + dates.substring(0, 4) + "</span></li>");
-                $("#myUL").append(monthHeader);
-            }
-            
             for (var school in this.schools) {
                 if (currDay.length <= 0) {
                     currDay = "<span class='dateNum'>" + dates.substring(8, 10) + "</span> ";
@@ -309,7 +301,12 @@ function calendar(schoolNames, array) {
                     if(eventDate.getDay() != 0 && eventDate.getDay() != 6){
 
                         if (eventDate >= this.currentDate) { //bytt med this.now hvis liste skal være statisk
+                            if (header == 0 && currMonth != parseInt(dates.substring(5, 7))) {
+                                currMonth = parseInt(dates.substring(5, 7));
 
+                                monthHeader = $("<br><li><span class='header'>" + this.months[currMonth - 1] + ", " + dates.substring(0, 4) + "</span></li>");
+                                $("#myUL").append(monthHeader);
+                            }
 
                             var dayType = "";
                             var dayComment = this.schools[school].Datoer[dates][1];
