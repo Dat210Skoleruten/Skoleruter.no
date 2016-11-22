@@ -104,7 +104,7 @@ function calendar(schoolNames, array) {
         for (var i = this.schools.length - 1; i >= 0; i--) {
             if (this.schools[i] === schoolName) {
                 this.schools.splice(i, 1);
-                //console.log(this.schools);
+                console.log(this.schools);
             }
         }
         this.buildCalendar();
@@ -181,7 +181,7 @@ function calendar(schoolNames, array) {
 
         for (var currDate in this.schools[0].Datoer) {
             var dates = currDate;
-            //console.log(dates);
+            console.log(dates);
 
             if (dates.substring(5, 7) == month && dates.substring(0, 4) == currentYear) {
                 var eventDate = new Date(dates);
@@ -275,7 +275,7 @@ function calendar(schoolNames, array) {
             var hasSetFirstSchool = false;
             for (var school in this.schools) {
                 if (currDay.length <= 0) {
-                    currDay = "<div class='dateNum'>" + dates.substring(8, 10) + "</div> ";
+                    currDay = "<span class='dateNum'>" + dates.substring(8, 10) + "</span> ";
                 }
                 if (this.schools[school].Datoer[dates][0] != "111" && this.schools[school].Datoer[dates][0] != "110") {
                     var eventDate = new Date(dates);
@@ -318,15 +318,14 @@ function calendar(schoolNames, array) {
                                 currName = this.schools[school].Skolenavn + ": ";
                             }
                             if(!hasSetFirstSchool){
-                                currDay = "<div class='dateNum'>" + dates.substring(8, 10) + "</div> ";
+                                currDay = "<span class='dateNum " + dayType +"'>" + dates.substring(8, 10) + "</span> ";
+                                list = $("<li class=" + dates + "><span>" + currDay + currName + status + " </span></li>");
                                 hasSetFirstSchool = true;
                             }else{
-                                currDay = "<div class='dateNum'></div> ";
+                                currDay = "<span class='dateNum " + dayType +"'></span> ";
+                                list = $("<li class=" + dates + "><span>" + currDay + currName + status + " </span></li>");
                             }
-                            console.log(currDay)
-                            console.log(currName)
-                            console.log(status)
-                            list = $("<li class=" + dates + "><span>" + currDay + "<span>" + currName + status + "</span></span> <span class='dateDot " + dayType + "'></span></li>");
+                            
                             $("#myUL").append(list);
 
                         }
