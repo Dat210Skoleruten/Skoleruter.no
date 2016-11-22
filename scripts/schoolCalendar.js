@@ -273,17 +273,18 @@ function calendar(schoolNames, array) {
 
             return;
         }
-        for (var dates in this.schools[0].Datoer) {
+        for (var dates in this.schools[0].Datoer ) {
+            var eventDate = new Date(dates);
             var currDay = "";
             var hasSetFirstSchool = false;
 
-            if (header == 0 && currMonth != parseInt(dates.substring(5, 7))) {
+            if (header == 0 && currMonth != parseInt(dates.substring(5, 7)) && eventDate >= this.currentDate) {
                 currMonth = parseInt(dates.substring(5, 7));
 
                 monthHeader = $("<br><li><span class='header'>" + this.months[currMonth - 1] + ", " + dates.substring(0, 4) + "</span></li>");
                 $("#myUL").append(monthHeader);
             }
-            
+
             for (var school in this.schools) {
                 if (currDay.length <= 0) {
                     currDay = "<span class='dateNum'>" + dates.substring(8, 10) + "</span> ";
