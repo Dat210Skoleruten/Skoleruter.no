@@ -45,7 +45,7 @@
 }
 
 /* The list rows */
-.addButton td div div {
+.addButton td div a {
     display: inline-block;
     text-decoration: none;
     color: #495156;
