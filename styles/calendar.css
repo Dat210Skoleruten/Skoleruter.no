@@ -92,8 +92,7 @@ ul {
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none;
-    /* Non-prefixed version, currently
-                           not supported by any browser */
+    /* Non-prefixed version, currently not supported by any browser */
 }
 
 /* Individual day cell */
@@ -147,6 +146,7 @@ ul {
     background: linear-gradient(to right bottom, #B6D0C5 50%, #6BA9BF 50%);
 }
 
+/* Current date */
 li.now {
     box-shadow: 0px 0px 0px 2px black inset;
     font-weight: bold;
