@@ -19,6 +19,14 @@
     margin-left: 10px;
 }
 
+.FriLegendColor {
+    background-color: #6BA9BF;
+}
+
+.kunSFOLegendColor {
+    background-color: #B6D0C5;
+}
+
 .rightLegend {
     float: right;
     cursor: pointer;

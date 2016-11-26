@@ -6,11 +6,13 @@ function showFavorites() {
         console.log("gps tooltip enable");
     } else {
         $('#position').attr('data-original-title', 'Nærmeste skoler');
+
         if (isMobile()) {
             $("#position").tooltip('disable');
             console.log("gps tooltip disable");
         }
     }
+
     if (Cookies.get("mySchools") != null) {
         $("goToFave").removeClass("disableClick");
         $("#goToFave span").removeClass("glyphicon glyphicon-heart-empty");
@@ -32,7 +34,6 @@ function showFavorites() {
         $("#goToFave").addClass("isInactive");
         $("#goToFave").tooltip('enable');
     }
-
 }
 
 function printMySchools() {
@@ -47,6 +48,7 @@ function printMySchools() {
         for (var i = 0; i < sortedArr.length; i++) {
             theString += "<div class='fav'><p class='favorite'>" + sortedArr[i] + "</p><span class='glyphicon glyphicon-remove legendRemove' aria-hidden='true' id='" + sortedArr[i] + "' onclick='removeSchool(this.id)'></span></div>";
         }
+
         console.log(theString);
         elem.innerHTML = theString;
     } else {
@@ -59,7 +61,6 @@ function printMySchools() {
         Cookies.set("selected", $(this).text());
         window.location.replace("calendar.html");
     });
-
 }
 
 function DoPrevent(e) {
