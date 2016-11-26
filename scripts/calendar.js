@@ -13,25 +13,12 @@ $(document).ready(function () {
             cal.prevMonth();
     });
 
-
     parseData(function () {
         setSchoolData(Cookies.get('selected'), Cookies.get("calendarType")); // Sets name & hyperlink on html document
         cal = new calendar(Cookies.get(Cookies.get("calendarType")), getSchoolData());
         cal.buildCalendar(); // Builds calendar
         cal.buildList(); // Builds List
         cal.addHover();
-
-        /*
-         document.ontouchmove = function (e) {
-         var target = e.currentTarget;
-         while (target) {
-         if (checkIfElementShouldScroll(target))
-         return;
-         target = target.parentNode;
-         }
-         e.preventDefault();
-         };
-         */
 
         $("#cal_prev").click(function () {
             cal.prevMonth();
@@ -53,19 +40,6 @@ $(document).ready(function () {
             }
         });
 
-    });
-});
-
-/* Trying to swipe */
-$(document).on("pagecreate", "#pageone", function () {
-    $('ui').on("swipeleft", function () {
-        alert("You swiped left!")
-        console.log("Swiped left")
-    });
-
-    $('ui').on("swiperight", function () {
-        alert("You swiped right!")
-        console.log("Swiped right")
     });
 });
 
@@ -112,6 +86,11 @@ function setSchoolData(name, type) {
 
 var cal; // Creates a calendar
 
+/**
+ * [swipedetect description]
+ * @param {[string]} el       [description]
+ * @param {[string]} callback [description]
+ */
 function swipedetect(el, callback) {
     var touchsurface = el,
         swipedir,
@@ -161,6 +140,7 @@ function swipedetect(el, callback) {
         }
         handleswipe(swipedir)
 
+        /* If not on mobile or touch enabled screen, dont do swipe */
         if (!isMobile()) {
             e.preventDefault()
         }

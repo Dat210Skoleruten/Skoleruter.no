@@ -5,7 +5,6 @@
  * By Craig Buckler, Optimalworks.net
  *
  */
-
 if (JSON && JSON.stringify && JSON.parse) var Session = Session || (function () {
         // window object
         var win = window.top || window;
