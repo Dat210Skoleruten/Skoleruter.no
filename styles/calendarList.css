@@ -24,6 +24,7 @@
     color: black;
     display: block;
     text-align: left !important;
+    cursor: default;
 }
 
 #myUL li span.header {
@@ -55,13 +56,23 @@
     border: none !important;
     margin: 0 !important;
     padding: 0 !important;
-    margin-right: 10px !important;
+    margin-right: 20px !important;
 }
 
+/* Legend circle in calendarList */
 .legendCircle {
     float: right;
     border-radius: 100% !important;
     border: none !important;
+    position: inherit;
+}
+
+.space {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    margin-right: 10px !important;
+    visibility: hidden;
 }
 
 /* Medium devices (desktops, 992px and down) */
