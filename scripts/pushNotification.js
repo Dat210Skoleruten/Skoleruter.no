@@ -17,7 +17,6 @@ function pushNeeded() {
     //pushCal.checkNextWeek();
 }
 
-
 function pushMessange() {
     Push.create('Skolerute', {
         body: '#Test# En eller flere av dine skoler har snart feriedag. Trykk her for å se mer! #TEST#',

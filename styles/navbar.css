@@ -57,7 +57,7 @@
     background-color: #f5f5f5; /*Change this color to the background color of the navbar */
 }
 
-/* Small devices (tablets, 768px and up) */
+/* Medium devices (tablets, 768px and down) */
 @media screen and (max-width: 768px) {
     .hamburger {
         display: flex;
@@ -66,18 +66,20 @@
     }
 }
 
+/* Medium devices (tablets, 665px and down) */
 @media screen and (max-width: 665px) {
     #navbar-name {
         display: none;
     }
 
-
 }
 
+/* Small devices (tablets, 275px and down) */
 @media screen and (max-width: 275px) {
     .center {
         display: none;
     }
+
     .hamburger {
         margin-left: 90%;
     }

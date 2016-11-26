@@ -152,14 +152,7 @@ li.now {
     font-weight: bold;
 }
 
-/* Add media queries for smaller screens */
-@media screen and (max-width: 350px) {
-    .weekdays li, .days li {
-        width: 12.8%;
-    }
-}
-
-/* Add media queries for smaller screens */
+/* Small devices (tablets, 376px and down) */
 @media screen and (max-width: 376px) {
     .daySpan {
         position: relative;
@@ -167,7 +160,14 @@ li.now {
     }
 }
 
-/* Add media queries for smaller screens */
+/* Small devices (tablets, 350px and down) */
+@media screen and (max-width: 350px) {
+    .weekdays li, .days li {
+        width: 12.8%;
+    }
+}
+
+/* Small devices (tablets, 320px and down) */
 @media screen and (max-width: 320px) {
     .daySpan {
         position: relative;

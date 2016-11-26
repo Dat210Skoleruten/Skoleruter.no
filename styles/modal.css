@@ -50,14 +50,14 @@
     width: 100%;
 }
 
-/* Small devices (tablets, 768px and up) */
+/* Small devices (tablets, 768px and down) */
 @media screen and (max-width: 768px) {
     .modal-header h2 {
         font-size: 1em;
     }
 }
 
-/* Add Animation */
+/* Animation */
 @-webkit-keyframes slideIn {
     from {
         bottom: -50px;

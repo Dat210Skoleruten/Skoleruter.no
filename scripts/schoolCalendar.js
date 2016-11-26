@@ -63,8 +63,8 @@ function calendar(schoolNames, array) {
             'September': 8,
             'Oktober': 9,
             'November': 10,
-            'Desember': 11,
-        }
+            'Desember': 11
+        };
 
         month = months[month];
         this.currentDate.setFullYear(thisYear);
@@ -115,27 +115,6 @@ function calendar(schoolNames, array) {
     this.rebuildSchools = function () {
         this.schools = findSchool(Cookies.get(Cookies.get("calendarType")), getSchoolData());
     };
-
-    /**
-     * [addSchool description]
-     * @param {[type]} schoolName [description]
-     */
-    this.addSchool = function (schoolName) {
-
-    };
-
-    /**
-     * [checkNextWeek description]
-     * @return {[type]} [description]
-     */
-    this.checkNextWeek = function () {
-
-
-
-
-        //TODO:Check next week
-        return true
-    }
 
     /**
      * [buildCalendar description]
@@ -203,8 +182,7 @@ function calendar(schoolNames, array) {
                         dayType = "fri";
                     }
                     totDayType.push(dayType);
-                }
-                ;
+                };
 
                 daysInMonth++;
                 var isOnlySFO = false;
@@ -235,7 +213,7 @@ function calendar(schoolNames, array) {
                     day = $("<li class='" + chosenDayType + " " + dates + "'>" + "<div class='weekNum'>" + eventDate.getWeekNumber() + "</div>" + "<span class='daySpan text-center'>" + dates.substring(8, 10)
                         + "</span>" + "</li>");
                 } else {
-                    day = $("<li class='" + chosenDayType + " " +  dates + "'>" + "<span class='daySpan text-center'>" + dates.substring(8, 10) + "</span>" + "</li>");
+                    day = $("<li class='" + chosenDayType + " " + dates + "'>" + "<span class='daySpan text-center'>" + dates.substring(8, 10) + "</span>" + "</li>");
                 }
                 //if date today, add now class
                 var thisDate = new Date(dates);
@@ -245,17 +223,15 @@ function calendar(schoolNames, array) {
                     day.addClass("now");
                 }
                 $(".days").append(day);
-            }
-            ;
+            };
         }
 
         for (daysInMonth; daysInMonth < 42; daysInMonth++) {
             var day = $("<li class='after'>.</li>"); //dagene etter måneden.
             $('.days').append(day);
-        }
-        ;
-
+        };
     };
+
     /**
      * [buildList description]
      * @return {[type]} [description]
@@ -273,7 +249,7 @@ function calendar(schoolNames, array) {
 
             return;
         }
-        for (var dates in this.schools[0].Datoer ) {
+        for (var dates in this.schools[0].Datoer) {
             var eventDate = new Date(dates);
             var currDay = "";
             var hasSetFirstSchool = false;
@@ -291,7 +267,7 @@ function calendar(schoolNames, array) {
                 }
                 if (this.schools[school].Datoer[dates][0] != "111" && this.schools[school].Datoer[dates][0] != "110") {
                     var eventDate = new Date(dates);
-                    if(eventDate.getDay() != 0 && eventDate.getDay() != 6){
+                    if (eventDate.getDay() != 0 && eventDate.getDay() != 6) {
 
                         if (eventDate >= this.currentDate) { //bytt med this.now hvis liste skal være statisk
 
@@ -324,15 +300,15 @@ function calendar(schoolNames, array) {
                             if (this.schools.length > 1) {
                                 currName = this.schools[school].Skolenavn + ": ";
                             }
-                            if(!hasSetFirstSchool){
-                                currDay = "<span class='dateNum " + dayType +"'>" + dates.substring(8, 10) + "</span> ";
+                            if (!hasSetFirstSchool) {
+                                currDay = "<span class='dateNum " + dayType + "'>" + dates.substring(8, 10) + "</span> ";
                                 list = $("<li class=" + dates + "><span>" + currDay + currName + status + " </span></li>");
                                 hasSetFirstSchool = true;
-                            }else{
-                                currDay = "<span class='dateNum " + dayType +"'></span> ";
+                            } else {
+                                currDay = "<span class='dateNum " + dayType + "'></span> ";
                                 list = $("<li class=" + dates + "><span>" + currDay + currName + status + " </span></li>");
                             }
-                            
+
                             $("#myUL").append(list);
 
                         }

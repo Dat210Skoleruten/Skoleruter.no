@@ -56,7 +56,7 @@
     cursor: pointer;
 }
 
-/* Add media queries for smaller screens */
+/* Big devices (desktops, 1024px and down) */
 @media screen and (max-width: 1024px) {
     .glyphicon-calendar {
         visibility: hidden;

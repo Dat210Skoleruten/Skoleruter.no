@@ -41,7 +41,7 @@ div.panel.show {
     max-height: 500px;
 }
 
-/* Small devices (tablets, 768px and up) */
+/* Small devices (tablets, 768px and down) */
 @media screen and (max-width: 768px) {
     button.accordion {
         font-size: 0.9em;

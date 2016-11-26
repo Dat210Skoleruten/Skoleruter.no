@@ -31,9 +31,10 @@
     cursor: pointer;
     text-align: center !important;
 }
+
 #myUL li span.header:hover {
-color: #6BA9BF;
-cursor: pointer;
+    color: #6BA9BF;
+    cursor: pointer;
 }
 
 #myUL li span:hover:not(.header) {
@@ -51,7 +52,7 @@ cursor: pointer;
 .dateNum {
     float: left;
     padding: 0px !important;
-    width: 1.3em !important;    
+    width: 1.3em !important;
     height: 1.3em !important;
     min-width: 25px !important;
     min-height: 25px !important;
@@ -61,10 +62,11 @@ cursor: pointer;
     cursor: default;
 }
 
-.dateNum:first-child{
+.dateNum:first-child {
     font-size: 18px !important;
 }
-/* Medium devices (desktops, 992px and up) */
+
+/* Medium devices (desktops, 992px and down) */
 @media screen and (max-width: 992px) {
     #noScrollCalendar {
         overflow: visible;
