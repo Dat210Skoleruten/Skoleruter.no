@@ -1,3 +1,4 @@
+/* Hover on the school list in index.html when not on mobile */
 function testHover() {
     if (!isMobile()) {
         $("#indexList td a").mouseover(function () {

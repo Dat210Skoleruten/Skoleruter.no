@@ -49,7 +49,7 @@ function printMySchools() {
             theString += "<div class='fav'><p class='favorite'>" + sortedArr[i] + "</p><span class='glyphicon glyphicon-remove legendRemove' aria-hidden='true' id='" + sortedArr[i] + "' onclick='removeSchool(this.id)'></span></div>";
         }
 
-        console.log(theString);
+        /* console.log(theString); */
         elem.innerHTML = theString;
     } else {
         elem.innerHTML = "Ingen skoler valgt!";
