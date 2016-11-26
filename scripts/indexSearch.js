@@ -95,10 +95,10 @@ function getIndexListItems(closest) {
         var elem6 = $("<div id= '" + value.Skolenavn + "'></div>");
 
         if (containsObject(value.Skolenavn, ArrayWSchools)) {
-            var elem7 = $("<p class='addButton'><span class='glyphicon glyphicon-heart' aria-hidden='true'><span hidden>" + value.Skolenavn + "<span></span></p>");
+            var elem7 = $("<div class='addButton'><span class='glyphicon glyphicon-heart' aria-hidden='true'><span hidden>" + value.Skolenavn + "<span></span></div>");
         }
         else {
-            var elem7 = $("<p class='addButton'><span class='glyphicon glyphicon-heart-empty' aria-hidden='true'><span hidden>" + value.Skolenavn + "<span></span></p>");
+            var elem7 = $("<div class='addButton'><span class='glyphicon glyphicon-heart-empty' aria-hidden='true'><span hidden>" + value.Skolenavn + "<span></span></div>");
         }
         elem3.click(function () {
             Cookies.set("calendarType", "selected");
