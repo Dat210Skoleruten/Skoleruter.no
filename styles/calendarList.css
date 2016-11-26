@@ -51,19 +51,17 @@
 /* Date number in calendarList */
 .dateNum {
     float: left;
-    padding: 0px !important;
-    width: 1.3em !important;
-    height: 1.3em !important;
-    min-width: 25px !important;
-    min-height: 25px !important;
-    border-radius: 100% !important;
+    background-color: inherit !important;
     border: none !important;
-    margin-right: 20px;
-    cursor: default;
+    margin: 0 !important;
+    padding: 0 !important;
+    margin-right: 10px !important;
 }
 
-.dateNum:first-child {
-    font-size: 18px !important;
+.legendCircle {
+    float: right;
+    border-radius: 100% !important;
+    border: none !important;
 }
 
 /* Medium devices (desktops, 992px and down) */

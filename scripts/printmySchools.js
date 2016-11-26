@@ -45,6 +45,7 @@ function printMySchools() {
         var arr = Cookies.get("mySchools").split(",");
         var sortedArr = arr.sort();
 
+        /* Prints the school in the legendbar */
         for (var i = 0; i < sortedArr.length; i++) {
             theString += "<div class='fav'><p class='favorite'>" + sortedArr[i] + "</p><span class='glyphicon glyphicon-remove legendRemove' aria-hidden='true' id='" + sortedArr[i] + "' onclick='removeSchool(this.id)'></span></div>";
         }

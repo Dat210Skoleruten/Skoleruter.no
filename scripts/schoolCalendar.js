@@ -182,7 +182,8 @@ function calendar(schoolNames, array) {
                         dayType = "fri";
                     }
                     totDayType.push(dayType);
-                };
+                }
+                ;
 
                 daysInMonth++;
                 var isOnlySFO = false;
@@ -223,13 +224,15 @@ function calendar(schoolNames, array) {
                     day.addClass("now");
                 }
                 $(".days").append(day);
-            };
+            }
+            ;
         }
 
         for (daysInMonth; daysInMonth < 42; daysInMonth++) {
             var day = $("<li class='after'>.</li>"); //dagene etter måneden.
             $('.days').append(day);
-        };
+        }
+        ;
     };
 
     /**
@@ -300,17 +303,17 @@ function calendar(schoolNames, array) {
                             if (this.schools.length > 1) {
                                 currName = this.schools[school].Skolenavn + ": ";
                             }
+
+                            var legendC = "<span class='legendCircle " + dayType + "'>" + "</span>";
                             if (!hasSetFirstSchool) {
-                                currDay = "<span class='dateNum " + dayType + "'>" + dates.substring(8, 10) + "</span> ";
-                                list = $("<li class=" + dates + "><span>" + currDay + currName + status + " </span></li>");
+                                currDay = "<span class='dateNum " + dayType + "'>" + dates.substring(8, 10) + "</span>";
+                                list = $("<li class=" + dates + "><span>" + currDay + currName + status + legendC + "</span></li>");
                                 hasSetFirstSchool = true;
                             } else {
                                 currDay = "<span class='dateNum " + dayType + "'></span> ";
-                                list = $("<li class=" + dates + "><span>" + currDay + currName + status + " </span></li>");
+                                list = $("<li class=" + dates + "><span>" + currDay + currName + status + legendC+"</span></li>");
                             }
-
                             $("#myUL").append(list);
-
                         }
                     }
                 }
@@ -329,7 +332,8 @@ function calendar(schoolNames, array) {
 
         //Scrolls to the top of the list after listBuild
         $("#noScrollCalendar").animate({scrollTop: 0}, "fast");
-    }
+    };
+
     /**
      * [addHover description]
      */
