@@ -76,6 +76,14 @@ html, body {
     z-index: 2;
 }
 
+.cursorPointer {
+    cursor: pointer;
+}
+
+.cursorHelp {
+    cursor: help;
+}
+
 /* Medium devices (desktops, 992px to 768px) */
 @media screen and (max-width: 992px) {
     #title {
