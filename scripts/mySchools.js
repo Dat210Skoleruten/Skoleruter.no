@@ -85,6 +85,7 @@ function removeSchool(school) {
         //if(Cookies.get('mySchools') != null){
 
         printMySchools();
+        location.reload();
         cal.rebuildSchools();
         cal.buildCalendar();
         cal.buildList();
