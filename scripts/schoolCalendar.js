@@ -304,8 +304,8 @@ function calendar(schoolNames, array) {
                                 currName = this.schools[school].Skolenavn + ": ";
                             }
 
-                            var legendC = "<span class='legendCircle " + dayType + "'>" + "</span>"; //The circle right side calendarList
-                            var space = "<span class='space'>" + 1 + "</span>";
+                            var legendC = "<span class='legendCircle " + dayType + "'></span>"; //The circle right side calendarList
+                            var space = "<span class='space'>" + 01 + "</span>";
                             if (!hasSetFirstSchool) {
                                 currDay = "<span class='dateNum " + dayType + "'>" + dates.substring(8, 10) + "</span>";
                                 list = $("<li class=" + dates + "><span>" + currDay + currName + status + legendC + "</span></li>");
