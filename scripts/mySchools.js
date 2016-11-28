@@ -85,36 +85,36 @@ function removeSchool(school) {
         //if(Cookies.get('mySchools') != null){
 
         printMySchools();
-        location.reload();
+       // location.reload();
         cal.rebuildSchools();
         cal.buildCalendar();
         cal.buildList();
 
 
-        $("#cal_prev").click(function () {
-            cal.prevMonth();
-        });
+        // $("#cal_prev").click(function () {
+        //     cal.prevMonth();
+        // });
 
-        $("#cal_next").click(function () {
-            cal.nextMonth();
-        });
+        // $("#cal_next").click(function () {
+        //     cal.nextMonth();
+        // });
 
-        $("body").keyup(function (e) {
-            if (e.keyCode == 37) { // Left arrow
-                cal.prevMonth();
-            }
-        });
+        // $("body").keyup(function (e) {
+        //     if (e.keyCode == 37) { // Left arrow
+        //         cal.prevMonth();
+        //     }
+        // });
 
-        $("body").keyup(function (e) {
-            if (e.keyCode == 39) { // Right arrow
-                cal.nextMonth();
-            }
-        });
+        // $("body").keyup(function (e) {
+        //     if (e.keyCode == 39) { // Right arrow
+        //         cal.nextMonth();
+        //     }
+        // });
 
-        $(".header").click(function () {
-            var date = $(this).html().split(",");
-            cal.setMonth(date[1], date[0]);
-        });
+        // $(".header").click(function () {
+        //     var date = $(this).html().split(",");
+        //     cal.setMonth(date[1], date[0]);
+        // });
         //  }
     }
     else {
