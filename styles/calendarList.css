@@ -56,7 +56,7 @@
     border: none !important;
     margin: 0 !important;
     padding: 0 !important;
-    margin-right: 20px !important;
+    margin-right: 10px !important;
     font-size: 1em !important;
 }
 
@@ -98,7 +98,7 @@
 
 @media screen and (max-width: 321px) {
     #myUL li span {
-        font-size: 0.8em;
+        font-size: 0.75em;
     }
 }
 
