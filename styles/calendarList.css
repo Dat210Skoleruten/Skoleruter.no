@@ -58,6 +58,7 @@
     padding: 0 !important;
     margin-right: 15px !important;
     font-size: 1em !important;
+    font-weight: bold;
 }
 
 /* Legend circle in calendarList */
