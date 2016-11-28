@@ -56,7 +56,7 @@
     border: none !important;
     margin: 0 !important;
     padding: 0 !important;
-    margin-right: 10px !important;
+    margin-right: 15px !important;
     font-size: 1em !important;
 }
 
@@ -93,6 +93,10 @@
 @media screen and (max-width: 1070px) {
     #myUL li span {
         font-size: 0.9em;
+    }
+
+    .legendCircle {
+        margin-top: -4px !important;
     }
 }
 
