@@ -20,7 +20,7 @@
     background-color: #f6f6f6;
     padding: 12px;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 1em;
     color: black;
     display: block;
     text-align: left !important;
@@ -75,6 +75,7 @@
     visibility: hidden;
 }
 
+/* Make the calendarList not have a fixed height and scrollbar on mobile */
 /* Medium devices (desktops, 992px and down) */
 @media screen and (max-width: 992px) {
     #noScrollCalendar {
