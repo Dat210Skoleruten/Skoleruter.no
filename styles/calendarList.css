@@ -57,6 +57,7 @@
     margin: 0 !important;
     padding: 0 !important;
     margin-right: 20px !important;
+    font-size: 1em !important;
 }
 
 /* Legend circle in calendarList */
@@ -83,5 +84,22 @@
     }
 }
 
+@media screen and (min-width: 1260px) {
+    #myUL li span {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 1070px) {
+    #myUL li span {
+        font-size: 0.9em;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    #myUL li span {
+        font-size: 0.8em;
+    }
+}
 
 
