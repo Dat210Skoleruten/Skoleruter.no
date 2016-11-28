@@ -98,6 +98,10 @@
     .legendCircle {
         margin-top: -4px !important;
     }
+
+    .dateNum {
+        margin-right: 15px !important;
+    }
 }
 
 @media screen and (max-width: 321px) {
