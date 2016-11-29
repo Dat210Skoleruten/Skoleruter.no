@@ -126,6 +126,6 @@ function getIndexListItems(closest) {
 
     if( Cookies.get("mySchools") != null && Cookies.get("visiting") == null){
     Cookies.set("visiting", "true");
-    window.location.href = 'html/calendar.html';
-}
+    window.location.href = 'https://skoleruter.azurewebsites.net/html/schools.html';
+    }
 }
