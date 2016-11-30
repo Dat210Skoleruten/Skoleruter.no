@@ -29,12 +29,13 @@ function parseData(callback) {
             download: true,
             header: true,
             complete: function (results) {
+                console.timeEnd("Skoleruter");
                 console.log("download schoolRoutes complete");
                 console.log(results)
                 Session.set("schoolRoutes", results.data);
                 console.log("schoolRoutes:", Session.get('schoolRoutes'));
                 parseSecondData(callback);
-                console.timeEnd("Skoleruter");
+                
             }
         });
         
@@ -54,6 +55,7 @@ function parseSecondData(callback) {
             header: true,
             skipEmptyLines: true,
             complete: function (results) {
+                console.timeEnd("Skoler")
                 console.log("download schools complete");
                 console.log(results)
                 Session.set('schools', results.data);
@@ -61,7 +63,7 @@ function parseSecondData(callback) {
                 if (callback && typeof callback == "function") {
                     console.log("running callback function");
                     callback();
-                    console.timeEnd("Skoler")
+
                 }
             }
         });
