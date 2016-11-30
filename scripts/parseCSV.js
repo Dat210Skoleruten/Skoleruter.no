@@ -2,6 +2,8 @@
  parceCSV.js downloads schoolRoutes and Schools from the Stavanger Kommune Open data.
  When download is complete it stors each of the datatypes in a session.
 
+ Safari does not support session...so if no session we have to download data again
+
  The function getSchoolData combines these two datasets to one containing all schools with theirs respective routes.
  */
 
@@ -15,6 +17,7 @@
     window.location.href = 'html/schools.html';
     }
     Cookies.set("visiting", "true");
+
 //######################################################################################
 
 
@@ -25,21 +28,15 @@ function parseData(callback) {
         url = "https://open.stavanger.kommune.no/dataset/86d3fe44-111e-4d82-be5a-67a9dbfbfcbb/resource/21cfc45a-d2bf-448a-a883-210ee4a96d9a/download/skolerute.csv";
         var start = new Date().getTime();
         console.time("Skoleruter")
-        Papa.parse(url, { //Denne linken stopper å fungere August 2017 "http://open.stavanger.kommune.no/dataset/86d3fe44-111e-4d82-be5a-67a9dbfbfcbb/resource/32d52130-ce7c-4282-9d37-3c68c7cdba92/download/skolerute-2016-17.csv"
+        Papa.parse(url, { 
             download: true,
             header: true,
             complete: function (results) {
                 console.timeEnd("Skoleruter");
-                console.log("download schoolRoutes complete");
-                console.log(results)
                 Session.set("schoolRoutes", results.data);
-                console.log("schoolRoutes:", Session.get('schoolRoutes'));
-                parseSecondData(callback);
-                
+                parseSecondData(callback);    
             }
-        });
-        
-        
+        }); 
         return;
     }
     parseSecondData(callback);
@@ -50,20 +47,16 @@ function parseSecondData(callback) {
         console.log("schools is null, downloading schools");
         url = "https://open.stavanger.kommune.no/dataset/8f8ac030-0d03-46e2-8eb7-844ee11a6203/resource/12f0d499-6474-4fe4-b457-db976e52cb37/download/skoler.csv";
         console.time("Skoler")
-        Papa.parse(url, { //"http://open.stavanger.kommune.no/dataset/8f8ac030-0d03-46e2-8eb7-844ee11a6203/resource/0371a1db-7074-4568-a0cc-499a5dccfe98/download/skoler.csv"
+        Papa.parse(url, { 
             download: true,
             header: true,
             skipEmptyLines: true,
             complete: function (results) {
                 console.timeEnd("Skoler")
-                console.log("download schools complete");
-                console.log(results)
                 Session.set('schools', results.data);
-                console.log("schools:", Session.get('schools'));
                 if (callback && typeof callback == "function") {
                     console.log("running callback function");
                     callback();
-
                 }
             }
         });
