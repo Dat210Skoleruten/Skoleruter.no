@@ -28,9 +28,11 @@ function parseData(callback) {
             header: true,
             complete: function (results) {
                 console.log("download schoolRoutes complete");
+                console.log(results)
                 Session.set("schoolRoutes", results.data);
                 console.log("schoolRoutes:", Session.get('schoolRoutes'));
                 parseSecondData(callback);
+                
             }
         });
         return;
@@ -48,6 +50,7 @@ function parseSecondData(callback) {
             skipEmptyLines: true,
             complete: function (results) {
                 console.log("download schools complete");
+                console.log(results)
                 Session.set('schools', results.data);
                 console.log("schools:", Session.get('schools'));
                 if (callback && typeof callback == "function") {
