@@ -24,6 +24,7 @@ function parseData(callback) {
         console.log("downloading schoolRoutes");
         url = "https://open.stavanger.kommune.no/dataset/86d3fe44-111e-4d82-be5a-67a9dbfbfcbb/resource/21cfc45a-d2bf-448a-a883-210ee4a96d9a/download/skolerute.csv";
         var start = new Date().getTime();
+        console.time("Skoleruter")
         Papa.parse(url, { //Denne linken stopper å fungere August 2017 "http://open.stavanger.kommune.no/dataset/86d3fe44-111e-4d82-be5a-67a9dbfbfcbb/resource/32d52130-ce7c-4282-9d37-3c68c7cdba92/download/skolerute-2016-17.csv"
             download: true,
             header: true,
@@ -36,8 +37,8 @@ function parseData(callback) {
                 
             }
         });
-        var end = new Date().getTime();
-        console.log("Time Skolerute:",end-start);
+        
+        console.timeEnd("Skoleruter");
         return;
     }
     parseSecondData(callback);
@@ -47,7 +48,7 @@ function parseSecondData(callback) {
     if (Session.get("schools") == null) {
         console.log("schools is null, downloading schools");
         url = "https://open.stavanger.kommune.no/dataset/8f8ac030-0d03-46e2-8eb7-844ee11a6203/resource/12f0d499-6474-4fe4-b457-db976e52cb37/download/skoler.csv";
-        var start = new Date().getTime();
+        console.time("Skoler")
         Papa.parse(url, { //"http://open.stavanger.kommune.no/dataset/8f8ac030-0d03-46e2-8eb7-844ee11a6203/resource/0371a1db-7074-4568-a0cc-499a5dccfe98/download/skoler.csv"
             download: true,
             header: true,
@@ -63,8 +64,7 @@ function parseSecondData(callback) {
                 }
             }
         });
-        var end = new Date().getTime();
-        console.log("Time Skolerute:",end-start);
+        console.timeEnd("Skoler")
         return;
     }
     if (callback && typeof callback == "function") {
