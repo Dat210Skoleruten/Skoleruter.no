@@ -37,7 +37,7 @@ function parseData(callback) {
             }
         });
         var end = new Date().getTime();
-        console.log("Time :",end-start);
+        console.log("Time Skolerute:",end-start);
         return;
     }
     parseSecondData(callback);
@@ -47,6 +47,7 @@ function parseSecondData(callback) {
     if (Session.get("schools") == null) {
         console.log("schools is null, downloading schools");
         url = "https://open.stavanger.kommune.no/dataset/8f8ac030-0d03-46e2-8eb7-844ee11a6203/resource/12f0d499-6474-4fe4-b457-db976e52cb37/download/skoler.csv";
+        var start = new Date().getTime();
         Papa.parse(url, { //"http://open.stavanger.kommune.no/dataset/8f8ac030-0d03-46e2-8eb7-844ee11a6203/resource/0371a1db-7074-4568-a0cc-499a5dccfe98/download/skoler.csv"
             download: true,
             header: true,
@@ -62,6 +63,8 @@ function parseSecondData(callback) {
                 }
             }
         });
+        var end = new Date().getTime();
+        console.log("Time Skolerute:",end-start);
         return;
     }
     if (callback && typeof callback == "function") {
