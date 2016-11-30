@@ -34,11 +34,11 @@ function parseData(callback) {
                 Session.set("schoolRoutes", results.data);
                 console.log("schoolRoutes:", Session.get('schoolRoutes'));
                 parseSecondData(callback);
-                
+                console.timeEnd("Skoleruter");
             }
         });
         
-        console.timeEnd("Skoleruter");
+        
         return;
     }
     parseSecondData(callback);
@@ -61,10 +61,11 @@ function parseSecondData(callback) {
                 if (callback && typeof callback == "function") {
                     console.log("running callback function");
                     callback();
+                    console.timeEnd("Skoler")
                 }
             }
         });
-        console.timeEnd("Skoler")
+        
         return;
     }
     if (callback && typeof callback == "function") {
