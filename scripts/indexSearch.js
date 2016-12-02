@@ -3,7 +3,7 @@ $(function () {
     $('[data-toggle="tooltip"]').tooltip();
 });
 
-
+parseData();
 
 function indexSearchList() {
     var input, filter, table, tr, td, i;

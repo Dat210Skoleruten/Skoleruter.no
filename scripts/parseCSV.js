@@ -144,4 +144,4 @@ function formatDato(entry) {
     return [dayType, entry.kommentar];
 };
 
-parseData();
+
