@@ -3,9 +3,10 @@ $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 });
 
-console.log("POTATO");
+console.time("calendar.js");
 
 $(document).ready(function () {
+    console.timeEnd("calendar.js")
     var el = document.getElementById('monthBox');
     swipedetect(el, function (swipedir) {
         //swipedir contains either "none", "left", "right", "top", or "down"
