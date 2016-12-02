@@ -3,6 +3,8 @@ $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 });
 
+console.log("POTATO");
+
 $(document).ready(function () {
     var el = document.getElementById('monthBox');
     swipedetect(el, function (swipedir) {
