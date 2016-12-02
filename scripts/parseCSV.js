@@ -20,17 +20,6 @@
 
 //######################################################################################
 
-        console.time("Difi")
-        Papa.parse("http://hotell.difi.no/download/stavanger/skoleruter?download", { 
-            download: true,
-            fastMode: true,
-            header: true,
-            complete: function (results) {
-                console.timeEnd("Difi");   
-            }
-        }); 
-
-
 function parseData(callback) {
     if (Session.get("schoolRoutes") == null) {
         console.log("downloading schoolRoutes");
