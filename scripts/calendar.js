@@ -15,7 +15,7 @@ $(document).ready(function () {
     });
 
 
-    calendaLoader()
+    calendaLoader();
     parseData(function () {
         setSchoolData(Cookies.get('selected'), Cookies.get("calendarType")); // Sets name & hyperlink on html document
         cal = new calendar(Cookies.get(Cookies.get("calendarType")), getSchoolData());
@@ -155,6 +155,6 @@ function calendaLoader(){
     $(".days").append("<img id='Loading' src='../img/ajax-loader.gif'/>");
 }
 function listLoader(){
-    $("#myUL").empty()
+    $("#myUL").empty();
     $("#myUL").append("<img id='Loading' src='../img/ajax-loader.gif'/>");
 }
