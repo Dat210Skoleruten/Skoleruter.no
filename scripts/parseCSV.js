@@ -21,7 +21,7 @@
 //######################################################################################
 
         console.time("Difi")
-        Papa.parse("http://hotell.difi.no/download/stavanger/skoleruter", { 
+        Papa.parse("http://hotell.difi.no/download/stavanger/skoleruter?download", { 
             download: true,
             fastMode: true,
             header: true,
