@@ -14,8 +14,9 @@ $(document).ready(function () {
     });
 
     parseData(function () {
+                console.log("before");
         setSchoolData(Cookies.get('selected'), Cookies.get("calendarType")); // Sets name & hyperlink on html document
-        console.log("before");
+
         cal = new calendar(Cookies.get(Cookies.get("calendarType")), getSchoolData());
         console.log("after");
         cal.buildCalendar(); // Builds calendar
