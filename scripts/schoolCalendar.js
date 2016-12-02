@@ -50,7 +50,6 @@ function calendar(schoolNames, array) {
      * @param {[type]} month    [description]
      */
     this.setMonth = function (thisYear, month) {
-        console.log("setMonth");
         var months = {
             'Januar': 0,
             'Februar': 1,
@@ -78,7 +77,6 @@ function calendar(schoolNames, array) {
      * @return {[type]} [description]
      */
     this.prevMonth = function () {
-        console.log("prevMonth");
         this.currentDate.setMonth(this.currentDate.getMonth() - 1);
         this.buildCalendar();
         this.buildList(); //fjærn denn hvis listen skal være statisk
@@ -89,7 +87,6 @@ function calendar(schoolNames, array) {
      * @return {[type]} [description]
      */
     this.nextMonth = function () {
-        console.log("nextMonth");
         this.currentDate.setMonth(this.currentDate.getMonth() + 1);
         this.buildCalendar();
         this.buildList(); //fjærn denn hvis listen skal være statisk
@@ -104,7 +101,6 @@ function calendar(schoolNames, array) {
         for (var i = this.schools.length - 1; i >= 0; i--) {
             if (this.schools[i] === schoolName) {
                 this.schools.splice(i, 1);
-                console.log(this.schools);
             }
         }
         this.buildCalendar();
@@ -121,7 +117,6 @@ function calendar(schoolNames, array) {
      * @return {[type]} [description]
      */
     this.buildCalendar = function () {
-        console.log("Building Calendar");
         var month = this.currentDate.getMonth() + 1;
         var currentYear = this.currentDate.getFullYear();
         var firstDay = new Date(this.currentDate.getFullYear(), this.currentDate
@@ -163,8 +158,6 @@ function calendar(schoolNames, array) {
 
         for (var currDate in this.schools[0].Datoer) {
             var dates = currDate;
-            /* console.log(dates); */
-
             if (dates.substring(5, 7) == month && dates.substring(0, 4) == currentYear) {
                 var eventDate = new Date(dates);
                 var totDayType = [];
@@ -240,16 +233,12 @@ function calendar(schoolNames, array) {
      * @return {[type]} [description]
      */
     this.buildList = function () {
-        console.log('Building List')
         var monthHeader;
         var list;
         var currMonth;
         $("#myUL").empty();
         var header = 0;
-        console.log(this.schools);
-
         if (this.schools.length == 0) {
-
             return;
         }
         for (var dates in this.schools[0].Datoer) {
@@ -341,9 +330,7 @@ function calendar(schoolNames, array) {
     this.addHover = function () {
         jQuery.each(this.schools[0].Datoer, function (i, val) {
             $("." + val).hover(function () {
-                console.log("hover");
                 $("." + val).toggleClass("hovered");
-                console.log(val);
             });
         });
     }
