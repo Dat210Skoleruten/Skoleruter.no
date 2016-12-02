@@ -12,13 +12,12 @@ $(document).ready(function () {
         if (swipedir == 'right')
             cal.prevMonth();
     });
-
-    parseData(function () {
                 console.log("before");
+    parseData(function () {
+
         setSchoolData(Cookies.get('selected'), Cookies.get("calendarType")); // Sets name & hyperlink on html document
 
         cal = new calendar(Cookies.get(Cookies.get("calendarType")), getSchoolData());
-        console.log("after");
         cal.buildCalendar(); // Builds calendar
         cal.buildList(); // Builds List
         cal.addHover();
