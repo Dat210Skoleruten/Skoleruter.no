@@ -3,12 +3,9 @@ $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 });
 
-console.time("calendar.js");
 
 $(document).ready(function () {
-    console.timeEnd("calendar.js")
     var el = document.getElementById('monthBox');
-    console.time("swipe");
     swipedetect(el, function (swipedir) {
         //swipedir contains either "none", "left", "right", "top", or "down"
         if (swipedir == 'left')
@@ -16,7 +13,6 @@ $(document).ready(function () {
         if (swipedir == 'right')
             cal.prevMonth();
     });
-    console.timeEnd("swipe");
 
     parseData(function () {
         setSchoolData(Cookies.get('selected'), Cookies.get("calendarType")); // Sets name & hyperlink on html document
