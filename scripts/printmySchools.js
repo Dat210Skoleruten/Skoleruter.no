@@ -1,15 +1,15 @@
 function showFavorites() {
-    console.log("showfavourites running");
+  
     if ($("#position").hasClass("isInactive")) {
         $("#position").tooltip('enable');
         $('#goToFave').attr('data-original-title', 'Aktiver stedstjenester');
-        console.log("gps tooltip enable");
+
     } else {
         $('#position').attr('data-original-title', 'Nærmeste skoler');
 
         if (isMobile()) {
             $("#position").tooltip('disable');
-            console.log("gps tooltip disable");
+
         }
     }
 
@@ -49,8 +49,6 @@ function printMySchools() {
         for (var i = 0; i < sortedArr.length; i++) {
             theString += "<div class='fav'><p class='favorite'>" + sortedArr[i] + "</p><span class='glyphicon glyphicon-remove legendRemove' aria-hidden='true' id='" + sortedArr[i] + "' onclick='removeSchool(this.id)'></span></div>";
         }
-
-        /* console.log(theString); */
         elem.innerHTML = theString;
     } else {
         elem.innerHTML = "Ingen skoler valgt!";
