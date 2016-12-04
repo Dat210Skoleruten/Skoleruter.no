@@ -1,3 +1,7 @@
+/**
+ * [showFavorites description]
+ * @return {[type]} [description]
+ */
 function showFavorites() {
   
     if ($("#position").hasClass("isInactive")) {
@@ -35,7 +39,9 @@ function showFavorites() {
         $("#goToFave").tooltip('enable');
     }
 }
-
+/**
+ * [printMySchools description]
+ */
 function printMySchools() {
     var elem = document.getElementById("myFavScho");
     $('myFavScho').empty;
@@ -61,7 +67,10 @@ function printMySchools() {
         window.location.replace("calendar.html");
     });
 }
-
+/**
+ * [DoPrevent description]
+ * @param {[type]} e [description]
+ */
 function DoPrevent(e) {
     e.preventDefault();
     e.stopPropagation();
