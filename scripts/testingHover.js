@@ -2,7 +2,6 @@
 function testHover() {
     if (!isMobile()) {
         $("#indexList td a").mouseover(function () {
-            console.log("Entering");
             $(this).css("color", "#fff");
             $(this).css("background-color", "#495156")
         });
