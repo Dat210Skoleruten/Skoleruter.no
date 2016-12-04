@@ -22,7 +22,6 @@
 
 function parseData(callback) {
     if (Session.get("schoolRoutes") == null) {
-        console.log("downloading schoolRoutes");
         url = "https://open.stavanger.kommune.no/dataset/86d3fe44-111e-4d82-be5a-67a9dbfbfcbb/resource/21cfc45a-d2bf-448a-a883-210ee4a96d9a/download/skolerute.csv";
         var start = new Date().getTime();
         console.time("Skoleruter")
@@ -43,7 +42,6 @@ function parseData(callback) {
 
 function parseSecondData(callback) {
     if (Session.get("schools") == null) {
-        console.log("schools is null, downloading schools");
         url = "https://open.stavanger.kommune.no/dataset/8f8ac030-0d03-46e2-8eb7-844ee11a6203/resource/12f0d499-6474-4fe4-b457-db976e52cb37/download/skoler.csv";
         console.time("Skoler")
         Papa.parse(url, { 
@@ -55,7 +53,6 @@ function parseSecondData(callback) {
                 console.timeEnd("Skoler")
                 Session.set('schools', results.data);
                 if (callback && typeof callback == "function") {
-                    console.log("running callback function");
                     callback();
                 }
             }

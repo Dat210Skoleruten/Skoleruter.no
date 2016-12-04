@@ -4,7 +4,10 @@ $(function () {
 });
 
 parseData();
-
+/**
+ * [indexSearchList description]
+ * @return {[type]} [description]
+ */
 function indexSearchList() {
     var input, filter, table, tr, td, i;
     input = $("#indexSearch");
@@ -19,21 +22,12 @@ function indexSearchList() {
     $("body").keydown(function (e) {
         if(!fired){
             fired = true;
-            if (e.keyCode == 38) { // up arrow
-                console.log("up");
-                
+            if (e.keyCode == 38) { // up arrow              
             }else if (e.keyCode == 40) { // down arrow
-                console.log("down");
                 if($("#selSchool").length > 0){
-                    console.log("found selSchool");
-
                 }else{
-                    console.log("didnt find selSchool");
-                    console.log($(".listElement"));
                     for( i = 0; i < 10; i++){
                         var tmp = $(".listElement")[i];
-                        console.log(tmp);
-                        console.log(tmp.style.display);
                     }
                 }
 
@@ -59,7 +53,11 @@ function indexSearchList() {
         }
     }
 }
-
+/**
+ * [getIndexListItems description]
+ * @param  {[type]} closest [description]
+ * @return {[type]}         [description]
+ */
 function getIndexListItems(closest) {
     var arrString = "";
     var ArrayWSchools = [];

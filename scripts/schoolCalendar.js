@@ -1,8 +1,7 @@
 /**
- * [calendar description]
- * @param  {[type]} schoolNames [description]
- * @param  {[type]} array       [description]
- * @return {[type]}             [description]
+ * calendar is the object that controlls the calendar and list.
+ * @param  {array} schoolNames 	The name of schools the caldenar should process
+ * @param  {array} array       	The array schoolData 
  */
 function calendar(schoolNames, array) {
     this.currentDate = new Date();
@@ -23,8 +22,8 @@ function calendar(schoolNames, array) {
 
 
     /**
-     * [iCal description]
-     * @return {[type]} [description]
+     * iCal creates a downloadable .ics file of the selected school
+     * Used when downloading calendar
      */
     this.iCal = function () {
         var selSchool = Cookies.get('selected');
@@ -50,9 +49,10 @@ function calendar(schoolNames, array) {
     };
 
     /**
-     * [setMonth description]
-     * @param {[type]} thisYear [description]
-     * @param {[type]} month    [description]
+     * setMounth sets the this.currentDate to the year and month and rebuilds calendar and list
+     * Used when clicking on a mounth in the list
+     * @param {int} thisYear The desired year
+     * @param {int} month    The desired month
      */
     this.setMonth = function (thisYear, month) {
         var months = {
@@ -78,13 +78,11 @@ function calendar(schoolNames, array) {
     };
 
     /**
-     * [prevMonth description]
-     * @return {[type]} [description]
+     * prevMonth rebuilds calendar and list with the previous mounth
      */
     this.prevMonth = function () {
     	if ( $("#cal_prev").css('display') == 'none' ){
     		return
-    // element is hidden
 		}
         this.currentDate.setMonth(this.currentDate.getMonth() - 1);
         this.buildCalendar();
@@ -93,13 +91,11 @@ function calendar(schoolNames, array) {
     };
 
     /**
-     * [nextMonth description]
-     * @return {[type]} [description]
+     * nextMonth rebuilds calendar and list with the next mounth
      */
     this.nextMonth = function () {
     	if ( $("#cal_next").css('display') == 'none' ){
     		return
-    // element is hidden
 		}
         this.currentDate.setMonth(this.currentDate.getMonth() + 1);
         this.buildCalendar();
@@ -108,9 +104,8 @@ function calendar(schoolNames, array) {
     };
 
     /**
-     * [removeSchool description]
-     * @param  {[type]} schoolName [description]
-     * @return {[type]}            [description]
+     * removeSchool removes a school from the selected schools
+     * @param  {string} schoolName The school you want removed
      */
     this.removeSchool = function (schoolName) {
         for (var i = this.schools.length - 1; i >= 0; i--) {
@@ -122,11 +117,17 @@ function calendar(schoolNames, array) {
         this.buildList(); //fjærn denn hvis listen skal være statisk
 
     };
-
+    /**
+     * rebuildSchools reprocesses the schools selected
+     * This needs to be run when removing a school
+     */
     this.rebuildSchools = function () {
         this.schools = findSchool(Cookies.get(Cookies.get("calendarType")), getSchoolData());
     };
 
+    /**
+     * checkMonth check if you are on the first or last mounth in the dataset. If in one of them, remove ability to go further in that direction
+     */
     this.checkMonth = function () {
     	console.log("første og siste : ",this.firstMonth, this.lastMonth);
     	console.log(this.currentDate);
@@ -148,8 +149,7 @@ function calendar(schoolNames, array) {
     };
 
     /**
-     * [buildCalendar description]
-     * @return {[type]} [description]
+     * buildCalendar proscesses calender data and builds the html elements for the calendar
      */
     this.buildCalendar = function () {
         var month = this.currentDate.getMonth() + 1;
@@ -276,8 +276,7 @@ function calendar(schoolNames, array) {
     };
 
     /**
-     * [buildList description]
-     * @return {[type]} [description]
+     * buildList proscesses calender data and builds the html elements for the list
      */
     this.buildList = function () {
         var monthHeader;
@@ -372,7 +371,8 @@ function calendar(schoolNames, array) {
     };
 
     /**
-     * [addHover description]
+     * addHover adds hover makse hovering over a date in the list, it highlights the same date in the calendar or the other way around.
+     * !!! DOES NOT WORK !!!
      */
     this.addHover = function () {
         jQuery.each(this.schools[0].Datoer, function (i, val) {

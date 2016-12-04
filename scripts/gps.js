@@ -45,8 +45,6 @@ function showError(error) {
 function showPosition(position) {
     lat = position.coords.latitude;
     lng = position.coords.longitude;
-
-    //console.log(distance(position.coords.latitude, position.coords.longitude, 40.545073, -74.068443))
 }
 
 function distance(lat1, lon1, lat2, lon2) {
@@ -65,8 +63,6 @@ function findClosest(position) {
     $("#indexSearch").val("");
     var lat = position.coords.latitude;
     var lng = position.coords.longitude;
-
-    console.log("Current position lat:", lat, "lon:", lng);
     var schoolList = getSchoolData(); //Gets the data from the getSortedCSV() function in getData.js
     var dist_array = [];
 
@@ -89,6 +85,5 @@ function findClosest(position) {
     }
 
     sorted_distance = dist_array.sort(sortFunction); //Sorts array by distance
-    console.log("sorted distance= ", sorted_distance);
     getIndexListItems(sorted_distance);
 }
