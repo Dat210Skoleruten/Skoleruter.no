@@ -16,6 +16,11 @@ function calendar(schoolNames, array) {
     this.months = ["Januar", "Februar", "Mars", "April", "Mai", "Juni",
         "Juli", "August", "September", "Oktober", "November", "Desember"
     ];
+    this.firstMonth;
+    this.lastMonth;
+    
+
+
 
     /**
      * [iCal description]
@@ -77,9 +82,14 @@ function calendar(schoolNames, array) {
      * @return {[type]} [description]
      */
     this.prevMonth = function () {
+    	if ( $("#cal_prev").css('display') == 'none' ){
+    		return
+    // element is hidden
+		}
         this.currentDate.setMonth(this.currentDate.getMonth() - 1);
         this.buildCalendar();
         this.buildList(); //fjærn denn hvis listen skal være statisk
+        this.checkMonth();
     };
 
     /**
@@ -87,9 +97,14 @@ function calendar(schoolNames, array) {
      * @return {[type]} [description]
      */
     this.nextMonth = function () {
+    	if ( $("#cal_next").css('display') == 'none' ){
+    		return
+    // element is hidden
+		}
         this.currentDate.setMonth(this.currentDate.getMonth() + 1);
         this.buildCalendar();
         this.buildList(); //fjærn denn hvis listen skal være statisk
+        this.checkMonth();
     };
 
     /**
@@ -110,6 +125,26 @@ function calendar(schoolNames, array) {
 
     this.rebuildSchools = function () {
         this.schools = findSchool(Cookies.get(Cookies.get("calendarType")), getSchoolData());
+    };
+
+    this.checkMonth = function () {
+    	console.log("første og siste : ",this.firstMonth, this.lastMonth);
+    	console.log(this.currentDate);
+    	if (this.firstMonth != null){
+    		if (this.currentDate.getMonth() == this.firstMonth.getMonth() && this.currentDate.getFullYear() == this.firstMonth.getFullYear()) {
+    			console.log("hide");
+    			$("#cal_prev").hide();
+    		}else{
+    			$("#cal_prev").show();
+    		}
+    		   if (this.currentDate.getMonth() == this.lastMonth.getMonth() && this.currentDate.getFullYear() == this.lastMonth.getFullYear()) {
+    		   	console.log("hide");
+    			$("#cal_next").hide();
+    		}else{
+    			$("#cal_next").show();
+    		}
+    	}
+
     };
 
     /**
@@ -158,6 +193,18 @@ function calendar(schoolNames, array) {
 
         for (var currDate in this.schools[0].Datoer) {
             var dates = currDate;
+
+            var dato = new Date(currDate);
+            dato.setHours(0 ,0, 0, 0);
+           
+            //sets this.firstMonth
+            if (this.firstMonth == null){
+            	console.log("setting first", dato);
+            	this.firstMonth = dato;
+            }
+            //set this.lastMonth
+          		this.lastMonth = dato;
+
             if (dates.substring(5, 7) == month && dates.substring(0, 4) == currentYear) {
                 var eventDate = new Date(dates);
                 var totDayType = [];
