@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html manifest="demo.appcache">
+<head>
+    <title>Skolerute - Kalender</title>
+    <meta charset="UTF-8">
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
+
+    <!--Favicon-->
+    <link rel="shortcut icon" type="image/x-icon" href="../img/skolelogo.png"/>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Local stylesheets -->
+    <link rel="stylesheet" type="text/css" href="../styles/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../styles/sidebar.css"/>
+    <link rel="stylesheet" type="text/css" href="../styles/calendar.css"/>
+    <link rel="stylesheet" type="text/css" href="../styles/navbar.css">
+    <link rel="stylesheet" type="text/css" href="../styles/calendarList.css">
+    <link rel="stylesheet" type="text/css" href="../styles/legendBar.css">
+    <link rel="stylesheet" type="text/css" href="../styles/accordion.css">
+    <link rel="stylesheet" type="text/css" href="../styles/modal.css">
+
+    <!-- Local scripts -->
+    <script type="text/javascript" src="../scripts/protype.js"></script>
+    <script type="text/javascript" src="https://rawgithub.com/nwcell/ics.js/master/ics.deps.min.js"></script>
+    <script type="text/javascript" src="../scripts/cookie.js"></script>
+    <script type="text/javascript" src="../scripts/session.js"></script>
+    <script type="text/javascript" src="../scripts/papaparse.min.js"></script>
+    <script type="text/javascript" src="../scripts/gps.js"></script>
+    <script type="text/javascript" src="../scripts/parseCSV.js"></script>
+    <script type="text/javascript" src="../scripts/mySchools.js"></script>
+    <script type="text/javascript" src="../scripts/schoolCalendar.js"></script>
+    <script type="text/javascript" src="../scripts/calendar.js"></script>
+    <script type="text/javascript" src="../scripts/sidebar.js"></script>
+    <script type="text/javascript" src="../scripts/menuController.js"></script>
+    <script type="text/javascript" src="../scripts/hidingThings.js"></script>
+</head>
+<body onload="checkCalSelect()">
+
+<!-- Navbar bar -->
+<nav class="navbar navbar-light backgroundColor">
+    <div class="navbar-header">
+
+        <!-- Home button -->
+        <a class="navbar-brand" href="../index.html"><span class="glyphicon glyphicon-education"
+                                                           aria-hidden="true"></span><span
+                id="navbar-name"> SKOLERUTE</span></a>
+        <!-- Center text -->
+        <p class="center" id="schoolName"></p>
+    </div>
+
+    <ul class="nav navbar-nav navbar-right">
+        <span onclick="openNav()" class="glyphicon glyphicon-menu-hamburger hamburger"></span>
+    </ul>
+</nav> <!-- /Navbar  -->
+
+<!-- Navbar toggle div -->
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span class="glyphicon glyphicon-remove"></span></a>
+    <a href="../index.html">HJEM</a>
+    <a href="schools.html">FAVORITTER</a>
+    <a href="about.html">OM SKOLERUTE</a>
+    <a href="#" class="cursorHelp" data-toggle="tooltip" data-placement="bottom" title="Hjelpesenter" id="myBtn"><span
+            class="glyphicon glyphicon-question-sign"
+            aria-hidden="true"></span> HJELP</a>
+</div> <!-- /Navbar toggle div -->
+
+<br>
+
+<!-- Legend bar -->
+<div class="container-fluid">
+    <div class="legendBar col-md-8 col-md-offset-2">
+        <p>
+        <div class="legendBox FriLegendColor"></div>
+        Fri</p>
+        <p>
+        <div class="legendBox kunSFOLegendColor"></div>
+        Kun SFO</p>
+        <a class="rightLegend"><span data-toggle="tooltip" data-placement="top" title="Favoritt" id="selecookiefav"
+                                     onclick="calenderCookie()"
+                                     class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+        <a class="rightLegend" id="schoolLink" target="_blank"><span data-toggle="tooltip" data-placement="top"
+                                                                     title="Skolens hjemmeside"
+                                                                     class="glyphicon glyphicon-link"
+                                                                     aria-hidden="true"></span></a>
+        <a class="rightLegend"><span data-toggle="tooltip" data-placement="top" title="Last ned kalenderen"
+                                     onclick="cal.iCal()" class="glyphicon glyphicon-calendar"
+                                     aria-hidden="true"></span></a>
+    </div>
+</div> <!-- /Legend bar -->
+
+<br>
+
+<!-- Calendar & List -->
+<div class="container-fluid">
+    <div class="row">
+        <!-- Calendar -->
+        <div id="calBox" class="col-md-4 text-center col-md-offset-2">
+            <div id="monthBox" class="month">
+                <ul>
+                    <li class="prev" id="cal_prev">❮</li>
+                    <li class="next" id="cal_next">❯</li>
+                    <li class="text-center" id="month">
+                        August<br>
+                        <span style="font-size:18px" id="year">2016</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Weekdays -->
+            <ul class="weekdays">
+                <li>Man</li>
+                <li>Tir</li>
+                <li>Ons</li>
+                <li>Tor</li>
+                <li>Fre</li>
+                <li>Lør</li>
+                <li>Søn</li>
+            </ul><!-- /Weekdays -->
+
+            <ul class="days">
+            </ul>
+        </div> <!-- /Calendar -->
+
+        <!-- List -->
+        <div class="col-md-4 text-center">
+            <div id="noScrollCalendar">
+                <ul id="myUL">
+                </ul>
+            </div>
+        </div>
+    </div> <!-- /List -->
+</div> <!-- /Calendar & List -->
+
+<!-- Help center -->
+<div class="container-fluid">
+    <!-- The Modal -->
+    <div id="myModal" class="modal text-center">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="glyphicon glyphicon-remove close"></span>
+                <h2>Hjelpesenter</h2>
+            </div>
+            <div class="modal-body">
+                <button class="accordion">Søke og bruke kalenderen</button>
+                <div class="panel">
+                    <img id="gif4" src="../img/play.png" alt="Avatar" class="img imgSize">
+                    <p>I kalenderen kan du legge til hendelsene i din personlige kalender, gå til skolens hjemmeside, og
+                        legge skolen til favoritter</p>
+                </div>
+                <button class="accordion">Legge til og fjerne favoritter</button>
+                <div class="panel">
+                    <img id="gif5" src="../img/play.png" alt="Avatar" class="img imgSize">
+                </div>
+                <button class="accordion">Finne skoler nærheten</button>
+                <div class="panel">
+                    <img id="gif6" src="../img/play.png" alt="Avatar" class="img imgSize">
+                    <p>Jo høyere skolen er i listen, jo nærmere er den din lokasjon</p>
+                </div>
+                <button class="accordion">FAQ</button>
+                <div class="panel">
+                    <h3>Ofte stilte spørsmål:</h3>
+                    <p>
+                        Q: Hvorfor finner jeg ingen Videregående skoler?
+                        <br/>
+                        A: Vi har kun informasjon om barne- og ungdomskoler i Stavanger.
+                    </p>
+                    <p>
+                        Q: Jeg finner ikke en skole i Sandnes, hvorfor?
+                        <br/>
+                        A: Vi har bare informasjon for barne- og ungdomskoler i Stavanger.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- /Help center -->
+
+<!-- Have to be here for it to work -->
+<script src="../scripts/modal.js"></script>
+<script src="../scripts/accordion.js"></script>
+
+</body>
+</html>
