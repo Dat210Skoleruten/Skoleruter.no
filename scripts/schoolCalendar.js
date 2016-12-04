@@ -132,13 +132,11 @@ function calendar(schoolNames, array) {
     this.checkMonth = function () {
     	if (this.firstMonth != null){
     		if (this.currentDate.getMonth() == this.firstMonth.getMonth() && this.currentDate.getFullYear() == this.firstMonth.getFullYear()) {
-    			console.log("hide");
     			$("#cal_prev").hide();
     		}else{
     			$("#cal_prev").show();
     		}
     		   if (this.currentDate.getMonth() == this.lastMonth.getMonth() && this.currentDate.getFullYear() == this.lastMonth.getFullYear()) {
-    		   	console.log("hide");
     			$("#cal_next").hide();
     		}else{
     			$("#cal_next").show();
@@ -198,7 +196,7 @@ function calendar(schoolNames, array) {
            
             //sets this.firstMonth
             if (this.firstMonth == null){
-            	console.log("setting first", dato);
+
             	this.firstMonth = dato;
             }
             //set this.lastMonth
