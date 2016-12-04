@@ -97,3 +97,11 @@ html, body {
         font-size: 3em;
     }
 }
+
+/* Small devices (tablets, 768px and down) */
+@media screen and (max-width: 321px) {
+    #icon {
+        display: none;
+    }
+}
+
