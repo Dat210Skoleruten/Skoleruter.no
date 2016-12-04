@@ -1,3 +1,4 @@
+
 /**
  * calendar is the object that controlls the calendar and list.
  * @param  {array} schoolNames 	The name of schools the caldenar should process
@@ -129,8 +130,6 @@ function calendar(schoolNames, array) {
      * checkMonth check if you are on the first or last mounth in the dataset. If in one of them, remove ability to go further in that direction
      */
     this.checkMonth = function () {
-    	console.log("første og siste : ",this.firstMonth, this.lastMonth);
-    	console.log(this.currentDate);
     	if (this.firstMonth != null){
     		if (this.currentDate.getMonth() == this.firstMonth.getMonth() && this.currentDate.getFullYear() == this.firstMonth.getFullYear()) {
     			console.log("hide");
