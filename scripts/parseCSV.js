@@ -42,7 +42,7 @@ function parseData(callback) {
 
 function parseSecondData(callback) {
     if (Session.get("schools") == null) {
-        url = "https://open.stavanger.kommune.no/dataset/8f8ac030-0d03-46e2-8eb7-844ee11a6203/resource/12f0d499-6474-4fe4-b457-db976e52cb37/download/skoler.csv";
+        url = "https://open.stavanger.kommune.no/dataset/8f8ac030-0d03-46e2-8eb7-844ee11a6203/resource/8d13aca1-a3b3-49d5-8728-8dc310ef9f4a/download/skoler.csv";
         console.time("Skoler")
         Papa.parse(url, { 
             download: true,
