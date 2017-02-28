@@ -323,7 +323,7 @@ function calendar(schoolNames, array) {
                             var currName = "";
 
                             if (dayType == "SFO") {
-                                status = "Kun SFO";
+                                status = "Kun SFO, " + dayComment;
                             } else if (dayType == "fri" && dayComment == "") {
                                 status = "Skolefri";
                             } else if (dayType != "weekend") {
