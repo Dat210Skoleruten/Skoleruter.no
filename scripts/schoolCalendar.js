@@ -1,4 +1,3 @@
-
 /**
  * calendar is the object that controlls the calendar and list.
  * @param  {array} schoolNames 	The name of schools the caldenar should process
@@ -18,7 +17,6 @@ function calendar(schoolNames, array) {
     ];
     this.firstMonth;
     this.lastMonth;
-    
 
 
 
@@ -284,6 +282,7 @@ function calendar(schoolNames, array) {
         if (this.schools.length == 0) {
             return;
         }
+
         for (var dates in this.schools[0].Datoer) {
             var eventDate = new Date(dates);
             var currDay = "";
@@ -315,6 +314,7 @@ function calendar(schoolNames, array) {
                                 dayType = "SFO";
                             } else if (dayComment == "Lørdag" || dayComment == "Søndag") {
                                 dayType = "weekend";
+
                             } else if (dayNum == "000" || dayNum == "010") {
                                 dayType = "fri";
                             }

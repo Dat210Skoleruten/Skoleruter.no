@@ -7,7 +7,11 @@
  The function getSchoolData combines these two datasets to one containing all schools with theirs respective routes.
  */
 
-
+var schoolPaths = {
+    stavanger: ["https://open.stavanger.kommune.no/dataset/86d3fe44-111e-4d82-be5a-67a9dbfbfcbb/resource/21cfc45a-d2bf-448a-a883-210ee4a96d9a/download/skolerute.csv", "https://open.stavanger.kommune.no/dataset/8f8ac030-0d03-46e2-8eb7-844ee11a6203/resource/8d13aca1-a3b3-49d5-8728-8dc310ef9f4a/download/skoler.csv"],
+    gjesdal: ["https://open.stavanger.kommune.no/dataset/c1a060b6-350c-433d-ac78-964ae8b0a9e3/resource/c7f1429f-79cc-4490-8eb0-fe623bfacb42/download/skolerute-2016---2017-gjesdal-kommune.csv","https://open.stavanger.kommune.no/dataset/dfb9b81c-d9a2-4542-8f63-7584a3594e02/resource/b55f5f5a-ffac-47f2-ad57-d439f696cc87/download/barne--og-ungdomsskoler-gjesdal-kommune.csv"],
+    gjesdal_offline: ["skolerute_gjesdal.csv","skoler_gjesdal.csv"]
+}
 //######################################################################################
   //Check if mySchools Cookes is set and go to schools.html
 
@@ -22,7 +26,8 @@
 
 function parseData(callback) {
     if (Session.get("schoolRoutes") == null) {
-        url = "https://open.stavanger.kommune.no/dataset/86d3fe44-111e-4d82-be5a-67a9dbfbfcbb/resource/21cfc45a-d2bf-448a-a883-210ee4a96d9a/download/skolerute.csv";
+        url = schoolPaths.stavanger[0];
+        console.log(url);
         var start = new Date().getTime();
         console.time("Skoleruter")
         Papa.parse(url, { 
@@ -42,7 +47,8 @@ function parseData(callback) {
 
 function parseSecondData(callback) {
     if (Session.get("schools") == null) {
-        url = "https://open.stavanger.kommune.no/dataset/8f8ac030-0d03-46e2-8eb7-844ee11a6203/resource/8d13aca1-a3b3-49d5-8728-8dc310ef9f4a/download/skoler.csv";
+       url = schoolPaths.stavanger[1];
+
         console.time("Skoler")
         Papa.parse(url, { 
             download: true,
@@ -119,22 +125,28 @@ function getSchoolData() {
 function formatDato(entry) {
     var dayType = "";
 
-    if (entry.elevdag == "Ja") {
+    if (!entry || !(entry.elevdag) || !(entry.sfodag)){ // hvis undefined (gjesdal har defekt data)
+        console.log(entry);
+        return ["111", ""];
+    }
+
+    if (entry.elevdag.toLowerCase() == "ja") {
         dayType += "1";
     } else {
         dayType += "0";
     }
 
-    if (entry.laererdag == "Ja") {
-        dayType += "1";
-    } else {
-        dayType += "0";
-    }
+    dayType += "1"; // lærerdag (obsolete)
 
-    if (entry.sfodag == "Ja") {
+
+
+    if(entry.sfodag.toLowerCase() == "ja") {
         dayType += "1";
-    } else {
+    } else if(entry.sfodag.toLowerCase() == "nei"){
         dayType += "0";
+    }else{
+        dayType += "0";
+        //console.log("sfodag: ", entry.sfodag);
     }
     return [dayType, entry.kommentar];
 };
