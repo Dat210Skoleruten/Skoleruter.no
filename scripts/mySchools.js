@@ -1,43 +1,44 @@
 //function to check
-function checkCookie(val) {
-    console.log(Cookies.get('mySchools') == null);
-    var schoStr = "";
-    var ArrOfSchools = [];
-    var elem = document.getElementById(val);
-    //console.log(elem.firstElementChild.firstElementChild.className);
+var currCal = null;
 
-    if (Cookies.get('mySchools') == null) {
-        //  console.log("mySchools var tom!");
-        Cookies.set('mySchools', val, {expires: 365});
-        elem.firstElementChild.firstElementChild.setAttribute("class", 'glyphicon glyphicon-star');
+function getCurrCal() {
+    if (currCal != null) {
+        return currCal;
     } else {
-        //  console.log("else", Cookies.get('mySchools') == null);
 
+    }
+}
+function checkCookie(val) {
+    var elem = document.getElementById(val);
+
+    if (checking(val)) {
+        elem.firstElementChild.firstElementChild.className = 'glyphicon glyphicon-heart-empty';
+    } else {
+        elem.firstElementChild.firstElementChild.setAttribute("class", 'glyphicon glyphicon-heart');
+    }
+    showFavorites() // printMySchools.js - if mySchools is empty, grey out mySchools button in index and vice versa
+}
+
+function checking(school) {
+    if (Cookies.get('mySchools') == null) {
+        Cookies.set('mySchools', school, {expires: 365});
+        return false;
+    } else {
         schoStr = Cookies.get('mySchools');
-        console.log(schoStr);
-        //if(schoStr.substring(0,1) == ","){
-        //    schoStr = schoStr.substring(1, schoStr.length);
-        //    console.log("FOUND COMMA!")
-        //}
         ArrOfSchools = schoStr.split(",");
-
-        //  console.log(ArrOfSchools);
-        //  console.log("toloaasd");
         for (var i = 0; i < ArrOfSchools.length; i++) {
-            if (val == ArrOfSchools[i]) {
+            if (school == ArrOfSchools[i]) {
                 ArrOfSchools.splice(i, 1);
                 Cookies.set('mySchools', ArrOfSchools.toString(), {expires: 365});
-                elem.firstElementChild.firstElementChild.className = 'glyphicon glyphicon-star-empty';
                 if (ArrOfSchools.toString() == "") {
                     Cookies.remove("mySchools");
                 }
-                return;
+                return true;
             }
         }
-
-        ArrOfSchools.push(val);
+        ArrOfSchools.push(school);
         Cookies.set('mySchools', ArrOfSchools.toString(), {expires: 365});
-        elem.firstElementChild.firstElementChild.className = 'glyphicon glyphicon-star';
+        return false;
     }
 }
 
@@ -61,7 +62,7 @@ function checkCalSelect() {
 
         for (var i = 0; i < ArrOfSchools.length; i++) {
             if (Cookies.get("selected") == ArrOfSchools[i]) {
-                elem.className = "glyphicon glyphicon-star";
+                elem.className = "glyphicon glyphicon-heart";
             }
         }
     }
@@ -69,30 +70,29 @@ function checkCalSelect() {
 
 function calenderCookie() {
     var elem = document.getElementById("selecookiefav");
-    var schoStr = "";
-    var ArrOfSchools = [];
 
-    if (Cookies.get('mySchools') == null) {
-        //  console.log("mySchools var tom!");
-        Cookies.set('mySchools', Cookies.get("selected"), {expires: 365});
-        elem.className = 'glyphicon glyphicon-star';
+    if (checking(Cookies.get("selected"))) {
+        elem.className = 'glyphicon glyphicon-heart-empty';
     } else {
-        //  console.log("else", Cookies.get('mySchools') == null);
-        schoStr = Cookies.get('mySchools');
-        ArrOfSchools = schoStr.split(",");
-        //  console.log(ArrOfSchools);
-        //  console.log("toloaasd");
-
-        for (var i = 0; i < ArrOfSchools.length; i++) {
-            if (Cookies.get("selected") == ArrOfSchools[i]) {
-                ArrOfSchools.splice(i, 1);
-                Cookies.set('mySchools', ArrOfSchools.toString(), {expires: 365});
-                elem.className = 'glyphicon glyphicon-star-empty';
-                return;
-            }
-        }
-        ArrOfSchools.push(Cookies.get("selected"));
-        Cookies.set('mySchools', ArrOfSchools.toString(), {expires: 365});
-        elem.className = 'glyphicon glyphicon-star';
+        elem.className = 'glyphicon glyphicon-heart';
     }
 }
+
+function removeSchool(school) {
+    //mySchoolString = Cookies.get('mySchools');
+    if (Cookies.get('mySchools') != null) {
+        checking(school);
+
+
+        printMySchools();
+
+        cal.rebuildSchools();
+        cal.buildCalendar();
+        cal.buildList();
+
+    }
+    else {
+        
+    }
+}
+

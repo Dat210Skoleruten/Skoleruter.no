@@ -1,20 +1,50 @@
 tabell = document.getElementById('indexList');
-
+$(function(){
+checkLocation();
+});
+function checkLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    }
+}
 function getLocation() {
     if (navigator.geolocation) {
         console.log("Geolocation is supported")
-        navigator.geolocation.getCurrentPosition(findClosest);
+        navigator.geolocation.getCurrentPosition(findClosest, showError);
     } else {
         console.log("Geolocation is not supported by this browser.");
     }
+}
+function showError(error) {
+    if(error == null){
+        $('#position').removeClass("isInactive");
+        return false;
+    }
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            console.log("User denied the request for Geolocation.");
+            document.getElementById("position").style.opacity = 0.4;
+            $('#position').attr('data-original-title','Skru på stedstjenester');
+            break;
+        case error.POSITION_UNAVAILABLE:
+            console.log("Location information is unavailable.");
+            break;
+        case error.TIMEOUT:
+            console.log("The request to get user location timed out.");
+            break;
+        case error.UNKNOWN_ERROR:
+            console.log("An unknown error occurred.");
+            break;
+    }
+    $('#position').addClass("isInactive");
+    return true;
+
 }
 
 
 function showPosition(position) {
     lat = position.coords.latitude;
     lng = position.coords.longitude;
-
-    //console.log(distance(position.coords.latitude, position.coords.longitude, 40.545073, -74.068443))
 }
 
 function distance(lat1, lon1, lat2, lon2) {
@@ -30,10 +60,9 @@ function distance(lat1, lon1, lat2, lon2) {
 }
 
 function findClosest(position) {
+    $("#indexSearch").val("");
     var lat = position.coords.latitude;
     var lng = position.coords.longitude;
-
-    console.log("Current position lat:", lat, "lon:", lng);
     var schoolList = getSchoolData(); //Gets the data from the getSortedCSV() function in getData.js
     var dist_array = [];
 
@@ -42,18 +71,19 @@ function findClosest(position) {
         //to calculate the distance.
 
         var dist = distance(lat, lng, schoolList[i]["Latitude"], schoolList[i]["Longitude"]);
-        dist_array[i] = [dist, schoolList[i]["Skolenavn"]]; //Makes new array with distance an scoolname as attributes
+        //dist_array[i] = [dist, schoolList[i]["Skolenavn"]]; //Makes new array with distance an scoolname as attributes
+        dist_array[i] = {Distance: dist, Skolenavn: schoolList[i]["Skolenavn"]};
     }
 
     function sortFunction(a, b) {
-        if (a[0] === b[0]) {
+        if (a.Distance === b.Distance) {
             return 0;
         }
         else {
-            return (a[0] < b[0]) ? -1 : 1;
+            return (a.Distance < b.Distance) ? -1 : 1;
         }
     }
 
     sorted_distance = dist_array.sort(sortFunction); //Sorts array by distance
-    getIndexListItemsPos(sorted_distance);
+    getIndexListItems(sorted_distance);
 }
