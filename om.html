@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html manifest="demo.appcache">
 <head>
-    <title>Skolerute - Kalender</title>
+    <title>Skolerute - Om</title>
     <meta charset="UTF-8">
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
 
@@ -23,29 +23,16 @@
     <!-- Local stylesheets -->
     <link rel="stylesheet" type="text/css" href="styles/base.css"/>
     <link rel="stylesheet" type="text/css" href="styles/sidebar.css"/>
-    <link rel="stylesheet" type="text/css" href="styles/calendar.css"/>
     <link rel="stylesheet" type="text/css" href="styles/navbar.css">
-    <link rel="stylesheet" type="text/css" href="styles/calendarList.css">
-    <link rel="stylesheet" type="text/css" href="styles/legendBar.css">
+    <link rel="stylesheet" type="text/css" href="styles/cards.css">
     <link rel="stylesheet" type="text/css" href="styles/accordion.css">
     <link rel="stylesheet" type="text/css" href="styles/modal.css">
 
     <!-- Local scripts -->
-    <script type="text/javascript" src="scripts/protype.js"></script>
-    <script type="text/javascript" src="https://rawgithub.com/nwcell/ics.js/master/ics.deps.min.js"></script>
-    <script type="text/javascript" src="scripts/cookie.js"></script>
-    <script type="text/javascript" src="scripts/session.js"></script>
-    <script type="text/javascript" src="scripts/papaparse.min.js"></script>
-    <script type="text/javascript" src="scripts/gps.js"></script>
-    <script type="text/javascript" src="scripts/parseCSV.js"></script>
-    <script type="text/javascript" src="scripts/mySchools.js"></script>
-    <script type="text/javascript" src="scripts/schoolCalendar.js"></script>
-    <script type="text/javascript" src="scripts/calendar.js"></script>
     <script type="text/javascript" src="scripts/sidebar.js"></script>
-    <script type="text/javascript" src="scripts/menuController.js"></script>
     <script type="text/javascript" src="scripts/hidingThings.js"></script>
 </head>
-<body onload="checkCalSelect()">
+<body>
 
 <!-- Navbar bar -->
 <nav class="navbar navbar-light backgroundColor">
@@ -56,7 +43,7 @@
                                                         aria-hidden="true"></span><span
                 id="navbar-name"> SKOLERUTE</span></a>
         <!-- Center text -->
-        <p class="center" id="schoolName"></p>
+        <p class="center">Utviklet av</p> <!-- CENTER TEXT -->
     </div>
 
     <ul class="nav navbar-nav navbar-right">
@@ -68,8 +55,8 @@
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span class="glyphicon glyphicon-remove"></span></a>
     <a href="index.html">HJEM</a>
-    <a href="schools.html">FAVORITTER</a>
-    <a href="about.html">OM SKOLERUTE</a>
+    <a href="skoler.html">FAVORITTER</a>
+    <a href="om.html">OM SKOLERUTE</a>
     <a href="#" class="cursorHelp" data-toggle="tooltip" data-placement="bottom" title="Hjelpesenter" id="myBtn"><span
             class="glyphicon glyphicon-question-sign"
             aria-hidden="true"></span> HJELP</a>
@@ -77,70 +64,65 @@
 
 <br>
 
-<!-- Legend bar -->
-<div class="container-fluid">
-    <div class="legendBar col-md-8 col-md-offset-2">
-        <p>
-        <div class="legendBox FriLegendColor"></div>
-        Fri</p>
-        <p>
-        <div class="legendBox kunSFOLegendColor"></div>
-        Kun SFO</p>
-        <a class="rightLegend"><span data-toggle="tooltip" data-placement="top" title="Favoritt" id="selecookiefav"
-                                     onclick="calenderCookie()"
-                                     class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
-        <a class="rightLegend" id="schoolLink" target="_blank"><span data-toggle="tooltip" data-placement="top"
-                                                                     title="Skolens hjemmeside"
-                                                                     class="glyphicon glyphicon-link"
-                                                                     aria-hidden="true"></span></a>
-        <a class="rightLegend"><span data-toggle="tooltip" data-placement="top" title="Last ned kalenderen"
-                                     onclick="cal.iCal()" class="glyphicon glyphicon-calendar"
-                                     aria-hidden="true"></span></a>
-    </div>
-</div> <!-- /Legend bar -->
-
-<br>
-
-<!-- Calendar & List -->
+<!-- First card column -->
 <div class="container-fluid">
     <div class="row">
-        <!-- Calendar -->
-        <div id="calBox" class="col-md-4 text-center col-md-offset-2">
-            <div id="monthBox" class="month">
-                <ul>
-                    <li class="prev" id="cal_prev">❮</li>
-                    <li class="next" id="cal_next">❯</li>
-                    <li class="text-center" id="month">
-                        August<br>
-                        <span style="font-size:18px" id="year">2016</span>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Weekdays -->
-            <ul class="weekdays">
-                <li>Man</li>
-                <li>Tir</li>
-                <li>Ons</li>
-                <li>Tor</li>
-                <li>Fre</li>
-                <li>Lør</li>
-                <li>Søn</li>
-            </ul><!-- /Weekdays -->
-
-            <ul class="days">
-            </ul>
-        </div> <!-- /Calendar -->
-
-        <!-- List -->
-        <div class="col-md-4 text-center">
-            <div id="noScrollCalendar">
-                <ul id="myUL">
-                </ul>
+        <div class="col-xs-3 col-xs-offset-2">
+            <div class="col-xs-15 text-center">
+                <div class="card">
+                    <img src="img/temp_man.png" alt="Avatar" class="img">
+                    <h4><b>Alexander Gundersen</b></h4>
+                </div>
             </div>
         </div>
-    </div> <!-- /List -->
-</div> <!-- /Calendar & List -->
+        <div class="col-xs-3">
+            <div class="col-xs-15 text-center">
+                <div class="card">
+                    <img src="img/temp_man.png" alt="Avatar" class="img">
+                    <h4><b>Fabian Legland Boe</b></h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="col-xs-15 text-center">
+                <div class="card">
+                    <img src="img/temp_woman.png" alt="Avatar" class="img">
+                    <h4><b>Nourhan Ragab</b></h4>
+                </div>
+            </div>
+        </div>
+    </div> <!-- /First card column -->
+
+    <br>
+
+    <!-- Second card column -->
+    <div class="row">
+        <div class="col-xs-3 col-xs-offset-2">
+            <div class="col-xs-15 text-center">
+                <div class="card">
+                    <img src="img/temp_man.png" alt="Avatar" class="img">
+                    <h4><b>Thomas Rasmussen</b></h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="col-xs-15 text-center">
+                <div class="card">
+                    <img src="img/temp_man.png" alt="Avatar" class="img">
+                    <h4><b>Kristoffer Løyning Bøe</b></h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="col-xs-15 text-center">
+                <div class="card">
+                    <img src="img/temp_man.png" alt="Avatar" class="img">
+                    <h4><b>Kristian M. Backer-Owe</b></h4>
+                </div>
+            </div>
+        </div>
+    </div> <!-- /Second card column -->
+</div>
 
 <!-- Help center -->
 <div class="container-fluid">
@@ -180,6 +162,11 @@
                         Q: Jeg finner ikke en skole i Sandnes, hvorfor?
                         <br/>
                         A: Vi har bare informasjon for barne- og ungdomskoler i Stavanger.
+                    </p>
+                    <p>
+                        Q: GPS knappen fungerer ikke, hvorfor?
+                        <br/>
+                        A: For at kanppen skal fungere, må du gi nettleseren tilatelse til å hente din posisjon.
                     </p>
                 </div>
             </div>
