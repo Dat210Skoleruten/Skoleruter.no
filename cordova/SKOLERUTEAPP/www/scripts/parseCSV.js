@@ -9,12 +9,12 @@
 
 
 //######################################################################################
-  //Check if mySchools Cookes is set and go to schools.html
+  //Check if mySchools Cookes is set and go to skoler.html
 
     if( Cookies.get("mySchools") != null && Cookies.get("visiting") == null){
     Cookies.set("visiting", "true");
     Cookies.set("calendarType", "mySchools");
-    window.location.href = '../../../../schools.html';
+    window.location.href = '../../../../skoler.html';
     }
     Cookies.set("visiting", "true");
 
