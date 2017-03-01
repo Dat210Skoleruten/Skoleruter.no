@@ -30,7 +30,6 @@ function pushMessange() {
             console.log("push clicked");
             this.close();
         }
-
     });
 }
 
