@@ -56,25 +56,11 @@
         ga('send', 'pageview');
     </script>
 </head>
-<body onLoad="showFavorites()">
+<body>
 
 <!-- Navbar bar -->
 <nav class="navbar navbar-light backgroundColor">
-    <ul class="nav navbar-nav navbar-right">
-        <span onclick="openNav()" class="glyphicon glyphicon-menu-hamburger hamburger"></span>
-    </ul>
 </nav> <!-- /Navbar -->
-
-<!-- Navbar toggle div -->
-<div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span class="glyphicon glyphicon-remove"></span></a>
-    <a href="index.html">HJEM</a>
-    <a href="skoler.html">FAVORITTER</a>
-    <a href="om.html">OM SKOLERUTER</a>
-    <a href="#" class="cursorHelp" data-toggle="tooltip" data-placement="bottom" title="Hjelpesenter" id="myBtn"><span
-            class="glyphicon glyphicon-question-sign"
-            aria-hidden="true"></span> HJELP</a>
-</div> <!-- /Navbar toggle div -->
 
 <div class="container-fluid">
     <!-- Search bar -->
@@ -87,55 +73,6 @@
         <p class="text-center"><a href="sok.html">Gjesdal</a></p>
     </div> <!-- /Search bar -->
 </div> <!-- /container-fluid -->
-
-<!-- Help center -->
-<div class="container-fluid">
-    <!-- The Modal -->
-    <div id="myModal" class="modal text-center">
-        <!-- Modal content -->
-        <div class="modal-content">
-            <div class="modal-header">
-                <span class="glyphicon glyphicon-remove close"></span>
-                <h2>Hjelpesenter</h2>
-            </div>
-            <div class="modal-body">
-                <button class="accordion">Søke og bruke kalenderen</button>
-                <div class="panel">
-                    <img id="gif1" src="img/play.png" alt="Avatar" class="img imgSize">
-                    <p>I kalenderen kan du legge til hendelsene i din personlige kalender, gå til skolens hjemmeside, og
-                        legge skolen til favoritter</p>
-                </div>
-                <button class="accordion">Legge til og fjerne favoritter</button>
-                <div class="panel">
-                    <img id="gif2" src="img/play.png" alt="Avatar" class="img imgSize">
-                </div>
-                <button class="accordion">Finne skoler nærheten</button>
-                <div class="panel">
-                    <img id="gif3" src="img/play.png" alt="Avatar" class="img imgSize">
-                    <p>Jo høyere skolen er i listen, jo nærmere er den din lokasjon</p>
-                </div>
-                <button class="accordion">FAQ</button>
-                <div class="panel">
-                    <h3>Ofte stilte spørsmål:</h3>
-                    <p>
-                        Q: Hvorfor finner jeg ingen Videregående skoler?
-                        <br/>
-                        A: Vi har kun informasjon om barne- og ungdomskoler i Stavanger.
-                    </p>
-                    <p>
-                        Q: Jeg finner ikke en skole i Sandnes, hvorfor?
-                        <br/>
-                        A: Vi har bare informasjon for barne- og ungdomskoler i Stavanger.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> <!-- /Help center -->
-
-<!-- Have to be here for it to work -->
-<script src="scripts/modal.js"></script>
-<script src="scripts/accordion.js"></script>
 
 </body>
 </html>
