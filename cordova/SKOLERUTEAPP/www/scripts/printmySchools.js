@@ -60,7 +60,7 @@ function printMySchools() {
     $(".favorite").click(function () {
         Cookies.set("calendarType", "selected");
         Cookies.set("selected", $(this).text());
-        window.location.replace("calendar.html");
+        window.location.replace("kalender.html");
     });
 }
 
