@@ -18,7 +18,7 @@ console.log("potato");
 
 if(location.hostname.split('.')[0] == "dev" || location.hostname.split('.')[0] == "skoleruter"){
     console.log("not selected kommune");
-    window.location.href = location.hostname + "/kommune.html";
+    window.location.href = "/kommune.html";
 }else{
     console.log(Cookies.get("SelectedSet"), location.hostname.split('.')[0]);
     if(Cookies.get("SelectedSet") != location.hostname.split('.')[0]){
