@@ -7,9 +7,10 @@
  The function getSchoolData combines these two datasets to one containing all schools with theirs respective routes.
  */
 
-schoolPaths = [];
+schoolPaths = []; // schoolPaths["skolenavn slik som på subdomenet"] = ["skolerutelink", "skolelink"]
 schoolPaths["stavanger"] = ["https://open.stavanger.kommune.no/dataset/86d3fe44-111e-4d82-be5a-67a9dbfbfcbb/resource/21cfc45a-d2bf-448a-a883-210ee4a96d9a/download/skolerute.csv", "https://open.stavanger.kommune.no/dataset/8f8ac030-0d03-46e2-8eb7-844ee11a6203/resource/8d13aca1-a3b3-49d5-8728-8dc310ef9f4a/download/skoler.csv"];
 schoolPaths["gjesdal"] = ["skolerute_gjesdal.csv", "skoler_gjesdal.csv"];
+schoolPaths["baerum"] = ["https://open.stavanger.kommune.no/dataset/6837c1de-6dce-48a3-a8a6-e59630912779/resource/19f6c237-bc56-4c1d-bb59-4538a3215eba/download/skolerute-2016-17.csv", "https://open.stavanger.kommune.no/dataset/4a5f420f-453d-4e23-85f5-0b1d5d4a1fe0/resource/95bc274b-04bc-4a45-82ce-3d22ef46225d/download/skoler-i-baerum.csv"];
 
 
 console.log("page is:", location.hostname);
