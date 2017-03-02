@@ -14,7 +14,11 @@ schoolPaths["gjesdal"] = ["skolerute_gjesdal.csv", "skoler_gjesdal.csv"];
 
 console.log("page is:", location.hostname);
 console.log(location.hostname.split('.'));
-Cookies.set("SelectedSet", location.hostname.split('.')[0]);
+if(location.hostname.split('.')[0] != "dev"){
+    Cookies.set("SelectedSet", location.hostname.split('.')[0]);
+}else{
+    Cookies.set("SelectedSet", "stavanger");
+}
 Console.log("selected data set:", Cookies.get("SelectedSet"));
 //######################################################################################
   //Check if mySchools Cookes is set and go to skoler.html
