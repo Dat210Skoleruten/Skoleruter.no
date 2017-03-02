@@ -19,7 +19,7 @@ if(location.hostname.split('.')[0] != "dev"){
 }else{
     Cookies.set("SelectedSet", "stavanger");
 }
-Console.log("selected data set:", Cookies.get("SelectedSet"));
+console.log("selected data set:", Cookies.get("SelectedSet"));
 //######################################################################################
   //Check if mySchools Cookes is set and go to skoler.html
 
