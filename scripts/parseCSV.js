@@ -14,17 +14,20 @@ schoolPaths["gjesdal"] = ["skolerute_gjesdal.csv", "skoler_gjesdal.csv"];
 
 console.log("page is:", location.hostname);
 console.log(location.hostname.split('.'));
-if(location.hostname.split('.')[0] != "dev"){
+console.log("potato");
+
+if(location.hostname.split('.')[0] == "dev" || location.hostname.split('.')[0] == "skoleruter"){
+    console.log("not selected kommune");
+    window.location.href = location.hostname + "/kommune.html";
+}else{
     console.log(Cookies.get("SelectedSet"), location.hostname.split('.')[0]);
     if(Cookies.get("SelectedSet") != location.hostname.split('.')[0]){
         Session.set("schoolRoutes", null);
         Session.set("schools", null);
     }
     Cookies.set("SelectedSet", location.hostname.split('.')[0]);
-}else{
-    Cookies.set("SelectedSet", "stavanger");
 }
-console.log("selected data set:", Cookies.get("SelectedSet"));
+
 //######################################################################################
   //Check if mySchools Cookes is set and go to skoler.html
 
