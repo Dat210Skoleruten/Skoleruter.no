@@ -52,6 +52,7 @@ function parseData(callback) {
         Papa.parse(url, { 
             download: true,
             fastMode: true,
+            quoteChar: '"',
             header: true,
             complete: function (results) {
                 console.timeEnd("Skoleruter");
@@ -72,6 +73,7 @@ function parseSecondData(callback) {
         Papa.parse(url, { 
             download: true,
             fastMode: true,
+            quoteChar: '"',
             header: true,
             skipEmptyLines: true,
             complete: function (results) {
