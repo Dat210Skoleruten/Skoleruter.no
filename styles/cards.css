@@ -18,14 +18,3 @@
 h4 {
     padding: 5px;
 }
-
-/* Medium devices (desktops, 530px and down) */
-@media screen and (max-width: 530px) {
-    h4 {
-        font-size: 7px;
-    }
-
-    .card p {
-        font-size: 8px;
-    }
-}
