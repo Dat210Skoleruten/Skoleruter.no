@@ -57,7 +57,10 @@
 
         $(document).ready(function(){
             console.log($(".welcome").text());
-            $(".welcome").text("Velkommen! Her kan du søke på barne- og ungdomskoler i " + jQuery.camelCase(location.hostname.split('.')[0]) + " og få en oversikt over ferier og andre fridager!");
+            var str = $(".welcome").text();
+            var start = str.substr(0, 1).toUpperCase();
+            str = start + str.substr(1);
+            $(".welcome").text("Velkommen! Her kan du søke på barne- og ungdomskoler i " + str + " og få en oversikt over ferier og andre fridager!");
         });
     </script>
 </head>
@@ -133,8 +136,7 @@
 <!-- Welcome text -->
 <div class="container-fluid">
     <div class="text-center" id="welcomeText">
-        <p class="welcome"> Velkommen! Her kan du søke på barne- og ungdomskoler i Stavanger og få en oversikt
-            over ferier og andre fridager! <span id="currPlatform"> </span></p>
+        <p class="welcome">  <span id="currPlatform"> </span></p>
     </div>
 </div>  <!-- /Welcome text -->
 
