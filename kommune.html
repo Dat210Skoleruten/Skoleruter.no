@@ -32,6 +32,10 @@
 
         ga('create', 'UA-92850320-1', 'auto');
         ga('send', 'pageview');
+
+        $("#kommuneList td a").each(function(){
+            this.href = this.id + "." + location.hostname;
+        })
     </script>
 </head>
 <body>
@@ -53,10 +57,10 @@
             <table class="text-center" id="kommuneList">
                 <tr>
                     <td>
-                        <a href="index.html">Stavanger</a>
+                        <a id="stavanger" href="index.html">Stavanger</a>
                     </td>
                     <td>
-                        <a href="index.html">Gjesdal</a>
+                        <a id="gjesdal" href="index.html">Gjesdal</a>
                     </td>
                 </tr>
             </table>
