@@ -13,7 +13,7 @@ schoolPaths["gjesdal"] = ["skolerute_gjesdal.csv", "skoler_gjesdal.csv"];
 
 
 console.log("page is:", location.hostname);
-console.log("SelectedSet is:", Cookies.get("SelectedSet"));
+console.log("SelectedSet is:", Session.get("SelectedSet"));
 console.log(location.hostname.split('.'));
 console.log("potato");
 
@@ -21,12 +21,13 @@ if(location.hostname.split('.')[0] == "dev" || location.hostname.split('.')[0] =
     console.log("not selected kommune");
     window.location.href = "/kommune.html";
 }else{
-    console.log(Cookies.get("SelectedSet"), location.hostname.split('.')[0]);
-    if(Cookies.get("SelectedSet") != location.hostname.split('.')[0]){
+    console.log(Session.get("SelectedSet"), location.hostname.split('.')[0]);
+    if(Session.get("SelectedSet") != location.hostname.split('.')[0]){
+        console.log("FLUSHING DATA");
         Session.set("schoolRoutes", null);
         Session.set("schools", null);
     }
-    Cookies.set("SelectedSet", location.hostname.split('.')[0]);
+    Session.set("SelectedSet", location.hostname.split('.')[0]);
 }
 
 //######################################################################################
@@ -43,7 +44,7 @@ if(location.hostname.split('.')[0] == "dev" || location.hostname.split('.')[0] =
 
 function parseData(callback) {
     if (Session.get("schoolRoutes") == null) {
-        url = schoolPaths[Cookies.get("SelectedSet")][0];
+        url = schoolPaths[Session.get("SelectedSet")][0];
         console.log(url);
         var start = new Date().getTime();
         console.time("Skoleruter")
@@ -64,7 +65,7 @@ function parseData(callback) {
 
 function parseSecondData(callback) {
     if (Session.get("schools") == null) {
-        url = schoolPaths[Cookies.get("SelectedSet")][1];
+        url = schoolPaths[Session.get("SelectedSet")][1];
 
         console.time("Skoler")
         Papa.parse(url, { 
