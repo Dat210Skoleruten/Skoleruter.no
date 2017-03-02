@@ -55,6 +55,7 @@ html, body {
     text-decoration: none;
     color: #495156;
     padding: 12px; /* Top Right Bottom Left */
+    width: 130px;
 }
 
 #kommuneList td a:hover {
