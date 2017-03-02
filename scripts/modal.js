@@ -51,7 +51,7 @@ $(document).ready(function () {
         }
     });
 
-    /* Helpsenter in other html files than index.html */
+    /* Helpsenter in other html files than kommune.html */
     $("#gif4").click(function(){
         if($(this).attr("src") ==  "../img/play.png"){
             $(this).attr("src", "../img/Soke_og_Bruke_kalender.gif");

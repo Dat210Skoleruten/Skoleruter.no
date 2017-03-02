@@ -22,7 +22,29 @@
 
     <!-- Local stylesheets -->
     <link rel="stylesheet" type="text/css" href="styles/base.css"/>
-    <link rel="stylesheet" type="text/css" href="styles/indexSearch.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/sidebar.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/calendar.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/accordion.css">
+    <link rel="stylesheet" type="text/css" href="styles/navbar.css">
+    <link rel="stylesheet" type="text/css" href="styles/modal.css">
+    <link rel="stylesheet" type="text/css" href="styles/indexSearch.css">
+
+    <!-- Local scripts -->
+    <script type="text/javascript" src="scripts/cookie.js"></script>
+    <script type="text/javascript" src="scripts/session.js"></script>
+    <script type="text/javascript" src="scripts/papaparse.min.js"></script>
+    <script type="text/javascript" src="scripts/parseCSV.js"></script>
+    <script type="text/javascript" src="scripts/gps.js"></script>
+    <script type="text/javascript" src="scripts/indexSearch.js"></script>
+    <script type="text/javascript" src="scripts/sidebar.js"></script>
+    <script type="text/javascript" src="scripts/mySchools.js"></script>
+    <script type="text/javascript" src="scripts/menuController.js"></script>
+    <script type="text/javascript" src="scripts/printmySchools.js"></script>
+    <script type="text/javascript" src="scripts/chooseTop.js"></script>
+    <script type="text/javascript" src="scripts/push.min.js"></script>
+    <script type="text/javascript" src="scripts/pushNotification.js"></script>
+    <script type="text/javascript" src="scripts/hidingThings.js"></script>
+    <script type="text/javascript" src="scripts/testingHover.js"></script>
 
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -34,11 +56,25 @@
         ga('send', 'pageview');
     </script>
 </head>
-<body>
+<body onLoad="showFavorites()">
 
 <!-- Navbar bar -->
 <nav class="navbar navbar-light backgroundColor">
+    <ul class="nav navbar-nav navbar-right">
+        <span onclick="openNav()" class="glyphicon glyphicon-menu-hamburger hamburger"></span>
+    </ul>
 </nav> <!-- /Navbar -->
+
+<!-- Navbar toggle div -->
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span class="glyphicon glyphicon-remove"></span></a>
+    <a href="kommune.html">HJEM</a>
+    <a href="skoler.html">FAVORITTER</a>
+    <a href="om.html">OM SKOLERUTER</a>
+    <a href="#" class="cursorHelp" data-toggle="tooltip" data-placement="bottom" title="Hjelpesenter" id="myBtn"><span
+            class="glyphicon glyphicon-question-sign"
+            aria-hidden="true"></span> HJELP</a>
+</div> <!-- /Navbar toggle div -->
 
 <div class="container-fluid">
     <!-- Search bar -->
@@ -46,22 +82,105 @@
         <h1 class="text-center" id="icon"><span class="glyphicon glyphicon-education text-center" id="iconeducationhat"
                                                 aria-hidden="true"></span></h1>
         <h1 class="text-center" id="title">SKOLERUTER</h1> <!-- title -->
-        <p class="text-center" id="subtitle">VELG KOMMUNE</p> <!-- subtitle -->
 
-        <br />
+        <!-- Form -->
+        <form role="form">
+            <div class="col-lg-6 col-lg-offset-3">
+                <div class="input-group input-group-lg">
 
-            <table class="text-center" id="kommuneList">
-                <tr>
-                    <td>
-                        <a href="sok.html">Stavanger</a>
-                    </td>
-                    <td>
-                        <a href="sok.html">Gjesdal</a>
-                    </td>
-                </tr>
-            </table>
+                    <!-- Position icon -->
+                    <span data-toggle="tooltip" data-placement="bottom" title="Nærmeste skoler"
+                          class="input-group-addon"
+                          id="position"
+                          onclick="getLocation()"><span class="glyphicon glyphicon-map-marker mainColorText"
+                                                        aria-hidden="true"></span></span>
+
+                    <!-- input bar -->
+                    <input type="text" id="indexSearch" onkeyup="indexSearchList()" onfocus="getIndexListItems('List');"
+                           class="form-control" placeholder="Finn skole..." aria-hidden="true"
+                           autocomplete="off">
+
+                    <!-- Favorite icon -->
+                    <a href="skoler.html" onclick="Cookies.set('calendarType', 'mySchools')" data-toggle="tooltip"
+                       data-placement="bottom" title="Gå til favoritter" id="goToFave"
+                       class="input-group-addon cursorPointer"><span
+                            class="glyphicon glyphicon-heart-empty mainColorText"
+                            aria-hidden="true"></span></a>
+                </div>
+            </div><!-- /.col-lg-6 col-sm-offset-3"> -->
+        </form> <!-- /Form -->
     </div> <!-- /Search bar -->
 </div> <!-- /container-fluid -->
+
+<br>
+
+<!-- The school list table -->
+<div class="container-fluid">
+    <div class="col-sm-10 col-sm-offset-1">
+        <div class="col-lg-6 col-lg-offset-3">
+            <div id="noScroll">
+                <table id="indexList"></table>
+            </div>
+        </div>
+    </div>
+</div> <!-- /The school list table -->
+
+<!-- Welcome text -->
+<div class="container-fluid">
+    <div class="text-center" id="welcomeText">
+        <p Class="welcome"> Velkommen! Her kan du søke på barne- og ungdomskoler i Stavanger og få en oversikt
+            over ferier og andre fridager! <span id="currPlatform"> </span></p>
+    </div>
+</div>  <!-- /Welcome text -->
+
+<!-- Help center -->
+<div class="container-fluid">
+    <!-- The Modal -->
+    <div id="myModal" class="modal text-center">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="glyphicon glyphicon-remove close"></span>
+                <h2>Hjelpesenter</h2>
+            </div>
+            <div class="modal-body">
+                <button class="accordion">Søke og bruke kalenderen</button>
+                <div class="panel">
+                    <img id="gif1" src="img/play.png" alt="Avatar" class="img imgSize">
+                    <p>I kalenderen kan du legge til hendelsene i din personlige kalender, gå til skolens hjemmeside, og
+                        legge skolen til favoritter</p>
+                </div>
+                <button class="accordion">Legge til og fjerne favoritter</button>
+                <div class="panel">
+                    <img id="gif2" src="img/play.png" alt="Avatar" class="img imgSize">
+                </div>
+                <button class="accordion">Finne skoler nærheten</button>
+                <div class="panel">
+                    <img id="gif3" src="img/play.png" alt="Avatar" class="img imgSize">
+                    <p>Jo høyere skolen er i listen, jo nærmere er den din lokasjon</p>
+                </div>
+                <button class="accordion">FAQ</button>
+                <div class="panel">
+                    <h3>Ofte stilte spørsmål:</h3>
+                    <p>
+                        Q: Hvorfor finner jeg ingen Videregående skoler?
+                        <br/>
+                        A: Vi har kun informasjon om barne- og ungdomskoler i Stavanger.
+                    </p>
+                    <p>
+                        Q: Jeg finner ikke en skole i Sandnes, hvorfor?
+                        <br/>
+                        A: Vi har bare informasjon for barne- og ungdomskoler i Stavanger.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- /Help center -->
+
+<!-- Have to be here for it to work -->
+<script src="scripts/modal.js"></script>
+<script src="scripts/accordion.js"></script>
 
 </body>
 </html>
