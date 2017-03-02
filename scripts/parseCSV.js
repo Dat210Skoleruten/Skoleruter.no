@@ -13,6 +13,7 @@ schoolPaths["gjesdal"] = ["skolerute_gjesdal.csv", "skoler_gjesdal.csv"];
 
 
 console.log("page is:", location.hostname);
+console.log("SelectedSet is:", Cookies.get("SelectedSet"));
 console.log(location.hostname.split('.'));
 console.log("potato");
 
