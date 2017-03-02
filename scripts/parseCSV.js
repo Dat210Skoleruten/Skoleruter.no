@@ -51,8 +51,6 @@ function parseData(callback) {
         console.time("Skoleruter")
         Papa.parse(url, { 
             download: true,
-            fastMode: true,
-            encoding: "utf-8",
             header: true,
             complete: function (results) {
                 console.timeEnd("Skoleruter");
@@ -73,8 +71,6 @@ function parseSecondData(callback) {
         console.time("Skoler")
         Papa.parse(url, { 
             download: true,
-            fastMode: true,
-            encoding: "utf-8",
             header: true,
             skipEmptyLines: true,
             complete: function (results) {
