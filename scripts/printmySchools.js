@@ -48,7 +48,7 @@ function printMySchools() {
 
     if (Cookies.get("mySchools") != null) {
         var theString = "";
-        var arr = Cookies.get("mySchools").split(",");
+        var arr = Cookies.get("mySchools").split(";");
         var sortedArr = arr.sort();
 
         /* Prints the school in the legendbar */
