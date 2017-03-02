@@ -54,6 +54,8 @@
 
         ga('create', 'UA-92850320-1', 'auto');
         ga('send', 'pageview');
+
+        $(".welcome").text("Velkommen! Her kan du søke på barne- og ungdomskoler i " + jQuery.camelCase(location.hostname.split('.')[0]) + " og få en oversikt over ferier og andre fridager!")
     </script>
 </head>
 <body onLoad="showFavorites()">
