@@ -15,6 +15,10 @@ schoolPaths["gjesdal"] = ["skolerute_gjesdal.csv", "skoler_gjesdal.csv"];
 console.log("page is:", location.hostname);
 console.log(location.hostname.split('.'));
 if(location.hostname.split('.')[0] != "dev"){
+    if(Cookies.get("SelectedSet") != location.hostname.split('.')[0]){
+        Session.set("schoolRoutes", null);
+        Session.set("schools", null);
+    }
     Cookies.set("SelectedSet", location.hostname.split('.')[0]);
 }else{
     Cookies.set("SelectedSet", "stavanger");
