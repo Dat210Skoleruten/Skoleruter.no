@@ -55,7 +55,6 @@ html, body {
     text-decoration: none;
     color: #495156;
     padding: 12px; /* Top Right Bottom Left */
-    width: 110px;
 }
 
 #kommuneList td a:hover {
@@ -119,12 +118,18 @@ html, body {
     #title {
         font-size: 6em;
     }
+    #subtitle {
+        font-size: 2em;
+    }
 }
 
 /* Small devices (tablets, 768px and down) */
 @media screen and (max-width: 768px) {
     #title {
         font-size: 3em;
+    }
+    #subtitle {
+        font-size: 1.5em;
     }
 }
 
