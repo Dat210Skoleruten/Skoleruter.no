@@ -56,6 +56,7 @@
         ga('send', 'pageview');
 
         $(document).ready(function(){
+            console.log($(".welcome").text());
             $(".welcome").text("Velkommen! Her kan du søke på barne- og ungdomskoler i " + jQuery.camelCase(location.hostname.split('.')[0]) + " og få en oversikt over ferier og andre fridager!");
         });
     </script>
