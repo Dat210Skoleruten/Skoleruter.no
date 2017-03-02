@@ -56,12 +56,9 @@
         ga('send', 'pageview');
 
         $(document).ready(function(){
-            console.log($(".welcome").text());
             var str = location.hostname.split('.')[0];
             var start = str.substr(0, 1).toUpperCase();
-            console.log(str, start);
             str = start + str.substr(1);
-            console.log(str);
             $(".welcome").text("Velkommen! Her kan du søke på barne- og ungdomskoler i " + str + " og få en oversikt over ferier og andre fridager!");
         });
     </script>
