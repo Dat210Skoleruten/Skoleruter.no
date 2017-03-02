@@ -33,9 +33,12 @@
         ga('create', 'UA-92850320-1', 'auto');
         ga('send', 'pageview');
 
-        $("#kommuneList td a").each(function(){
-            this.href = this.id + "." + location.hostname;
-        })
+        $( document ).ready(function() {
+            $("#kommuneList td a").each(function(){
+                this.href = this.id + "." + location.hostname;
+            })
+        });
+
     </script>
 </head>
 <body>
