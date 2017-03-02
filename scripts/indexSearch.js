@@ -63,7 +63,7 @@ function getIndexListItems(closest) {
     var ArrayWSchools = [];
 
     if (Cookies.get('mySchools') != null) {
-        arrString = Cookies.get('mySchools').split(",");
+        arrString = Cookies.get('mySchools').split(";");
         ArrayWSchools = arrString.sort();
     }
 

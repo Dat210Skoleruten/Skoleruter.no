@@ -55,7 +55,7 @@ $(document).ready(function () {
 function findSchool(str, array) {
     var selectedSchools = [];
     if (str != undefined) {
-        var strArr = str.split(",");
+        var strArr = str.split(";");
         for (var j = 0; j < strArr.length; j++) {
             for (var i = 0; i < array.length; i++) {
 
