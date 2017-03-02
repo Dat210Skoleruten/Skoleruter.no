@@ -12,6 +12,12 @@ var schoolPaths = {
     gjesdal: ["https://open.stavanger.kommune.no/dataset/c1a060b6-350c-433d-ac78-964ae8b0a9e3/resource/c7f1429f-79cc-4490-8eb0-fe623bfacb42/download/skolerute-2016---2017-gjesdal-kommune.csv","https://open.stavanger.kommune.no/dataset/dfb9b81c-d9a2-4542-8f63-7584a3594e02/resource/b55f5f5a-ffac-47f2-ad57-d439f696cc87/download/barne--og-ungdomsskoler-gjesdal-kommune.csv"],
     gjesdal_offline: ["skolerute_gjesdal.csv","skoler_gjesdal.csv"]
 }
+
+console.log("page is:", location.hostname);
+console.log(location.hostname.split('.'));
+console.log(location.hostname.split('.')[0]);
+Cookies.set("SelectedSet", location.hostname.split('.')[0]);
+Console.log("selected data set:", Cookies.get("SelectedSet"));
 //######################################################################################
   //Check if mySchools Cookes is set and go to skoler.html
 
