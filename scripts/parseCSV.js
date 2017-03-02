@@ -54,7 +54,6 @@ function parseData(callback) {
             header: true,
             complete: function (results) {
                 console.timeEnd("Skoleruter");
-                console.log("Skoleruter:",results);
                 Session.set("schoolRoutes", results.data);
                 parseSecondData(callback);    
             }
@@ -75,7 +74,6 @@ function parseSecondData(callback) {
             skipEmptyLines: true,
             complete: function (results) {
                 console.timeEnd("Skoler")
-                console.log("Skoler:",results);
                 Session.set('schools', results.data);
                 if (callback && typeof callback == "function") {
                     callback();

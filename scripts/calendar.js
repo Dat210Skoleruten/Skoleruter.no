@@ -82,6 +82,7 @@ function setSchoolData(name, type) {
         $("#schoolName").html(name);
         // setter href for hver skole når du trykker på hver av dem
         var chosenScho = findSchool(name, getSchoolData());
+        console.log(chosenScho);
         var elem = document.getElementById("schoolLink");
         elem.href = chosenScho[0].Hjemmeside;
     }
