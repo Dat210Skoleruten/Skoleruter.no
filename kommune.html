@@ -33,6 +33,16 @@
         ga('create', 'UA-92850320-1', 'auto');
         ga('send', 'pageview');
 
+        var parts = location.hostname.split('.');
+        if(!(parts[0] == "dev" || parts[0] == "skoleruter")){
+            var str = "https://";
+            for(var i = 1; i < parts.length; i++){
+                str += parts[i] + ".";
+            }
+            str = str.substr(0, -1);
+            window.location.href = str;
+        }
+
         $( document ).ready(function() {
             $("#kommuneList td a").each(function(){
                 this.href = "https://" + this.id + "." + location.hostname;
