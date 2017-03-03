@@ -38,7 +38,7 @@ if(isMobile()){
         console.log(schoolName);
         if (schoolName.length > 18) {
             $(".center").css("font-size", "20px");
-            $(".center").css("margin-top", "60px");
+            $(".center").css("margin-top", "50px");
         }
     });
 
