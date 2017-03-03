@@ -31,9 +31,10 @@ if (isMobile()) {
     });
 }
 
-var schoolName = document.querySelector("#schoolName").innerHTML;
-console.log(schoolName);
+
 if(isMobile()){
+    var schoolName = document.querySelector("#schoolName").innerHTML;
+    console.log(schoolName);
     if(schoolName.length > 18){
         $(".center").css("font-size", "20px");
         $(".center").css("margin-top", "50px");
