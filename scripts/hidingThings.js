@@ -63,6 +63,7 @@ function getPlatform(){
 $(document).ready(function(){
     //$("#currPlatform").html(getPlatform()); // debug: showing current platform of the device
     var schoolName = document.querySelectorAll("#schoolName");
+    console.log(schoolName);
     if(isMobile()){
         if(schoolName.length > 18){
             $(".center").css("font-size", "20px");
