@@ -129,7 +129,7 @@ function getSchoolData() {
             schools[i]['Datoer'] = [];
             for (var j = 0; j < data.length; j++) {
 
-                if (schools[i].Skolenavn.toLowerCase() == data[j].name.toLowerCase()) {
+                if (schools[i].Skolenavn == data[j].name) {
 
                     schools[i].Datoer = data[j].dates;
                     continue loop1;
