@@ -62,4 +62,13 @@ function getPlatform(){
 
 $(document).ready(function(){
     //$("#currPlatform").html(getPlatform()); // debug: showing current platform of the device
+    var schoolName = document.querySelectorAll("#schoolName");
+    if(isMobile()){
+        if(schoolName.length > 18){
+            $("#schoolName").css("font-size", "20px");
+            $("#schoolName").css("margin-top", "50px");
+        }
+
+    }
+
 });
