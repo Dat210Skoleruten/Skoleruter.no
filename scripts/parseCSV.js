@@ -17,7 +17,6 @@ schoolPaths["trondheim"] = ["skolerute_trondheim.csv", "skoler_trondheim.csv"]; 
 console.log("page is:", location.hostname);
 console.log("SelectedSet is:", Session.get("SelectedSet"));
 console.log(location.hostname.split('.'));
-console.log("potato");
 
 if(location.hostname.split('.')[0] == "dev" || location.hostname.split('.')[0] == "skoleruter"){
     console.log("not selected kommune");
