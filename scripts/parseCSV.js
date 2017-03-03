@@ -111,6 +111,7 @@ function getSchoolData() {
                 if (data[j].name == entry.skole) { // if the school name of the current object in data is the same as the current entry from ajax
                     found = true;
                     data[j].dates[entry.dato] = formatDato(entry); //adds date to data.dates array with the formatDato format
+                }else if(data[j].name.substr(0,1) == entry.skole.substr(0,1)){
                 }
             }
             if (!found) { //if school is not already in data array, add school and current entry's date
