@@ -109,7 +109,7 @@ function getSchoolData() {
         if (data.length > 0) { // if data already has schools added to it
             var found = false;
             for (var j = 0; j < data.length; j++) {
-                if (data[j].name.toLowerCase() == entry.skole.toLowerCase()) { // if the school name of the current object in data is the same as the current entry from ajax
+                if (data[j].name == entry.skole) { // if the school name of the current object in data is the same as the current entry from ajax
                     found = true;
                     data[j].dates[entry.dato] = formatDato(entry); //adds date to data.dates array with the formatDato format
                 }
