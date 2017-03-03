@@ -31,19 +31,15 @@ if (isMobile()) {
     });
 }
 
-
+/*
 if(isMobile()){
-
-    $( ".listElement" ).click(function() {
         var schoolName = document.querySelector("#schoolName").innerHTML;
         console.log(schoolName);
         if (schoolName.length > 18) {
             $(".center").css("font-size", "20px");
             $(".center").css("margin-top", "50px");
-        }
-    });
-
 }
+*/
 
 function isMobile(){
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|Android|IEMobile|Opera Mini|Windows Phone/i.test(navigator.userAgent);
