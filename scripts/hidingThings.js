@@ -33,7 +33,7 @@ if (isMobile()) {
 
 
 if(isMobile()){
-    $(function() {
+    $(".listElement").click(function() {
         var schoolName = document.querySelector("#schoolName").innerHTML;
         console.log(schoolName);
         if (schoolName.length > 17) {
