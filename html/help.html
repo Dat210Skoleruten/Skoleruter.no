@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html manifest="demo.appcache">
 <head>
-    <title>Skoleruter - Om</title>
+    <title>Skoleruter - Hjelp</title>
     <meta charset="UTF-8">
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
 
@@ -51,7 +51,7 @@
     </ul>
 </nav> <!-- /Navbar  -->
 
-<<!-- Navbar toggle div -->
+<!-- Navbar toggle div -->
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span class="glyphicon glyphicon-remove"></span></a>
     <a href="../index.html">HJEM</a>
@@ -62,65 +62,62 @@
 
 <br>
 
-<!-- First card column -->
+
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-xs-3 col-xs-offset-2">
-            <div class="col-xs-15 text-center">
-                <div class="card">
-                    <img src="../img/temp_man.png" alt="Avatar" class="img">
-                    <h4><b>Alexander Gundersen</b></h4>
-                </div>
-            </div>
+    <div class="col-md-8 col-md-offset-2">
+        <button class="accordion">Søke spesifik skole</button>
+        <div class="panel">
+            <br />
+            <p>Hvis du har lyst å søke på en spesifik skole så er alt du trenger å gjøre å skrive i søkefeltet og trykke
+                på skolenavnet.</p>
+            <br />
         </div>
-        <div class="col-xs-3">
-            <div class="col-xs-15 text-center">
-                <div class="card">
-                    <img src="../img/temp_man.png" alt="Avatar" class="img">
-                    <h4><b>Fabian Legland Boe</b></h4>
-                </div>
-            </div>
+        <button class="accordion">Legge til flere skoler</button>
+        <div class="panel">
+            <br />
+            <p>Har du flere barn på forskjellige skoler så støtter vi også dette. <br /><br />
+                Eneste du trenger å gjøre er å søke på de skolene du ønsker å finne, for så å trykke på hjertet som er
+                til høyre for skolen i listen som kommer opp.
+                <br /><br />
+                Dette gjør du for hver skole som du har lyst å legge til dine favoritter.
+                For å komme til favoritt kalenderen kan du enten trykke på hjertet som er til høyre for søkefeltet,
+                eller favoritter inne på sidemenyen.
+            </p>
+            <br />
         </div>
-        <div class="col-xs-3">
-            <div class="col-xs-15 text-center">
-                <div class="card">
-                    <img src="../img/temp_woman.png" alt="Avatar" class="img">
-                    <h4><b>Nourhan Ragab</b></h4>
-                </div>
-            </div>
+        <button class="accordion">Finne skoler nærheten</button>
+        <div class="panel">
+            <br />
+            <p>På høyre side av søkefeltet så har du en GPS knapp som finne de nærmeste skolene til deg.</p>
+            <br />
         </div>
-    </div> <!-- /First card column -->
-
-    <br>
-
-    <!-- Second card column -->
-    <div class="row">
-        <div class="col-xs-3 col-xs-offset-2">
-            <div class="col-xs-15 text-center">
-                <div class="card">
-                    <img src="../img/temp_man.png" alt="Avatar" class="img">
-                    <h4><b>Thomas Rasmussen</b></h4>
-                </div>
-            </div>
+        <button class="accordion">FAQ</button>
+        <div class="panel">
+            <h3>Ofte stilte spørsmål:</h3>
+            <p>
+                Q: Hvorfor finner jeg ingen Videregående skoler?
+                <br/>
+                A: Vi har kun informasjon om barne- og ungdomskoler i Stavanger.
+            </p>
+            <p>
+                Q: Jeg finner ikke skolen min
+                <br/>
+                A: Vi har for øyeblikket bare Stavanger barne -og ungdomskoler tilgjengelig på siden vår.
+                Det jobbes med å implementere Gjesdal, Trondheim og Bærum.
+            </p>
+            <p>
+                Q: GPS knappen fungerer ikke, hvorfor?
+                <br/>
+                A: For at knappen skal fungere, må du gi nettleseren tillatelse til å hente din posisjon.
+            </p>
         </div>
-        <div class="col-xs-3">
-            <div class="col-xs-15 text-center">
-                <div class="card">
-                    <img src="../img/temp_man.png" alt="Avatar" class="img">
-                    <h4><b>Kristoffer Løyning Bøe</b></h4>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-3">
-            <div class="col-xs-15 text-center">
-                <div class="card">
-                    <img src="../img/temp_man.png" alt="Avatar" class="img">
-                    <h4><b>Kristian M. Backer-Owe</b></h4>
-                </div>
-            </div>
-        </div>
-    </div> <!-- /Second card column -->
+    </div>
 </div>
+
+
+<!-- Have to be here for it to work -->
+<script src="../scripts/modal.js"></script>
+<script src="../scripts/accordion.js"></script>
 
 </body>
 </html>
