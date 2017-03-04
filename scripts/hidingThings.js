@@ -32,18 +32,6 @@ if (isMobile()) {
 }
 
 
-if(isMobile()){
-    $(".listElement").click(function() {
-        var schoolName = document.querySelector("#schoolName").innerHTML;
-        console.log(schoolName);
-        if (schoolName.length > 17) {
-            $(".center").css({"font-size": "18px", "margin-top":"50px"});
-        }
-    });
-
-}
-
-
 function isMobile(){
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|Android|IEMobile|Opera Mini|Windows Phone/i.test(navigator.userAgent);
 }
@@ -74,6 +62,14 @@ function getPlatform(){
 
 $(document).ready(function(){
     //$("#currPlatform").html(getPlatform()); // debug: showing current platform of the device
+    if(isMobile()){
+        $(".listElement").click(function() {
+            var schoolName = document.querySelector("#schoolName").innerHTML;
+            console.log(schoolName);
+            if (schoolName.length > 17) {
+                $(".center").css({"font-size": "18px", "margin-top":"50px"});
+            }
+        });
 
-
+    }
 });
