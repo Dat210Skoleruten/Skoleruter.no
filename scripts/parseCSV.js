@@ -114,7 +114,8 @@ function getSchoolData() {
                     data[j].dates[entry.dato] = formatDato(entry); //adds date to data.dates array with the formatDato format
                 }else if(data[j].name == null || entry.skole == null){
                     //mabye error handling here? or just do nothing?
-                   console.log("entry", entry);
+                    console.log("i", i);
+                    console.log("entry", entry);
                 }
                 else if(data[j].name.substr(0,1) == entry.skole.substr(0,1)){
                     //console.log()
