@@ -75,6 +75,7 @@ function parseSecondData(callback) {
             complete: function (results) {
                 console.timeEnd("Skoler")
                 Session.set('schools', results.data);
+                console.log(result.data);
                 if (callback && typeof callback == "function") {
                     callback();
                 }
@@ -102,21 +103,23 @@ function getSchoolData() {
     var schools = Session.get("schools");
     var data = [];
 
+    console.log("schoolRoutes", schoolRoutes);
 
     for (var i = 0; i < schoolRoutes.length; i++) {
         var entry = schoolRoutes[i];
         if (data.length > 0) { // if data already has schools added to it
             var found = false;
             for (var j = 0; j < data.length; j++) {
+
                 if (data[j].name == entry.skole) { // if the school name of the current object in data is the same as the current entry from ajax
                     found = true;
                     data[j].dates[entry.dato] = formatDato(entry); //adds date to data.dates array with the formatDato format
                 }else if(data[j].name == null || entry.skole == null){
                     //mabye error handling here? or just do nothing?
                 }
-                else if(data[j].name.substr(0,1) == entry.skole.substr(0,1)){
+                //else if(data[j].name.substr(0,1) == entry.skole.substr(0,1)){
                     //console.log()
-                }
+                //}
             }
             if (!found) { //if school is not already in data array, add school and current entry's date
                 data.push({name: entry.skole, dates: []});
@@ -128,6 +131,7 @@ function getSchoolData() {
         }
     }
 
+    console.log(schools);
     loop1:
         for (var i = 0; i < schools.length; i++) {
             schools[i]['Datoer'] = [];
@@ -137,6 +141,8 @@ function getSchoolData() {
 
                     schools[i].Datoer = data[j].dates;
                     continue loop1;
+                }else{
+                    console.log(schools[i].Skolenavn, data[j].name);
                 }
             }
             schools.splice(i, 1);
