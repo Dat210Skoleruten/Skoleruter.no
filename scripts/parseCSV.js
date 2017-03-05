@@ -14,17 +14,11 @@ schoolPaths["baerum"] = ["https://open.stavanger.kommune.no/dataset/6837c1de-6dc
 schoolPaths["trondheim"] = ["skolerute_trondheim.csv", "skoler_trondheim.csv"]; //["https://open.stavanger.kommune.no/dataset/7f6df84e-409c-4509-ba95-23a13d0a6730/resource/1fae9af6-6960-4012-bba9-f68a20f6adf1/download/skoleruta-2017-2018.csv", "https://open.stavanger.kommune.no/dataset/055880c9-cb7e-4919-ab9f-e6d6ee096346/resource/70148039-78b7-43e5-b1d1-ee779971f65b/download/skolertrondheim.csv"];
 
 
-console.log("page is:", location.hostname);
-console.log("SelectedSet is:", Session.get("SelectedSet"));
-console.log(location.hostname.split('.'));
 
 if(location.hostname.split('.')[0] == "dev" || location.hostname.split('.')[0] == "skoleruter"){
-    console.log("not selected kommune");
     window.location.href = "/kommune.html";
 }else{
-    console.log(Session.get("SelectedSet"), location.hostname.split('.')[0]);
     if(Session.get("SelectedSet") != location.hostname.split('.')[0]){
-        console.log("FLUSHING DATA");
         Session.set("schoolRoutes", null);
         Session.set("schools", null);
     }
@@ -75,7 +69,6 @@ function parseSecondData(callback) {
             complete: function (results) {
                 console.timeEnd("Skoler")
                 Session.set('schools', results.data);
-                console.log(result.data);
                 if (callback && typeof callback == "function") {
                     callback();
                 }
@@ -103,8 +96,6 @@ function getSchoolData() {
     var schools = Session.get("schools");
     var data = [];
 
-    console.log("schoolRoutes", schoolRoutes);
-
     for (var i = 0; i < schoolRoutes.length; i++) {
         var entry = schoolRoutes[i];
         if (data.length > 0) { // if data already has schools added to it
@@ -131,7 +122,6 @@ function getSchoolData() {
         }
     }
 
-    console.log(schools);
     loop1:
         for (var i = 0; i < schools.length; i++) {
             schools[i]['Datoer'] = [];
@@ -141,9 +131,6 @@ function getSchoolData() {
 
                     schools[i].Datoer = data[j].dates;
                     continue loop1;
-                }else{
-                    console.log(schools[i].Skolenavn, data[j].name);
-                }
             }
             schools.splice(i, 1);
             i--;
@@ -156,7 +143,6 @@ function formatDato(entry) {
     var dayType = "";
 
     if (!entry || !(entry.elevdag) || !(entry.sfodag)){ // hvis undefined (gjesdal har defekt data)
-        console.log(entry);
         return ["111", ""];
     }
 
