@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html manifest="demo.appcache">
+<html>
 <head>
     <title>Skoleruter - Mine Skoler</title>
     <meta charset="UTF-8">
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
 
     <!--Favicon-->
-    <link rel="shortcut icon" type="image/x-icon" href="../img/skolelogo.png"/>
+    <link rel="shortcut icon" type="image/x-icon" href="img/skolelogo.png"/>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -21,29 +21,29 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- Local stylesheets -->
-    <link rel="stylesheet" type="text/css" href="../styles/base.css"/>
-    <link rel="stylesheet" type="text/css" href="../styles/sidebar.css"/>
-    <link rel="stylesheet" type="text/css" href="../styles/calendar.css"/>
-    <link rel="stylesheet" type="text/css" href="../styles/navbar.css">
-    <link rel="stylesheet" type="text/css" href="../styles/calendarList.css">
-    <link rel="stylesheet" type="text/css" href="../styles/legendBar.css">
-    <link rel="stylesheet" type="text/css" href="../styles/accordion.css">
-    <link rel="stylesheet" type="text/css" href="../styles/modal.css">
+    <link rel="stylesheet" type="text/css" href="styles/base.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/sidebar.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/calendar.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/navbar.css">
+    <link rel="stylesheet" type="text/css" href="styles/calendarList.css">
+    <link rel="stylesheet" type="text/css" href="styles/legendBar.css">
+    <link rel="stylesheet" type="text/css" href="styles/accordion.css">
+    <link rel="stylesheet" type="text/css" href="styles/modal.css">
 
     <!-- Local scripts -->
-    <script type="text/javascript" src="../scripts/protype.js"></script>
-    <script type="text/javascript" src="../scripts/cookie.js"></script>
-    <script type="text/javascript" src="../scripts/session.js"></script>
-    <script type="text/javascript" src="../scripts/papaparse.min.js"></script>
-    <script type="text/javascript" src="../scripts/gps.js"></script>
-    <script type="text/javascript" src="../scripts/parseCSV.js"></script>
-    <script type="text/javascript" src="../scripts/schoolCalendar.js"></script>
-    <script type="text/javascript" src="../scripts/calendar.js"></script>
-    <script type="text/javascript" src="../scripts/sidebar.js"></script>
-    <script type="text/javascript" src="../scripts/mySchools.js"></script>
-    <script type="text/javascript" src="../scripts/printmySchools.js"></script>
-    <script type="text/javascript" src="../scripts/menuController.js"></script>
-    <script type="text/javascript" src="../scripts/hidingThings.js"></script>
+    <script type="text/javascript" src="scripts/protype.js"></script>
+    <script type="text/javascript" src="scripts/cookie.js"></script>
+    <script type="text/javascript" src="scripts/session.js"></script>
+    <script type="text/javascript" src="scripts/papaparse.min.js"></script>
+    <script type="text/javascript" src="scripts/gps.js"></script>
+    <script type="text/javascript" src="scripts/parseCSV.js"></script>
+    <script type="text/javascript" src="scripts/schoolCalendar.js"></script>
+    <script type="text/javascript" src="scripts/calendar.js"></script>
+    <script type="text/javascript" src="scripts/sidebar.js"></script>
+    <script type="text/javascript" src="scripts/mySchools.js"></script>
+    <script type="text/javascript" src="scripts/printmySchools.js"></script>
+    <script type="text/javascript" src="scripts/menuController.js"></script>
+    <script type="text/javascript" src="scripts/hidingThings.js"></script>
 
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -62,8 +62,8 @@
     <div class="navbar-header">
 
         <!-- Home button -->
-        <a class="navbar-brand" href="../index.html"><span class="glyphicon glyphicon-education"
-                                                           aria-hidden="true"></span><span
+        <a class="navbar-brand" href="index.html"><span class="glyphicon glyphicon-education"
+                                                        aria-hidden="true"></span><span
                 id="navbar-name"> SKOLERUTER</span></a>
         <!-- Center text -->
         <p class="center">Favoritter</p>
@@ -77,10 +77,11 @@
 <!-- Navbar toggle div -->
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span class="glyphicon glyphicon-remove"></span></a>
-    <a href="../index.html">HJEM</a>
-    <a href="schools.html">FAVORITTER</a>
-    <a href="about.html">OM SKOLERUTER</a>
-    <a href="help.html">HJELP</a>
+    <a href="index.html">HJEM</a>
+    <a href="skoler.html">FAVORITTER</a>
+    <a href="kommune.html">KOMMUNER</a>
+    <a href="om.html">OM SKOLERUTER</a>
+    <a href="hjelp.html">HJELP</a>
 </div> <!-- /Navbar toggle div -->
 
 <br>
@@ -144,6 +145,8 @@
         </div>
     </div> <!-- /List -->
 </div> <!-- /Calendar & List -->
+
+<br />
 
 </body>
 </html>

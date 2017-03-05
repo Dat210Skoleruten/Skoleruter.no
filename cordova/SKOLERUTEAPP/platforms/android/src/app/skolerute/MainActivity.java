@@ -35,7 +35,7 @@ public class MainActivity extends CordovaActivity
             moveTaskToBack(true);
         }
 
-        // Set by <content src="index.html" /> in config.xml
+        // Set by <content src="kommune.html" /> in config.xml
         loadUrl(launchUrl);
     }
 }

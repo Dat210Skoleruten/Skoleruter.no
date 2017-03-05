@@ -7,18 +7,37 @@
  The function getSchoolData combines these two datasets to one containing all schools with theirs respective routes.
  */
 
-var schoolPaths = {
-    stavanger: ["https://open.stavanger.kommune.no/dataset/86d3fe44-111e-4d82-be5a-67a9dbfbfcbb/resource/21cfc45a-d2bf-448a-a883-210ee4a96d9a/download/skolerute.csv", "https://open.stavanger.kommune.no/dataset/8f8ac030-0d03-46e2-8eb7-844ee11a6203/resource/8d13aca1-a3b3-49d5-8728-8dc310ef9f4a/download/skoler.csv"],
-    gjesdal: ["https://open.stavanger.kommune.no/dataset/c1a060b6-350c-433d-ac78-964ae8b0a9e3/resource/c7f1429f-79cc-4490-8eb0-fe623bfacb42/download/skolerute-2016---2017-gjesdal-kommune.csv","https://open.stavanger.kommune.no/dataset/dfb9b81c-d9a2-4542-8f63-7584a3594e02/resource/b55f5f5a-ffac-47f2-ad57-d439f696cc87/download/barne--og-ungdomsskoler-gjesdal-kommune.csv"],
-    gjesdal_offline: ["skolerute_gjesdal.csv","skoler_gjesdal.csv"]
+schoolPaths = []; // schoolPaths["skolenavn slik som på subdomenet"] = ["skolerutelink", "skolelink"]
+schoolPaths["stavanger"] = ["https://open.stavanger.kommune.no/dataset/86d3fe44-111e-4d82-be5a-67a9dbfbfcbb/resource/21cfc45a-d2bf-448a-a883-210ee4a96d9a/download/skolerute.csv", "https://open.stavanger.kommune.no/dataset/8f8ac030-0d03-46e2-8eb7-844ee11a6203/resource/8d13aca1-a3b3-49d5-8728-8dc310ef9f4a/download/skoler.csv"];
+schoolPaths["gjesdal"] = ["skolerute_gjesdal.csv", "skoler_gjesdal.csv"];
+schoolPaths["baerum"] = ["https://open.stavanger.kommune.no/dataset/6837c1de-6dce-48a3-a8a6-e59630912779/resource/19f6c237-bc56-4c1d-bb59-4538a3215eba/download/skolerute-2016-17.csv", "https://open.stavanger.kommune.no/dataset/4a5f420f-453d-4e23-85f5-0b1d5d4a1fe0/resource/95bc274b-04bc-4a45-82ce-3d22ef46225d/download/skoler-i-baerum.csv"];
+schoolPaths["trondheim"] = ["skolerute_trondheim.csv", "skoler_trondheim.csv"]; //["https://open.stavanger.kommune.no/dataset/7f6df84e-409c-4509-ba95-23a13d0a6730/resource/1fae9af6-6960-4012-bba9-f68a20f6adf1/download/skoleruta-2017-2018.csv", "https://open.stavanger.kommune.no/dataset/055880c9-cb7e-4919-ab9f-e6d6ee096346/resource/70148039-78b7-43e5-b1d1-ee779971f65b/download/skolertrondheim.csv"];
+
+
+console.log("page is:", location.hostname);
+console.log("SelectedSet is:", Session.get("SelectedSet"));
+console.log(location.hostname.split('.'));
+
+if(location.hostname.split('.')[0] == "dev" || location.hostname.split('.')[0] == "skoleruter"){
+    console.log("not selected kommune");
+    window.location.href = "/kommune.html";
+}else{
+    console.log(Session.get("SelectedSet"), location.hostname.split('.')[0]);
+    if(Session.get("SelectedSet") != location.hostname.split('.')[0]){
+        console.log("FLUSHING DATA");
+        Session.set("schoolRoutes", null);
+        Session.set("schools", null);
+    }
+    Session.set("SelectedSet", location.hostname.split('.')[0]);
 }
+
 //######################################################################################
-  //Check if mySchools Cookes is set and go to schools.html
+  //Check if mySchools Cookes is set and go to skoler.html
 
     if( Cookies.get("mySchools") != null && Cookies.get("visiting") == null){
     Cookies.set("visiting", "true");
     Cookies.set("calendarType", "mySchools");
-    window.location.href = 'html/schools.html';
+    window.location.href = '../skoler.html';
     }
     Cookies.set("visiting", "true");
 
@@ -26,13 +45,12 @@ var schoolPaths = {
 
 function parseData(callback) {
     if (Session.get("schoolRoutes") == null) {
-        url = schoolPaths.stavanger[0];
+        url = schoolPaths[Session.get("SelectedSet")][0];
         console.log(url);
         var start = new Date().getTime();
-        console.time("Skoleruter")
+        console.time("Skoleruter");
         Papa.parse(url, { 
             download: true,
-            fastMode: true,
             header: true,
             complete: function (results) {
                 console.timeEnd("Skoleruter");
@@ -47,12 +65,11 @@ function parseData(callback) {
 
 function parseSecondData(callback) {
     if (Session.get("schools") == null) {
-       url = schoolPaths.stavanger[1];
+        url = schoolPaths[Session.get("SelectedSet")][1];
 
-        console.time("Skoler")
+        console.time("Skoler");
         Papa.parse(url, { 
             download: true,
-            fastMode: true,
             header: true,
             skipEmptyLines: true,
             complete: function (results) {
@@ -80,6 +97,7 @@ function UrlExists(url)
 }
 
 function getSchoolData() {
+    console.time("getSchoolData");
     var schoolRoutes = Session.get("schoolRoutes");
     var schools = Session.get("schools");
     var data = [];
@@ -93,6 +111,11 @@ function getSchoolData() {
                 if (data[j].name == entry.skole) { // if the school name of the current object in data is the same as the current entry from ajax
                     found = true;
                     data[j].dates[entry.dato] = formatDato(entry); //adds date to data.dates array with the formatDato format
+                }else if(data[j].name == null || entry.skole == null){
+                    //mabye error handling here? or just do nothing?
+                }
+                else if(data[j].name.substr(0,1) == entry.skole.substr(0,1)){
+                    //console.log()
                 }
             }
             if (!found) { //if school is not already in data array, add school and current entry's date
@@ -119,6 +142,7 @@ function getSchoolData() {
             schools.splice(i, 1);
             i--;
         }
+    console.timeEnd("getSchoolData");
     return schools;
 }
 

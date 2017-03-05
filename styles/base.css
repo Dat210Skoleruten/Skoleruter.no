@@ -27,6 +27,11 @@ html, body {
     color: #495156;
 }
 
+#subtitle {
+    font-size: 2em;
+    color: #495156;
+}
+
 #icon {
     font-size: 6em;
     color: #495156;
@@ -89,12 +94,18 @@ html, body {
     #title {
         font-size: 6em;
     }
+    #subtitle {
+        font-size: 2em;
+    }
 }
 
 /* Small devices (tablets, 768px and down) */
 @media screen and (max-width: 768px) {
     #title {
         font-size: 3em;
+    }
+    #subtitle {
+        font-size: 1.5em;
     }
 }
 

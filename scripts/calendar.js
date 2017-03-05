@@ -55,7 +55,7 @@ $(document).ready(function () {
 function findSchool(str, array) {
     var selectedSchools = [];
     if (str != undefined) {
-        var strArr = str.split(",");
+        var strArr = str.split(";");
         for (var j = 0; j < strArr.length; j++) {
             for (var i = 0; i < array.length; i++) {
 
@@ -81,6 +81,7 @@ function setSchoolData(name, type) {
         }
         $("#schoolName").html(name);
         // setter href for hver skole når du trykker på hver av dem
+        console.log("name: ", name, "data:", getSchoolData());
         var chosenScho = findSchool(name, getSchoolData());
         var elem = document.getElementById("schoolLink");
         elem.href = chosenScho[0].Hjemmeside;

@@ -19,7 +19,7 @@ $(document).keydown(function (e) {
     Cookies.set("calendarType", "selected");
     Cookies.set("selected", schoolText);
 
-    window.location.href = "html/calendar.html";
+    window.location.href = "../../../../kalender.html";
   }
 });
 

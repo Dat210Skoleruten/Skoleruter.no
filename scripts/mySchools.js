@@ -25,19 +25,19 @@ function checking(school) {
         return false;
     } else {
         schoStr = Cookies.get('mySchools');
-        ArrOfSchools = schoStr.split(",");
+        ArrOfSchools = schoStr.split(";");
         for (var i = 0; i < ArrOfSchools.length; i++) {
             if (school == ArrOfSchools[i]) {
                 ArrOfSchools.splice(i, 1);
-                Cookies.set('mySchools', ArrOfSchools.toString(), {expires: 365});
-                if (ArrOfSchools.toString() == "") {
+                Cookies.set('mySchools', ArrOfSchools.join(";"), {expires: 365});
+                if (ArrOfSchools.join(";") == "") {
                     Cookies.remove("mySchools");
                 }
                 return true;
             }
         }
         ArrOfSchools.push(school);
-        Cookies.set('mySchools', ArrOfSchools.toString(), {expires: 365});
+        Cookies.set('mySchools', ArrOfSchools.join(";"), {expires: 365});
         return false;
     }
 }
@@ -58,7 +58,7 @@ function checkCalSelect() {
 
     if (Cookies.get("mySchools") != null) {
         schoStr = Cookies.get('mySchools');
-        ArrOfSchools = schoStr.split(",");
+        ArrOfSchools = schoStr.split(";");
 
         for (var i = 0; i < ArrOfSchools.length; i++) {
             if (Cookies.get("selected") == ArrOfSchools[i]) {
