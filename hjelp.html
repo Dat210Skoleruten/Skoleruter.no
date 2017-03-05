@@ -7,4 +7,135 @@
 <body>
 
 </body>
+</html><!DOCTYPE html>
+<html manifest="demo.appcache">
+<head>
+    <title>Skoleruter - Hjelp</title>
+    <meta charset="UTF-8">
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
+
+    <!--Favicon-->
+    <link rel="shortcut icon" type="image/x-icon" href="../img/skolelogo.png"/>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Local stylesheets -->
+    <link rel="stylesheet" type="text/css" href="styles/base.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/sidebar.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/navbar.css">
+    <link rel="stylesheet" type="text/css" href="styles/cards.css">
+    <link rel="stylesheet" type="text/css" href="styles/accordion.css">
+    <link rel="stylesheet" type="text/css" href="styles/modal.css">
+
+    <!-- Local scripts -->
+    <script type="text/javascript" src="scripts/sidebar.js"></script>
+    <script type="text/javascript" src="scripts/hidingThings.js"></script>
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-92850320-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</head>
+<body>
+
+<!-- Navbar bar -->
+<nav class="navbar navbar-light backgroundColor">
+    <div class="navbar-header">
+
+        <!-- Home button -->
+        <a class="navbar-brand" href="index.html"><span class="glyphicon glyphicon-education"
+                                                           aria-hidden="true"></span><span
+                id="navbar-name"> SKOLERUTER</span></a>
+        <!-- Center text -->
+        <p class="center">Hjelpesenter</p> <!-- CENTER TEXT -->
+    </div>
+
+    <ul class="nav navbar-nav navbar-right">
+        <span onclick="openNav()" class="glyphicon glyphicon-menu-hamburger hamburger"></span>
+    </ul>
+</nav> <!-- /Navbar  -->
+
+<!-- Navbar toggle div -->
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span class="glyphicon glyphicon-remove"></span></a>
+    <a href="index.html">HJEM</a>
+    <a href="skoler.html">FAVORITTER</a>
+    <a href="kommune.html">KOMMUNER</a>
+    <a href="om.html">OM SKOLERUTER</a>
+    <a href="hjelp.html">HJELP</a>
+</div> <!-- /Navbar toggle div -->
+
+<br>
+
+
+<div class="container-fluid">
+    <div class="col-md-8 col-md-offset-2">
+        <button class="accordion">Søke spesifikk skole</button>
+        <div class="panel">
+            <br />
+            <p>Ønsker du å søke på en spesifikk skole, så behøver du kun å skrive i søkefeltet, og deretter trykke
+                på skolenavnet.</p>
+            <br />
+        </div>
+        <button class="accordion">Legge til flere skoler</button>
+        <div class="panel">
+            <br />
+            <p>Har du flere barn på forskjellige skoler, så støtter vi også dette. <br /><br />
+                Eneste du trenger å gjøre er å søke på de skolene du ønsker å finne, for så å trykke på hjertet som er
+                til høyre for skolen i listen som kommer opp.
+                <br /><br />
+                Dette gjentar du for hver skole som du har lyst å legge til dine favoritter.
+                For å komme til favoritt kalenderen, kan du enten trykke på hjertet som er til høyre for søkefeltet,
+                eller favoritter inne på sidemenyen.
+            </p>
+            <br />
+        </div>
+        <button class="accordion">Finne skoler i nærheten</button>
+        <div class="panel">
+            <br />
+            <p>På høyre side av søkefeltet har du en GPS knapp, som finner dine nærmeste skoler.</p>
+            <br />
+        </div>
+        <button class="accordion">FAQ</button>
+        <div class="panel">
+            <h3>Ofte stilte spørsmål:</h3>
+            <p>
+                Q: Hvorfor finner jeg ingen Videregående skoler?
+                <br/>
+                A: Vi har kun informasjon om barne- og ungdomskoler i Stavanger.
+            </p>
+            <p>
+                Q: Jeg finner ikke skolen min
+                <br/>
+                A: Vi har for øyeblikket bare Stavanger barne -og ungdomskoler tilgjengelig på siden vår.
+                Det jobbes med implementering av Gjesdal, Trondheim og Bærum.
+            </p>
+            <p>
+                Q: GPS knappen fungerer ikke, hvorfor?
+                <br/>
+                A: For at knappen skal fungere, må du gi nettleseren tillatelse til å hente din posisjon.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Have to be here for it to work -->
+<script src="../scripts/accordion.js"></script>
+
+</body>
 </html>
