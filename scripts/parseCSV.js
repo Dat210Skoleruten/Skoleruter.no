@@ -131,6 +131,7 @@ function getSchoolData() {
 
                     schools[i].Datoer = data[j].dates;
                     continue loop1;
+                }
             }
             schools.splice(i, 1);
             i--;
