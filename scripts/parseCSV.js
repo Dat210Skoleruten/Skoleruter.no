@@ -75,6 +75,7 @@ function parseSecondData(callback) {
             complete: function (results) {
                 console.timeEnd("Skoler")
                 Session.set('schools', results.data);
+                console.log(result.data);
                 if (callback && typeof callback == "function") {
                     callback();
                 }
@@ -129,10 +130,8 @@ function getSchoolData() {
             data[data.length - 1].dates[entry.dato] = formatDato(entry);
         }
     }
-    console.log("data", data);
-    console.log("schoolRoutes", schoolRoutes);
 
-
+    console.log(schools);
     loop1:
         for (var i = 0; i < schools.length; i++) {
             schools[i]['Datoer'] = [];
