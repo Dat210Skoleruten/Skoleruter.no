@@ -16,7 +16,7 @@ button.accordion.active, button.accordion:hover {
 }
 
 button.accordion:after {
-    content: '\02795';
+    content: '\002B';
     font-size: 13px;
     color: #777;
     float: right;
@@ -24,7 +24,7 @@ button.accordion:after {
 }
 
 button.accordion.active:after {
-    content: "\2796";
+    content: "\2212";
 }
 
 div.panel {
