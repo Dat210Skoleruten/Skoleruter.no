@@ -152,7 +152,6 @@ function calendar(schoolNames, array) {
 
         if (month < 10) {
             month = "0" + month;
-
         }
 
         $(".days").empty();
@@ -172,11 +171,8 @@ function calendar(schoolNames, array) {
 
             for (var i = 1; i < cDay; i++) {
                 daysInMonth++;
-
                 var day = $("<li class='before'>.</li>"); //dagene før måneden har startet
-
                 $(".days").append(day);
-
             }
         }
 
@@ -197,7 +193,6 @@ function calendar(schoolNames, array) {
             }
             //set this.lastMonth
             this.lastMonth = dato;
-
             if (dates.substring(5, 7) == month && dates.substring(0, 4) == currentYear) {
                 var eventDate = new Date(dates);
                 var totDayType = [];
@@ -216,7 +211,6 @@ function calendar(schoolNames, array) {
                     }
                     totDayType.push(dayType);
                 }
-                ;
 
                 daysInMonth++;
                 var isOnlySFO = false;
@@ -364,7 +358,6 @@ function calendar(schoolNames, array) {
                 cal.setMonth(date[1], date[0]);
             }
         });
-
         //Scrolls to the top of the list after listBuild
         $("#noScrollCalendar").animate({scrollTop: 0}, "fast");
     };
