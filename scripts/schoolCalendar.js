@@ -1,7 +1,7 @@
 /**
  * calendar is the object that controlls the calendar and list.
- * @param  {array} schoolNames 	The name of schools the caldenar should process
- * @param  {array} array       	The array schoolData 
+ * @param  {array} schoolNames    The name of schools the caldenar should process
+ * @param  {array} array        The array schoolData
  */
 function calendar(schoolNames, array) {
     this.currentDate = new Date();
@@ -17,7 +17,6 @@ function calendar(schoolNames, array) {
     ];
     this.firstMonth;
     this.lastMonth;
-
 
 
     /**
@@ -80,9 +79,9 @@ function calendar(schoolNames, array) {
      * prevMonth rebuilds calendar and list with the previous mounth
      */
     this.prevMonth = function () {
-    	if ( $("#cal_prev").css('display') == 'none' ){
-    		return
-		}
+        if ($("#cal_prev").css('visibility') == 'hidden') {
+            return
+        }
         this.currentDate.setMonth(this.currentDate.getMonth() - 1);
         this.buildCalendar();
         this.buildList(); //fjærn denn hvis listen skal være statisk
@@ -93,9 +92,9 @@ function calendar(schoolNames, array) {
      * nextMonth rebuilds calendar and list with the next mounth
      */
     this.nextMonth = function () {
-    	if ( $("#cal_next").css('display') == 'none' ){
-    		return
-		}
+        if ($("#cal_next").css('visibility') == 'hidden') {
+            return
+        }
         this.currentDate.setMonth(this.currentDate.getMonth() + 1);
         this.buildCalendar();
         this.buildList(); //fjærn denn hvis listen skal være statisk
@@ -128,19 +127,18 @@ function calendar(schoolNames, array) {
      * checkMonth check if you are on the first or last mounth in the dataset. If in one of them, remove ability to go further in that direction
      */
     this.checkMonth = function () {
-    	if (this.firstMonth != null){
-    		if (this.currentDate.getMonth() == this.firstMonth.getMonth() && this.currentDate.getFullYear() == this.firstMonth.getFullYear()) {
-    			$("#cal_prev").hide();
-    		}else{
-    			$("#cal_prev").show();
-    		}
-    		   if (this.currentDate.getMonth() == this.lastMonth.getMonth() && this.currentDate.getFullYear() == this.lastMonth.getFullYear()) {
-    			$("#cal_next").hide();
-    		}else{
-    			$("#cal_next").show();
-    		}
-    	}
-
+        if (this.firstMonth != null) {
+            if (this.currentDate.getMonth() == this.firstMonth.getMonth() && this.currentDate.getFullYear() == this.firstMonth.getFullYear()) {
+                $("#cal_prev").css({"visibility": "hidden"});
+            } else {
+                $("#cal_prev").css({"visibility": "visible"});
+            }
+            if (this.currentDate.getMonth() == this.lastMonth.getMonth() && this.currentDate.getFullYear() == this.lastMonth.getFullYear()) {
+                $("#cal_next").css({"visibility": "hidden"});
+            } else {
+                $("#cal_next").css({"visibility": "visible"});
+            }
+        }
     };
 
     /**
@@ -190,15 +188,15 @@ function calendar(schoolNames, array) {
             var dates = currDate;
 
             var dato = new Date(currDate);
-            dato.setHours(0 ,0, 0, 0);
-           
-            //sets this.firstMonth
-            if (this.firstMonth == null){
+            dato.setHours(0, 0, 0, 0);
 
-            	this.firstMonth = dato;
+            //sets this.firstMonth
+            if (this.firstMonth == null) {
+
+                this.firstMonth = dato;
             }
             //set this.lastMonth
-          		this.lastMonth = dato;
+            this.lastMonth = dato;
 
             if (dates.substring(5, 7) == month && dates.substring(0, 4) == currentYear) {
                 var eventDate = new Date(dates);
@@ -323,9 +321,9 @@ function calendar(schoolNames, array) {
                             var currName = "";
 
                             if (dayType == "SFO") {
-                                if(dayComment.length > 0){
+                                if (dayComment.length > 0) {
                                     status = "Kun SFO, " + dayComment;
-                                }else{
+                                } else {
                                     status = "Kun SFO";
                                 }
                             } else if (dayType == "fri" && dayComment == "") {

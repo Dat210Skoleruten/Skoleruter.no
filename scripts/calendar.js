@@ -151,11 +151,11 @@ function swipedetect(el, callback) {
     }, false)
 }
 
-function calendaLoader(){
+function calendaLoader() {
     $(".days").empty();
     $(".days").append("<img id='Loading' src='../img/ajax-loader.gif'/>");
 }
-function listLoader(){
+function listLoader() {
     $("#myUL").empty();
     $("#myUL").append("<img id='Loading' src='../img/ajax-loader.gif'/>");
 }

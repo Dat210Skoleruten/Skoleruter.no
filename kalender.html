@@ -29,7 +29,6 @@
     <link rel="stylesheet" type="text/css" href="styles/calendarList.css">
     <link rel="stylesheet" type="text/css" href="styles/legendBar.css">
     <link rel="stylesheet" type="text/css" href="styles/accordion.css">
-    <link rel="stylesheet" type="text/css" href="styles/modal.css">
 
     <!-- Local scripts -->
     <script type="text/javascript" src="scripts/protype.js"></script>
@@ -75,7 +74,7 @@
     </ul>
 </nav> <!-- /Navbar  -->
 
-<!-- Navbar toggle div -->
+<!-- Sidebar toggle div -->
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span class="glyphicon glyphicon-remove"></span></a>
     <a href="index.html">HJEM</a>
@@ -83,19 +82,15 @@
     <a href="kommune.html">KOMMUNER</a>
     <a href="om.html">OM SKOLERUTER</a>
     <a href="hjelp.html">HJELP</a>
-</div> <!-- /Navbar toggle div -->
+</div> <!-- /Sidebar toggle div -->
 
-<br>
+<br />
 
 <!-- Legend bar -->
 <div class="container-fluid">
     <div class="legendBar col-md-8 col-md-offset-2">
-        <p>
-        <div class="legendBox FriLegendColor"></div>
-        Fri</p>
-        <p>
-        <div class="legendBox kunSFOLegendColor"></div>
-        Kun SFO</p>
+        <div class="legendBox FriLegendColor"></div><p class="noSelect">Fri</p>
+        <div class="legendBox kunSFOLegendColor"></div><p class="noSelect">Kun SFO</p>
         <a class="rightLegend"><span data-toggle="tooltip" data-placement="top" title="Favoritt" id="selecookiefav"
                                      onclick="calenderCookie()"
                                      class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
@@ -109,8 +104,6 @@
     </div>
 </div> <!-- /Legend bar -->
 
-<br>
-
 <!-- Calendar & List -->
 <div class="container-fluid">
     <div class="row">
@@ -120,7 +113,7 @@
                 <ul>
                     <li class="prev" id="cal_prev">❮</li>
                     <li class="next" id="cal_next">❯</li>
-                    <li class="text-center" id="month">
+                    <li class="text-center noSelect" id="month">
                         August<br>
                         <span style="font-size:18px" id="year">2016</span>
                     </li>
@@ -128,7 +121,7 @@
             </div>
 
             <!-- Weekdays -->
-            <ul class="weekdays">
+            <ul class="weekdays noSelect">
                 <li>Man</li>
                 <li>Tir</li>
                 <li>Ons</li>
