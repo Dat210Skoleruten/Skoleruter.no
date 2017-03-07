@@ -8,6 +8,7 @@ function getCurrCal() {
 
     }
 }
+
 function checkCookie(val) {
     var elem = document.getElementById(val);
 
@@ -92,7 +93,7 @@ function removeSchool(school) {
 
     }
     else {
-        
+
     }
 }
 
