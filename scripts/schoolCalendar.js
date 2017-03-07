@@ -79,7 +79,7 @@ function calendar(schoolNames, array) {
      * prevMonth rebuilds calendar and list with the previous mounth
      */
     this.prevMonth = function () {
-        if ($("#cal_prev").css('visibility') == 'hidden;') {
+        if ($("#cal_prev").css('visibility') == 'hidden') {
             return
         }
         this.currentDate.setMonth(this.currentDate.getMonth() - 1);
@@ -92,7 +92,7 @@ function calendar(schoolNames, array) {
      * nextMonth rebuilds calendar and list with the next mounth
      */
     this.nextMonth = function () {
-        if ($("#cal_next").css('visibility') == 'hidden;') {
+        if ($("#cal_next").css('visibility') == 'hidden') {
             return
         }
         this.currentDate.setMonth(this.currentDate.getMonth() + 1);
