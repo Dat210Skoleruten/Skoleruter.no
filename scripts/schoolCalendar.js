@@ -129,17 +129,16 @@ function calendar(schoolNames, array) {
     this.checkMonth = function () {
         if (this.firstMonth != null) {
             if (this.currentDate.getMonth() == this.firstMonth.getMonth() && this.currentDate.getFullYear() == this.firstMonth.getFullYear()) {
-                $("#cal_prev").hide();
+                ($("#cal_prev").css('visibility') == 'hidden');
             } else {
                 $("#cal_prev").show();
             }
             if (this.currentDate.getMonth() == this.lastMonth.getMonth() && this.currentDate.getFullYear() == this.lastMonth.getFullYear()) {
-                $("#cal_next").hide();
+                ($("#cal_next").css('visibility') == 'hidden');
             } else {
                 $("#cal_next").show();
             }
         }
-
     };
 
     /**
