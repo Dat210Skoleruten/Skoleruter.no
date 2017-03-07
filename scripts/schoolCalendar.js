@@ -361,16 +361,4 @@ function calendar(schoolNames, array) {
         //Scrolls to the top of the list after listBuild
         $("#noScrollCalendar").animate({scrollTop: 0}, "fast");
     };
-
-    /**
-     * addHover adds hover makse hovering over a date in the list, it highlights the same date in the calendar or the other way around.
-     * !!! DOES NOT WORK !!!
-     */
-    this.addHover = function () {
-        jQuery.each(this.schools[0].Datoer, function (i, val) {
-            $("." + val).hover(function () {
-                $("." + val).toggleClass("hovered");
-            });
-        });
-    }
 }

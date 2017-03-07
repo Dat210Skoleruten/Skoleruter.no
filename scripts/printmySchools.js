@@ -3,17 +3,13 @@
  * @return {[type]} [description]
  */
 function showFavorites() {
-  
     if ($("#position").hasClass("isInactive")) {
         $("#position").tooltip('enable');
         $('#goToFave').attr('data-original-title', 'Aktiver stedstjenester');
-
     } else {
         $('#position').attr('data-original-title', 'Nærmeste skoler');
-
         if (isMobile()) {
             $("#position").tooltip('disable');
-
         }
     }
 
@@ -39,6 +35,7 @@ function showFavorites() {
         $("#goToFave").tooltip('enable');
     }
 }
+
 /**
  * [printMySchools description]
  */
@@ -67,6 +64,7 @@ function printMySchools() {
         window.location.replace("kalender.html");
     });
 }
+
 /**
  * [DoPrevent description]
  * @param {[type]} e [description]

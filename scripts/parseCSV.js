@@ -13,12 +13,10 @@ schoolPaths["gjesdal"] = ["skolerute_gjesdal.csv", "skoler_gjesdal.csv"];
 schoolPaths["baerum"] = ["https://open.stavanger.kommune.no/dataset/6837c1de-6dce-48a3-a8a6-e59630912779/resource/19f6c237-bc56-4c1d-bb59-4538a3215eba/download/skolerute-2016-17.csv", "https://open.stavanger.kommune.no/dataset/4a5f420f-453d-4e23-85f5-0b1d5d4a1fe0/resource/95bc274b-04bc-4a45-82ce-3d22ef46225d/download/skoler-i-baerum.csv"];
 schoolPaths["trondheim"] = ["skolerute_trondheim.csv", "skoler_trondheim.csv"]; //["https://open.stavanger.kommune.no/dataset/7f6df84e-409c-4509-ba95-23a13d0a6730/resource/1fae9af6-6960-4012-bba9-f68a20f6adf1/download/skoleruta-2017-2018.csv", "https://open.stavanger.kommune.no/dataset/055880c9-cb7e-4919-ab9f-e6d6ee096346/resource/70148039-78b7-43e5-b1d1-ee779971f65b/download/skolertrondheim.csv"];
 
-
-
-if(location.hostname.split('.')[0] == "dev" || location.hostname.split('.')[0] == "skoleruter"){
+if (location.hostname.split('.')[0] == "dev" || location.hostname.split('.')[0] == "skoleruter") {
     window.location.href = "/kommune.html";
-}else{
-    if(Session.get("SelectedSet") != location.hostname.split('.')[0]){
+} else {
+    if (Session.get("SelectedSet") != location.hostname.split('.')[0]) {
         Session.set("schoolRoutes", null);
         Session.set("schools", null);
     }
@@ -26,14 +24,14 @@ if(location.hostname.split('.')[0] == "dev" || location.hostname.split('.')[0] =
 }
 
 //######################################################################################
-  //Check if mySchools Cookes is set and go to skoler.html
+//Check if mySchools Cookes is set and go to skoler.html
 
-    if( Cookies.get("mySchools") != null && Cookies.get("visiting") == null){
+if (Cookies.get("mySchools") != null && Cookies.get("visiting") == null) {
     Cookies.set("visiting", "true");
     Cookies.set("calendarType", "mySchools");
     window.location.href = '../skoler.html';
-    }
-    Cookies.set("visiting", "true");
+}
+Cookies.set("visiting", "true");
 
 //######################################################################################
 
@@ -43,15 +41,15 @@ function parseData(callback) {
         console.log(url);
         var start = new Date().getTime();
         console.time("Skoleruter");
-        Papa.parse(url, { 
+        Papa.parse(url, {
             download: true,
             header: true,
             complete: function (results) {
                 console.timeEnd("Skoleruter");
                 Session.set("schoolRoutes", results.data);
-                parseSecondData(callback);    
+                parseSecondData(callback);
             }
-        }); 
+        });
         return;
     }
     parseSecondData(callback);
@@ -62,32 +60,23 @@ function parseSecondData(callback) {
         url = schoolPaths[Session.get("SelectedSet")][1];
 
         console.time("Skoler");
-        Papa.parse(url, { 
+        Papa.parse(url, {
             download: true,
             header: true,
             skipEmptyLines: true,
             complete: function (results) {
-                console.timeEnd("Skoler")
+                console.timeEnd("Skoler");
                 Session.set('schools', results.data);
                 if (callback && typeof callback == "function") {
                     callback();
                 }
             }
         });
-        
         return;
     }
     if (callback && typeof callback == "function") {
         callback();
     }
-}
-
-function UrlExists(url)
-{
-    var http = new XMLHttpRequest();
-    http.open('HEAD', url, false);
-    http.send();
-    return http.status!=404;
 }
 
 function getSchoolData() {
@@ -105,11 +94,11 @@ function getSchoolData() {
                 if (data[j].name == entry.skole) { // if the school name of the current object in data is the same as the current entry from ajax
                     found = true;
                     data[j].dates[entry.dato] = formatDato(entry); //adds date to data.dates array with the formatDato format
-                }else if(data[j].name == null || entry.skole == null){
+                } else if (data[j].name == null || entry.skole == null) {
                     //mabye error handling here? or just do nothing?
                 }
                 //else if(data[j].name.substr(0,1) == entry.skole.substr(0,1)){
-                    //console.log()
+                //console.log()
                 //}
             }
             if (!found) { //if school is not already in data array, add school and current entry's date
@@ -143,7 +132,7 @@ function getSchoolData() {
 function formatDato(entry) {
     var dayType = "";
 
-    if (!entry || !(entry.elevdag) || !(entry.sfodag)){ // hvis undefined (gjesdal har defekt data)
+    if (!entry || !(entry.elevdag) || !(entry.sfodag)) { // hvis undefined (gjesdal har defekt data)
         return ["111", ""];
     }
 
@@ -155,17 +144,15 @@ function formatDato(entry) {
 
     dayType += "1"; // lærerdag (obsolete)
 
-
-
-    if(entry.sfodag.toLowerCase() == "ja") {
+    if (entry.sfodag.toLowerCase() == "ja") {
         dayType += "1";
-    } else if(entry.sfodag.toLowerCase() == "nei"){
+    } else if (entry.sfodag.toLowerCase() == "nei") {
         dayType += "0";
-    }else{
+    } else {
         dayType += "0";
         //console.log("sfodag: ", entry.sfodag);
     }
     return [dayType, entry.kommentar];
-};
+}
 
 
