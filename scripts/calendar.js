@@ -3,7 +3,6 @@ $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 });
 
-
 $(document).ready(function () {
     var el = document.getElementById('monthBox');
     swipedetect(el, function (swipedir) {
@@ -13,7 +12,6 @@ $(document).ready(function () {
         if (swipedir == 'right')
             cal.prevMonth();
     });
-
 
     calendaLoader();
     parseData(function () {
@@ -108,41 +106,42 @@ function swipedetect(el, callback) {
         elapsedTime,
         startTime,
         handleswipe = callback || function (swipedir) {
-            }
+            };
 
     touchsurface.addEventListener('touchstart', function (e) {
-        var touchobj = e.changedTouches[0]
-        swipedir = 'none'
-        dist = 0
-        startX = touchobj.pageX
-        startY = touchobj.pageY
-        startTime = new Date().getTime() // record time when finger first makes contact with surface
+        var touchobj = e.changedTouches[0];
+        swipedir = 'none';
+        dist = 0;
+        startX = touchobj.pageX;
+        startY = touchobj.pageY;
+        startTime = new Date().getTime(); // record time when finger first makes contact with surface
+
         if (!isMobile()) {
             e.preventDefault()
         }
-    }, false)
+    }, false);
 
     touchsurface.addEventListener('touchmove', function (e) {
         if (!isMobile()) {
             e.preventDefault()
         }
-    }, false)
+    }, false);
 
     touchsurface.addEventListener('touchend', function (e) {
-        var touchobj = e.changedTouches[0]
-        distX = touchobj.pageX - startX // get horizontal dist traveled by finger while in contact with surface
-        distY = touchobj.pageY - startY // get vertical dist traveled by finger while in contact with surface
-        elapsedTime = new Date().getTime() - startTime // get time elapsed
+        var touchobj = e.changedTouches[0];
+        distX = touchobj.pageX - startX; // get horizontal dist traveled by finger while in contact with surface
+        distY = touchobj.pageY - startY; // get vertical dist traveled by finger while in contact with surface
+        elapsedTime = new Date().getTime() - startTime;// get time elapsed
 
         if (elapsedTime <= allowedTime) { // first condition for awipe met
             if (Math.abs(distX) >= threshold && Math.abs(distY) <= restraint) { // 2nd condition for horizontal swipe met
-                swipedir = (distX < 0) ? 'left' : 'right' // if dist traveled is negative, it indicates left swipe
+                swipedir = (distX < 0) ? 'left' : 'right'; // if dist traveled is negative, it indicates left swipe
             }
             else if (Math.abs(distY) >= threshold && Math.abs(distX) <= restraint) { // 2nd condition for vertical swipe met
-                swipedir = (distY < 0) ? 'up' : 'down' // if dist traveled is negative, it indicates up swipe
+                swipedir = (distY < 0) ? 'up' : 'down'; // if dist traveled is negative, it indicates up swipe
             }
         }
-        handleswipe(swipedir)
+        handleswipe(swipedir);
 
         /* If not on mobile or touch enabled screen, dont do swipe */
         if (!isMobile()) {
