@@ -79,12 +79,6 @@
 
 /* Make the calendarList not have a fixed height and scrollbar on mobile */
 /* Medium devices (desktops, 992px and down) */
-@media screen and (max-width: 1420px) {
-    #myUL li span {
-        font-size: 1.2em;
-    }
-}
-
 @media screen and (max-width: 1260px) {
     #myUL li span {
         font-size: 1em;
