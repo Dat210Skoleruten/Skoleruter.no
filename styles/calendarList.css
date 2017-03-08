@@ -85,7 +85,7 @@
     }
 }
 
-@media screen and (min-width: 1260px) {
+@media screen and (max-width: 1260px) {
     #myUL li span {
         font-size: 1em;
     }
