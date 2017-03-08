@@ -24,9 +24,10 @@ init();
 function init() {
     console.time("init");
     //checkLocalData();
-    for (var name in kommuneDataPaths) {
+    /*for (var name in kommuneDataPaths) {
         getKommuneData(name);
-    }
+    }*/
+    getKommuneData("stavanger");
     console.timeEnd("init");
 }
 
@@ -55,10 +56,12 @@ function getKommuneData(name) {
 
 function setKommuneArray(name) {
     var kommuneArray;
+    /*
     fs.readFile("CSV/" + name + ".csv", (err, file) => {
         kommuneArray = getLocalData_Array_fromTreatedCSV(name);
         console.log("test");
     });
+    */
     if (kommuneArray == null) {
         kommuneArray = getLocalData_Array(kommuneDataPaths[name]); // LOCAL IS ONLY TEMPORARY SHOULD BE getOpenData_Array (unless data has to be local. if so need check)
         kommuneArrays[name] = kommuneArray;
@@ -147,6 +150,7 @@ function getLocalData_Array_fromTreatedCSV(name){
     parsedData = Baby.parseFiles('CSV/' + name + ".csv", {
         download: true,
         header: true,
+        skipEmptyLines: true,
         complete: function (results) {
             return results;
         }
@@ -164,23 +168,44 @@ function getLocalData_Array_fromTreatedCSV(name){
     }
 }
 
-function getLocalData_Array(paths) {
-    parsedRute = Baby.parseFiles(paths[0], {
+function getLocalData_Array(name) {
+    console.log(name);
+
+    var dest = "CSVRaw/"+name+".csv";
+    download(kommuneDataPaths[name][0], dest, );
+
+    parsedRute = Baby.parseFiles(kommuneDataPaths[name][0], {
         download: true,
         header: true,
+        skipEmptyLines: true,
         complete: function (results) {
+            console.log("results1:", results);
             return results;
         }
     }).data;
-    parsedSkole = Baby.parseFiles(paths[1], {
+    parsedSkole = Baby.parseFiles(kommuneDataPaths[name][1], {
         download: true,
         header: true,
         complete: function (results) {
+            console.log("results2:", results);
             return results;
         }
     }).data;
     var mergedSet = mergeCSV(parsedRute, parsedSkole);
     return mergedSet;
+}
+
+function download(url, dest, cb){ // download CSV from open data
+    var file = fs.createWriteStream(dest);
+    var request = http.get(url, function(response){
+        response.pipe(file);
+        file.on("finish", function(){
+            file.close(cb);
+        });
+    }).on("error", function(err){
+        fs.unlink(dest);
+        if(cb) cb(err.message);
+    });
 }
 
 function formatDato(entry) {
