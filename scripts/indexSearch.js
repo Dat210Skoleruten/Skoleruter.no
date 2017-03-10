@@ -11,18 +11,19 @@ parseData();
 function indexSearchList() {
     var input, filter, table, tr, td, i;
     input = $("#indexSearch");
-
+    /*
     if (input.val() == 0) {
         $("#indexList").hide();
     } else {
         $("#indexList").show();
     }
+    */
 
     var fired = false
     $("body").keydown(function (e) {
         if(!fired){
             fired = true;
-            if (e.keyCode == 38) { // up arrow              
+            if (e.keyCode == 38) { // up arrow
             }else if (e.keyCode == 40) { // down arrow
                 if($("#selSchool").length > 0){
                 }else{
@@ -33,7 +34,7 @@ function indexSearchList() {
 
             }
         }
-            
+
     });
 
     filter = input.val().toUpperCase();
@@ -61,7 +62,7 @@ function indexSearchList() {
 function getIndexListItems(closest) {
     var arrString = "";
     var ArrayWSchools = [];
-
+    $("#indexList").show();
     if (Cookies.get('mySchools') != null) {
         arrString = Cookies.get('mySchools').split(";");
         ArrayWSchools = arrString.sort();
@@ -119,5 +120,5 @@ function getIndexListItems(closest) {
         $("#indexList").hide();
     }
     testHover();
-    
+
 }
