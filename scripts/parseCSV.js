@@ -83,10 +83,9 @@ function parseSecondData(callback) {
 */
 
 function parseData(name, callback) {
-    $.getJSON("Node/JSON/" + name + ".JSON", function (json) {
-        Session.set("schoolRoutes", dataFromJSON);
-        callback();
-    });
+    var dataFromJSON = require("Node/JSON/" + name + ".JSON");
+    Session.set("schoolRoutes", dataFromJSON);
+    callback();
 }
 
 function getLocalData_Array_fromTreatedCSV(name) {
