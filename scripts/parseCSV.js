@@ -83,7 +83,7 @@ function parseSecondData(callback) {
 */
 
 function parseData(name, callback) {
-    $.getJSON("../JSON/" + name + ".JSON", function (json) {
+    $.getJSON("Node/JSON/" + name + ".JSON", function (json) {
         Session.set("schoolRoutes", dataFromJSON);
         callback();
     });
