@@ -83,7 +83,7 @@ function parseSecondData(callback) {
 */
 
 function parseData(name, callback) {
-    fs.readFile("../JSON/" + name + ".JSON", 'utf8', function (err, dataFromJSON) {
+    $.getJSON("../JSON/" + name + ".JSON", function (json) {
         Session.set("schoolRoutes", dataFromJSON);
         callback();
     });
