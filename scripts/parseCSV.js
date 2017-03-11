@@ -93,6 +93,7 @@ function parseData(name, callback) {
 
 function loadJSON(name, cb) {
 
+    var json = require('./gjesdal.json');
     var xobj = new XMLHttpRequest();
     xobj.overrideMimeType("application/json");
     xobj.open('GET', name + ".json", true); // Replace 'my_data' with the path to your file
