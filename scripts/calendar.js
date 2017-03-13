@@ -13,7 +13,6 @@ $(document).ready(function () {
             cal.prevMonth();
     });
 
-    calendaLoader();
     parseData(function () {
         setSchoolData(Cookies.get('selected'), Cookies.get("calendarType")); // Sets name & hyperlink on html document
         cal = new calendar(Cookies.get(Cookies.get("calendarType")), getSchoolData());
@@ -147,13 +146,4 @@ function swipedetect(el, callback) {
             e.preventDefault()
         }
     }, false)
-}
-
-function calendaLoader() {
-    $(".days").empty();
-    $(".days").append("<img id='Loading' src='../img/ajax-loader.gif'/>");
-}
-function listLoader() {
-    $("#myUL").empty();
-    $("#myUL").append("<img id='Loading' src='../img/ajax-loader.gif'/>");
 }
