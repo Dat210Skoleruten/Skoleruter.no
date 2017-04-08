@@ -9,12 +9,15 @@ const port = 3000;
 
 const kommuneArrays = [];
 const kommuneDataPaths = [];
-kommuneDataPaths["stavanger"] = ["https://open.stavanger.kommune.no/dataset/86d3fe44-111e-4d82-be5a-67a9dbfbfcbb/resource/0f5046ee-6d37-433f-b149-6d313b087864/download/skolerute.csv",
-    "https://open.stavanger.kommune.no/dataset/8f8ac030-0d03-46e2-8eb7-844ee11a6203/resource/8d13aca1-a3b3-49d5-8728-8dc310ef9f4a/download/skoler.csv"];
-kommuneDataPaths["gjesdal"] = ["skolerute_gjesdal.csv",
+kommuneDataPaths["stavanger"] = ["skolerute_stavanger.csv", 
+    "skoler_stavanger.csv"];
+kommuneDataPaths["gjesdal"] = ["skolerute_gjesdal.csv", //gjesdal is fine when only kommuneDataPaths["gjesdal"] is in the array (not "stavanger" etc.)
     "skoler_gjesdal.csv"];
+    /*
+    kommuneDataPaths["stavanger"] = ["https://open.stavanger.kommune.no/dataset/86d3fe44-111e-4d82-be5a-67a9dbfbfcbb/resource/0f5046ee-6d37-433f-b149-6d313b087864/download/skolerute.csv",
+    "https://open.stavanger.kommune.no/dataset/8f8ac030-0d03-46e2-8eb7-844ee11a6203/resource/8d13aca1-a3b3-49d5-8728-8dc310ef9f4a/download/skoler.csv"];
 kommuneDataPaths["baerum"] = ["https://open.stavanger.kommune.no/dataset/6837c1de-6dce-48a3-a8a6-e59630912779/resource/19f6c237-bc56-4c1d-bb59-4538a3215eba/download/skolerute-2016-17.csv",
-    "https://open.stavanger.kommune.no/dataset/4a5f420f-453d-4e23-85f5-0b1d5d4a1fe0/resource/95bc274b-04bc-4a45-82ce-3d22ef46225d/download/skoler-i-baerum.csv"];
+    "https://open.stavanger.kommune.no/dataset/4a5f420f-453d-4e23-85f5-0b1d5d4a1fe0/resource/95bc274b-04bc-4a45-82ce-3d22ef46225d/download/skoler-i-baerum.csv"];*/
 //kommuneDataPaths["trondheim"] = ["skolerute_trondheim.csv",
 //                                "skoler_trondheim.csv"]; //["https://open.stavanger.kommune.no/dataset/7f6df84e-409c-4509-ba95-23a13d0a6730/resource/f9f73bc7-49ce-442d-92c2-3aa03c577451/download/skoleruta-2016-2017-trondheim-kommune.csv", 
 //"https://open.stavanger.kommune.no/dataset/055880c9-cb7e-4919-ab9f-e6d6ee096346/resource/70148039-78b7-43e5-b1d1-ee779971f65b/download/skolertrondheim.csv"];
@@ -25,7 +28,7 @@ console.time("init");
 checkLocalData();
 console.timeEnd("init");
 
-setTimeout(checkLocalData, 3000);
+setTimeout(checkLocalData, 10000);
 
 
 
@@ -34,7 +37,7 @@ function checkLocalData() { //check all csv files
         host: 'https://open.stavanger.kommune.no/dataset/86d3fe44-111e-4d82-be5a-67a9dbfbfcbb/resource/0f5046ee-6d37-433f-b149-6d313b087864/download/skolerute.csv',
         port: 443
     };
-
+    /*
     http.get(options, function (res) {
         console.log("Got response: " + res.statusCode);
 
@@ -44,6 +47,7 @@ function checkLocalData() { //check all csv files
     }).on('error', function (e) {
         console.log("Got error: " + e.message);
     });
+    */
     console.time("checkLocalData");
     for (var currPathName in kommuneDataPaths) {
         /*
@@ -56,22 +60,22 @@ function checkLocalData() { //check all csv files
             }
         });
         */
-        //getKommuneData(currPathName);
+        getKommuneData(currPathName);
     }
     console.timeEnd("checkLocalData");
 }
 
 
-function getKommuneData(name, callback) {
+function getKommuneData(name) {
     if (kommuneArrays[name] != null) {
         return kommuneArrays[name];
     } else {
-        return setKommuneArray(name, callback);
+        return setKommuneArray(name);
     }
 }
 
-function setKommuneArray(name, callback) {
-    var kommuneArray = getLocalData_Array(name, callback, function (dataArray) {
+function setKommuneArray(name) {
+    var kommuneArray = getLocalData_Array(name, function (dataArray) {
         kommuneArrays[name] = dataArray;
         setLocalData_CSV(name, dataArray);
         //setLocalData_JSON(name, kommuneArray);
@@ -83,7 +87,7 @@ function setLocalData_JSON(name, array) {
     //console.log(array);
     console.time("stringify");
     var JSONstr = JSON.stringify(array);
-    console.log(JSONstr);
+    //console.log(JSONstr);
     fs.writeFile('JSON/' + name + ".JSON", JSONstr, (err) => {
         if (err) throw err;
         console.log(name + ' JSON file saved!');
@@ -185,23 +189,34 @@ function getLocalData_Array(name, callback) {
         } else {
             parsedRute = {};
             parsedSkole = {};
-            console.time("jalla parsing");
             fs.readFile(kommuneDataPaths[name][0], 'utf8', function (err, ruteData) {
                 if (err) {
                     //download from net 
                 }
+                console.log(kommuneDataPaths[name][0], name);
                 var lines = ruteData.split("\r");
                 //console.log(lines);
                 for (var i = 1; i < lines.length; i++) {
                     var items = lines[i].split(',');
                     items[0] = items[0].replace("\n", ""); //fixing error in data collecting
                     var day = {};
-                    day.dato = items[0];
-                    day.skole = items[1];
-                    day.elevdag = items[2];
-                    day.sfodag = items[3];
-                    day.kommentar = items[4];
-                    parsedRute[i - 1] = day;
+                    if(name == "gjesdal"){
+                        day.dato = items[0];
+                        day.skole = items[1];
+                        day.elevdag = items[2];
+                        day.sfodag = items[3];
+                        day.kommentar = items[4];
+                    }else if(name == "stavanger"){
+                        day.dato = items[0];
+                        day.skole = items[1];
+                        day.elevdag = items[2];
+                        day.sfodag = items[4];
+                        day.kommentar = items[5];
+                    }
+                    if(day.skole != undefined || day.skole != null){
+                        parsedRute[i - 1] = day;
+                    }
+                    
                 }
                 //console.log(parsedRute);
 
@@ -214,22 +229,33 @@ function getLocalData_Array(name, callback) {
                     for (var i = 1; i < lines.length; i++) {
                         var items = lines[i].split(',');
                         items[0] = items[0].replace("\n", ""); //fixing error in data collecting
-                        if (i == 1) {
-                        }
                         var school = {};
-                        school.Longitude = items[2];
-                        school.Latitude = items[3];
-                        school.Skolenavn = items[4];
-                        school.Hjemmeside = items[7];
-                        school.Datoer = [];
-                        parsedSkole[i - 1] = school;
+
+                        if(name == "gjesdal"){
+                            school.Longitude = items[2];
+                            school.Latitude = items[3];
+                            school.Skolenavn = items[4];
+                            school.Hjemmeside = items[7];
+                            school.Datoer = [];
+                        }else if(name == "stavanger"){
+                            school.Longitude = items[3];
+                            school.Latitude = items[2];
+                            school.Skolenavn = items[9];
+                            school.Hjemmeside = items[11];
+                            school.Datoer = [];
+                        }
+                        if(school.Skolenavn != undefined || school.Skolenavn != null){
+                            parsedSkole[i - 1] = school;
+                        }
+                        
                     }
-                    //console.log(parsedRute);
+                    console.log(name);
+                    console.log(parsedRute[0]);
+                    console.log(name);
                     var mergedRute = mergeData(parsedRute, parsedSkole);
-                    console.log("test", mergedRute);
+                    //console.log("test", mergedRute);
                     setLocalData_JSON(name, mergedRute);
                     //setLocalData_JSON(name + "_skole", parsedSkole);
-                    console.timeEnd("jalla parsing");
                     callback(mergedRute);
                 });
             });
