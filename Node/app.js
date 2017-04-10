@@ -6,6 +6,8 @@ fs = require('fs');
 //const fs = require("fs");
 const hostname = "127.0.0.1";
 const port = 3000;
+var express = require('express')
+var app = express()
 
 const kommuneArrays = [];
 const kommuneDataPaths = [];
@@ -365,6 +367,16 @@ fs.readFile("index.html", (err, html) => {
 
 
 
+app.get('/', function (req, res) {
+  res.send('Hello World!')
+})
+
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!')
+})
+/*
+
+
 const server = http.createServer((req, res) => {
     res.statusCode = 200;
     res.setHeader("content-type", "text/plain");
@@ -376,6 +388,7 @@ server.listen(port, hostname, () => {
     console.log("Server started on port " + port);
 });
 
+*/
 
 /*
 function getLocalData_Array(name, callback) {
