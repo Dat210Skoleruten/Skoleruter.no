@@ -5,7 +5,7 @@ fs = require('fs');
 //const papa = require("papaparse.min.js");
 //const fs = require("fs");
 const hostname = "127.0.0.1";
-const port = 3000;
+const port = 443;
 var express = require('express')
 var app = express()
 
@@ -70,6 +70,7 @@ function checkLocalData() { //check all csv files
 
 function getKommuneData(name) {
     if (kommuneArrays[name] != null) {
+        console.log("returning existing array");
         return kommuneArrays[name];
     } else {
         return setKommuneArray(name);
@@ -365,14 +366,27 @@ fs.readFile("index.html", (err, html) => {
 
 */
 
+app.use(express.static('../'))
+app.use('/json', express.static('JSON'))
 
+/*
+for (var currPathName in kommuneDataPaths) {
+    setGet(currPathName);
+}
+*/
+
+function setGet(name){
+    app.get('/'+name, function (req, res) {
+        res.send(kommuneArrays[name]);
+    })
+}
 
 app.get('/', function (req, res) {
   res.send('Hello World!')
 })
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
+app.listen(443, function () {
+  console.log('Example app listening on port 443!')
 })
 /*
 
