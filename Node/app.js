@@ -35,6 +35,7 @@ setTimeout(checkLocalData, 10000);
 
 
 function checkLocalData() { //check all csv files
+    console.log("running checkLocalData");
     var options = {
         host: 'https://open.stavanger.kommune.no/dataset/86d3fe44-111e-4d82-be5a-67a9dbfbfcbb/resource/0f5046ee-6d37-433f-b149-6d313b087864/download/skolerute.csv',
         port: 443
