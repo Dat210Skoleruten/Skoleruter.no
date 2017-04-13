@@ -1,0 +1,99 @@
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #f5f5f5;
+    margin: 13% auto; /* 15% from the top and centered */
+    width: 50%; /* Could be more or less, depending on screen size */
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s
+}
+
+/* Header on the modal */
+.modal-header {
+    background-color: #495156;
+}
+
+/* The main text in the modal header */
+.modal-header h2 {
+    margin-top: 10px;
+    color: #fff;
+}
+
+/* The close button in the header */
+.modal-header .close {
+    color: #fff;
+    margin: 2px 6px;
+    font-size: 30px;
+}
+
+.imgSize {
+    height: 100%;
+    width: 100%;
+}
+
+/* Small devices (tablets, 768px and down) */
+@media screen and (max-width: 768px) {
+    .modal-header h2 {
+        font-size: 1em;
+    }
+}
+
+/* Animation */
+@-webkit-keyframes slideIn {
+    from {
+        bottom: -50px;
+        opacity: 0
+    }
+    to {
+        bottom: 0;
+        opacity: 1
+    }
+}
+
+@keyframes slideIn {
+    from {
+        bottom: -50px;
+        opacity: 0
+    }
+    to {
+        bottom: 0;
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}

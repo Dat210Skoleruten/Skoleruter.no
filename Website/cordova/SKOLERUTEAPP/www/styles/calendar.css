@@ -1,0 +1,176 @@
+ul {
+    list-style-type: none;
+}
+
+.month {
+    padding: 25px 25px;
+    width: 100%;
+    background-color: #495156;
+}
+
+.month ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Month and year text */
+.month ul li {
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+/* Previous month button in calendar */
+.month .prev {
+    float: left;
+    padding-top: 5px;
+    cursor: pointer;
+    font-size: 35px;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently not supported by any browser */
+}
+
+.month .prev:hover {
+    color: #818181;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+}
+
+/* Next month button in calendar */
+.month .next {
+    float: right;
+    padding-top: 5px;
+    cursor: pointer;
+    font-size: 35px;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                           not supported by any browser */
+}
+
+.month .next:hover {
+    color: #818181;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+}
+
+.weekdays {
+    margin: 0;
+    padding: 10px 0;
+    background-color: #ddd;
+}
+
+.weekdays li {
+    display: inline-block;
+    width: 13.1%;
+    color: #666;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Empty calendar cells */
+.before, .after {
+    visibility: hidden;
+}
+
+.days {
+    padding: 10px 0;
+    background-color: #eee;
+    margin: 0;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently not supported by any browser */
+}
+
+/* Individual day cell */
+.days li {
+    display: inline-block;
+    width: 14%;
+    text-align: center;
+    font-size: 15px;
+    padding: 20px;
+    border: 0.1px solid lightgray;
+    cursor: default;
+}
+
+.days li:hover {
+    opacity: 0.7;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+}
+
+.hovered {
+    opacity: 0.7;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+}
+
+/* Week number */
+.weekNum {
+    position: relative;
+    float: left;
+    top: 1px;
+    left: 0px;
+    font-size: 10px;
+    margin: -15px;
+    color: grey;
+}
+
+.weekend {
+    background-color: transparent;
+    color: lightgrey;
+}
+
+.SFO {
+    background-color: #B6D0C5 !important;
+}
+
+.fri {
+    background-color: #6BA9BF !important;
+}
+
+.SFOfri {
+    background: linear-gradient(to right bottom, #B6D0C5 50%, #6BA9BF 50%);
+}
+
+/* Current date */
+li.now {
+    box-shadow: 0px 0px 0px 2px black inset;
+    font-weight: bold;
+}
+
+/* Small devices (tablets, 376px and down) */
+@media screen and (max-width: 376px) {
+    .daySpan {
+        position: relative;
+        right: 4px;
+    }
+}
+
+/* Small devices (tablets, 350px and down) */
+@media screen and (max-width: 350px) {
+    .weekdays li, .days li {
+        width: 12.8%;
+    }
+}
+
+/* Small devices (tablets, 320px and down) */
+@media screen and (max-width: 320px) {
+    .daySpan {
+        position: relative;
+        right: 8px;
+    }
+}

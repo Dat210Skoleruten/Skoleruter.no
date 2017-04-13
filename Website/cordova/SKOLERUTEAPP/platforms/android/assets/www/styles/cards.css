@@ -1,0 +1,31 @@
+/* The cards that is on the om.html page */
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    max-width: 300px;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 10px 10px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.img {
+    width: 100%;
+}
+
+h4 {
+    padding: 5px;
+}
+
+/* Medium devices (desktops, 530px and down) */
+@media screen and (max-width: 530px) {
+    h4 {
+        font-size: 7px;
+    }
+
+    .card p {
+        font-size: 8px;
+    }
+}

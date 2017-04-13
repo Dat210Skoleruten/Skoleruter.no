@@ -1,0 +1,86 @@
+/* Sets the navbar over everything */
+.navbar {
+    z-index: 1;
+}
+
+/* The brand name in the navbar */
+.navbar-brand {
+    color: #495156;
+    font-size: 30px;
+}
+
+/* When hovering over the brand name */
+.navbar-brand:hover {
+    color: #818181;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+}
+
+/* Center text in navbar */
+.center {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    font-weight: normal;
+    z-index: -1;
+    color: #495156;
+    margin-top: 12px;
+}
+
+.navbar-header {
+    float: left;
+}
+
+/* The sidebar icon */
+.hamburger {
+    font-size: 25px;
+    color: #495156;
+    margin: 15px 50px 0 0; /* Top Right Bottom Left */
+}
+
+/* Change hamburger hover color */
+.hamburger:hover {
+    color: #818181;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    cursor: pointer;
+}
+
+/* Change hover of the hamburger button to same as navbar color */
+.nav li a:hover {
+    background-color: #f5f5f5; /*Change this color to the background color of the navbar */
+}
+
+/* Change the on.visited color on the hamburger to navbar color */
+.nav li a:visited {
+    background-color: #f5f5f5; /*Change this color to the background color of the navbar */
+}
+
+/* Medium devices (tablets, 768px and down) */
+@media screen and (max-width: 768px) {
+    .hamburger {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 10px;
+    }
+}
+
+/* Medium devices (tablets, 665px and down) */
+@media screen and (max-width: 665px) {
+    #navbar-name {
+        display: none;
+    }
+
+}
+
+/* Small devices (tablets, 275px and down) */
+@media screen and (max-width: 275px) {
+    .center {
+        display: none;
+    }
+
+    .hamburger {
+        margin-left: 90%;
+    }
+}
