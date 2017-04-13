@@ -6,6 +6,7 @@ fs = require('fs');
 //const fs = require("fs");
 const hostname = "127.0.0.1";
 const port = 443;
+var InfiniteLoop = require('infinite-loop');
 var express = require('express')
 var app = express()
 
@@ -29,10 +30,14 @@ process.stdout.write('\033c'); //Clear cmd window. ONLY FOR DEBUGGING
 console.time("init");
 checkLocalData();
 console.timeEnd("init");
+setTimeout(loopCheck, 30*1000);
 
-setTimeout(checkLocalData, 10000);
 
-
+function loopCheck(){
+    console.log("looping in loopCheck");
+    checkLocalData();
+    setTimeout(loopCheck, 10*1000);
+}
 
 function checkLocalData() { //check all csv files
     console.log("running checkLocalData");
