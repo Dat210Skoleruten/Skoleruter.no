@@ -93,7 +93,7 @@ function parseData(name, callback) {
 
 function loadJSON(name, cb) {
 
-    $.getJSON('dev.skoleruter.no/json/'+name+'.JSON', function(data) {
+    $.getJSON('json/'+name+'.JSON', function(data) {
         cb(data);
     });
     /*
@@ -147,7 +147,13 @@ function formatDatoerFromCSV(str) {
 
 function getSchoolData() {
     console.time("getSchoolData");
-    var schools = JSON.parse(Session.get("schoolRoutes"))
+    var jsonStr = Session.get("schoolRoutes");
+    var json = JSON.stringify(jsonStr);
+    var json = JSON.parse(json);
+    var schools = [];
+    for(var elem in json){
+        schools.push(json[elem]);
+    }
     console.timeEnd("getSchoolData");
     return schools;
 }

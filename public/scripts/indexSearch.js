@@ -3,7 +3,8 @@ $(function () {
     $('[data-toggle="tooltip"]').tooltip();
 });
 
-parseData();
+var selectedKommune = Session.get("SelectedSet") == "localhost" ? "stavanger" : Session.get("SelectedSet"); //error handling for localhost testing
+parseData(selectedKommune);
 /**
  * [indexSearchList description]
  * @return {[type]} [description]
@@ -72,11 +73,13 @@ function getIndexListItems(closest) {
         var schoolArray = getSchoolData();
 
         $("#indexList").children().empty();
-        schoolArray = schoolArray.sort(function (a, b) {
-            if (a.Skolenavn < b.Skolenavn) return -1;
-            if (a.Skolenavn > b.Skolenavn) return 1;
-            return 0;
-        })
+        schoolArray = schoolArray.sort(function(a, b) {
+            if (a.Skolenavn < b.Skolenavn) {
+                return -1;
+            } else {
+                return 1;
+            }
+        });
     } else {
         $("#indexList").show();
         $("#indexList").children().empty();

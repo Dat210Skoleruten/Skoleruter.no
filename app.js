@@ -86,6 +86,8 @@ function getKommuneData(name) {
 
 function setKommuneArray(name) {
     var kommuneArray = getLocalData_Array(name, function (dataArray) {
+        console.log("setKommuneArray found data ");
+        console.log(dataArray != null);
         kommuneArrays[name] = dataArray;
         setLocalData_CSV(name, dataArray);
         //setLocalData_JSON(name, kommuneArray);
