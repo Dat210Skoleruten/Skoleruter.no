@@ -375,7 +375,7 @@ fs.readFile("index.html", (err, html) => {
 
 */
 
-app.use(express.static('/Website'))
+app.use(express.static('Website'))
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/json', express.static('JSON'))

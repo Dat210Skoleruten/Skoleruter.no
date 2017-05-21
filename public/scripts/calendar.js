@@ -13,7 +13,7 @@ $(document).ready(function () {
             cal.prevMonth();
     });
 
-    parseData(function () {
+    parseData(Session.get("SelectedSet"), function () {
         setSchoolData(Cookies.get('selected'), Cookies.get("calendarType")); // Sets name & hyperlink on html document
         cal = new calendar(Cookies.get(Cookies.get("calendarType")), getSchoolData());
         cal.buildCalendar(); // Builds calendar

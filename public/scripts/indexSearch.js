@@ -3,8 +3,8 @@ $(function () {
     $('[data-toggle="tooltip"]').tooltip();
 });
 
-var selectedKommune = Session.get("SelectedSet") == "localhost" ? "stavanger" : Session.get("SelectedSet"); //error handling for localhost testing
-parseData(selectedKommune);
+
+parseData(Session.get("SelectedSet"));
 /**
  * [indexSearchList description]
  * @return {[type]} [description]
@@ -12,13 +12,13 @@ parseData(selectedKommune);
 function indexSearchList() {
     var input, filter, table, tr, td, i;
     input = $("#indexSearch");
-    /*
+    
     if (input.val() == 0) {
         $("#indexList").hide();
     } else {
         $("#indexList").show();
     }
-    */
+    
 
     var fired = false
     $("body").keydown(function (e) {
@@ -37,7 +37,6 @@ function indexSearchList() {
         }
 
     });
-
     filter = input.val().toUpperCase();
     table = document.getElementById("indexList");
 
@@ -87,7 +86,6 @@ function getIndexListItems(closest) {
     }
 
     $.each(schoolArray, function (index, value) { //5 closest schools
-
         var elem1 = $("<tr></tr>");
         var elem2 = $("<td></td>");
         var elem3 = $("<div></div>");

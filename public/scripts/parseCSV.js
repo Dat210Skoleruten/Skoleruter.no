@@ -83,12 +83,15 @@ function parseSecondData(callback) {
 */
 
 function parseData(name, callback) {
+    name = name == "localhost" ? "stavanger" : name; //error handling for localhost testing. just set to Stavanger
+    console.log("parseData: " + name);
     loadJSON(name, function (response) {
         // Parse JSON string into object
         var dataFromJSON = response;
         Session.set("schoolRoutes", dataFromJSON);
         //callback();
     });
+    callback();
 }
 
 function loadJSON(name, cb) {
