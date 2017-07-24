@@ -9,7 +9,7 @@
 
 schoolPaths = []; // schoolPaths["skolenavn slik som på subdomenet"] = ["skolerutelink", "skolelink"]
 schoolPaths["stavanger"] = ["https://open.stavanger.kommune.no/dataset/86d3fe44-111e-4d82-be5a-67a9dbfbfcbb/resource/a6615196-b8ab-4e60-8236-3da776a2c595/download/skolerute-2017-18.csv", "https://open.stavanger.kommune.no/dataset/8f8ac030-0d03-46e2-8eb7-844ee11a6203/resource/8d13aca1-a3b3-49d5-8728-8dc310ef9f4a/download/skoler.csv"]; //["skolerute_stavanger.csv", "skoler_stavanger.csv"];
-schoolPaths["gjesdal"] = ["https://open.stavanger.kommune.no/dataset/c1a060b6-350c-433d-ac78-964ae8b0a9e3/resource/c7f1429f-79cc-4490-8eb0-fe623bfacb42/download/skolerute-2017---2018-gjesdal-kommune.csv", "skoler_gjesdal.csv"];
+schoolPaths["gjesdal"] = ["skolerute_gjesdal.csv", "skoler_gjesdal.csv"];
 schoolPaths["baerum"] = ["https://open.stavanger.kommune.no/dataset/6837c1de-6dce-48a3-a8a6-e59630912779/resource/19f6c237-bc56-4c1d-bb59-4538a3215eba/download/skolerute-2016-17.csv", "https://open.stavanger.kommune.no/dataset/4a5f420f-453d-4e23-85f5-0b1d5d4a1fe0/resource/95bc274b-04bc-4a45-82ce-3d22ef46225d/download/skoler-i-baerum.csv"];
 schoolPaths["trondheim"] = ["skolerute_trondheim.csv", "skoler_trondheim.csv"]; //["https://open.stavanger.kommune.no/dataset/7f6df84e-409c-4509-ba95-23a13d0a6730/resource/1fae9af6-6960-4012-bba9-f68a20f6adf1/download/skoleruta-2017-2018.csv", "https://open.stavanger.kommune.no/dataset/055880c9-cb7e-4919-ab9f-e6d6ee096346/resource/70148039-78b7-43e5-b1d1-ee779971f65b/download/skolertrondheim.csv"];
 
