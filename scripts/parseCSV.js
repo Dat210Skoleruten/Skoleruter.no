@@ -147,7 +147,7 @@ function formatDato(entry) {
         return ["111", ""];
     }
 
-    if (entry.elevdag.toLowerCase() == "ja") {
+    if (entry.elevdag.toLowerCase().trim() == "ja") {
         dayType += "1";
     } else {
         dayType += "0";
@@ -157,10 +157,8 @@ function formatDato(entry) {
 
 
 
-    if(entry.sfodag.toLowerCase() == "ja") {
+    if(entry.sfodag.toLowerCase().trim() == "ja") {
         dayType += "1";
-    } else if(entry.sfodag.toLowerCase() == "nei"){
-        dayType += "0";
     }else{
         dayType += "0";
         //console.log("sfodag: ", entry.sfodag);
