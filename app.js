@@ -13,15 +13,14 @@ var app = express()
 
 const kommuneArrays = [];
 const kommuneDataPaths = [];
-kommuneDataPaths["stavanger"] = ["skolerute_stavanger.csv", 
-    "skoler_stavanger.csv"];
-kommuneDataPaths["gjesdal"] = ["skolerute_gjesdal.csv", //gjesdal is fine when only kommuneDataPaths["gjesdal"] is in the array (not "stavanger" etc.)
-    "skoler_gjesdal.csv"];
-    /*
-    kommuneDataPaths["stavanger"] = ["https://open.stavanger.kommune.no/dataset/86d3fe44-111e-4d82-be5a-67a9dbfbfcbb/resource/0f5046ee-6d37-433f-b149-6d313b087864/download/skolerute.csv",
-    "https://open.stavanger.kommune.no/dataset/8f8ac030-0d03-46e2-8eb7-844ee11a6203/resource/8d13aca1-a3b3-49d5-8728-8dc310ef9f4a/download/skoler.csv"];
+kommuneDataPaths["stavanger"] = ["skolerute_stavanger.csv", "skoler_stavanger.csv"];
+kommuneDataPaths["gjesdal"] = ["skolerute_gjesdal.csv", "skoler_gjesdal.csv"]; //gjesdal is fine when only kommuneDataPaths["gjesdal"] is in the array (not "stavanger" etc.)
+
+/*
+kommuneDataPaths["stavanger"] = ["https://open.stavanger.kommune.no/dataset/86d3fe44-111e-4d82-be5a-67a9dbfbfcbb/resource/0f5046ee-6d37-433f-b149-6d313b087864/download/skolerute.csv",
+"https://open.stavanger.kommune.no/dataset/8f8ac030-0d03-46e2-8eb7-844ee11a6203/resource/8d13aca1-a3b3-49d5-8728-8dc310ef9f4a/download/skoler.csv"];
 kommuneDataPaths["baerum"] = ["https://open.stavanger.kommune.no/dataset/6837c1de-6dce-48a3-a8a6-e59630912779/resource/19f6c237-bc56-4c1d-bb59-4538a3215eba/download/skolerute-2016-17.csv",
-    "https://open.stavanger.kommune.no/dataset/4a5f420f-453d-4e23-85f5-0b1d5d4a1fe0/resource/95bc274b-04bc-4a45-82ce-3d22ef46225d/download/skoler-i-baerum.csv"];*/
+"https://open.stavanger.kommune.no/dataset/4a5f420f-453d-4e23-85f5-0b1d5d4a1fe0/resource/95bc274b-04bc-4a45-82ce-3d22ef46225d/download/skoler-i-baerum.csv"];*/
 //kommuneDataPaths["trondheim"] = ["skolerute_trondheim.csv",
 //                                "skoler_trondheim.csv"]; //["https://open.stavanger.kommune.no/dataset/7f6df84e-409c-4509-ba95-23a13d0a6730/resource/f9f73bc7-49ce-442d-92c2-3aa03c577451/download/skoleruta-2016-2017-trondheim-kommune.csv", 
 //"https://open.stavanger.kommune.no/dataset/055880c9-cb7e-4919-ab9f-e6d6ee096346/resource/70148039-78b7-43e5-b1d1-ee779971f65b/download/skolertrondheim.csv"];
@@ -31,19 +30,19 @@ process.stdout.write('\033c'); //Clear cmd window. ONLY FOR DEBUGGING
 console.time("init");
 checkLocalData();
 console.timeEnd("init");
-setTimeout(loopCheck, 30*1000);
+setTimeout(loopCheck, 30 * 1000);
 
 
-function loopCheck(){
+function loopCheck() {
     console.log("looping in loopCheck");
     checkLocalData();
-    setTimeout(loopCheck, 10*1000);
+    setTimeout(loopCheck, 10 * 1000);
 }
 
 function checkLocalData() { //check all csv files
     console.log("running checkLocalData");
     var options = {
-        host: 'https://open.stavanger.kommune.no/dataset/86d3fe44-111e-4d82-be5a-67a9dbfbfcbb/resource/0f5046ee-6d37-433f-b149-6d313b087864/download/skolerute.csv',
+        host: 'https://open.stavanger.kommune.no/dataset/86d3fe44-111e-4d82-be5a-67a9dbfbfcbb/resource/a6615196-b8ab-4e60-8236-3da776a2c595/download/skolerute-2017-18.csv',
         port: 443
     };
     /*
@@ -212,23 +211,23 @@ function getLocalData_Array(name, callback) {
                     var items = lines[i].split(',');
                     items[0] = items[0].replace("\n", ""); //fixing error in data collecting
                     var day = {};
-                    if(name == "gjesdal"){
+                    if (name == "gjesdal") {
                         day.dato = items[0];
                         day.skole = items[1];
                         day.elevdag = items[2];
                         day.sfodag = items[3];
                         day.kommentar = items[4];
-                    }else if(name == "stavanger"){
+                    } else if (name == "stavanger") {
                         day.dato = items[0];
                         day.skole = items[1];
                         day.elevdag = items[2];
                         day.sfodag = items[4];
                         day.kommentar = items[5];
                     }
-                    if(day.skole != undefined || day.skole != null){
+                    if (day.skole != undefined || day.skole != null) {
                         parsedRute[i - 1] = day;
                     }
-                    
+
                 }
                 //console.log(parsedRute);
 
@@ -243,23 +242,23 @@ function getLocalData_Array(name, callback) {
                         items[0] = items[0].replace("\n", ""); //fixing error in data collecting
                         var school = {};
 
-                        if(name == "gjesdal"){
+                        if (name == "gjesdal") {
                             school.Longitude = items[2];
                             school.Latitude = items[3];
                             school.Skolenavn = items[4];
                             school.Hjemmeside = items[7];
                             school.Datoer = [];
-                        }else if(name == "stavanger"){
+                        } else if (name == "stavanger") {
                             school.Longitude = items[3];
                             school.Latitude = items[2];
                             school.Skolenavn = items[9];
                             school.Hjemmeside = items[11];
                             school.Datoer = [];
                         }
-                        if(school.Skolenavn != undefined || school.Skolenavn != null){
+                        if (school.Skolenavn != undefined || school.Skolenavn != null) {
                             parsedSkole[i - 1] = school;
                         }
-                        
+
                     }
                     console.log(name);
                     console.log(parsedRute[0]);
@@ -327,36 +326,6 @@ function printMergedArray(paths) {
 }
 
 /*
-RUTE:
-dato:"2016-08-01"
-elevdag:"Nei"
-kommentar:""
-laererdag:"Nei"
-sfodag:"Ja"
-skole:"Auglend skole"
-
-SKOLE:
-samme som skoledata men har Datoer array
-
-SKOLEDATA FERDIG:
-ADRESSE:"Duesvei 35"
-BYGGTYP_NBR:"613"
-Datoer:Array[0]
-ELEVER:"ELEVER/TRINN 1.-51  2.-68  3.-51  4.- 69  5.-49  6.-45  7.-41"
-Hjemmeside:"http://www.minskole.no/eiganes"
-ID:"2"
-INFORMASJON:"Kommunal"
-KAPASITET:"13 klasserom "
-KOMM:"1103"
-Latitude:"58.964696"
-Longitude:"5.707375"
-Nord:"6540811.35"
-OBJTYPE:"Bygning"
-Skolenavn:"Eiganes skole"
-øst:"310683.00"
-*/
-
-/*
 fs.readFile("index.html", (err, html) => {
     if(err){
         throw err;
@@ -386,22 +355,21 @@ for (var currPathName in kommuneDataPaths) {
 }
 */
 
-function setGet(name){
-    app.get('/'+name, function (req, res) {
+function setGet(name) {
+    app.get('/' + name, function (req, res) {
         res.send(kommuneArrays[name]);
     })
 }
 
 app.get('/', function (req, res) {
-  res.sendFile('Website/index.html', {root: __dirname});
+    res.sendFile('Website/index.html', { root: __dirname });
 })
 
 app.listen(443, function () {
-  console.log('Example app listening on port 443!')
+    console.log('Example app listening on port 443!')
 })
+
 /*
-
-
 const server = http.createServer((req, res) => {
     res.statusCode = 200;
     res.setHeader("content-type", "text/plain");
@@ -412,7 +380,6 @@ const server = http.createServer((req, res) => {
 server.listen(port, hostname, () => {
     console.log("Server started on port " + port);
 });
-
 */
 
 /*

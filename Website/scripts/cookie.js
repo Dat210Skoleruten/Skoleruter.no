@@ -5,6 +5,7 @@
  * Copyright 2006, 2015 Klaus Hartl & Fagner Brack
  * Released under the MIT license
  */
+
 (function (factory) {
     var registeredInModuleLoader = false;
     if (typeof define === 'function' && define.amd) {
@@ -109,7 +110,7 @@
                     var name = parts[0].replace(rdecode, decodeURIComponent);
                     cookie = converter.read ?
                         converter.read(cookie, name) : converter(cookie, name) ||
-                    cookie.replace(rdecode, decodeURIComponent);
+                        cookie.replace(rdecode, decodeURIComponent);
 
                     if (this.json) {
                         try {
@@ -149,9 +150,7 @@
                 expires: -1
             }));
         };
-
         api.withConverter = init;
-
         return api;
     }
 

@@ -1,12 +1,15 @@
 tabell = document.getElementById('indexList');
-$(function(){
-checkLocation();
+
+$(function () {
+    checkLocation();
 });
+
 function checkLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition, showError);
     }
 }
+
 function getLocation() {
     if (navigator.geolocation) {
         console.log("Geolocation is supported")
@@ -15,16 +18,17 @@ function getLocation() {
         console.log("Geolocation is not supported by this browser.");
     }
 }
+
 function showError(error) {
-    if(error == null){
+    if (error == null) {
         $('#position').removeClass("isInactive");
         return false;
     }
-    switch(error.code) {
+    switch (error.code) {
         case error.PERMISSION_DENIED:
             console.log("User denied the request for Geolocation.");
             document.getElementById("position").style.opacity = 0.4;
-            $('#position').attr('data-original-title','Skru på stedstjenester');
+            $('#position').attr('data-original-title', 'Skru på stedstjenester');
             break;
         case error.POSITION_UNAVAILABLE:
             console.log("Location information is unavailable.");
@@ -38,9 +42,7 @@ function showError(error) {
     }
     $('#position').addClass("isInactive");
     return true;
-
 }
-
 
 function showPosition(position) {
     lat = position.coords.latitude;
@@ -72,7 +74,7 @@ function findClosest(position) {
 
         var dist = distance(lat, lng, schoolList[i]["Latitude"], schoolList[i]["Longitude"]);
         //dist_array[i] = [dist, schoolList[i]["Skolenavn"]]; //Makes new array with distance an scoolname as attributes
-        dist_array[i] = {Distance: dist, Skolenavn: schoolList[i]["Skolenavn"]};
+        dist_array[i] = { Distance: dist, Skolenavn: schoolList[i]["Skolenavn"] };
     }
 
     function sortFunction(a, b) {

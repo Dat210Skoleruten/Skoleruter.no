@@ -1,8 +1,3 @@
-/**
- * calendar is the object that controlls the calendar and list.
- * @param  {array} schoolNames    The name of schools the caldenar should process
- * @param  {array} array        The array schoolData
- */
 function calendar(schoolNames, array) {
     this.currentDate = new Date();
     this.currentDate.setDate(1);
@@ -17,7 +12,6 @@ function calendar(schoolNames, array) {
     ];
     this.firstMonth;
     this.lastMonth;
-
 
     /**
      * iCal creates a downloadable .ics file of the selected school
@@ -129,14 +123,14 @@ function calendar(schoolNames, array) {
     this.checkMonth = function () {
         if (this.firstMonth != null) {
             if (this.currentDate.getMonth() == this.firstMonth.getMonth() && this.currentDate.getFullYear() == this.firstMonth.getFullYear()) {
-                $("#cal_prev").css({"visibility": "hidden"});
+                $("#cal_prev").css({ "visibility": "hidden" });
             } else {
-                $("#cal_prev").css({"visibility": "visible"});
+                $("#cal_prev").css({ "visibility": "visible" });
             }
             if (this.currentDate.getMonth() == this.lastMonth.getMonth() && this.currentDate.getFullYear() == this.lastMonth.getFullYear()) {
-                $("#cal_next").css({"visibility": "hidden"});
+                $("#cal_next").css({ "visibility": "hidden" });
             } else {
-                $("#cal_next").css({"visibility": "visible"});
+                $("#cal_next").css({ "visibility": "visible" });
             }
         }
     };
@@ -359,6 +353,6 @@ function calendar(schoolNames, array) {
             }
         });
         //Scrolls to the top of the list after listBuild
-        $("#noScrollCalendar").animate({scrollTop: 0}, "fast");
+        $("#noScrollCalendar").animate({ scrollTop: 0 }, "fast");
     };
 }

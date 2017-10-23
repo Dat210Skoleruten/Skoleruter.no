@@ -1,7 +1,3 @@
-/**
- * [showFavorites description]
- * @return {[type]} [description]
- */
 function showFavorites() {
     if ($("#position").hasClass("isInactive")) {
         $("#position").tooltip('enable');
@@ -36,9 +32,6 @@ function showFavorites() {
     }
 }
 
-/**
- * [printMySchools description]
- */
 function printMySchools() {
     var elem = document.getElementById("myFavScho");
     $('myFavScho').empty;
@@ -65,10 +58,7 @@ function printMySchools() {
     });
 }
 
-/**
- * [DoPrevent description]
- * @param {[type]} e [description]
- */
+
 function DoPrevent(e) {
     e.preventDefault();
     e.stopPropagation();

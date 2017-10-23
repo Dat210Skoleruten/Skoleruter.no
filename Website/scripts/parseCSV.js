@@ -95,8 +95,7 @@ function parseData(name, callback) {
 }
 
 function loadJSON(name, cb) {
-
-    $.getJSON('json/'+name+'.JSON', function(data) {
+    $.getJSON('json/' + name + '.JSON', function (data) {
         cb(data);
     });
     /*
@@ -112,8 +111,6 @@ function loadJSON(name, cb) {
     };
     xobj.send(null);
     */
-    
-
 }
 
 function getLocalData_Array_fromTreatedCSV(name) {
@@ -154,7 +151,7 @@ function getSchoolData() {
     var json = JSON.stringify(jsonStr);
     var json = JSON.parse(json);
     var schools = [];
-    for(var elem in json){
+    for (var elem in json) {
         schools.push(json[elem]);
     }
     console.timeEnd("getSchoolData");
@@ -186,5 +183,3 @@ function formatDato(entry) {
     }
     return [dayType, entry.kommentar];
 }
-
-

@@ -3,7 +3,6 @@ $(function () {
     $('[data-toggle="tooltip"]').tooltip();
 });
 
-
 parseData(Session.get("SelectedSet"));
 /**
  * [indexSearchList description]
@@ -12,23 +11,22 @@ parseData(Session.get("SelectedSet"));
 function indexSearchList() {
     var input, filter, table, tr, td, i;
     input = $("#indexSearch");
-    
+
     if (input.val() == 0) {
         $("#indexList").hide();
     } else {
         $("#indexList").show();
     }
-    
 
     var fired = false
     $("body").keydown(function (e) {
-        if(!fired){
+        if (!fired) {
             fired = true;
             if (e.keyCode == 38) { // up arrow
-            }else if (e.keyCode == 40) { // down arrow
-                if($("#selSchool").length > 0){
-                }else{
-                    for( i = 0; i < 10; i++){
+            } else if (e.keyCode == 40) { // down arrow
+                if ($("#selSchool").length > 0) {
+                } else {
+                    for (i = 0; i < 10; i++) {
                         var tmp = $(".listElement")[i];
                     }
                 }
@@ -54,6 +52,7 @@ function indexSearchList() {
         }
     }
 }
+
 /**
  * [getIndexListItems description]
  * @param  {[type]} closest [description]
@@ -72,7 +71,7 @@ function getIndexListItems(closest) {
         var schoolArray = getSchoolData();
 
         $("#indexList").children().empty();
-        schoolArray = schoolArray.sort(function(a, b) {
+        schoolArray = schoolArray.sort(function (a, b) {
             if (a.Skolenavn < b.Skolenavn) {
                 return -1;
             } else {
@@ -120,6 +119,6 @@ function getIndexListItems(closest) {
     if (closest == 'List') {
         $("#indexList").hide();
     }
+    
     testHover();
-
 }
