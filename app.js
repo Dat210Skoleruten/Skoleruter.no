@@ -1,4 +1,3 @@
-
 const http = require("http");
 const https = require("https");
 fs = require('fs');
@@ -148,6 +147,7 @@ function mergeData(parsedRute, parsedSkole) {
             else if (parsedRute[i].skole == mergedData[j].Skolenavn || parsedRute[i].Skole == mergedData[j].Skolenavn) {
                 found = true;
                 mergedData[j].Datoer[parsedRute[i].dato] = formatDato(parsedRute[i]);
+
                 for (var element in parsedRute[i]) {
                     if (!isNaN(Date.parse(parsedRute[i][element])) && parsedRute[i][element].substring(0, 2) == "20" && element != null) {
                         mergedData[j].Datoer[parsedRute[i][element]] = formatDato(parsedRute[i]);
