@@ -32,51 +32,26 @@ checkLocalData();
 console.timeEnd("init");
 setTimeout(loopCheck, 30 * 1000);
 
-
 function loopCheck() {
-    console.log("looping in loopCheck");
     checkLocalData();
     setTimeout(loopCheck, 10 * 1000);
 }
 
-function checkLocalData() { //check all csv files
-    console.log("running checkLocalData");
+// Check all csv files
+function checkLocalData() {
     var options = {
         host: 'https://open.stavanger.kommune.no/dataset/86d3fe44-111e-4d82-be5a-67a9dbfbfcbb/resource/a6615196-b8ab-4e60-8236-3da776a2c595/download/skolerute-2017-18.csv',
         port: 443
     };
-    /*
-    http.get(options, function (res) {
-        console.log("Got response: " + res.statusCode);
 
-        res.on("data", function (chunk) {
-            console.log("BODY: " + chunk);
-        });
-    }).on('error', function (e) {
-        console.log("Got error: " + e.message);
-    });
-    */
-    console.time("checkLocalData");
-    for (var currPathName in kommuneDataPaths) {
-        /*
-        fs.readFile("CSV/" + currPathName + ".csv", (err, file) => {
-            if (err) { //if csv not found, make csv
-                MakeCSV(currPathName, kommuneDataPaths[currPathName]);
-            } else { //else get online data set and compare to local csv
-                var openData = getOpenData_CSV(kommuneDataPaths[currPathName]);
-                compare(openData, file);
-            }
-        });
-        */
-        getKommuneData(currPathName);
+    for (var i in kommuneDataPaths) {
+        getKommuneData(i);
     }
-    console.timeEnd("checkLocalData");
 }
-
 
 function getKommuneData(name) {
     if (kommuneArrays[name] != null) {
-        console.log("returning existing array");
+        console.log("Returning existing array for " + name);
         return kommuneArrays[name];
     } else {
         return setKommuneArray(name);
@@ -85,41 +60,42 @@ function getKommuneData(name) {
 
 function setKommuneArray(name) {
     var kommuneArray = getLocalData_Array(name, function (dataArray) {
-        console.log("setKommuneArray found data ");
-        console.log(dataArray != null);
+        console.log("setKommuneArray(" + name + ")");
         kommuneArrays[name] = dataArray;
         setLocalData_CSV(name, dataArray);
         //setLocalData_JSON(name, kommuneArray);
+
         return dataArray;
     });
 }
 
 function setLocalData_JSON(name, array) {
-    //console.log(array);
     console.time("stringify");
     var JSONstr = JSON.stringify(array);
-    //console.log(JSONstr);
+
     fs.writeFile('JSON/' + name + ".JSON", JSONstr, (err) => {
         if (err) throw err;
         console.log(name + ' JSON file saved!');
-
     });
+
     console.timeEnd("stringify");
 }
 
 function setLocalData_CSV(name, array) {
-
     str = "Skolenavn,Latitude,Longitude,Hjemmeside,Datoer";
     for (idx in array) {
-        //console.log(array[idx]);
         str += "\n";
         for (elem in array[idx]) {
             if (array[idx][elem] == undefined) {
                 str = str.substring(0, str.length - 1);
                 break;
             }
-            if (elem == "Datoer") str += formatDatoerForCSV(array[idx][elem]);
-            else str += array[idx][elem] + ",";
+
+            if (elem == "Datoer") {
+                str += formatDatoerForCSV(array[idx][elem]);
+            } else {
+                str += array[idx][elem] + ",";
+            }
         }
     }
     fs.writeFile('CSV/' + name + ".csv", str, (err) => {
@@ -308,8 +284,6 @@ function formatDato(entry) {
 
     dayType += "1"; // lærerdag (obsolete)
 
-
-
     if (entry.sfodag && entry.sfodag.toLowerCase() == "ja") {
         dayType += "1";
     } else if (entry.Sfodag && entry.Sfodag.toLowerCase() == "ja") {
@@ -324,25 +298,6 @@ function formatDato(entry) {
 function printMergedArray(paths) {
     var arr = getOpenData_Array(paths);
 }
-
-/*
-fs.readFile("index.html", (err, html) => {
-    if(err){
-        throw err;
-    }
-    const server = http.createServer((req, res) => {
-        res.statusCode = 200;
-        res.setHeader("content-type", "text/html");
-        res.write(html);
-        res.end();
-    });
-
-    server.listen(port, hostname, () => {
-        console.log("Server started on port " + port);
-    });
-});
-
-*/
 
 app.use(express.static('Website'))
 app.use(express.static(path.join(__dirname, 'public')));
@@ -366,8 +321,27 @@ app.get('/', function (req, res) {
 })
 
 app.listen(443, function () {
-    console.log('Example app listening on port 443!')
+    console.log('Listening on port 443!')
 })
+
+
+/*
+fs.readFile("index.html", (err, html) => {
+    if(err){
+        throw err;
+    }
+    const server = http.createServer((req, res) => {
+        res.statusCode = 200;
+        res.setHeader("content-type", "text/html");
+        res.write(html);
+        res.end();
+    });
+
+    server.listen(port, hostname, () => {
+        console.log("Server started on port " + port);
+    });
+});
+*/
 
 /*
 const server = http.createServer((req, res) => {
